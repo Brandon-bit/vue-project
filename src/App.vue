@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import InSessionLayout from './layouts/pages/InSessionLayout.vue';
+  import InSessionLayout from './layouts/pages/InSessionLayout.vue';
 </script>
 
 <template>
