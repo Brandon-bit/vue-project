@@ -15,7 +15,7 @@
             <div class="menu bg-[var(--black)] text-white justify-between min-h-full w-70 max-w-[80vw]">
                 <!-- Logo -->
                 <div class="flex items-center justify-between mx-4 my-7">
-                    <router-link to="/">
+                    <router-link to="/" @click="() => showSidebar = false">
                     <img :src="logotipo" alt="Logo" class="h-auto" />
                     </router-link>
                 </div>
@@ -23,7 +23,7 @@
                 <!-- SideBar body -->
                 <div class="flex-1 overflow-y-auto">
                     <!-- Dashboard -->
-                    <router-link to="/" class="flex items-center gap-2 m-4">
+                    <router-link to="/" class="flex items-center gap-2 m-4" @click="() => showSidebar = false">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <div class="oxygen-bold">Dashboard</div>
                     </router-link>
@@ -42,7 +42,7 @@
                         <input type="checkbox" />
                         <div class="collapse-title font-semibold pb-0" @click="() => s.open = !s.open">{{ s.name }}</div>
                         <div class="collapse-content text-sm [input:checked_~_&]:mt-2 bg-gray-200/10 mx-4 rounded p-0" style="padding-bottom: 0;">
-                        <router-link :to="v.url" v-for="v in s.views">
+                        <router-link :to="v.url" v-for="v in s.views" @click="() => showSidebar = false">
                             <p class="m-2 p-1 rounded hover:bg-gray-200/50">{{ v.name }}</p>
                         </router-link>
                         </div>
