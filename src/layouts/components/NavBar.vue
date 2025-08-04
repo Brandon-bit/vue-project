@@ -18,43 +18,43 @@
 
             <ul class="menu menu-horizontal px-1 hidden 2xl:flex">
                 <li>
-                    <router-link to="#" class="flex flex-col">
+                    <router-link to="/exportar" class="flex flex-col">
                         <i class="fas fa-file-export text-xl"></i>
                         <p class="text-sm">EXPORTAR</p>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="#" class="flex flex-col">
+                    <router-link to="/pendientes" class="flex flex-col">
                         <i class="fas fa-tasks text-xl"></i>
                         <p class="text-sm">LISTA DE PENDIENTES</p>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="#" class="flex flex-col">
+                    <router-link to="/indicadores" class="flex flex-col">
                         <i class="fas fa-tachometer-alt text-xl"></i>
                         <p class="text-sm">INDICADORES</p>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="#" class="flex flex-col">
+                    <router-link to="/portafolio-de-proyectos" class="flex flex-col">
                         <i class="fas fa-search text-xl"></i>
                         <p class="text-sm">PORTAFOLIO DE PROYECTOS</p>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="#" class="flex flex-col">
+                    <router-link to="/roadmap" class="flex flex-col">
                         <i class="fas fa-map-marked-alt text-xl"></i>
                         <p class="text-sm">ROADMAP</p>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="#" class="flex flex-col">
+                    <router-link to="/agenda" class="flex flex-col">
                         <i class="fas fa-calendar-alt text-xl"></i>
                         <p class="text-sm">AGENDA</p>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="#" class="flex flex-col">
+                    <router-link to="/tutoriales" class="flex flex-col">
                         <i class="fas fa-graduation-cap text-xl"></i>
                         <p class="text-sm">TUTORIALES</p>
                     </router-link>
@@ -64,7 +64,7 @@
         <div class="navbar-end" style="width: 25%;">
             <ul class="menu menu-horizontal px-1 hidden 2xl:flex">
                 <li>
-                    <router-link to="#" class="flex flex-col">
+                    <router-link to="/soporte" class="flex flex-col">
                         <i class="fas fa-question text-xl"></i>
                         <p class="text-sm">SOPORTE</p>
                     </router-link>
@@ -88,13 +88,13 @@
 
                     <ul class="menu w-auto">
                         <li>
-                            <router-link to="#" class="flex px-1">
+                            <router-link to="/perfil" class="flex px-1">
                                 <i class="fas fa-user-cog fa-sm fa-fw mr-2 text-gray-400"></i>
                                 <p>Perfil</p>
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="#" class="flex px-1">
+                            <router-link to="/escala-tu-negocio" class="flex px-1">
                                 <i class="fas fa-sign fa-sm fa-fw mr-2 text-gray-400"></i>
                                 <p>Escala tu negocio</p>
                             </router-link>

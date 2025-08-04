@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '../shared/pages/Dashboard.vue'
+// Shared Routes
+import SharedRoutes from './SharedRoutes'
 // Proyectos Rutes
 import ProyectosRoutes from './ProyectosRoutes'
 
@@ -9,6 +11,7 @@ const routes = [
     name: "Dashboard",
     component: Dashboard,
   },
+  ...SharedRoutes,
   ...ProyectosRoutes
 ]
 
