@@ -1,64 +1,64 @@
-import Exportar from "../shared/pages/Exportar.vue"
-import ListaDePendientes from "../shared/pages/ListaDePendientes.vue"
-import Indicadores from "../shared/pages/Indicadores.vue"
-import PortafolioDeProyectos from "../shared/pages/PortafolioDeProyectos.vue"
-import RoadMap from "../shared/pages/RoadMap.vue"
-import Agenda from "../shared/pages/Agenda.vue"
-import Tutoriales from "../shared/pages/Tutoriales.vue"
-import Soporte from "../shared/pages/Soporte.vue"
-import Perfil from "../shared/pages/Perfil.vue"
-import EscalaTuNegocio from "../shared/pages/EscalaTuNegocio.vue"
+import Exportar from '@exportar/views/ExportarView.vue'
+import ListaPendientes from '@listaPendientes/views/ListaPendientesView.vue'
+import Indicadores from '@indicadores/views/IndicadoresView.vue'
+import PortafolioProyectos from '@portafolioProyectos/views/PortafolioProyectosView.vue'
+import RoadMap from '@roadMap/views/RoadMapView.vue'
+import Agenda from '@agenda/views/AgendaView.vue'
+import Tutoriales from '@tutoriales/views/TutorialesView.vue'
+import Soporte from '@soporte/views/SoporteView.vue'
+import Perfil from '@perfil/views/PerfilView.vue'
+import EscalaNegocio from '@escalaNegocio/views/EscalaNegocioView.vue'
 
 const routes = [
     {
-        path: "/exportar",
-        name: "Exportar",
+        path: '/exportar',
+        name: 'Exportar',
         component: Exportar
     },
     {
-        path: "/pendientes",
-        name: "Lista de Pendientes",
-        component: ListaDePendientes
+        path: '/pendientes',
+        name: 'Lista de Pendientes',
+        component: ListaPendientes
     },
     {
-        path: "/indicadores",
-        name: "Indicadores",
+        path: '/indicadores',
+        name: 'Indicadores',
         component: Indicadores
     },
     {
-        path: "/portafolio-de-proyectos",
-        name: "Portafolio de Proyectos",
-        component: PortafolioDeProyectos
+        path: '/portafolio-de-proyectos',
+        name: 'Portafolio de Proyectos',
+        component: PortafolioProyectos
     },
     {
-        path: "/roadmap",
-        name: "RoadMap",
+        path: '/roadmap',
+        name: 'RoadMap',
         component: RoadMap
     },
     {
-        path: "/agenda",
-        name: "Agenda",
+        path: '/agenda',
+        name: 'Agenda',
         component: Agenda
     },
     {
-        path: "/tutoriales",
-        name: "Tutoriales",
+        path: '/tutoriales',
+        name: 'Tutoriales',
         component: Tutoriales
     },
     {
-        path: "/soporte",
-        name: "Soporte",
+        path: '/soporte',
+        name: 'Soporte',
         component: Soporte
     },
     {
-        path: "/perfil",
-        name: "Perfil",
+        path: '/perfil',
+        name: 'Perfil',
         component: Perfil
     },
     {
-        path: "/escala-tu-negocio",
-        name: "Escala tu Negocio",
-        component: EscalaTuNegocio
+        path: '/escala-tu-negocio',
+        name: 'Escala tu Negocio',
+        component: EscalaNegocio
     }
 ]
 

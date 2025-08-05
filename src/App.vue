@@ -1,10 +1,9 @@
 <script setup lang="ts">
-  import InSessionLayout from './layouts/pages/InSessionLayout.vue';
+import DefaultLayout from '@core/layouts/DefaultLayout.vue'
 </script>
 
 <template>
-  <InSessionLayout></InSessionLayout>
+    <DefaultLayout></DefaultLayout>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -1,13 +1,31 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
+    "files": [],
+    "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            //CORE
+            "@core/*": ["src/core/*"],
+            //SIDEBAR
+            "@administracion/*": ["src/modules/administracion/*"],
+            "@dashboard/*": ["src/modules/dashboard/*"],
+            "@mantenimiento/*": ["src/modules/mantenimiento/*"],
+            "@marketing/*": ["src/modules/marketing/*"],
+            "@procesos/*": ["src/modules/procesos/*"],
+            "@proyectos/*": ["src/modules/proyectos/*"],
+            "@recursosHumanos/*": ["src/modules/recursosHumanos/*"],
+            //TOPBAR
+            "@exportar/*": ["src/shared/topbar/exportar/*"],
+            "@listaPendientes/*": ["src/modules/listaPendientes/*"],
+            "@indicadores/*": ["src/shared/topbar/indicadores/*"],
+            "@portafolioProyectos/*": ["src/shared/topbar/portafolioProyectos/*"],
+            "@roadMap/*": ["src/shared/topbar/roadMap/*"],
+            "@agenda/*": ["src/shared/topbar/agenda/*"],
+            "@tutoriales/*": ["src/shared/topbar/tutoriales/*"],
+            "@soporte/*": ["src/shared/topbar/soporte/*"],
+            "@perfil/*": ["src/shared/topbar/perfil/*"],
+            "@escalaNegocio/*": ["src/shared/topbar/escalaNegocio/*"]
+        }
     }
-  }
 }

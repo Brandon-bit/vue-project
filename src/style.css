@@ -1,32 +1,32 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui";
 
-:root{
+:root {
     /* color palette */
-    --blue:  #36A9E1;
-    --black: #1D1D1B;
-    --green:  #68FE00;
-    --orange: #FE6D04;
-    --pink: #E61B72;
-    --gray: #3F3F3F;
+    --blue: #36a9e1;
+    --black: #1d1d1b;
+    --green: #68fe00;
+    --orange: #fe6d04;
+    --pink: #e61b72;
+    --gray: #3f3f3f;
 }
 
 /* Fonts */
 .oxygen-light {
-  font-family: "Oxygen", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 * {
-  font-family: "Oxygen", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .oxygen-bold {
-  font-family: "Oxygen", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
-h2{
-  @apply text-3xl font-semibold text-gray-700;
+h2 {
+    @apply text-3xl font-semibold text-gray-700;
 }
