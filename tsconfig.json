@@ -5,27 +5,31 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"],
-            //CORE
+            // CORE
             "@core/*": ["src/core/*"],
-            //SIDEBAR
-            "@administracion/*": ["src/modules/administracion/*"],
-            "@dashboard/*": ["src/modules/dashboard/*"],
-            "@mantenimiento/*": ["src/modules/mantenimiento/*"],
-            "@marketing/*": ["src/modules/marketing/*"],
-            "@procesos/*": ["src/modules/procesos/*"],
-            "@proyectos/*": ["src/modules/proyectos/*"],
-            "@recursosHumanos/*": ["src/modules/recursosHumanos/*"],
-            //TOPBAR
-            "@exportar/*": ["src/shared/topbar/exportar/*"],
-            "@listaPendientes/*": ["src/modules/listaPendientes/*"],
-            "@indicadores/*": ["src/shared/topbar/indicadores/*"],
-            "@portafolioProyectos/*": ["src/shared/topbar/portafolioProyectos/*"],
-            "@roadMap/*": ["src/shared/topbar/roadMap/*"],
-            "@agenda/*": ["src/shared/topbar/agenda/*"],
-            "@tutoriales/*": ["src/shared/topbar/tutoriales/*"],
-            "@soporte/*": ["src/shared/topbar/soporte/*"],
-            "@perfil/*": ["src/shared/topbar/perfil/*"],
-            "@escalaNegocio/*": ["src/shared/topbar/escalaNegocio/*"]
+            // MODULES
+            "@administracion/*": ["src/modules/Administracion/*"],
+            "@mantenimiento/*": ["src/modules/Mantenimiento/*"],
+            "@marketing/*": ["src/modules/Marketing/*"],
+            "@procesos/*": ["src/modules/Procesos/*"],
+            "@proyectos/*": ["src/modules/Proyectos/*"],
+            "@recursosHumanos/*": ["src/modules/RecursosHumanos/*"],
+            "@pos/*": ["src/modules/POS/*"],
+            "@inversiones/*": ["src/modules/Inversiones/*"],
+            "@inventario/*": ["src/modules/Inventario/*"],
+            "@comercial/*": ["src/modules/Comercial/*"],
+            // NAVBAR
+            "@exportar/*": ["src/navbar/Exportar/*"],
+            "@listaDePendientes/*": ["src/navbar/ListaDePendientes/*"],
+            "@indicadores/*": ["src/navbar/Indicadores/*"],
+            "@portafolioDeProyectos/*": ["src/navbar/PortafolioDeProyectos/*"],
+            "@roadMap/*": ["src/navbar/RoadMap/*"],
+            "@agenda/*": ["src/navbar/Agenda/*"],
+            "@tutoriales/*": ["src/navbar/Tutoriales/*"],
+            "@soporte/*": ["src/navbar/Soporte/*"],
+            "@perfil/*": ["src/navbar/Perfil/*"],
+            "@escalaTuNegocio/*": ["src/navbar/EscalaTuNegocio/*"]
         }
     }
 }
+

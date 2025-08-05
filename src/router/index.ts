@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Dashboard from '@dashboard/views/DashboardView.vue'
+import Dashboard from '@/shared/views/Dashboard.vue'
 // Shared Routes
 import SharedRoutes from './SharedRoutes'
 // Proyectos Rutes

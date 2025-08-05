@@ -1,5 +1,5 @@
-import General from '@proyectos/Configuracion/pages/General.vue'
-import Plantillas from '@proyectos/Configuracion/pages/Plantillas.vue'
+import General from '@proyectos/Configuracion/views/General.vue'
+import Plantillas from '@proyectos/Configuracion/views/Plantillas.vue'
 
 const routes = [
     {

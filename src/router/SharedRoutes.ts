@@ -1,13 +1,15 @@
-import Exportar from '@exportar/views/ExportarView.vue'
-import ListaPendientes from '@listaPendientes/views/ListaPendientesView.vue'
-import Indicadores from '@indicadores/views/IndicadoresView.vue'
-import PortafolioProyectos from '@portafolioProyectos/views/PortafolioProyectosView.vue'
-import RoadMap from '@roadMap/views/RoadMapView.vue'
-import Agenda from '@agenda/views/AgendaView.vue'
-import Tutoriales from '@tutoriales/views/TutorialesView.vue'
-import Soporte from '@soporte/views/SoporteView.vue'
-import Perfil from '@perfil/views/PerfilView.vue'
-import EscalaNegocio from '@escalaNegocio/views/EscalaNegocioView.vue'
+
+import Indicadores from '@indicadores/views/Indicadores.vue'
+import RoadMap from '@roadMap/views/RoadMap.vue'
+import Agenda from '@agenda/views/Agenda.vue'
+import Tutoriales from '@tutoriales/views/Tutoriales.vue'
+import Soporte from '@soporte/views/Soporte.vue'
+import Perfil from '@perfil/views/Perfil.vue'
+import ListaDePendientes from '@listaDePendientes/views/ListaDePendientes.vue'
+import PortafolioDeProyectos from '@portafolioDeProyectos/views/PortafolioDeProyectos.vue'
+import EscalaTuNegocio from '@escalaTuNegocio/views/EscalaTuNegocio.vue'
+
+import Exportar from "@exportar/views/Exportar.vue"
 
 const routes = [
     {
@@ -18,7 +20,7 @@ const routes = [
     {
         path: '/pendientes',
         name: 'Lista de Pendientes',
-        component: ListaPendientes
+        component: ListaDePendientes
     },
     {
         path: '/indicadores',
@@ -28,7 +30,7 @@ const routes = [
     {
         path: '/portafolio-de-proyectos',
         name: 'Portafolio de Proyectos',
-        component: PortafolioProyectos
+        component: PortafolioDeProyectos
     },
     {
         path: '/roadmap',
@@ -58,7 +60,7 @@ const routes = [
     {
         path: '/escala-tu-negocio',
         name: 'Escala tu Negocio',
-        component: EscalaNegocio
+        component: EscalaTuNegocio
     }
 ]
 

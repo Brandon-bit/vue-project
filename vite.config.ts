@@ -14,7 +14,7 @@ export default defineConfig({
             '@': path.resolve(__dirname, './src'),
             //CORE
             '@core': path.resolve(__dirname, './src/core'),
-            //SIDEBAR
+            //MODULES
             '@administracion': path.resolve(__dirname, './src/modules/administracion'),
             '@dashboard': path.resolve(__dirname, './src/modules/dashboard'),
             '@mantenimiento': path.resolve(__dirname, './src/modules/mantenimiento'),
@@ -22,20 +22,17 @@ export default defineConfig({
             '@procesos': path.resolve(__dirname, './src/modules/procesos'),
             '@proyectos': path.resolve(__dirname, './src/modules/proyectos'),
             '@recursosHumanos': path.resolve(__dirname, './src/modules/recursosHumanos'),
-            //TOPBAR
-            '@exportar': path.resolve(__dirname, './src/shared/topbar/exportar'),
-            '@listaPendientes': path.resolve(__dirname, './src/shared/topbar/listaPendientes'),
-            '@indicadores': path.resolve(__dirname, './src/shared/topbar/indicadores'),
-            '@portafolioProyectos': path.resolve(
-                __dirname,
-                './src/shared/topbar/portafolioProyectos'
-            ),
-            '@roadMap': path.resolve(__dirname, './src/shared/topbar/roadMap'),
-            '@agenda': path.resolve(__dirname, './src/shared/topbar/agenda'),
-            '@tutoriales': path.resolve(__dirname, './src/shared/topbar/tutoriales'),
-            '@soporte': path.resolve(__dirname, './src/shared/topbar/soporte'),
-            '@perfil': path.resolve(__dirname, './src/shared/topbar/perfil'),
-            '@escalaNegocio': path.resolve(__dirname, './src/shared/topbar/escalaNegocio')
+            //NAVBAR
+            '@exportar': path.resolve(__dirname, './src/navbar/Exportar'),
+            '@listaDePendientes': path.resolve(__dirname, './src/navbar/ListaDePendientes'),
+            '@indicadores': path.resolve(__dirname, './src/navbar/Indicadores'),
+            '@portafolioDeProyectos': path.resolve(__dirname, './src/navbar/PortafolioDeProyectos'),
+            '@roadMap': path.resolve(__dirname, './src/navbar/RoadMap'),
+            '@agenda': path.resolve(__dirname, './src/navbar/Agenda'),
+            '@tutoriales': path.resolve(__dirname, './src/navbar/Tutoriales'),
+            '@soporte': path.resolve(__dirname, './src/navbar/Soporte'),
+            '@perfil': path.resolve(__dirname, './src/navbar/Perfil'),
+            '@escalaTuNegocio': path.resolve(__dirname, './src/navbar/EscalaTuNegocio')
         }
     }
 })
