@@ -1,7 +1,7 @@
 <template>
     <div class="flex bg-[var(--black)] h-screen">
         <div
-            :class="['transition-all duration-300', showSidebar && !isSmallScreen ? 'w-64' : 'w-0']"
+            :class="['transition-all duration-300', showSidebar && !isSmallScreen ? 'w-64' : 'w-15']"
         >
             <component :is="isSmallScreen ? Drawer : Sidebar" />
         </div>
@@ -10,8 +10,7 @@
                 <NavBar />
             </div>
             <main class="p-6">
-                <router-view />
-                <!-- Aquí se renderizan las vistas -->
+                <router-view /> <!-- Aquí se renderizan las vistas -->
             </main>
         </div>
     </div>
@@ -578,5 +577,6 @@ onUnmounted(() => {
 })
 
 provide('showSidebar', showSidebar)
+provide('isSmallScreen', isSmallScreen)
 provide('modulos', modulos)
 </script>

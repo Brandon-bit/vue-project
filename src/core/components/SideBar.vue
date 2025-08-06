@@ -51,8 +51,10 @@
 
 <script setup>
 import logotipo from '@/assets/images/logotipo.png'
+import isotipo from '@/assets/icons/favicon.ico'
 import { inject } from 'vue'
-import { ref } from 'vue'
 
 const modulos = inject('modulos')
+const isSmallScreen = inject('isSmallScreen')
+const showSidebar = inject('showSidebar')
 </script>

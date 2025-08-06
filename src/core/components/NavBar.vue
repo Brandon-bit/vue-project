@@ -12,7 +12,7 @@ function toggleSidebar() {
 <template>
     <div class="navbar bg-base-100 shadow-sm rounded">
         <div class="navbar-start" style="width: 100%">
-            <button class="btn btn-sm btn-outline ml-4" @click="toggleSidebar">
+            <button class="btn btn-sm btn-primary ml-4" @click="toggleSidebar">
                 <i
                     class="fas fa-arrow-left transition-transform duration-300"
                     :class="{ 'rotate-180': !showSidebar }"
