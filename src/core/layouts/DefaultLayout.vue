@@ -1,11 +1,11 @@
 <template>
     <div class="flex bg-[var(--black)] h-screen">
         <div
-            :class="['transition-all duration-300', showSidebar && !isSmallScreen ? 'w-64' : 'w-15']"
+            :class="['transition-all duration-300', isSmallScreen ? 'w-0' : (showSidebar ? 'w-64' : 'w-13')]"
         >
             <component :is="isSmallScreen ? Drawer : Sidebar" />
         </div>
-        <div :class="['flex-1 bg-white rounded m-2']">
+        <div :class="['flex-1 bg-white rounded', isSmallScreen ? 'm-2' : (showSidebar ? 'm-2' : 'my-2 mr-2')]">
             <div>
                 <NavBar />
             </div>
@@ -23,6 +23,9 @@ import NavBar from '@core/components/NavBar.vue'
 import Drawer from '@core/components/Drawer.vue'
 
 const showSidebar = ref(true)
+const showLogo = ref(true)
+
+
 const isSmallScreen = ref(false)
 const modulos = ref([
     {
@@ -577,6 +580,7 @@ onUnmounted(() => {
 })
 
 provide('showSidebar', showSidebar)
+provide('showLogo', showLogo)
 provide('isSmallScreen', isSmallScreen)
 provide('modulos', modulos)
 </script>

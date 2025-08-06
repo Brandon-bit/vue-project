@@ -3,9 +3,14 @@ import { inject } from 'vue'
 import DropDownMobile from './DropDownMobile.vue'
 
 const showSidebar = inject('showSidebar')
+const showLogo = inject('showLogo')
 
 function toggleSidebar() {
     showSidebar.value = !showSidebar.value
+    showLogo.value = false
+    setTimeout(() => {
+        showLogo.value = true
+    }, 300)
 }
 </script>
 
