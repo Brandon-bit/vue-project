@@ -70,7 +70,7 @@
                             <button class="hover:bg-gray-200/10 rounded cursor-pointer btn-sm p-2" :popovertarget="`popover-${ix}-${jx}`" :style="{'anchor-name': `--anchor-${ix}-${jx}`}">
                                 {{s.name}}
                             </button>
-                            <ul class="dropdown dropdown-right dropdown-start menu rounded-box bg-[var(--gray)] shadow-sm"
+                            <ul class="dropdown dropdown-right dropdown-start menu rounded-box bg-[var(--gray)] shadow-sm ml-3"
                                 popover :id="`popover-${ix}-${jx}`" :style="{'positionAnchor': `--anchor-${ix}-${jx}`}"
                             >
                                 <li class="hover:bg-gray-200/10 rounded cursor-pointer" v-for="v in s.views">
