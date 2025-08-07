@@ -1,4 +1,3 @@
-
 import Indicadores from '@indicadores/views/Indicadores.vue'
 import RoadMap from '@roadMap/views/RoadMap.vue'
 import Agenda from '@agenda/views/Agenda.vue'
@@ -9,7 +8,7 @@ import ListaDePendientes from '@listaDePendientes/views/ListaDePendientes.vue'
 import PortafolioDeProyectos from '@portafolioDeProyectos/views/PortafolioDeProyectos.vue'
 import EscalaTuNegocio from '@escalaTuNegocio/views/EscalaTuNegocio.vue'
 
-import Exportar from "@exportar/views/Exportar.vue"
+import Exportar from '@exportar/views/Exportar.vue'
 
 const routes = [
     {
