@@ -1,18 +1,18 @@
 <template>
-    <div class="flex bg-[var(--black)] h-screen">
+    <div class="flex bg-[var(--black)] h-screen overflow-hidden">
         <div
             :class="[
                 'transition-all duration-300',
-                showSidebar && !isSmallScreen ? 'w-64' : 'w-15'
+                isSmallScreen ? 'w-0' : (showSidebar ? 'w-64' : 'w-15')
             ]"
         >
             <component :is="isSmallScreen ? Drawer : Sidebar" />
         </div>
-        <div :class="['flex-1 bg-white rounded m-2']">
+        <div :class="['flex flex-col flex-1 bg-white rounded m-2 overflow-hidden']">
             <div>
                 <NavBar />
             </div>
-            <main class="p-6">
+            <main class="p-6 overflow-y-auto">
                 <router-view />
                 <!-- Aquí se renderizan las vistas -->
             </main>
@@ -27,6 +27,7 @@ import NavBar from '@core/components/NavBar.vue'
 import Drawer from '@core/components/Drawer.vue'
 
 const showSidebar = ref(true)
+const showLogo = ref(true)
 const isSmallScreen = ref(false)
 const modulos = ref([
     {
@@ -581,6 +582,7 @@ onUnmounted(() => {
 })
 
 provide('showSidebar', showSidebar)
+provide('showLogo', showLogo)
 provide('isSmallScreen', isSmallScreen)
 provide('modulos', modulos)
 </script>
