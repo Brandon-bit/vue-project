@@ -13,26 +13,25 @@
     </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
-<style>
-    .color-box {
-      width: 120px;
-      height: 80px;
-      margin: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 12px;
-      font-family: sans-serif;
-      border-radius: 6px;
-    }
+<style scoped>
+.color-box {
+    width: 120px;
+    height: 80px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-family: sans-serif;
+    border-radius: 6px;
+}
 
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 </style>
