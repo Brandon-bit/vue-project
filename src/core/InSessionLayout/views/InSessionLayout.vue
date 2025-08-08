@@ -12,7 +12,11 @@
             <div>
                 <NavBar />
             </div>
+<<<<<<< Updated upstream:src/core/InSessionLayout/views/InSessionLayout.vue
             <main class="p-6 overflow-y-auto">
+=======
+            <main class="p-6" data-theme="dark">
+>>>>>>> Stashed changes:src/core/layouts/DefaultLayout.vue
                 <router-view />
                 <!-- Aquí se renderizan las vistas -->
             </main>
