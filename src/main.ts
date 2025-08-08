@@ -11,9 +11,9 @@ import { createPinia } from 'pinia'
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 // Floatin vue
-import FloatingVue from 'floating-vue' 
+import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
-// Theme 
+// Theme
 import { useThemeStore } from './store/theme'
 
 const app = createApp(App)
