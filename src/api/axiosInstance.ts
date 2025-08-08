@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getTokenFromStorage, removeTokenFromStorage } from '../utils/jwtUtils';
+import { getTokenFromStorage, removeTokenFromStorage } from '@/utils/jwtUtils';
 
 let API_URL
 if (import.meta.env.MODE === 'development') {

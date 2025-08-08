@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import authService from '../core/OutSessionLayout/services/AuthService.ts';
-import type { User } from '../core/OutSessionLayout/types/Auth';
+import authService from '@/core/OutSessionLayout/services/AuthService';
+import type { User } from '@/core/OutSessionLayout/types/Auth';
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({

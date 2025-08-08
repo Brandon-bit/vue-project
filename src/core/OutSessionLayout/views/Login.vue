@@ -49,9 +49,9 @@
 <script lang="ts" setup>
     import logotipo from '@/assets/images/logotipo.png'
     import { useRoute, useRouter } from 'vue-router'
-    import { useAuthStore } from '../../../store/auth'
+    import { useAuthStore } from '@/store/auth'
     import {ref} from 'vue'
-    import { showNotification } from '../../../utils/toastNotifications'
+    import { showNotification } from '@/utils/toastNotifications'
 
 
     const showPassword = ref<boolean>(false)

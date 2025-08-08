@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import axiosInstance from '../../../api/axiosInstance';
+import axiosInstance from '@/api/axiosInstance';
 import type { 
   LoginRequest, 
   LoginResponse, 
@@ -13,7 +13,7 @@ import {
   getTokenFromStorage,
   getUserFromToken,
   isTokenValid 
-} from '../../../utils/jwtUtils';
+} from '@/utils/jwtUtils';
 
 /**
  * Servicio de autenticación para manejar login, logout y gestión de tokens JWT
