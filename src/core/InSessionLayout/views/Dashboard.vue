@@ -1,7 +1,7 @@
 <template>
     <h2>Dashboard</h2>
 
-    <div class="mt-5 flex gap-2">
+    <div class="mt-5 flex gap-2 overflow-y-auto">
         <button class="btn btn-neutral">Neutral</button>
         <button class="btn btn-primary">Primary</button>
         <button class="btn btn-secondary">Secondary</button>

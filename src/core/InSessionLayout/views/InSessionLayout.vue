@@ -12,7 +12,7 @@
             <div>
                 <NavBar />
             </div>
-            <main class="p-6 overflow-y-auto">
+            <main class="m-6">
                 <router-view />
                 <!-- Aquí se renderizan las vistas -->
             </main>
