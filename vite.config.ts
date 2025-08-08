@@ -32,7 +32,9 @@ export default defineConfig({
             '@tutoriales': path.resolve(__dirname, './src/navbar/Tutoriales'),
             '@soporte': path.resolve(__dirname, './src/navbar/Soporte'),
             '@perfil': path.resolve(__dirname, './src/navbar/Perfil'),
-            '@escalaTuNegocio': path.resolve(__dirname, './src/navbar/EscalaTuNegocio')
+            '@escalaTuNegocio': path.resolve(__dirname, './src/navbar/EscalaTuNegocio'),
+            //GLOBAL STORE
+            '@sharedstore': path.resolve(__dirname, './src/shared/stores')
         }
     }
 })

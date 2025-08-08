@@ -28,7 +28,9 @@
             "@tutoriales/*": ["src/navbar/Tutoriales/*"],
             "@soporte/*": ["src/navbar/Soporte/*"],
             "@perfil/*": ["src/navbar/Perfil/*"],
-            "@escalaTuNegocio/*": ["src/navbar/EscalaTuNegocio/*"]
+            "@escalaTuNegocio/*": ["src/navbar/EscalaTuNegocio/*"],
+            //GLOBAL STORE
+            "@sharedstore/*": ["src/shared/stores/*"]
         }
     }
 }
