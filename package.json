@@ -19,10 +19,7 @@
         "@vee-validate/zod": "^4.15.1",
         "axios": "^1.11.0",
         "daisyui": "^5.0.50",
-<<<<<<< Updated upstream
         "floating-vue": "^5.2.2",
-=======
->>>>>>> Stashed changes
         "pinia": "^3.0.3",
         "tailwindcss": "^4.1.11",
         "vee-validate": "^4.15.1",
