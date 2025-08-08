@@ -3,12 +3,12 @@
         <div
             :class="[
                 'transition-all duration-300',
-                isSmallScreen ? 'w-0' : (showSidebar ? 'w-64' : 'w-15')
+                isSmallScreen ? 'w-0' : (showSidebar ? 'w-64' : 'w-13')
             ]"
         >
             <component :is="isSmallScreen ? Drawer : Sidebar" />
         </div>
-        <div :class="['flex flex-col flex-1 bg-white rounded m-2 overflow-hidden']">
+        <div :class="['flex flex-col flex-1 bg-[var(--color-base-100)] rounded overflow-hidden', isSmallScreen ? 'm-2' : (showSidebar ? 'm-2' : 'my-2 mr-2')]">
             <div>
                 <NavBar />
             </div>
@@ -22,11 +22,11 @@
 
 <script setup>
 import { ref, provide, onMounted, onUnmounted } from 'vue'
-import Sidebar from '@core/components/SideBar.vue'
-import NavBar from '@core/components/NavBar.vue'
-import Drawer from '@core/components/Drawer.vue'
+import Sidebar from '@core/InSessionLayout/components/SideBar.vue'
+import NavBar from '@core/InSessionLayout/components/NavBar.vue'
+import Drawer from '@core/InSessionLayout/components/Drawer.vue'
 
-const showSidebar = ref(true)
+const showSidebar = ref(false)
 const showLogo = ref(true)
 const isSmallScreen = ref(false)
 const modulos = ref([
@@ -64,7 +64,7 @@ const modulos = ref([
     },
     {
         // Proyectos
-        icon: 'fas fas fa-paper-plane',
+        icon: 'view_timeline',
         name: 'Proyectos',
         sections: [
             {
@@ -199,7 +199,7 @@ const modulos = ref([
     },
     {
         // Procesos
-        icon: 'fas fas fa-paper-plane',
+        icon: 'rebase_edit',
         name: 'Procesos',
         sections: [
             {
@@ -282,7 +282,7 @@ const modulos = ref([
     },
     {
         // Recursos Humanos
-        icon: 'fas fas fa-sitemap',
+        icon: 'diversity_3',
         name: 'Recursos Humanos',
         sections: [
             {
@@ -317,7 +317,7 @@ const modulos = ref([
     },
     {
         // Marketing
-        icon: 'fas fas fa-bullhorn',
+        icon: 'campaign',
         name: 'Marketing',
         sections: [
             {
@@ -384,7 +384,7 @@ const modulos = ref([
     },
     {
         // Comercial
-        icon: 'fas fas fa-hand-holding-usd',
+        icon: 'store',
         name: 'Comercial',
         sections: [
             {
@@ -415,7 +415,7 @@ const modulos = ref([
     },
     {
         // Administracion
-        icon: 'fas far fa-money-bill-alt',
+        icon: 'universal_currency_alt',
         name: 'Administración',
         sections: [
             {
@@ -442,7 +442,7 @@ const modulos = ref([
     },
     {
         // Admon. de la información
-        icon: 'fas fas fa-user-shield',
+        icon: 'admin_panel_settings',
         name: 'Admon. de la información',
         sections: [
             {
@@ -465,7 +465,7 @@ const modulos = ref([
     },
     {
         // Operaciones y Mantenimiento
-        icon: 'fas fas fa-cog',
+        icon: 'engineering',
         name: 'Operaciones y Mantenimiento',
         sections: [
             {

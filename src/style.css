@@ -3,7 +3,7 @@
 @plugin "daisyui" {
     themes:
         corporate --default,
-        dark --prefersdark;
+        business --prefersdark;
 }
 
 /* Custom theme (not set as default)*/
@@ -78,5 +78,5 @@
     font-style: normal;
 }
 h2 {
-    @apply text-3xl font-semibold text-gray-700;
+    @apply text-3xl font-semibold;
 }

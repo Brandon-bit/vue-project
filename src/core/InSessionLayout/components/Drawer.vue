@@ -42,7 +42,9 @@ const modulos = inject('modulos')
                             v-if="m.name != ''"
                             class="flex items-center gap-2 opacity-50 text-xs px-4"
                         >
-                            <i :class="`${m.icon} text-2xl`"></i>
+                            <span class="material-symbols-outlined text-white" style="font-size: 35px;">
+                                {{ m.icon }}
+                            </span>
                             <p>{{ m.name.toUpperCase() }}</p>
                         </div>
 
