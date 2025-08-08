@@ -94,9 +94,3 @@ const options = [
       </template>
     </BaseModal>
 </template>
-
-<style>
-h2 {
-    color: oklch(0.96 0.018 272.3);
-}
-</style>
