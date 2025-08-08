@@ -114,7 +114,7 @@
 
             <div class="dropdown dropdown-end hidden 2xl:block">
                 <div tabindex="0" role="button" class="btn btn-ghost flex items-center">
-                    <p>Brandon Juarez</p>
+                    <p>{{ user.userName }}</p>
                     <span class="material-symbols-outlined">
                         mood
                     </span>
@@ -127,7 +127,7 @@
                         <span class="material-symbols-outlined" style="font-size: 20px;">
                             mail
                         </span>
-                        <p>brandon.juarez@proyectopolis.com</p>
+                        <p>{{ user.userEmail }}</p>
                     </div>
 
                     <hr class="opacity-20 mt-1" />
@@ -161,7 +161,7 @@
                 </div>
             </div>
 
-            <DropDownMobile :log-out="logOut"/>
+            <DropDownMobile :log-out="logOut" :user="user"/>
         </div>
     </div>
 </template>

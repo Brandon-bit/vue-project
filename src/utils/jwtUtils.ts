@@ -24,8 +24,17 @@ export const decodeToken = (token: string): JwtPayload | null => {
     
     // Decodificar base64 y parsear JSON
     const decodedPayload = JSON.parse(atob(paddedPayload));
-    
-    return decodedPayload as JwtPayload;
+
+    const mappedPayload: JwtPayload = {
+      AccountId: decodedPayload.AccountId,
+      UserName: decodedPayload["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
+      UserEmail: decodedPayload["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"],
+      UserId: decodedPayload["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"],
+      exp: decodedPayload.exp,
+      iat: decodedPayload.iat,
+    };
+
+    return mappedPayload;
   } catch (error) {
     console.error('Error decodificando JWT:', error);
     return null;

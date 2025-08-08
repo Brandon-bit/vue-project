@@ -86,7 +86,7 @@
                 <span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">
                     mail
                 </span>
-                <p>brandon.juarez@proyectopolis.com</p>
+                <p>{{ user.userEmail }}</p>
             </div>
 
             <hr class="opacity-20 mt-1" />
@@ -122,7 +122,10 @@
 </template>
 
 <script setup lang="ts">
+import { User } from '@/core/OutSessionLayout/types/Auth';
+
     defineProps<{
-        logOut: () => void
+        logOut: () => void,
+        user: User
     }>()
 </script>
