@@ -3,14 +3,15 @@ import { useAuthStore } from '../store/auth'
 // Layouts
 import InSessionLayout from '@core/InSessionLayout/views/InSessionLayout.vue'
 import OutSessionLayout from '@core/OutSessionLayout/views/OutSessionLayout.vue'
-//
-import Dashboard from '@core/InSessionLayout/views/Dashboard.vue'
+// InSession Routes
+import InSessionRoutes from './InSessionRoutes'
 import Login from '@core/OutSessionLayout/views/Login.vue'
 // NavBar Routes
 import NavBarRoutes from './NavBarRoutes'
+// Default Routes
+import DefaultRoutes from './DefaultModuleRoutes'
 // Proyectos Rutes
 import ProyectosRoutes from './ProyectosRoutes'
-
 
 const routes = [
     {
@@ -18,7 +19,8 @@ const routes = [
         component: InSessionLayout,
         meta: { requiresAuth: true },
         children: [
-            { path: '', name: "Dashboard", component: Dashboard},
+            ...InSessionRoutes,
+            ...DefaultRoutes,
             ...NavBarRoutes,
             ...ProyectosRoutes
         ]

@@ -15,6 +15,7 @@ export default defineConfig({
             //CORE
             '@core': path.resolve(__dirname, './src/core'),
             //MODULES
+            '@defaultModule': path.resolve(__dirname, './src/modules/DefaultModule'),
             '@administracion': path.resolve(__dirname, './src/modules/administracion'),
             '@dashboard': path.resolve(__dirname, './src/modules/dashboard'),
             '@mantenimiento': path.resolve(__dirname, './src/modules/mantenimiento'),

@@ -11,6 +11,7 @@
             // CORE
             "@core/*": ["src/core/*"],
             // MODULES
+            "@defaultModule/*": ["src/modules/DefaultModule/*"],
             "@administracion/*": ["src/modules/Administracion/*"],
             "@mantenimiento/*": ["src/modules/Mantenimiento/*"],
             "@marketing/*": ["src/modules/Marketing/*"],

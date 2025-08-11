@@ -32,7 +32,13 @@
                     </div>
 
                     <div class="mt-4">
-                        <button type="submit" class="btn btn-info w-full text-white">ACCEDER</button>
+                        <button type="submit" :disabled="isSubmitting" class="btn btn-info w-full text-white">
+                            <span v-if="!isSubmitting" class="material-symbols-outlined">
+                                login
+                            </span>
+                            <span v-else class="loading loading-spinner"></span>
+                            ACCEDER
+                        </button>
                     </div>
 
                     <div className="text-sm mt-4">

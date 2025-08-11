@@ -1,38 +1,71 @@
 <template>
     <h2>Dashboard</h2>
 
-    <div class="mt-5 flex gap-2 overflow-y-auto">
-        <button class="btn btn-neutral">Neutral</button>
-        <button class="btn btn-primary">Primary</button>
-        <button class="btn btn-secondary">Secondary</button>
-        <button class="btn btn-accent">Accent</button>
-        <button class="btn btn-info">Info</button>
-        <button class="btn btn-success">Success</button>
-        <button class="btn btn-warning">Warning</button>
-        <button class="btn btn-error">Error</button>
+    <div class="dashboards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-between">
+      <router-link :to="dashboard.url" v-for="dashboard in dashboards">
+        <div class="card justify-center items-center w-full py-5 shadow-2xl bg-gray-500 group hover:cursor-pointer">
+          <figure class="flex items-center transition-transform duration-300 group-hover:scale-105">
+            <span class="material-symbols-outlined text-white" style="font-size: 100px;">
+                {{ dashboard.icon }}
+            </span>
+          </figure>
+          <div class="py-0 transition-transform duration-300 group-hover:scale-105 text-white">
+            <h3 class="text-2xl text-center mb-2">{{dashboard.name}}</h3>
+            <div class="flex justify-center">
+              <p class="text-center items-center">Ir al dashboard</p>
+              <span class="material-symbols-outlined">
+                arrow_right_alt
+              </span>
+            </div>
+          </div>
+        </div>
+      </router-link>
     </div>
 </template>
 
 <script setup lang="ts">
+
+  const dashboards = [
+    {
+      name: "Proyectos",
+      icon: "view_timeline",
+      url: "dashboard/proyectos"
+    },
+    {
+      name: "Procesos",
+      icon: "rebase_edit",
+      url: "dashboard/procesos"
+    },
+    {
+      name: "Recursos Humanos",
+      icon: "diversity_3",
+      url: "dashboard/recursos-humanos"
+    },
+    {
+      name: "Marketing",
+      icon: "campaign",
+      url: "dashboard/marketing"
+    },
+    {
+      name: "Comercial",
+      icon: "store",
+      url: "dashboard/comercial"
+    },
+    {
+      name: "Administración",
+      icon: "universal_currency_alt",
+      url: "dashboard/administracion"
+    },
+    {
+      name: "Admon. de la Información",
+      icon: "admin_panel_settings",
+      url: "dashboard/administracion-de-la-informacion"
+    },
+    {
+      name: "Mantenimiento",
+      icon: "engineering",
+      url: "dashboard/mantenimiento"
+    }
+  ]
+
 </script>
-
-<style scoped>
-    .color-box {
-      width: 120px;
-      height: 80px;
-      margin: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 12px;
-      font-family: sans-serif;
-      border-radius: 6px;
-    }
-
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-</style>

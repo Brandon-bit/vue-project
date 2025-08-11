@@ -78,5 +78,5 @@
     font-style: normal;
 }
 h2 {
-    @apply text-3xl font-semibold;
+    @apply text-3xl font-semibold mb-5;
 }

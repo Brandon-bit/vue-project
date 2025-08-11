@@ -12,7 +12,7 @@
             <div>
                 <NavBar />
             </div>
-            <main class="m-6">
+            <main class="m-6 overflow-auto">
                 <router-view />
                 <!-- Aquí se renderizan las vistas -->
             </main>
@@ -40,11 +40,11 @@ const modulos = ref([
                 open: false,
                 views: [
                     {
-                        url: '#',
+                        url: '/usuario',
                         name: 'Lista'
                     },
                     {
-                        url: '#',
+                        url: '/usuario/nuevo',
                         name: 'Nuevo'
                     }
                 ]
@@ -55,7 +55,7 @@ const modulos = ref([
                 open: false,
                 views: [
                     {
-                        url: '#',
+                        url: '/dias-inhabiles',
                         name: 'Días inhabiles'
                     }
                 ]
