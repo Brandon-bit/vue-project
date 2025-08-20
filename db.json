@@ -1,0 +1,195 @@
+{
+    "posts": [
+        { "id": "1", "title": "a title", "views": 100 },
+        { "id": "2", "title": "another title", "views": 200 }
+    ],
+    "comments": [
+        { "id": "1", "text": "a comment about post 1", "postId": "1" },
+        { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    ],
+    "profile": {
+        "name": "typicode"
+    },
+    "stores": [
+        { "id": 1, "label": "Tienda Central - Santiago" },
+        { "id": 2, "label": "Sucursal Las Condes" },
+        { "id": 3, "label": "Outlet Viña del Mar" },
+        { "id": 4, "label": "Tienda Express Providencia" },
+        { "id": 5, "label": "Sucursal Antofagasta Centro" },
+        { "id": 6, "label": "Tienda Costanera Mall" },
+        { "id": 7, "label": "Sucursal Plaza Oeste" },
+        { "id": 8, "label": "Tienda Independencia" },
+        { "id": 9, "label": "Sucursal La Serena" },
+        { "id": 10, "label": "Tienda Rancagua Norte" }
+    ],
+    "warehouse": [
+        { "id": 1, "label": "Bodega Central Santiago" },
+        { "id": 2, "label": "Almacén Zona Norte" },
+        { "id": 3, "label": "Bodega Costanera Norte" },
+        { "id": 4, "label": "Centro de Distribución Quilicura" },
+        { "id": 5, "label": "Bodega Los Andes" },
+        { "id": 6, "label": "Depósito Viña del Mar" },
+        { "id": 7, "label": "Bodega Temuco" },
+        { "id": 8, "label": "Centro Logístico La Serena" },
+        { "id": 9, "label": "Bodega Express San Miguel" },
+        { "id": 10, "label": "Almacén Renca" }
+    ],
+    "sellingType": [
+        { "id": 1, "label": "Venta por unidad" },
+        { "id": 2, "label": "Venta por kilo" },
+        { "id": 3, "label": "Venta al por mayor" },
+        { "id": 4, "label": "Venta a crédito" },
+        { "id": 5, "label": "Venta online" },
+        { "id": 6, "label": "Venta directa en tienda" },
+        { "id": 7, "label": "Venta a consignación" },
+        { "id": 8, "label": "Venta bajo pedido" },
+        { "id": 9, "label": "Suscripción mensual" },
+        { "id": 10, "label": "Venta por paquete" }
+    ],
+    "category": [
+        { "id": 1, "label": "Herramientas Eléctricas", "sufijo": "HREL" },
+        { "id": 2, "label": "Herramientas Manuales", "sufijo": "HRMN" },
+        { "id": 3, "label": "Materiales de Construcción", "sufijo": "MCON" },
+        { "id": 4, "label": "Pinturas y Accesorios", "sufijo": "PINT" },
+        { "id": 5, "label": "Jardinería", "sufijo": "JARD" },
+        { "id": 6, "label": "Fontanería", "sufijo": "FONT" },
+        { "id": 7, "label": "Seguridad y Protección", "sufijo": "SEG" },
+        { "id": 8, "label": "Iluminación", "sufijo": "ILUM" },
+        { "id": 9, "label": "Ferretería General", "sufijo": "FERR" },
+        { "id": 10, "label": "Automotriz", "sufijo": "AUTO" }
+    ],
+    "subcategory": [
+        { "id": 1, "label": "Taladros y Perforadoras" },
+        { "id": 2, "label": "Sierras Eléctricas" },
+        { "id": 3, "label": "Llaves y Destornilladores" },
+        { "id": 4, "label": "Pinturas y Barnices" },
+        { "id": 5, "label": "Cinta Métrica" },
+        { "id": 6, "label": "Riego y Accesorios de Jardín" },
+        { "id": 7, "label": "Bombas de Agua" },
+        { "id": 8, "label": "Accesorios de Fontanería" },
+        { "id": 9, "label": "Cables y Conectores" },
+        { "id": 10, "label": "Materiales de Aislamiento" }
+    ],
+    "unit": [
+        { "id": 1, "label": "Unidad", "sufijo": "u" },
+        { "id": 2, "label": "Kilogramo", "sufijo": "kg" },
+        { "id": 3, "label": "Metro", "sufijo": "m" },
+        { "id": 4, "label": "Caja", "sufijo": "cj" },
+        { "id": 5, "label": "Pallet", "sufijo": "plt" },
+        { "id": 6, "label": "Paquete", "sufijo": "paq" },
+        { "id": 7, "label": "Bulto", "sufijo": "blt" },
+        { "id": 8, "label": "Litro", "sufijo": "l" },
+        { "id": 9, "label": "Docena", "sufijo": "dz" },
+        { "id": 10, "label": "Bolsa", "sufijo": "bls" }
+    ],
+    "brand": [
+        { "id": 1, "label": "Bosch" },
+        { "id": 2, "label": "Makita" },
+        { "id": 3, "label": "Black+Decker" },
+        { "id": 4, "label": "Stanley" },
+        { "id": 5, "label": "DeWalt" },
+        { "id": 6, "label": "Einhell" },
+        { "id": 7, "label": "Hitachi" },
+        { "id": 8, "label": "Milwaukee" },
+        { "id": 9, "label": "Gardena" },
+        { "id": 10, "label": "Irwin" }
+    ],
+    "barcodeSimbology": [
+        { "id": 1, "label": "EAN-13" },
+        { "id": 2, "label": "UPC-A" },
+        { "id": 3, "label": "Code 128" },
+        { "id": 4, "label": "QR Code" },
+        { "id": 5, "label": "Data Matrix" },
+        { "id": 6, "label": "EAN-8" },
+        { "id": 7, "label": "Code 39" },
+        { "id": 8, "label": "PDF417" },
+        { "id": 9, "label": "ITF-14" },
+        { "id": 10, "label": "Aztec Code" }
+    ],
+    "variant": [
+        { "id": 1, "label": "Tamaño" },
+        { "id": 2, "label": "Color" },
+        { "id": 3, "label": "Material" },
+        { "id": 4, "label": "Tipo" },
+        { "id": 5, "label": "Peso" },
+        { "id": 6, "label": "Voltaje" },
+        { "id": 7, "label": "Diámetro" },
+        { "id": 8, "label": "Marca" },
+        { "id": 9, "label": "Capacidad" },
+        { "id": 10, "label": "Uso" }
+    ],
+    "valueVariant": [
+        { "id": 1, "idVariante": 1, "label": "Pequeño" },
+        { "id": 2, "idVariante": 1, "label": "Mediano" },
+        { "id": 3, "idVariante": 1, "label": "Grande" },
+        { "id": 4, "idVariante": 1, "label": "Extra Grande" },
+
+        { "id": 5, "idVariante": 2, "label": "Negro" },
+        { "id": 6, "idVariante": 2, "label": "Rojo" },
+        { "id": 7, "idVariante": 2, "label": "Azul" },
+        { "id": 8, "idVariante": 2, "label": "Amarillo" },
+        { "id": 9, "idVariante": 2, "label": "Gris" },
+
+        { "id": 10, "idVariante": 3, "label": "Acero" },
+        { "id": 11, "idVariante": 3, "label": "Aluminio" },
+        { "id": 12, "idVariante": 3, "label": "Plástico" },
+        { "id": 13, "idVariante": 3, "label": "Madera" },
+        { "id": 14, "idVariante": 3, "label": "Cobre" },
+        { "id": 15, "idVariante": 3, "label": "Hierro" },
+
+        { "id": 16, "idVariante": 4, "label": "Destornillador" },
+        { "id": 17, "idVariante": 4, "label": "Martillo" },
+        { "id": 18, "idVariante": 4, "label": "Sierra" },
+        { "id": 19, "idVariante": 4, "label": "Alicates" },
+        { "id": 20, "idVariante": 4, "label": "Llave inglesa" },
+        { "id": 21, "idVariante": 4, "label": "Cinta métrica" },
+
+        { "id": 22, "idVariante": 5, "label": "Ligero" },
+        { "id": 23, "idVariante": 5, "label": "Medio" },
+        { "id": 24, "idVariante": 5, "label": "Pesado" },
+
+        { "id": 25, "idVariante": 6, "label": "110V" },
+        { "id": 26, "idVariante": 6, "label": "220V" },
+        { "id": 27, "idVariante": 6, "label": "Batería recargable" },
+        { "id": 28, "idVariante": 6, "label": "Sin batería" },
+
+        { "id": 29, "idVariante": 7, "label": "5mm" },
+        { "id": 30, "idVariante": 7, "label": "10mm" },
+        { "id": 31, "idVariante": 7, "label": "15mm" },
+        { "id": 32, "idVariante": 7, "label": "20mm" },
+        { "id": 33, "idVariante": 7, "label": "30mm" },
+
+        { "id": 34, "idVariante": 8, "label": "Bosch" },
+        { "id": 35, "idVariante": 8, "label": "Makita" },
+        { "id": 36, "idVariante": 8, "label": "DeWalt" },
+        { "id": 37, "idVariante": 8, "label": "Stanley" },
+        { "id": 38, "idVariante": 8, "label": "Black & Decker" },
+
+        { "id": 39, "idVariante": 9, "label": "2L" },
+        { "id": 40, "idVariante": 9, "label": "5L" },
+        { "id": 41, "idVariante": 9, "label": "10L" },
+        { "id": 42, "idVariante": 9, "label": "20L" },
+        { "id": 43, "idVariante": 9, "label": "50L" },
+
+        { "id": 44, "idVariante": 10, "label": "Profesional" },
+        { "id": 45, "idVariante": 10, "label": "Hogar" },
+        { "id": 46, "idVariante": 10, "label": "Industrial" }
+    ],
+    "taxType": [
+        { "id": 1, "label": "IVA" },
+        { "id": 2, "label": "Exento" },
+        { "id": 3, "label": "Internacional" },
+        { "id": 4, "label": "Retención" }
+    ],
+    "tax": [
+        { "id": 1, "label": "10%" },
+        { "id": 2, "label": "19%" },
+        { "id": 3, "label": "5%" },
+        { "id": 4, "label": "0%" }
+    ],
+    "discountType": [
+        { "id": 1, "label": "Descuento porcentual" },
+        { "id": 2, "label": "Descuento fijo" },
+        { "id": 3, "label": "Descuento por volumen" }
+    ]
+}
