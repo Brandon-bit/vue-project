@@ -22,6 +22,7 @@
             "@inversiones/*": ["src/modules/Inversiones/*"],
             "@inventario/*": ["src/modules/Inventario/*"],
             "@comercial/*": ["src/modules/Comercial/*"],
+            "@compras/*": ["src/modules/Compras/*"],
             // NAVBAR
             "@exportar/*": ["src/navbar/Exportar/*"],
             "@listaDePendientes/*": ["src/navbar/ListaDePendientes/*"],
@@ -35,6 +36,8 @@
             "@escalaTuNegocio/*": ["src/navbar/EscalaTuNegocio/*"],
             //GLOBAL STORE
             "@sharedstore/*": ["src/shared/stores/*"]
-        }
+        },
+        "jsx": "preserve",
+        "jsxImportSource": "vue"
     }
 }

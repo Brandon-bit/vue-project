@@ -11,28 +11,33 @@
         "lint:fix": "eslint --fix .",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "validate": "npm run lint && npm run format:check"
+        "validate": "npm run lint && npm run format:check",
+        "create-module": "node create-folder.js"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.11",
         "@tanstack/vue-table": "^8.21.3",
         "@vee-validate/zod": "^4.15.1",
+        "@vue/babel-plugin-jsx": "^1.5.0",
         "axios": "^1.11.0",
         "daisyui": "^5.0.50",
-        "echarts": "^6.0.0",
         "floating-vue": "^5.2.2",
+        "jspdf": "^3.0.1",
+        "jspdf-autotable": "^5.0.2",
         "pinia": "^3.0.3",
         "tailwindcss": "^4.1.11",
         "vee-validate": "^4.15.1",
         "vue": "^3.5.17",
         "vue-router": "^4.5.1",
-        "vue-toastification": "^2.0.0-rc.5"
+        "vue-toastification": "^2.0.0-rc.5",
+        "xlsx": "^0.18.5"
     },
     "devDependencies": {
         "@types/node": "^24.1.0",
         "@typescript-eslint/eslint-plugin": "^8.39.0",
         "@typescript-eslint/parser": "^8.39.0",
         "@vitejs/plugin-vue": "^6.0.0",
+        "@vitejs/plugin-vue-jsx": "^5.0.1",
         "@vue/tsconfig": "^0.7.0",
         "eslint": "^9.32.0",
         "eslint-config-prettier": "^10.1.8",

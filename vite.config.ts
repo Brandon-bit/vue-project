@@ -3,12 +3,13 @@ import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 export default defineConfig({
-    plugins: [vue(), tailwindcss()],
+    plugins: [vue(), tailwindcss(), vueJsx()],
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
@@ -23,6 +24,7 @@ export default defineConfig({
             '@procesos': path.resolve(__dirname, './src/modules/procesos'),
             '@proyectos': path.resolve(__dirname, './src/modules/proyectos'),
             '@recursosHumanos': path.resolve(__dirname, './src/modules/recursosHumanos'),
+            '@compras': path.resolve(__dirname, './src/modules/compras'),
             //NAVBAR
             '@exportar': path.resolve(__dirname, './src/navbar/Exportar'),
             '@listaDePendientes': path.resolve(__dirname, './src/navbar/ListaDePendientes'),
