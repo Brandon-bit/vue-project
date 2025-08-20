@@ -13,6 +13,7 @@ import DefaultRoutes from './DefaultModuleRoutes'
 // Proyectos Rutes
 import ProyectosRoutes from './ProyectosRoutes'
 
+import ComprasRoutes from './ComprasRoutes'
 const routes = [
     {
         path: '/',
@@ -22,16 +23,15 @@ const routes = [
             ...InSessionRoutes,
             ...DefaultRoutes,
             ...NavBarRoutes,
-            ...ProyectosRoutes
+            ...ProyectosRoutes,
+            ...ComprasRoutes
         ]
     },
     {
         path: '/login',
         component: OutSessionLayout,
         meta: { requiresGuest: true },
-        children: [
-            { path: '', name: 'login', component: Login }
-        ]
+        children: [{ path: '', name: 'login', component: Login }]
     }
 ]
 
