@@ -1,5 +1,5 @@
 import Productos from '@compras/Productos/views/ProductosViews.vue'
-import CrearProductoView from '@compras/Productos/views/CrearProductoView.vue'
+//import CrearProductoView from '@compras/Productos/views/CrearProductoView.vue'
 
 const routes = [
     {
@@ -7,11 +7,11 @@ const routes = [
         name: 'Productos',
         component: Productos
     },
-    {
-        path: '/compras/productos/crear',
-        name: 'Crear producto',
-        component: CrearProductoView
-    },
+    // {
+    //     path: '/compras/productos/crear',
+    //     name: 'Crear producto',
+    //     component: CrearProductoView
+    // },
 ]
 
 export default routes
