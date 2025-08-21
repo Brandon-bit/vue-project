@@ -18,7 +18,7 @@
                 <NavBar />
             </div>
             <main class="h-screen overflow-auto scrollbar-hide px-4 py-6">
-                <div class="w-full lg:max-w-5xl lg:mx-auto">
+                <div class="w-full lg:max-w-7xl lg:mx-auto">
                     <router-view />
                 </div>
                 <!-- Aquí se renderizan las vistas -->

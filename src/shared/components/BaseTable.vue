@@ -101,22 +101,35 @@ const exportToPDF = () => {
 </script>
 
 <template>
-    <div class="grid grid-cols-12 gap-5 place-items-center lg:items-center lg:place-items-start">
-        <div class="col-span-12 md:col-span-3 flex gap-4 w-full">
-            <button
-                class="btn btn-sm main-table-button-export-pdf"
-                v-tooltip.top="'Exportar a PDF'"
-                @click="exportToPDF"
-            >
-                PDF
+    <!-- Table filters -->
+    <div class="flex flex-col md:flex-row md:items-center gap-5">
+        <!-- Export button -->
+        <div>
+            <button class="btn btn-sm" popovertarget="popover-exportar" style="anchor-name:--anchor-exportar">
+                <span class="material-symbols-outlined">
+                    file_save
+                </span>
+                Exportar
             </button>
-            <button
-                class="btn btn-sm main-table-button-export-xlsx"
-                v-tooltip.top="'Exportar a Excel'"
-                @click="exportToExcel"
-            >
-                Excel
-            </button>
+            <ul class="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
+            popover id="popover-exportar" style="position-anchor:--anchor-exportar">
+                <li @click="exportToPDF">
+                    <a> 
+                        <span class="material-symbols-outlined">
+                            picture_as_pdf
+                        </span>
+                        PDF
+                    </a>
+                </li>
+                <li @click="exportToExcel">
+                    <a> 
+                        <span class="material-symbols-outlined">
+                            rubric
+                        </span>
+                        Excel
+                    </a>
+                </li>
+            </ul>
         </div>
         <div class="col-span-12 md:col-span-5 md:mb-0 justify-center w-full">
             <div class="flex items-center">
@@ -149,13 +162,12 @@ const exportToPDF = () => {
             </div>
         </div>
     </div>
-    <div
-        class="rounded-box border border-base-content/5 bg-base-100 my-8 w-full max-w-[100vw] overflow-hidden"
-    >
+    <div class="rounded-box border border-base-content/5 bg-base-100 my-5 w-full max-w-[100vw] overflow-hidden">
         <div class="overflow-x-auto">
             <table class="table text-center">
                 <thead>
-                    <tr v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
+                    <tr v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id" class="bg-base-300">
+                        <th>#</th>
                         <th
                             v-for="header in headerGroup.headers"
                             :key="header.id"
@@ -170,7 +182,8 @@ const exportToPDF = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="row in table.getRowModel().rows" :key="row.id">
+                    <tr v-for="(row, ix) in table.getRowModel().rows" :key="row.id" class="hover:bg-base-200">
+                        <td>{{ ix + 1 }}</td>
                         <td v-for="cell in row.getVisibleCells()" :key="cell.id">
                             <FlexRender
                                 :render="cell.column.columnDef.cell"
