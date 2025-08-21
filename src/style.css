@@ -80,3 +80,18 @@
 h2 {
     @apply text-3xl font-semibold mb-5;
 }
+
+.action-btn-table {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 25px;
+    width: 25px;
+}
+
+.action-btn-table span {
+    font-size: 15px;
+}
+
+.icon-modal {
+    font-size: 35px;
+}

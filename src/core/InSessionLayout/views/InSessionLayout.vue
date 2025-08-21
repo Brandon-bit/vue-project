@@ -3,17 +3,24 @@
         <div
             :class="[
                 'transition-all duration-300',
-                isSmallScreen ? 'w-0' : (showSidebar ? 'w-64' : 'w-13')
+                isSmallScreen ? 'w-0' : showSidebar ? 'w-64' : 'w-13'
             ]"
         >
             <component :is="isSmallScreen ? Drawer : Sidebar" />
         </div>
-        <div :class="['flex flex-col flex-1 bg-[var(--color-base-100)] rounded overflow-hidden', isSmallScreen ? 'm-2' : (showSidebar ? 'm-2' : 'my-2 mr-2')]">
+        <div
+            :class="[
+                'flex flex-col flex-1 bg-[var(--color-base-100)] rounded overflow-hidden',
+                isSmallScreen ? 'm-2' : showSidebar ? 'm-2' : 'my-2 mr-2'
+            ]"
+        >
             <div>
                 <NavBar />
             </div>
-            <main class="m-6 overflow-auto">
-                <router-view />
+            <main class="h-screen overflow-auto scrollbar-hide px-4 py-6">
+                <div class="w-full lg:max-w-5xl lg:mx-auto">
+                    <router-view />
+                </div>
                 <!-- Aquí se renderizan las vistas -->
             </main>
         </div>
@@ -586,3 +593,12 @@ provide('showLogo', showLogo)
 provide('isSmallScreen', isSmallScreen)
 provide('modulos', modulos)
 </script>
+<style>
+.scrollbar-hide {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+}
+</style>

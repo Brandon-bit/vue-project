@@ -39,13 +39,13 @@ export const columns = [
             const { showInfo, edit, toggleStatus, deleteData } = useUserActions()
             const tooltip = resolveDirective('tooltip')
 
-            
+
             return h('div', { class: 'flex gap-4 justify-center' }, [
                 withDirectives(
                     h(
                         'button',
                         {
-                            class: 'btn btn-outline btn-info table-icon-btn',
+                            class: 'btn btn-outline btn-info action-btn-table',
                             onClick: () => showInfo(data)
                         },
                         [h('span', { class: 'material-symbols-outlined' }, 'info')]
@@ -56,7 +56,7 @@ export const columns = [
                     h(
                         'button',
                         {
-                            class: 'btn btn-outline btn-primary table-icon-btn',
+                            class: 'btn btn-outline btn-primary action-btn-table',
                             onClick: () => edit(data)
                         },
                         h('span', { class: 'material-symbols-outlined' }, 'edit_square')
@@ -67,7 +67,7 @@ export const columns = [
                     h(
                         'button',
                         {
-                            class: 'btn btn-outline btn-success table-icon-btn',
+                            class: 'btn btn-outline btn-success action-btn-table',
                             onClick: () => toggleStatus(data)
                         },
                         h('span', { class: 'material-symbols-outlined' }, 'toggle_on')
@@ -78,7 +78,7 @@ export const columns = [
                     h(
                         'button',
                         {
-                            class: 'btn btn-outline btn-error table-icon-btn',
+                            class: 'btn btn-outline btn-error action-btn-table',
                             onClick: () => deleteData(data)
                         },
                         h('span', { class: 'material-symbols-outlined' }, 'delete')
