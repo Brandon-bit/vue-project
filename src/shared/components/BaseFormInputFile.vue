@@ -24,7 +24,7 @@ const handleFileChange = (event) => {
         <div class="flex justify-center items-center">
             <label
                 :for="props.name"
-                class="w-full h-40 border-4 border-dashed border-gray-300 rounded-lg flex justify-center items-center cursor-pointer hover:border-gray-400"
+                class="w-full h-40 border-4 p-3 border-dashed border-gray-300 rounded-lg flex justify-center items-center cursor-pointer hover:border-gray-400"
             >
                 <div class="text-center">
                     <span class="material-symbols-outlined animate-subtle-bounce text-lg">
@@ -38,7 +38,6 @@ const handleFileChange = (event) => {
                             {{ file.name }}
                         </div>
                     </div>
-                    <p v-else class="mt-3 text-gray-500">No se ha seleccionado ningún archivo.</p>
                 </div>
                 <input
                     type="file"

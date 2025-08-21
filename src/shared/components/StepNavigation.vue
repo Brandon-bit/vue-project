@@ -26,7 +26,6 @@ const isLastStep = computed(() => currentStep.value === stepsConfig.length)
 
 const nextStep = async () => {
     const currentFields = stepsConfig[currentStep.value - 1].fields
-    console.log(currentFields)
     const results = await Promise.all(currentFields.map((field) => validateField(field)))
 
     if (results.every((r) => r.valid)) {

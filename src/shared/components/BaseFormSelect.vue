@@ -5,10 +5,12 @@ import { computed } from 'vue'
 const props = defineProps<{
     label: string
     name: string
-    options: { id: string; label: string }[]
+    options: { id: number; label: string }[]
+    required?: boolean
+    class?: string
 }>()
 
-const { value, errorMessage, meta } = useField(props.name, undefined, {
+const { value, errorMessage } = useField(props.name, undefined, {
     initialValue: ''
 })
 
@@ -16,15 +18,12 @@ const optionsMap = computed(() => [{ id: '', label: 'Elige una opción' }, ...pr
 </script>
 
 <template>
-    <div class="flex flex-col space-y-2">
-        <label :for="name" class="font-semibold">{{ label }}</label>
-        <select
-            :id="name"
-            v-model="value"
-            class="select w-full"
-            :class="{ 'select-error': meta.touched && errorMessage }"
-            @blur="meta.touched = true"
-        >
+    <div class="flex flex-col space-y-2 mb-4" :class="props.class || ''">
+        <label :for="name" class="font-semibold"
+            >{{ label }}
+            <span v-if="props.required" class="text-error"> *</span>
+        </label>
+        <select v-model="value" class="select w-full" :class="{ 'select-error': errorMessage }">
             <option
                 v-for="(option, index) in optionsMap"
                 :key="index"
@@ -33,6 +32,6 @@ const optionsMap = computed(() => [{ id: '', label: 'Elige una opción' }, ...pr
                 {{ option.label }}
             </option>
         </select>
-        <div v-if="meta.touched && errorMessage" class="text-error">{{ errorMessage }}</div>
+        <div v-if="errorMessage" class="text-error">{{ errorMessage }}</div>
     </div>
 </template>
