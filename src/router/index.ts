@@ -10,10 +10,12 @@ import Login from '@core/OutSessionLayout/views/Login.vue'
 import NavBarRoutes from './NavBarRoutes'
 // Default Routes
 import DefaultRoutes from './DefaultModuleRoutes'
-// Proyectos Rutes
+// Proyectos Routes
 import ProyectosRoutes from './ProyectosRoutes'
-
+// Inventario Routes
+import InventarioRoutes from './InventarioRoutes'
 import ComprasRoutes from './ComprasRoutes'
+
 const routes = [
     {
         path: '/',
@@ -24,7 +26,8 @@ const routes = [
             ...DefaultRoutes,
             ...NavBarRoutes,
             ...ProyectosRoutes,
-            ...ComprasRoutes
+            ...ComprasRoutes,
+            ...InventarioRoutes
         ]
     },
     {

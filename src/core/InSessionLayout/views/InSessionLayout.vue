@@ -572,6 +572,129 @@ const modulos = ref([
                 ]
             }
         ]
+    },
+    {
+        // Inventarios
+        icon: 'inventory_2',
+        name: 'Inventarios',
+        sections: [
+            {
+                // Configuración de Inventarios
+                icon: '',
+                name: 'Configuración de Inventarios',
+                open: false,
+                views: [
+                    {
+                        url: '/inventario/configuracion/productos',
+                        name: 'Productos'
+                    },
+                    {
+                        url: '/inventario/configuracion/crear-producto',
+                        name: 'Crear Producto'
+                    },
+                    {
+                        url: '/inventario/configuracion/productos-expirados',
+                        name: 'Productos Expirados'
+                    },
+                    {
+                        url: '/inventario/configuracion/stock-bajo',
+                        name: 'Stock bajo'
+                    },
+                    {
+                        url: '/inventario/configuracion/categoria',
+                        name: 'Categoría'
+                    },
+                    {
+                        url: '/inventario/configuracion/sub-categoría',
+                        name: 'Sub Categoria'
+                    },
+                    {
+                        url: '/inventario/configuracion/marcas',
+                        name: 'Marcas'
+                    },
+                    {
+                        url: '/inventario/configuracion/unidades',
+                        name: 'Unidades'
+                    },
+                    {
+                        url: '/inventario/configuracion/atributos-variantes',
+                        name: 'Atributos Variantes'
+                    },
+                    {
+                        url: '/inventario/configuracion/garantias',
+                        name: 'Garantias'
+                    },
+                    {
+                        url: '/inventario/configuracion/imprimir-codigo-de-barras',
+                        name: 'Imprimir Codigo de Barras'
+                    },
+                    {
+                        url: '/inventario/configuracion/imprimir-codigo-qr',
+                        name: 'Imprimir Codigo QR'
+                    },
+                    {
+                        url: '/inventario/configuracion/manejo-de-descuentos',
+                        name: 'Manejo de Descuentos'
+                    }
+                ]
+            },
+            {
+                // Operacion
+                icon: '',
+                name: 'Operación',
+                open: false,
+                views: [
+                    {
+                        url: '/inventario/operacion/puntos-de-reorden',
+                        name: 'Puntos de Reorden'
+                    },
+                    {
+                        url: '/inventario/operacion/auditoria-de-inventarios',
+                        name: 'Auditoría de Inventarios'
+                    },
+                    {
+                        url: '/inventario/operacion/gestion-de-pedidos',
+                        name: 'Gestión de Pedidos'
+                    },
+                    {
+                        url: '/inventario/operacion/controles-de-autorizacion-de-pedidos',
+                        name: 'Controles de autorización de pedidos'
+                    },
+                    {
+                        url: '/inventario/operacion/generacion-de-polizas-de-inventario',
+                        name: 'Generación de Polizas de Inventario'
+                    },
+                    {
+                        url: '/inventario/operacion/entradas-de-inventario',
+                        name: 'Entradas de Inventario'
+                    },
+                    {
+                        url: '/inventario/operacion/salidas-de-inventario',
+                        name: 'Salidas de Inventario'
+                    }
+                ]
+            },
+            {
+                // Stock
+                icon: '',
+                name: 'Stock',
+                open: false,
+                views: [
+                    {
+                        url: '/inventario/stock/administrar-stock',
+                        name: 'Administrar Stock'
+                    },
+                    {
+                        url: '/inventario/stock/ajuste-de-stock',
+                        name: 'Ajuste de Stock'
+                    },
+                    {
+                        url: '/inventario/stock/transferir-stock',
+                        name: 'Transferir Stock'
+                    }
+                ]
+            }
+        ]
     }
 ])
 

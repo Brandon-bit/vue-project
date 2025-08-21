@@ -12,8 +12,6 @@
     const router = useRouter()
     const user = authStore.user
 
-    console.log(user)
-
     function toggleSidebar() {
         showSidebar.value = !showSidebar.value
         showLogo.value = false
