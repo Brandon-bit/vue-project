@@ -191,5 +191,6 @@
         { "id": 1, "label": "Descuento porcentual" },
         { "id": 2, "label": "Descuento fijo" },
         { "id": 3, "label": "Descuento por volumen" }
-    ]
+    ],
+    "lastNumberBarcode": { "number": "000000000001" }
 }
