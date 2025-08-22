@@ -6,11 +6,11 @@
 
 <script setup lang="ts">
 import BaseTable from '@/shared/components/BaseTable.vue'
-import { ColumnTable } from '@/shared/types/ColumnTable'
+import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h  , withDirectives } from 'vue'
 import { useBrandActions } from '../composables/useBrandActions'
 
-const columns : ColumnTable[] = [
+const columns : ColumnTableType[] = [
     {
         header: 'Marca',
         accessorKey: 'Brand',
