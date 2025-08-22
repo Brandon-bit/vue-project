@@ -8,12 +8,14 @@ const routes = [
     {
         path: '/inventario/configuracion/crear-producto',
         name: 'CrearProductos',
-        component: () => import('@inventario/ConfiguracionDeInventario/views/CrearProducto.vue')
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/Productos/views/CrearProducto.vue')
     },
     {
         path: '/inventario/configuracion/productos-expirados',
         name: 'ProductosExpirados',
-        component: () => import('@inventario/ConfiguracionDeInventario/views/ProductosExpirados.vue')
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/views/ProductosExpirados.vue')
     },
     {
         path: '/inventario/configuracion/stock-bajo',
@@ -43,7 +45,8 @@ const routes = [
     {
         path: '/inventario/configuracion/atributos-variantes',
         name: 'AtributosVariantes',
-        component: () => import('@inventario/ConfiguracionDeInventario/views/AtributosVariantes.vue')
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/views/AtributosVariantes.vue')
     },
     {
         path: '/inventario/configuracion/garantias',
@@ -53,7 +56,8 @@ const routes = [
     {
         path: '/inventario/configuracion/imprimir-codigo-de-barras',
         name: 'ImprimirCodígoDeBarras',
-        component: () => import('@inventario/ConfiguracionDeInventario/views/ImprimirCodigoDeBarras.vue')
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/views/ImprimirCodigoDeBarras.vue')
     },
     {
         path: '/inventario/configuracion/imprimir-codigo-qr',
@@ -63,7 +67,8 @@ const routes = [
     {
         path: '/inventario/configuracion/manejo-de-descuentos',
         name: 'ManejoDeDescuentos',
-        component: () => import('@inventario/ConfiguracionDeInventario/views/ManejoDeDescuentos.vue')
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/views/ManejoDeDescuentos.vue')
     },
 
     // Operacion
