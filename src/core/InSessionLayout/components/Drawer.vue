@@ -12,9 +12,7 @@ const modulos = inject('modulos')
         <input id="my-drawer" type="checkbox" class="drawer-toggle" v-model="showSidebar" />
         <div class="drawer-side">
             <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-            <div
-                class="menu bg-[var(--black)] text-white justify-between min-h-full w-70 max-w-[80vw]"
-            >
+            <div class="menu bg-[var(--black)] text-white justify-between min-h-full w-70 max-w-[80vw] z-50">
                 <!-- Logo -->
                 <div class="flex items-center justify-between mx-4 my-7">
                     <router-link to="/" @click="() => (showSidebar = false)">
