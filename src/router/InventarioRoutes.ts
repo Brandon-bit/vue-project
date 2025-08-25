@@ -35,7 +35,7 @@ const routes = [
     {
         path: '/inventario/configuracion/marcas',
         name: 'Marcas',
-        component: () => import('@inventario/ConfiguracionDeInventario/views/Marcas.vue')
+        component: () => import('@inventario/ConfiguracionDeInventario/Marcas/views/Marcas.vue')
     },
     {
         path: '/inventario/configuracion/unidades',

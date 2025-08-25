@@ -21,6 +21,7 @@
         "axios": "1.11.0",
         "daisyui": "5.0.50",
         "floating-vue": "5.2.2",
+        "json-server": "^1.0.0-beta.3",
         "jspdf": "3.0.1",
         "jspdf-autotable": "5.0.2",
         "pinia": "3.0.3",
