@@ -13,7 +13,7 @@ import {
     getTaxesService,
     getDiscountTypesService,
     getLastNumberBarcodeService
-} from '@inventario/ConfiguracionDeInventario/Productos/services/productService'
+} from '@inventario/ConfiguracionDeInventario/CrearProducto/services/productService'
 import { ref } from 'vue'
 
 export const useProduct = () => {

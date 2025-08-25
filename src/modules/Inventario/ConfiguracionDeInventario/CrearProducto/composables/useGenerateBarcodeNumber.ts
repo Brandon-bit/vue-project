@@ -1,5 +1,5 @@
-import useProductStore from '@inventario/ConfiguracionDeInventario/Productos/store/product.store'
-import { useProduct } from '@inventario/ConfiguracionDeInventario/Productos/composables/useProduct'
+import useProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/product.store'
+import { useProduct } from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useProduct'
 const useGenerateBarcodeNumber = async () => {
     let number
     const productStore = useProductStore()

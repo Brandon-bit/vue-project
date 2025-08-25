@@ -10,11 +10,11 @@ import BaseModal from '@/shared/components/BaseModal.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import ProgressBar from '@/shared/components/ProgressBar.vue'
 import { showNotification } from '@/utils/toastNotifications'
-import { useProduct } from '@inventario/ConfiguracionDeInventario/Productos/composables/useProduct'
-import useGenerateSKU from '@inventario/ConfiguracionDeInventario/Productos/composables/useGenerateSKU'
-import useProductStore from '@inventario/ConfiguracionDeInventario/Productos/store/product.store'
-import { addVariantProductSchema } from '@inventario/ConfiguracionDeInventario/Productos/validations/productValidation'
-import useGenerateBarcodeNumber from '@inventario/ConfiguracionDeInventario/Productos/composables/useGenerateBarcodeNumber'
+import { useProduct } from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useProduct'
+import useGenerateSKU from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useGenerateSKU'
+import useProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/product.store'
+import { addVariantProductSchema } from '@inventario/ConfiguracionDeInventario/CrearProducto/validations/productValidation'
+import useGenerateBarcodeNumber from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useGenerateBarcodeNumber'
 
 const initialValues = {
     variant: '',
@@ -29,7 +29,7 @@ const initialValues = {
     tax: '',
     discountType: '',
     discountValue: '',
-    variantImage: ''
+    variantImage: []
 }
 
 const isGeneratedSku = ref(false)
@@ -38,7 +38,7 @@ const modalId = 'add-variable-product-modal'
 const productStore = useProductStore()
 const modalStore = useModalStore()
 const step = ref(1)
-// const setField = inject<(field: string, value: any, shouldValidate?: boolean) => void>('setFieldValue')!
+const skipNextVariantReset = ref(false)
 
 const {
     handleSubmit,
@@ -49,7 +49,7 @@ const {
     resetForm,
     setFieldValue
 } = useForm({
-    // validationSchema: toTypedSchema(addVariantProductSchema),
+    validationSchema: toTypedSchema(addVariantProductSchema),
     validateOnMount: false,
     validateOnChange: false,
     initialValues: initialValues
@@ -86,31 +86,38 @@ onMounted(async () => {
 watch(
     () => values.variant,
     (newVariant) => {
-        console.log('aqui')
-        // setFieldValue('variantValue', '')
         currentValueVariants.value = getNewVariantValues(newVariant)
+
+        if (skipNextVariantReset.value) {
+            skipNextVariantReset.value = false
+            return
+        }
+
+        setFieldValue('variantValue', '')
     }
 )
 
-watch(
-    step,
-    () => {
-        resetForm({ values: { ...values } })
-    },
-    { immediate: true }
-)
+// watch(
+//     step,
+//     () => {
+//         resetForm({ values: { ...values } })
+//     },
+//     { immediate: true }
+// )
 
 watch(
-    () => modalStore.modals[modalId]?.type,
-    async (newValue) => {
-        if (newValue == 'EDIT') {
+    () => modalStore.modals[modalId]?.openedAt,
+    async () => {
+        const modal = modalStore.modals[modalId]
+
+        if (modal?.type == 'EDIT') {
+            skipNextVariantReset.value = true
             await nextTick()
             const selectedVariant = productStore.variantsData[productStore.selectedVariantIndex]
-            console.log(selectedVariant)
             for (const key in selectedVariant) {
                 setFieldValue(key, selectedVariant[key], false)
             }
-        } else if (newValue == 'CREATE') {
+        } else if (modal?.type == 'CREATE') {
             resetForm({ values: initialValues })
         }
     }
