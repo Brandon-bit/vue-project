@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 
 const props = defineProps<{
@@ -8,9 +8,21 @@ const props = defineProps<{
     multiple: boolean
 }>()
 
-const fileNames = ref([])
+const fileNames = ref<string[]>([])
+const fileInput = ref<HTMLInputElement | null>(null)
 
-const { value, errorMessage } = useField(props.name)
+const { value, errorMessage, resetField } = useField(props.name)
+
+watch(value, (newValue) => {
+    if (!newValue.length) {
+        fileNames.value = ''
+        value.value = ''
+    } else {
+        fileNames.value = newValue
+        value.value = newValue
+    }
+})
+
 const handleFileChange = (event) => {
     const files = event.target.files
     fileNames.value = Array.from(files)
@@ -24,7 +36,12 @@ const handleFileChange = (event) => {
         <div class="flex justify-center items-center">
             <label
                 :for="props.name"
-                class="w-full h-40 border-4 p-3 border-dashed border-gray-300 rounded-lg flex justify-center items-center cursor-pointer hover:border-gray-400"
+                :class="[
+                    'w-full h-40 border-4 border-dashed rounded-lg flex justify-center items-center cursor-pointer hover:border-gray-400',
+                    errorMessage
+                        ? 'border-red-300 hover:border-red-400'
+                        : 'border-gray-300 hover:border-gray-400'
+                ]"
             >
                 <div class="text-center">
                     <span class="material-symbols-outlined animate-subtle-bounce text-lg">
@@ -38,8 +55,10 @@ const handleFileChange = (event) => {
                             {{ file.name }}
                         </div>
                     </div>
+                    <p v-else class="mt-3 text-gray-500">No se ha seleccionado ningún archivo.</p>
                 </div>
                 <input
+                    ref="fileInput"
                     type="file"
                     :id="props.name"
                     :name="props.name"
