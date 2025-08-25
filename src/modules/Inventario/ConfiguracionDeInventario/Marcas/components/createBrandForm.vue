@@ -8,49 +8,62 @@ import { createBrandSchema } from '../validations/brandValidation';
 import { toTypedSchema } from '@vee-validate/zod'
 import { BrandType } from '../types/brandType';
 import { addNewBrand } from '../services/brandServices';
-import { watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import useBrandStore from '../store/brand.store';
 import { useModalStore } from '@/shared/stores/modal.store';
+import { useBrand } from '../composables/useBrand'
+
+const { BRAND_MODAL_IDS } = useBrand()
 
 const brandStore = useBrandStore()
 const modalStore = useModalStore()
-// const props = defineProps<{
-//     mode: 'create' | 'edit'
-//     model: BrandType
-// }>()
+
+//console.log(brandStore.currentBrand)
 
 const initialValues = {
-    name: "",
-    image: undefined,
-    active: true
+    name: brandStore.currentBrand?.name,
+    image: brandStore.currentBrand?.image,
+    active: brandStore.currentBrand?.active
 }
 
-watch(() => brandStore.editingBrandId, (newValue, oldValue) => {
-    console.log(`El id actual es ${newValue}`)
-    
-    const brandSelected = brandStore.brands.find(b => b.id == newValue)
-    console.log(brandSelected)
 
-    for (const key in brandSelected) {
-        setFieldValue(key, brandSelected[key], false)
+// Check if the "editingBrandId" has changed and if it has changed show the modal to edit the selected brand
+// watch(() => brandStore.editingBrandId, (newValue) => {
+//     if(newValue == 0) return    
+//     const brandSelected = brandStore.brands.find(b => b.id == newValue)
+
+//     for (const key in brandSelected) {
+//         setFieldValue(key, brandSelected[key], false)
+//     }
+//     modalStore.open(modalId, { type: 'EDIT', title: 'Editar Marca' })
+// })  
+
+watch(
+  () => brandStore.currentBrand,
+  (newBrand) => {
+    if (newBrand) {
+      resetForm({
+        values: {
+          name: newBrand.name,
+          image: newBrand.image,
+          active: newBrand.active
+        }
+      })
     }
-
-    modalStore.open(modalId, { type: 'EDIT', title: 'Editar Marca' })
-})  
+  },
+  { immediate: true }
+)
 
 
 const {
     handleSubmit,
     isSubmitting,
     resetForm,
-    setFieldValue
 } = useForm({
     validationSchema: toTypedSchema(createBrandSchema),
     validateOnMount: false,
     initialValues: initialValues
 })
-
-const modalId = 'create-brand-modal'
 
 
 const onSubmit = handleSubmit(async (formValues) => {
@@ -64,11 +77,11 @@ const onSubmit = handleSubmit(async (formValues) => {
     }
     const response = await addNewBrand(brandModel)
     console.log(response)
+    // modalStore.close(modalId)
 
-    // TODO: mostrar alerta y cerrar modal
-    // nota: actualmente refresca la pagina en lugar de solo agregar el objeto al listado
-
-    resetForm();
+    // // TODO: mostrar alerta y cerrar modal
+    // // nota: actualmente refresca la pagina en lugar de solo agregar el objeto al listado
+    // resetForm();
   } catch (error) {}
 });
 
@@ -79,7 +92,7 @@ const onClose = () => {
 </script>
 
 <template>
-    <BaseModal :onSubmit="onSubmit" :modalId="modalId" :isSubmitting="isSubmitting" :onClose="onClose">
+    <BaseModal :onSubmit="onSubmit" :modalId="BRAND_MODAL_IDS.CREATE" :isSubmitting="isSubmitting" :onClose="onClose">
         <template v-slot:modalBody>
             <div>
                 <BaseFormInput name="name" type="text" label="Marca" :required="true"/>

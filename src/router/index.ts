@@ -14,7 +14,6 @@ import DefaultRoutes from './DefaultModuleRoutes'
 import ProyectosRoutes from './ProyectosRoutes'
 // Inventario Routes
 import InventarioRoutes from './InventarioRoutes'
-import ComprasRoutes from './ComprasRoutes'
 
 const routes = [
     {
@@ -26,7 +25,6 @@ const routes = [
             ...DefaultRoutes,
             ...NavBarRoutes,
             ...ProyectosRoutes,
-            ...ComprasRoutes,
             ...InventarioRoutes
         ]
     },

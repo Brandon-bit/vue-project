@@ -1,15 +1,21 @@
-
-// import { ref } from "vue"
-// import { BrandType } from "../types/brandType"
 import { getBrandsService } from "../services/brandServices"
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h  , withDirectives } from 'vue'
 import { useBrandActions } from '../composables/useBrandActions'
 import useBrandStore from "../store/brand.store"
+import { useModalStore } from '@/shared/stores/modal.store'
+
+export const BRAND_MODAL_IDS = {
+  CREATE: 'brand-create',
+  EDIT: 'brand-edit',
+  DELETE: 'brand-delete',
+  INFO: 'brand-info'
+} as const
 
 export const useBrand = () => {
     //const brands = ref<BrandType[]>([])
     const brandStore = useBrandStore()
+    const modalStore = useModalStore()
     
     const getBrands = async () => {
         try{
@@ -78,9 +84,6 @@ export const useBrand = () => {
                 accessorKey: '',
                 cell: ({ row } : any) => {
                     const data = row.original
-
-                    const { edit, deleteData } = useBrandActions()
-
                     
                     return h('div', { class: 'flex gap-4 justify-center' }, [
                         withDirectives(
@@ -93,7 +96,13 @@ export const useBrand = () => {
                                 [
                                     h('button', { 
                                     class: 'btn btn-outline btn-primary action-btn-table',
-                                    onClick: () => edit(data)
+                                    onClick: () => {
+                                        brandStore.setCurrentForEdit(data)
+                                        modalStore.open(BRAND_MODAL_IDS.CREATE, {
+                                            type: 'EDIT',
+                                            title: 'Editar Marca'
+                                        })
+                                    }
                                     }, [h('span', { class: 'material-symbols-outlined' }, 'edit_square')])
                                 ]
                             ),
@@ -109,7 +118,13 @@ export const useBrand = () => {
                                 [
                                     h('button', { 
                                     class: 'btn btn-outline btn-error action-btn-table',
-                                    onClick: () => deleteData(data)
+                                    onClick: () => {
+                                        brandStore.setCurrentForDelete(data)
+                                        modalStore.open(BRAND_MODAL_IDS.DELETE, {
+                                            type: 'DELETE',
+                                            title: 'Eliminar Marca'
+                                        })
+                                    }
                                     }, [h('span', { class: 'material-symbols-outlined' }, 'delete')])
                                 ]
                             ),
@@ -125,6 +140,7 @@ export const useBrand = () => {
 
     return {
         getBrands,
-        getBrandsTableColumns
+        getBrandsTableColumns,
+        BRAND_MODAL_IDS
     }
 }
