@@ -6,11 +6,13 @@ const props = defineProps<{
     name: string
     label: string
     multiple: boolean
+    accept?: string
 }>()
 
 const fileNames = ref([])
 
 const { value, errorMessage } = useField(props.name)
+
 const handleFileChange = (event) => {
     const files = event.target.files
     fileNames.value = Array.from(files)
@@ -47,6 +49,7 @@ const handleFileChange = (event) => {
                     :class="{ 'input-error': errorMessage }"
                     @change="handleFileChange"
                     :multiple="props.multiple || false"
+                    :accept="accept || '*/*'" 
                 />
             </label>
         </div>

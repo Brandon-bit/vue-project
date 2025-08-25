@@ -1,6 +1,8 @@
 export type BrandType = {
-    id: number
+    id?: number
     name: string
-    creationDate: string
+    creationDate: Date
     active: boolean
+    imageUrl: string
+    image: FileList | undefined
 }
