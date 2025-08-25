@@ -6,6 +6,7 @@ const props = defineProps<{
     name: string
     label: string
     multiple: boolean
+    accept?: string
 }>()
 
 const fileNames = ref<string[]>([])
@@ -66,6 +67,7 @@ const handleFileChange = (event) => {
                     :class="{ 'input-error': errorMessage }"
                     @change="handleFileChange"
                     :multiple="props.multiple || false"
+                    :accept="accept || '*/*'" 
                 />
             </label>
         </div>
