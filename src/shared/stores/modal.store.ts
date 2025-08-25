@@ -6,6 +6,7 @@ interface ModalState {
     data?: any
     title?: string
     type?: ModalType
+    openedAt?: number
 }
 
 interface ModalOptions {
@@ -24,7 +25,8 @@ export const useModalStore = defineStore('modal', {
                 status: true,
                 data: options?.data,
                 title: options?.title,
-                type: options?.type
+                type: options?.type,
+                openedAt: Date.now()
             }
         },
         close(modalId: string) {
