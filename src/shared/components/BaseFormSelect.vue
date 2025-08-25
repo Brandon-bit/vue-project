@@ -23,7 +23,12 @@ const optionsMap = computed(() => [{ id: '', label: 'Elige una opción' }, ...pr
             >{{ label }}
             <span v-if="props.required" class="text-error"> *</span>
         </label>
-        <select v-model="value" class="select w-full" :class="{ 'select-error': errorMessage }">
+        <select
+            v-model="value"
+            class="select w-full"
+            :name="props.name"
+            :class="{ 'select-error': errorMessage }"
+        >
             <option
                 v-for="(option, index) in optionsMap"
                 :key="index"
