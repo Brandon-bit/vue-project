@@ -5,7 +5,10 @@
         <!-- Proyectopolis icon-->
         <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon.ico" />
         <!-- Icons-->
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+            rel="stylesheet"
+        />
         <!-- Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,10 +17,35 @@
             rel="stylesheet"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <title>Proyectopolis</title>
     </head>
     <body>
         <div id="app"></div>
+        <div
+            id="initial-loader"
+            style="
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: #1d1d1b;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            "
+        >
+            <lottie-player
+                src="/icono.json"
+                background="transparent"
+                speed="1"
+                style="width: 60px; height: 60px"
+                autoplay
+            ></lottie-player>
+        </div>
+
         <script type="module" src="/src/main.ts"></script>
     </body>
 </html>

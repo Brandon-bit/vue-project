@@ -24,6 +24,7 @@
         "json-server": "^1.0.0-beta.3",
         "jspdf": "3.0.1",
         "jspdf-autotable": "5.0.2",
+        "lottie-web": "^5.13.0",
         "pinia": "3.0.3",
         "tailwindcss": "4.1.11",
         "vee-validate": "4.15.1",
