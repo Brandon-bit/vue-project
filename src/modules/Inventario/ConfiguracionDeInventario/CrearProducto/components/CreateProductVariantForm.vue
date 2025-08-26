@@ -97,14 +97,6 @@ watch(
     }
 )
 
-// watch(
-//     step,
-//     () => {
-//         resetForm({ values: { ...values } })
-//     },
-//     { immediate: true }
-// )
-
 watch(
     () => modalStore.modals[modalId]?.openedAt,
     async () => {
