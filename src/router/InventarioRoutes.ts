@@ -8,7 +8,8 @@ const routes = [
     {
         path: '/inventario/configuracion/crear-producto',
         name: 'CrearProductos',
-        component: () => import('@inventario/ConfiguracionDeInventario/Productos/views/CrearProducto.vue')
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CrearProducto.vue')
     },
     // {
     //     path: '/inventario/configuracion/productos-expirados',
@@ -20,11 +21,12 @@ const routes = [
     //     name: 'StockBajo',
     //     component: () => import('@inventario/ConfiguracionDeInventario/views/StockBajo.vue')
     // },
-    // {
-    //     path: '/inventario/configuracion/categoria',
-    //     name: 'Categoría',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/Categoria.vue')
-    // },
+    {
+        path: '/inventario/configuracion/categoria',
+        name: 'Categoría',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/Categorias/views/Categorias.vue')
+    },
     // {
     //     path: '/inventario/configuracion/sub-categoría',
     //     name: 'Subcategoría',
