@@ -119,7 +119,7 @@ const openCreateModal = () => {
 <template>
     <!-- MAIN VIEW -->
     <h2>Marcas</h2>
-    <BaseButton text="Nueva Marca" @click="openCreateModal()" icon="add" />
+    <BaseButton text="Nueva Marca" @click="openCreateModal()" icon="add" className="mb-3"/>
     
     <p v-if="loading">Cargando...</p>
     <BaseTable v-else :data="brandStore.brands" :headers="getBrandsTableColumns()"/>
