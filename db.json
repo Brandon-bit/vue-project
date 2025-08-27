@@ -473,44 +473,103 @@
     ],
     "variant": [
         {
-            "id": "1",
-            "label": "Tamaño"
+            "name": "Size (T-shirts)",
+            "values": [
+                {
+                    "id": "1",
+                    "value": "S"
+                },
+                {
+                    "id": "2",
+                    "value": "M"
+                },
+                {
+                    "id": "3",
+                    "value": "L"
+                },
+                {
+                    "id": "4",
+                    "value": "XL"
+                }
+            ],
+            "creationDate": "2024-05-25",
+            "active": true
         },
         {
-            "id": "2",
-            "label": "Color"
+            "name": "Size (Shoes)",
+            "values": [
+                {
+                    "id": "5",
+                    "value": "5"
+                },
+                {
+                    "id": "6",
+                    "value": "6"
+                },
+                {
+                    "id": "7",
+                    "value": "7"
+                },
+                {
+                    "id": "8",
+                    "value": "8"
+                }
+            ],
+            "creationDate": "2024-06-24",
+            "active": true
         },
         {
-            "id": "3",
-            "label": "Material"
+            "name": "Color",
+            "values": [
+                {
+                    "id": "9",
+                    "value": "Red"
+                },
+                {
+                    "id": "10",
+                    "value": "Blue"
+                },
+                {
+                    "id": "11",
+                    "value": "Green"
+                }
+            ],
+            "creationDate": "2024-07-23",
+            "active": true
         },
         {
-            "id": "4",
-            "label": "Tipo"
+            "name": "Memory",
+            "values": [
+                {
+                    "id": "13",
+                    "value": "64 GB"
+                },
+                {
+                    "id": "14",
+                    "value": "128 GB"
+                },
+                {
+                    "id": "15",
+                    "value": "512 GB"
+                }
+            ],
+            "creationDate": "2024-08-22",
+            "active": true
         },
         {
-            "id": "5",
-            "label": "Peso"
-        },
-        {
-            "id": "6",
-            "label": "Voltaje"
-        },
-        {
-            "id": "7",
-            "label": "Diámetro"
-        },
-        {
-            "id": "8",
-            "label": "Marca"
-        },
-        {
-            "id": "9",
-            "label": "Capacidad"
-        },
-        {
-            "id": "10",
-            "label": "Uso"
+            "name": "Storage",
+            "values": [
+                {
+                    "id": "17",
+                    "value": "250GB"
+                },
+                {
+                    "id": "18",
+                    "value": "1TB"
+                }   
+            ],
+            "creationDate": "2024-09-21",
+            "active": true
         }
     ],
     "valueVariant": [
