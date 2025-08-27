@@ -268,54 +268,46 @@
     ],
     "unit": [
         {
-            "id": "1",
-            "label": "Unidad",
-            "sufijo": "u"
+            "name": "Piece",
+            "shortName": "PC",
+            "productsCount": 25,
+            "creationDate": "2024-05-25",
+            "active": true
         },
         {
-            "id": "2",
-            "label": "Kilogramo",
-            "sufijo": "kg"
+            "name": "Kilogram",
+            "shortName": "KG",
+            "productsCount": 15,
+            "creationDate": "2023-06-24",
+            "active": true
         },
         {
-            "id": "3",
-            "label": "Metro",
-            "sufijo": "m"
+            "name": "Gram",
+            "shortName": "G",
+            "productsCount": 47,
+            "creationDate": "2024-07-23",
+            "active": true
         },
         {
-            "id": "4",
-            "label": "Caja",
-            "sufijo": "cj"
+            "name": "Meter",
+            "shortName": "M",
+            "productsCount": 28,
+            "creationDate": "2024-08-22",
+            "active": true
         },
         {
-            "id": "5",
-            "label": "Pallet",
-            "sufijo": "plt"
+            "name": "Liter",
+            "shortName": "L",
+            "productsCount": 47,
+            "creationDate": "2024-09-21",
+            "active": true
         },
         {
-            "id": "6",
-            "label": "Paquete",
-            "sufijo": "paq"
-        },
-        {
-            "id": "7",
-            "label": "Bulto",
-            "sufijo": "blt"
-        },
-        {
-            "id": "8",
-            "label": "Litro",
-            "sufijo": "l"
-        },
-        {
-            "id": "9",
-            "label": "Docena",
-            "sufijo": "dz"
-        },
-        {
-            "id": "10",
-            "label": "Bolsa",
-            "sufijo": "bls"
+            "name": "Kilo",
+            "shortName": "K",
+            "productsCount": 74,
+            "creationDate": "2024-09-20",
+            "active": true
         }
     ],
     "brand": [

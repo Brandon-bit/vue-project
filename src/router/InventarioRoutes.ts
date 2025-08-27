@@ -37,11 +37,11 @@ const routes = [
         name: 'Marcas',
         component: () => import('@inventario/ConfiguracionDeInventario/Marcas/views/Marcas.vue')
     },
-    // {
-    //     path: '/inventario/configuracion/unidades',
-    //     name: 'Unidades',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/Unidades.vue')
-    // },
+    {
+        path: '/inventario/configuracion/unidades',
+        name: 'Unidades',
+        component: () => import('@inventario/ConfiguracionDeInventario/Unidades/views/Unidades.vue')
+    },
     // {
     //     path: '/inventario/configuracion/atributos-variantes',
     //     name: 'AtributosVariantes',
