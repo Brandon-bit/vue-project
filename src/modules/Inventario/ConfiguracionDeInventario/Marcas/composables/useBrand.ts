@@ -1,19 +1,10 @@
 import { getBrandsService } from "../services/brandServices"
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h  , withDirectives } from 'vue'
-import { useBrandActions } from '../composables/useBrandActions'
 import useBrandStore from "../store/brand.store"
 import { useModalStore } from '@/shared/stores/modal.store'
 
-export const BRAND_MODAL_IDS = {
-  CREATE: 'brand-create',
-  EDIT: 'brand-edit',
-  DELETE: 'brand-delete',
-  INFO: 'brand-info'
-} as const
-
 export const useBrand = () => {
-    //const brands = ref<BrandType[]>([])
     const brandStore = useBrandStore()
     const modalStore = useModalStore()
     
@@ -97,8 +88,8 @@ export const useBrand = () => {
                                     h('button', { 
                                     class: 'btn btn-outline btn-primary action-btn-table',
                                     onClick: () => {
-                                        brandStore.setCurrentForEdit(data)
-                                        modalStore.open(BRAND_MODAL_IDS.CREATE, {
+                                        brandStore.setData(data)
+                                        modalStore.open(brandStore.modalId, {
                                             type: 'EDIT',
                                             title: 'Editar Marca'
                                         })
@@ -119,8 +110,8 @@ export const useBrand = () => {
                                     h('button', { 
                                     class: 'btn btn-outline btn-error action-btn-table',
                                     onClick: () => {
-                                        brandStore.setCurrentForDelete(data)
-                                        modalStore.open(BRAND_MODAL_IDS.DELETE, {
+                                        brandStore.setData(data)
+                                        modalStore.open(brandStore.modalId, {
                                             type: 'DELETE',
                                             title: 'Eliminar Marca'
                                         })
@@ -140,7 +131,6 @@ export const useBrand = () => {
 
     return {
         getBrands,
-        getBrandsTableColumns,
-        BRAND_MODAL_IDS
+        getBrandsTableColumns
     }
 }

@@ -1,32 +1,39 @@
+import { ApiResponseType } from "@/shared/types/apiResponseType"
 import { BrandType } from "../types/brandType"
-import useBrandStore from "../store/brand.store"
-// import { useModalStore } from '@/shared/stores/modal.store'
-// import { useBrand } from '../composables/useBrand'
-
-// const { BRAND_MODAL_IDS } = useBrand()
-// const modalStore = useModalStore()
-const brandStore = useBrandStore()
 
 export function useBrandActions() {
-    const showInfo = (data: any) => {
-        console.log('Ver info:', data)
+
+    const createBrand = async (data : BrandType) : Promise<ApiResponseType<BrandType>> => {
+        const response : ApiResponseType<BrandType> = {
+            message: "Mensaje Default",
+            success: true,
+            data: data
+        }
+
+        return response
     }
 
-    const edit = (data: BrandType) => {
-        if(data.id == undefined) return
-        brandStore.editingBrandId = data.id
+    const editBrand = async (data : BrandType) : Promise<ApiResponseType<boolean>> => {
+        const response : ApiResponseType<boolean> = {
+            message: "Mensaje Default",
+            success: true,
+            data: true
+        }
+
+        return response
     }
 
-    const deleteData = (data: any) => {
-        if(data.id == undefined) return
-        brandStore.deletingBrandId = data.id
+    const deleteBrand = async (data : BrandType) : Promise<ApiResponseType<boolean>> => {
+        const response : ApiResponseType<boolean> = {
+            message: "Mensaje Default",
+            success: true,
+            data: true
+        }
 
-        // modalStore.open(BRAND_MODAL_IDS.CREATE, {
-        // type: 'DELETE',
-        // title: 'Eliminar Marca'
-        //})
+        return response
     }
 
-  return { showInfo, edit, deleteData }
+  return { createBrand, editBrand, deleteBrand }
 }
+
 

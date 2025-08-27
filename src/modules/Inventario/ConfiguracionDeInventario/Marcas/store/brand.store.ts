@@ -1,32 +1,24 @@
 import { defineStore } from 'pinia'
 import { BrandType } from '../types/brandType'
 
-function createEmptyBrand(): BrandType {
-  return {
+const initialBrand: BrandType = {
     id: undefined,
     name: '',
     image: undefined,
     active: true,
     creationDate: new Date(),
     imageUrl: '' 
-  }
 }
 
 const useBrandStore = defineStore('brand-store', {
     state: () => ({
-        brands: [],
-        currentBrand: null as BrandType | null
+        brands: [] as BrandType[],
+        selectedBrand: initialBrand as BrandType,
+        modalId: 'brand-modal'
     }),
     actions: {
-        setCurrentForCreate() {
-            this.currentBrand = createEmptyBrand()
-        },
-        setCurrentForEdit(brand: BrandType) {
-            this.currentBrand = { ...brand }
-            //console.log(this.currentBrand)
-        },
-        setCurrentForDelete(brand: BrandType) {
-            this.currentBrand = { ...brand }
+        setData(data: BrandType = initialBrand) {
+            this.selectedBrand = data
         },
         async removeItemFromBrands(index: number) {
             this.brands.splice(index, 1)
