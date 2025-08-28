@@ -42,12 +42,12 @@ const routes = [
         name: 'Unidades',
         component: () => import('@inventario/ConfiguracionDeInventario/Unidades/views/Unidades.vue')
     },
-    // {
-    //     path: '/inventario/configuracion/atributos-variantes',
-    //     name: 'AtributosVariantes',
-    //     component: () =>
-    //         import('@inventario/ConfiguracionDeInventario/views/AtributosVariantes.vue')
-    // },
+    {
+        path: '/inventario/configuracion/atributos-variantes',
+        name: 'AtributosVariantes',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/AtributosVariantes/views/AtributosVariantes.vue')
+    },
     // {
     //     path: '/inventario/configuracion/garantias',
     //     name: 'Garantias',
