@@ -48,11 +48,11 @@ const routes = [
         component: () =>
             import('@inventario/ConfiguracionDeInventario/AtributosVariantes/views/AtributosVariantes.vue')
     },
-    // {
-    //     path: '/inventario/configuracion/garantias',
-    //     name: 'Garantias',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/Garantias.vue')
-    // },
+    {
+        path: '/inventario/configuracion/garantias',
+        name: 'Garantias',
+        component: () => import('@inventario/ConfiguracionDeInventario/Garantias/views/Garantias.vue')
+    },
     // {
     //     path: '/inventario/configuracion/imprimir-codigo-de-barras',
     //     name: 'ImprimirCodígoDeBarras',

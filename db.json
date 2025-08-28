@@ -110,6 +110,88 @@
             "label": "Almacén Renca"
         }
     ],
+    "warranty": [
+        {
+            "id": 1,
+            "name": "Replacement Warranty",
+            "duration": 2,
+            "period": "year",
+            "description": "Covers replacement of faulty items",
+            "active": true
+        },
+        {
+            "id": 2,
+            "name": "On-Site Warranty",
+            "duration": 1,
+            "period": "year",
+            "description": "Product repairs done at the customer’s location",
+            "active": true
+        },
+        {
+            "id": 3,
+            "name": "Accidental Protection Plan",
+            "duration": 6,
+            "period": "month",
+            "description": "Coverage for accidental damage",
+            "active": true
+        },
+        {
+            "id": 4,
+            "name": "Labor-Only Warranty",
+            "duration": 6,
+            "period": "month",
+            "description": "Covers only labor costs, not parts",
+            "active": true
+        },
+        {
+            "id": 5,
+            "name": "No-Cost Repairs",
+            "duration": 3,
+            "period": "month",
+            "description": "No charge for repairs during warranty period",
+            "active": true
+        },
+        {
+            "id": 6,
+            "name": "Accidental Damage",
+            "duration": 6,
+            "period": "month",
+            "description": "Coverage for unexpected damage",
+            "active": true
+        },
+        {
+            "id": 7,
+            "name": "Wear & Tear Warranty",
+            "duration": 1,
+            "period": "year",
+            "description": "Covers specific product aging issues",
+            "active": true
+        },
+        {
+            "id": 8,
+            "name": "Money-Back Guarantee",
+            "duration": 3,
+            "period": "month",
+            "description": "Refund within a specified period",
+            "active": true
+        },
+        {
+            "id": 9,
+            "name": "Water Damage Warranty",
+            "duration": 6,
+            "period": "month",
+            "description": "Coverage for water-related issues",
+            "active": true
+        },
+        {
+            "id": 10,
+            "name": "Power Surge Protection",
+            "duration": 6,
+            "period": "month",
+            "description": "Covers damage from power surges",
+            "active": true
+        }
+    ],
     "sellingType": [
         {
             "id": "1",

@@ -5,7 +5,7 @@ const variantAttributeStore = useVariantAttributeStore()
 
 <template>
     <p class="text-center">
-        ¿Estás seguro que deseas eliminar la categoría
+        ¿Estás seguro que deseas eliminar el atributo variante
         <span class="!font-semibold"> "{{ variantAttributeStore.selectedVariantAttribute.name }}" ? </span>
     </p>
 </template>

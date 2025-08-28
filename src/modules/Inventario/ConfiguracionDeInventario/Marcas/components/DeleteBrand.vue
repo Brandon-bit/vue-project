@@ -5,7 +5,7 @@ const brandStore = useBrandStore()
 
 <template>
     <p class="text-center">
-        ¿Estás seguro que deseas eliminar la categoría
+        ¿Estás seguro que deseas eliminar la marca
         <span class="!font-semibold"> "{{ brandStore.selectedBrand?.name }}" ? </span>
     </p>
 </template>
