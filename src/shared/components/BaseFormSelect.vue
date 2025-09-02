@@ -5,7 +5,7 @@ import { computed } from 'vue'
 const props = defineProps<{
     label: string
     name: string
-    options: { id: number; label: string }[]
+    options: { id: number | string; label: string }[]
     required?: boolean
     class?: string
 }>()

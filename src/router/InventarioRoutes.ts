@@ -44,22 +44,22 @@ const routes = [
         name: 'Marcas',
         component: () => import('@inventario/ConfiguracionDeInventario/Marcas/views/Marcas.vue')
     },
-    // {
-    //     path: '/inventario/configuracion/unidades',
-    //     name: 'Unidades',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/Unidades.vue')
-    // },
-    // {
-    //     path: '/inventario/configuracion/atributos-variantes',
-    //     name: 'AtributosVariantes',
-    //     component: () =>
-    //         import('@inventario/ConfiguracionDeInventario/views/AtributosVariantes.vue')
-    // },
-    // {
-    //     path: '/inventario/configuracion/garantias',
-    //     name: 'Garantias',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/Garantias.vue')
-    // },
+    {
+        path: '/inventario/configuracion/unidades',
+        name: 'Unidades',
+        component: () => import('@inventario/ConfiguracionDeInventario/Unidades/views/Unidades.vue')
+    },
+    {
+        path: '/inventario/configuracion/atributos-variantes',
+        name: 'AtributosVariantes',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/AtributosVariantes/views/AtributosVariantes.vue')
+    },
+    {
+        path: '/inventario/configuracion/garantias',
+        name: 'Garantias',
+        component: () => import('@inventario/ConfiguracionDeInventario/Garantias/views/Garantias.vue')
+    },
     // {
     //     path: '/inventario/configuracion/imprimir-codigo-de-barras',
     //     name: 'ImprimirCodígoDeBarras',
