@@ -1,5 +1,5 @@
-import { CategoryFormType } from '../types/categoryType'
-import useCategoryStore from '../store/category.store'
+import { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryType'
+import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/category.store'
 
 export const useCategoryAction = () => {
     const categoryStore = useCategoryStore()

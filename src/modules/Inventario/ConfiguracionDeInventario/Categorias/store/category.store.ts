@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { CategoryType } from '../types/categoryType'
+import { CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryType'
 
 const initialCategory: CategoryType = {
     id: undefined,

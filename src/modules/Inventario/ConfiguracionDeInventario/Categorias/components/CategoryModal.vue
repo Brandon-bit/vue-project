@@ -1,23 +1,17 @@
 <script setup lang="ts">
 import BaseModal from '@/shared/components/BaseModal.vue'
-import BaseButton from '@/shared/components/BaseButton.vue'
-import BaseTable from '@/shared/components/BaseTable.vue'
-import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
-import { useCategory } from '../composables/useCategory'
-import useCategoryStore from '../store/category.store'
-import { onMounted, ref, computed, watch } from 'vue'
+import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/category.store'
+import { computed, watch } from 'vue'
 import { useForm } from 'vee-validate'
-import DeleteCategory from '../components/DeleteCategory.vue'
-import AddEditForm from '../components/AddEditForm.vue'
+import DeleteCategory from '@inventario/ConfiguracionDeInventario/Categorias/components/DeleteCategory.vue'
+import AddEditForm from '@inventario/ConfiguracionDeInventario/Categorias/components/AddEditForm.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
-import { categorySchema } from '../validations/categoryValidation'
+import { categorySchema } from '@inventario/ConfiguracionDeInventario/Categorias/validations/categoryValidation'
 import { toTypedSchema } from '@vee-validate/zod'
-import { useCategoryAction } from '../composables/useCategoryAction'
+import { useCategoryAction } from '@inventario/ConfiguracionDeInventario/Categorias/composables/useCategoryAction'
 
-const { getCategories, getTableColumns } = useCategory()
 const categoryStore = useCategoryStore()
 const modalStore = useModalStore()
-let loading = ref<boolean>(false)
 const { createCategory, editCategory, deleteCategory } = useCategoryAction()
 
 const initialValues = {
@@ -61,14 +55,6 @@ const modalMap = {
     }
 }
 
-onMounted(async () => {
-    loading.value = true
-    await getCategories()
-    setTimeout(() => {
-        loading.value = false
-    }, 500)
-})
-
 const currentModalComponent = computed(() => {
     const modalType = modalStore.modals[categoryStore.modalId]?.type
     return modalMap[modalType]?.component
@@ -79,7 +65,6 @@ const onSubmit = handleSubmit(async (formValues) => {
     const action = modalMap[modalType]?.action
     try {
         const { message, status, data } = await action(formValues)
-        
     } catch (error) {
         console.error(error)
     }
@@ -90,19 +75,8 @@ const onClose = () => {
     categoryStore.setData()
 }
 
-const openCreateModal = () => {
-    categoryStore.setData()
-    modalStore.open(categoryStore.modalId, { type: 'CREATE', title: 'Crear categoría' })
-}
 </script>
 <template>
-    <h2 class="text-center mb-8">Categorías</h2>
-
-    <div class="mb-10 text-right">
-        <BaseButton text="Crear categoría" @click="openCreateModal" />
-    </div>
-    <BaseSkeletonTable v-if="loading" />
-    <BaseTable v-else :data="categoryStore.categories" :headers="getTableColumns()" />
     <BaseModal
         :onSubmit="onSubmit"
         :modalId="categoryStore.modalId"
@@ -114,4 +88,3 @@ const openCreateModal = () => {
         </template>
     </BaseModal>
 </template>
-<style></style>

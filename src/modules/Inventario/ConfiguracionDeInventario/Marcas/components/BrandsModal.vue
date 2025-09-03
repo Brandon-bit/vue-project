@@ -1,34 +1,30 @@
 <script setup lang="ts">
 // #region Imports
-import BaseTable from '@/shared/components/BaseTable.vue'
-import { onMounted, ref, computed, watch } from 'vue'
-import { useBrand } from '../composables/useBrand'
-import { useBrandActions } from '../composables/useBrandActions'
+import { computed, watch } from 'vue'
+import { useBrandActions } from '@inventario/ConfiguracionDeInventario/Marcas/composables/useBrandActions'
 import { useModalStore } from '@/shared/stores/modal.store'
-import BaseButton from '@/shared/components/BaseButton.vue'
-import useBrandStore from '../store/brand.store'
+import useBrandStore from '@inventario/ConfiguracionDeInventario/Marcas/store/brand.store'
 import BaseModal from '@/shared/components/BaseModal.vue'
 import { useForm } from 'vee-validate'
-import AddEditBrandForm from '../components/AddEditBrandForm.vue'
-import DeleteBrand from '../components/DeleteBrand.vue'
+import AddEditBrandForm from '@inventario/ConfiguracionDeInventario/Marcas/components/AddEditBrandForm.vue'
+import DeleteBrand from '@inventario/ConfiguracionDeInventario/Marcas/components/DeleteBrand.vue'
 import { toTypedSchema } from '@vee-validate/zod'
-import { createBrandSchema } from '../validations/brandValidation';
-import { BrandType } from '../types/brandType'
+import { createBrandSchema } from '@inventario/ConfiguracionDeInventario/Marcas/validations/brandValidation'
+import { BrandType } from '@inventario/ConfiguracionDeInventario/Marcas/types/brandType'
+
 // #endregion
 
 // #region Data
-let loading = ref<boolean>(false)
-const { getBrands, getBrandsTableColumns } = useBrand()
 const { createBrand, editBrand, deleteBrand } = useBrandActions()
 const modalStore = useModalStore()
 const brandStore = useBrandStore()
 
-const initialValues : BrandType = {
+const initialValues: BrandType = {
     name: brandStore.selectedBrand.name,
     image: brandStore.selectedBrand.image,
     active: brandStore.selectedBrand.active,
-    creationDate:  brandStore.selectedBrand.creationDate,
-    imageUrl:  brandStore.selectedBrand.imageUrl
+    creationDate: brandStore.selectedBrand.creationDate,
+    imageUrl: brandStore.selectedBrand.imageUrl
 }
 
 const modalMap = {
@@ -46,24 +42,10 @@ const modalMap = {
     }
 }
 
-const {
-    handleSubmit,
-    isSubmitting,
-    resetForm,
-    setValues
-} = useForm({
+const { handleSubmit, isSubmitting, resetForm, setValues } = useForm({
     validationSchema: toTypedSchema(createBrandSchema),
     validateOnMount: false,
     initialValues: initialValues
-})
-// #endregion
-
-// #region OnMounted
-onMounted(async () => {
-    // Once the view is rendered, the data is loaded 
-    loading.value = true
-    await getBrands()
-    loading.value = false
 })
 // #endregion
 
@@ -108,23 +90,10 @@ const onClose = () => {
     resetForm()
     brandStore.setData()
 }
-
-const openCreateModal = () => {
-    brandStore.setData()
-    modalStore.open(brandStore.modalId, { type: 'CREATE', title: 'Crear categoría' })
-}
 // #endregion
 </script>
 
 <template>
-    <!-- MAIN VIEW -->
-    <h2>Marcas</h2>
-    <BaseButton text="Nueva Marca" @click="openCreateModal()" icon="add" className="mb-3"/>
-    
-    <p v-if="loading">Cargando...</p>
-    <BaseTable v-else :data="brandStore.brands" :headers="getBrandsTableColumns()"/>
-
-    <!-- MODAL -->
     <BaseModal
         :onSubmit="onSubmit"
         :modalId="brandStore.modalId"
@@ -136,4 +105,3 @@ const openCreateModal = () => {
         </template>
     </BaseModal>
 </template>
-

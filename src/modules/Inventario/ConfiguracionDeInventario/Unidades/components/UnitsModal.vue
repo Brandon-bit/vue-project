@@ -1,8 +1,6 @@
 <script setup lang="ts">
 // #region Imports
-import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
-import { onMounted, ref, computed, watch } from 'vue'
-import { useUnit } from '../composables/useUnit'
+import { computed, watch } from 'vue'
 import { useUnitActions } from '../composables/useUnitActions'
 import { useModalStore } from '@/shared/stores/modal.store'
 import useUnitStore from '../store/unit.store'
@@ -11,15 +9,11 @@ import AddEditUnitForm from '../components/AddEditUnitForm.vue'
 import DeleteUnit from '../components/DeleteUnit.vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import BaseTable from '@/shared/components/BaseTable.vue'
 import { createUnitSchema } from '../validations/unitValidation'
-import BaseButton from '@/shared/components/BaseButton.vue'
 import BaseModal from '@/shared/components/BaseModal.vue'
 // #endregion
 
 // #region Data
-let loading = ref<boolean>(false)
-const { getUnits, getUnitsTableColumns } = useUnit()
 const { createUnit, editUnit, deleteUnit } = useUnitActions()
 const modalStore = useModalStore()
 const unitStore = useUnitStore()
@@ -59,14 +53,6 @@ const {
 })
 // #endregion
 
-// #region OnMounted
-onMounted(async () => {
-    // Once the view is rendered, the data is loaded 
-    loading.value = true
-    await getUnits()
-    loading.value = false
-})
-// #endregion
 
 // #region Computed
 const currentModalComponent = computed(() => {
@@ -110,22 +96,10 @@ const onClose = () => {
     unitStore.setData()
 }
 
-const openCreateModal = () => {
-    console.log("ds")
-    unitStore.setData()
-    modalStore.open(unitStore.modalId, { type: 'CREATE', title: 'Agregar Unidad' })
-}
 // #endregion
 </script>
 
 <template>
-    <h2>Unidades</h2>
-    <BaseButton text="Nueva Unidad" @click="openCreateModal()" icon="add" className="mb-3"/>
-
-    <BaseSkeletonTable v-if="loading" />
-    <BaseTable v-else :data="unitStore.units" :headers="getUnitsTableColumns()"/>
-
-    <!-- MODAL -->
     <BaseModal
         :onSubmit="onSubmit"
         :modalId="unitStore.modalId"

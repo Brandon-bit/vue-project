@@ -1,34 +1,29 @@
 <script setup lang="ts">
 // #region Imports
-import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
-import { onMounted, ref, computed, watch } from 'vue'
-import { useVariantAttribute } from '../composables/useVariantAttribute'
-import { useVariantAttributeActions } from '../composables/useVariantAttributeActions'
+import { computed, watch } from 'vue'
+import { useVariantAttributeActions } from '@inventario/ConfiguracionDeInventario/AtributosVariantes//composables/useVariantAttributeActions'
 import { useModalStore } from '@/shared/stores/modal.store'
-import useVariantAttributeStore from '../store/variantAttribute.store'
-import { VariantAttributeType } from '../types/variantAttributeType'
-import AddEditVariantAttributeForm from '../components/AddEditVariantAttributeForm.vue'
-import DeleteVariantAttribute from '../components/DeleteVariantAttribute.vue'
+import useVariantAttributeStore from '@inventario/ConfiguracionDeInventario/AtributosVariantes//store/variantAttribute.store'
+import { VariantAttributeType } from '@inventario/ConfiguracionDeInventario/AtributosVariantes//types/variantAttributeType'
+import AddEditVariantAttributeForm from '@inventario/ConfiguracionDeInventario/AtributosVariantes//components/AddEditVariantAttributeForm.vue'
+import DeleteVariantAttribute from '@inventario/ConfiguracionDeInventario/AtributosVariantes//components/DeleteVariantAttribute.vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import BaseTable from '@/shared/components/BaseTable.vue'
-import { createVariantAttributeSchema } from '../validations/variantAttributeValidation'
-import BaseButton from '@/shared/components/BaseButton.vue'
+import { createVariantAttributeSchema } from '@inventario/ConfiguracionDeInventario/AtributosVariantes//validations/variantAttributeValidation'
 import BaseModal from '@/shared/components/BaseModal.vue'
 // #endregion
 
 // #region Data
-let loading = ref<boolean>(false)
-const { getVariantAttributes, getVariantAttributesTableColumns } = useVariantAttribute()
-const { createVariantAttribute, editVariantAttribute, deleteVariantAttribute } = useVariantAttributeActions()
+const { createVariantAttribute, editVariantAttribute, deleteVariantAttribute } =
+    useVariantAttributeActions()
 const modalStore = useModalStore()
 const variantAttributeStore = useVariantAttributeStore()
 
-const initialValues : VariantAttributeType = {
+const initialValues: VariantAttributeType = {
     name: variantAttributeStore.selectedVariantAttribute.name,
     values: variantAttributeStore.selectedVariantAttribute.values,
     active: variantAttributeStore.selectedVariantAttribute.active,
-    creationDate:  variantAttributeStore.selectedVariantAttribute.creationDate
+    creationDate: variantAttributeStore.selectedVariantAttribute.creationDate
 }
 
 const modalMap = {
@@ -46,24 +41,10 @@ const modalMap = {
     }
 }
 
-const {
-    handleSubmit,
-    isSubmitting,
-    resetForm,
-    setValues
-} = useForm({
+const { handleSubmit, isSubmitting, resetForm, setValues } = useForm({
     validationSchema: toTypedSchema(createVariantAttributeSchema),
     validateOnMount: false,
     initialValues: initialValues
-})
-// #endregion
-
-// #region OnMounted
-onMounted(async () => {
-    // Once the view is rendered, the data is loaded 
-    loading.value = true
-    await getVariantAttributes()
-    loading.value = false
 })
 // #endregion
 
@@ -104,26 +85,14 @@ const onSubmit = handleSubmit(async (formValues) => {
 })
 
 const onClose = () => {
-    variantAttributeStore.valuesCopy = [];
+    variantAttributeStore.valuesCopy = []
     resetForm()
     variantAttributeStore.setData()
-}
-
-const openCreateModal = () => {
-    variantAttributeStore.setData()
-    modalStore.open(variantAttributeStore.modalId, { type: 'CREATE', title: 'Agregar Atributo Variante' })
 }
 // #endregion
 </script>
 
 <template>
-    <h2>Atributos Variantes</h2>
-    <BaseButton text="Nuevo Atributo" @click="openCreateModal()" icon="add" className="mb-3"/>
-
-    <BaseSkeletonTable v-if="loading" />
-    <BaseTable v-else :data="variantAttributeStore.variantAttributes" :headers="getVariantAttributesTableColumns()"/>
-
-    <!-- MODAL -->
     <BaseModal
         :onSubmit="onSubmit"
         :modalId="variantAttributeStore.modalId"
@@ -135,4 +104,3 @@ const openCreateModal = () => {
         </template>
     </BaseModal>
 </template>
-

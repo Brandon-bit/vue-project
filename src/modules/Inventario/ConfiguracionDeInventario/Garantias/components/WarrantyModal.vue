@@ -1,24 +1,19 @@
 <script setup lang="ts">
 // #region Imports
-import BaseTable from '@/shared/components/BaseTable.vue'
-import { onMounted, ref, computed, watch } from 'vue'
-import { useWarranty } from '../composables/useWarranty'
-import { useWarrantyActions } from '../composables/useWarrantyActions'
+import { computed, watch } from 'vue'
+import { useWarrantyActions } from '@inventario/ConfiguracionDeInventario/Garantias/composables/useWarrantyActions'
 import { useModalStore } from '@/shared/stores/modal.store'
-import BaseButton from '@/shared/components/BaseButton.vue'
-import useWarrantyStore from '../store/warranty.store'
+import useWarrantyStore from '@inventario/ConfiguracionDeInventario/Garantias/store/warranty.store'
 import BaseModal from '@/shared/components/BaseModal.vue'
 import { useForm } from 'vee-validate'
-import AddEditWarrantyForm from '../components/AddEditWarrantyForm.vue'
-import DeleteWarranty from '../components/DeleteWarranty.vue'
+import AddEditWarrantyForm from '@inventario/ConfiguracionDeInventario/Garantias/components/AddEditWarrantyForm.vue'
+import DeleteWarranty from '@inventario/ConfiguracionDeInventario/Garantias/components/DeleteWarranty.vue'
 import { toTypedSchema } from '@vee-validate/zod'
-import { createWarrantySchema } from '../validation/warrantyValidation'
-import { WarrantyType } from '../types/warrantyType'
+import { createWarrantySchema } from '@inventario/ConfiguracionDeInventario/Garantias/validation/warrantyValidation'
+import { WarrantyType } from '@inventario/ConfiguracionDeInventario/Garantias/types/warrantyType'
 // #endregion
 
 // #region Data
-let loading = ref<boolean>(false)
-const { getWarranties, getWarrantiesTableColumns } = useWarranty()
 const { createWarranty, editWarranty, deleteWarranty } = useWarrantyActions()
 const modalStore = useModalStore()
 const warrantyStore = useWarrantyStore()
@@ -55,15 +50,6 @@ const {
     validationSchema: toTypedSchema(createWarrantySchema),
     validateOnMount: false,
     initialValues: initialValues
-})
-// #endregion
-
-// #region OnMounted
-onMounted(async () => {
-    // Once the view is rendered, the data is loaded 
-    loading.value = true
-    await getWarranties()
-    loading.value = false
 })
 // #endregion
 
@@ -110,23 +96,10 @@ const onClose = () => {
     resetForm()
     warrantyStore.setData()
 }
-
-const openCreateModal = () => {
-    warrantyStore.setData()
-    modalStore.open(warrantyStore.modalId, { type: 'CREATE', title: 'Crear Garantía' })
-}
 // #endregion
 </script>
 
 <template>
-    <!-- MAIN VIEW -->
-    <h2>Grantías</h2>
-    <BaseButton text="Nueva Grantía" @click="openCreateModal()" icon="add" className="mb-3"/>
-    
-    <p v-if="loading">Cargando...</p>
-    <BaseTable v-else :data="warrantyStore.warranties" :headers="getWarrantiesTableColumns()"/>
-
-    <!-- MODAL -->
     <BaseModal
         :onSubmit="onSubmit"
         :modalId="warrantyStore.modalId"

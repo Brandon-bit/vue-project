@@ -1,5 +1,8 @@
 import axiosExampleInstance from '@/api/axiosExampleInstance'
-import type { CategoryType, CategoryFormType } from '../types/categoryType'
+import type {
+    CategoryType,
+    CategoryFormType
+} from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryType'
 
 export const getCategoriesService = async (): Promise<CategoryType[]> => {
     const response = await axiosExampleInstance.get('/category')

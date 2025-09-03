@@ -1,5 +1,5 @@
-import { getCategoriesService } from '../services/categoryService'
-import useCategoryStore from '../store/category.store'
+import { getCategoriesService } from '@inventario/ConfiguracionDeInventario/Categorias/services/categoryService'
+import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/category.store'
 import { useModalStore } from '@/shared/stores/modal.store'
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'
