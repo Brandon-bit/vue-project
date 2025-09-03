@@ -350,6 +350,7 @@
     ],
     "unit": [
         {
+            "id": 1,
             "name": "Piece",
             "shortName": "PC",
             "productsCount": 25,
@@ -357,6 +358,7 @@
             "active": true
         },
         {
+            "id": 2,
             "name": "Kilogram",
             "shortName": "KG",
             "productsCount": 15,
@@ -364,6 +366,7 @@
             "active": true
         },
         {
+            "id": 3,
             "name": "Gram",
             "shortName": "G",
             "productsCount": 47,
@@ -371,6 +374,7 @@
             "active": true
         },
         {
+            "id": 4,
             "name": "Meter",
             "shortName": "M",
             "productsCount": 28,
@@ -378,6 +382,7 @@
             "active": true
         },
         {
+            "id": 5,
             "name": "Liter",
             "shortName": "L",
             "productsCount": 47,
@@ -385,6 +390,7 @@
             "active": true
         },
         {
+            "id": 6,
             "name": "Kilo",
             "shortName": "K",
             "productsCount": 74,
@@ -555,6 +561,7 @@
     ],
     "variant": [
         {
+            "id": 1,
             "name": "Size (T-shirts)",
             "values": [
                 {
@@ -578,6 +585,7 @@
             "active": true
         },
         {
+            "id": 2,
             "name": "Size (Shoes)",
             "values": [
                 {
@@ -601,6 +609,7 @@
             "active": true
         },
         {
+            "id": 3,
             "name": "Color",
             "values": [
                 {
@@ -624,6 +633,7 @@
             "active": true
         },
         {
+            "id": 4,
             "name": "Memory",
             "values": [
                 {
@@ -643,6 +653,7 @@
             "active": true
         },
         {
+            "id": 5,
             "name": "Storage",
             "values": [
                 {
@@ -652,7 +663,7 @@
                 {
                     "id": "18",
                     "value": "1TB"
-                }   
+                }
             ],
             "creationDate": "2024-09-21",
             "active": true
@@ -942,5 +953,241 @@
     ],
     "lastNumberBarcode": {
         "number": "000000000001"
-    }
+    },
+    "products": [
+        {
+            "id": 1,
+            "sku": "HRMN-Bosch-llavestilson-PC-050",
+            "name": "Llave stilson 14\"",
+            "category": "Herramientas manuales",
+            "brand": "Bosch",
+            "store": "Tienda Express Providencia",
+            "price": 2500,
+            "unit": "pieza",
+            "quantity": 100,
+            "user": "admin2"
+        },
+        {
+            "id": 2,
+            "sku": "HREL-Bosch-mirotomartillo-PC-001",
+            "name": "Rotomartillo",
+            "category": "Herramientas eléctricas",
+            "brand": "Bosch",
+            "store": "Sucursal las condes",
+            "price": 1999,
+            "unit": "pieza",
+            "quantity": 10000,
+            "user": "admin"
+        }
+    ],
+    "detail": [
+        {
+            "id": "1",
+            "warehouse": "Almacén Zona Norte",
+            "slug": "mi llave stilson",
+            "sellingType": "Venta por unidad",
+            "subcategory": "Llaves y destornilladores",
+            "barcodeSimbology": "EAN-13",
+            "itemBarcode": "0000000000040",
+            "taxType": "IVA",
+            "tax": "16",
+            "discountType": "Descuento porcentual",
+            "discountValue": 20,
+            "quantityAlert": 5,
+            "image": [
+                "https://www.knova.com.mx/products/10644@3x.jpg",
+                "https://tomaco.mx/cdn/shop/files/00000MT-STI14_001_1200x1200.jpg?v=1752278466"
+            ],
+            "warranty": "Sin garantía",
+            "manufacturer": "456745678",
+            "manufacturedDate": "2024-06-20",
+            "expiryOnDate": "2026-08-29"
+        },
+        {
+            "id": "2",
+            "warehouse": "Bodega central santiago",
+            "slug": "mi rotomartillo",
+            "sellingType": "Venta por unidad",
+            "subcategory": "Taladros y perforadoras",
+            "barcodeSimbology": "EAN-13",
+            "itemBarcode": "0000000000024",
+            "taxType": "IVA",
+            "tax": "16",
+            "discountType": "Descuento porcentual",
+            "discountValue": 10,
+            "quantityAlert": 100,
+            "image": [
+                "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg",
+                "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg",
+                "https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"
+            ],
+            "warranty": "Extendida3",
+            "manufacturer": "32423423234",
+            "manufacturedDate": "2025-08-27",
+            "expiryOnDate": "2026-02-27"
+        }
+    ],
+    "producto-editar": {
+        "store": 1,
+        "warehouse": 1,
+        "name": "Rotomartillo",
+        "slug": "mi rotomartillo",
+        "sku": "HREL-Bosch-mirotomartillo-PC-001",
+        "sellingType": 1,
+        "category": 1,
+        "subcategory": 1,
+        "brand": 1,
+        "unit": 1,
+        "barcodeSimbology": 1,
+        "itemBarcode": "0000000000024",
+        "quantity": 10000,
+        "price": 1999,
+        "taxType": 1,
+        "tax": 1,
+        "discountType": 1,
+        "discountValue": 10,
+        "quantityAlert": 100,
+        "image": [
+            "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg",
+            "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg",
+            "https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"
+        ],
+        "warranty": "Extendida3",
+        "manufacturer": "32423423234",
+        "manufacturedDate": "2025-08-27",
+        "expiryOnDate": "2026-02-27",
+        "variants": [
+            {
+                "variant": 1,
+                "variantValue": 1,
+                "skuVariant": "HREL-Bosch-mirotomartillo-PC-002",
+                "price": 1999,
+                "barcodeSimbology": 1,
+                "itemBarcode": "0000000000031",
+                "quantity": 10000,
+                "quantityAlert": 123,
+                "taxType": 2,
+                "tax": 1,
+                "discountType": 1,
+                "discountValue": 79,
+                "variantImage": [
+                    "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg"
+                ]
+            },
+            {
+                "variant": 2,
+                "variantValue": 5,
+                "skuVariant": "HREL-Bosch-mirotomartillo-PC-003",
+                "price": 1999,
+                "barcodeSimbology": 1,
+                "itemBarcode": "0000000000048",
+                "quantity": 10000,
+                "quantityAlert": 12,
+                "taxType": 1,
+                "tax": 1,
+                "discountType": 1,
+                "discountValue": 12,
+                "variantImage": [
+                    "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg"
+                ]
+            },
+            {
+                "variant": 3,
+                "variantValue": 9,
+                "skuVariant": "HREL-Bosch-mirotomartillo-PC-004",
+                "price": 344,
+                "barcodeSimbology": 1,
+                "itemBarcode": "0000000000055",
+                "quantity": 10000,
+                "quantityAlert": 12,
+                "taxType": 1,
+                "tax": 1,
+                "discountType": 1,
+                "discountValue": 45,
+                "variantImage": ["https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"]
+            }
+        ]
+    },
+    "expiration-products": [
+        {
+            "id": 1,
+            "sku": "FER-001",
+            "nombre": "Silicona selladora",
+            "fecha_fabricacion": "2023-05-10",
+            "fecha_expiracion": "2025-05-10",
+            "estado": false
+        },
+        {
+            "id": 2,
+            "sku": "FER-002",
+            "nombre": "Pintura acrílica blanca",
+            "fecha_fabricacion": "2022-08-15",
+            "fecha_expiracion": "2024-08-15",
+            "estado": true
+        },
+        {
+            "id": 3,
+            "sku": "FER-003",
+            "nombre": "Spray lubricante multiusos",
+            "fecha_fabricacion": "2024-01-20",
+            "fecha_expiracion": "2026-01-20",
+            "estado": false
+        },
+        {
+            "id": 4,
+            "sku": "FER-004",
+            "nombre": "Pegamento epóxico",
+            "fecha_fabricacion": "2021-11-05",
+            "fecha_expiracion": "2023-11-05",
+            "estado": true
+        },
+        {
+            "id": 5,
+            "sku": "FER-005",
+            "nombre": "Removedor de óxido",
+            "fecha_fabricacion": "2023-09-01",
+            "fecha_expiracion": "2025-09-01",
+            "estado": false
+        },
+        {
+            "id": 6,
+            "sku": "FER-006",
+            "nombre": "Masilla para madera",
+            "fecha_fabricacion": "2022-06-30",
+            "fecha_expiracion": "2024-06-30",
+            "estado": true
+        },
+        {
+            "id": 7,
+            "sku": "FER-007",
+            "nombre": "Limpiador de contacto eléctrico",
+            "fecha_fabricacion": "2024-03-12",
+            "fecha_expiracion": "2026-03-12",
+            "estado": false
+        },
+        {
+            "id": 8,
+            "sku": "FER-008",
+            "nombre": "Esmalte anticorrosivo",
+            "fecha_fabricacion": "2022-09-02",
+            "fecha_expiracion": "2025-09-01",
+            "estado": true
+        },
+        {
+            "id": 9,
+            "sku": "FER-009",
+            "nombre": "Sellador de roscas",
+            "fecha_fabricacion": "2023-02-18",
+            "fecha_expiracion": "2025-02-18",
+            "estado": false
+        },
+        {
+            "id": 10,
+            "sku": "FER-010",
+            "nombre": "Disolvente de pintura",
+            "fecha_fabricacion": "2021-07-25",
+            "fecha_expiracion": "2023-07-25",
+            "estado": true
+        }
+    ]
 }

@@ -29,6 +29,7 @@
         "tailwindcss": "4.1.11",
         "vee-validate": "4.15.1",
         "vue": "3.5.17",
+        "vue-draggable-plus": "^0.6.0",
         "vue-router": "4.5.1",
         "vue-toastification": "2.0.0-rc.5",
         "xlsx": "0.18.5"
