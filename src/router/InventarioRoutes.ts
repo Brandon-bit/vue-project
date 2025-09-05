@@ -27,6 +27,13 @@ const routes = [
         component: () =>
             import('@inventario/ConfiguracionDeInventario/Categorias/views/Categorias.vue')
     },
+
+    {
+        path: '/inventario/configuracion/SubCategoria',
+        name: 'Subcategoría',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/SubCategoria/views/SubCategoria.vue')
+    },
     // {
     //     path: '/inventario/configuracion/sub-categoría',
     //     name: 'Subcategoría',

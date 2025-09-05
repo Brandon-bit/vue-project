@@ -605,7 +605,7 @@ const modulos = ref([
                         name: 'Categoría'
                     },
                     {
-                        url: '/inventario/configuracion/sub-categoría',
+                        url: '/inventario/configuracion/SubCategoria',
                         name: 'Sub Categoria'
                     },
                     {
