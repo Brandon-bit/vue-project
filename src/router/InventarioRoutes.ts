@@ -1,31 +1,48 @@
 const routes = [
     // Configuracion de Inventarios
-    // {
-    //     path: '/inventario/configuracion/productos',
-    //     name: 'Productos',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/Productos.vue')
-    // },
+    {
+        path: '/inventario/configuracion/productos',
+        name: 'Productos',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/Productos/views/ProductsView.vue')
+    },
     {
         path: '/inventario/configuracion/crear-producto',
-        name: 'CrearProductos',
+        name: 'CrearProducto',
         component: () =>
             import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CrearProducto.vue')
     },
-    // {
-    //     path: '/inventario/configuracion/productos-expirados',
-    //     name: 'ProductosExpirados',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/ProductosExpirados.vue')
-    // },
-    // {
-    //     path: '/inventario/configuracion/stock-bajo',
-    //     name: 'StockBajo',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/StockBajo.vue')
-    // },
+    {
+        path: '/inventario/configuracion/editar-producto',
+        name: 'EditarProducto',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CrearProducto.vue')
+    },
+    {
+        path: '/inventario/configuracion/detalle-producto/:id',
+        name: 'DetalleProducto',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/Producto/views/DetalleProducto.vue')
+    },
+    {
+        path: '/inventario/configuracion/productos-expiracion',
+        name: 'ProductosExpirados',
+        component: () =>
+            import(
+                '@inventario/ConfiguracionDeInventario/ProductosConExpiracion/views/ProductsWithExpirationView.vue'
+            )
+    },
+    {
+        path: '/inventario/configuracion/stock-bajo',
+        name: 'StockBajo',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/StockBajo/views/LowStockView.vue')
+    },
     {
         path: '/inventario/configuracion/categoria',
         name: 'Categoría',
         component: () =>
-            import('@inventario/ConfiguracionDeInventario/Categorias/views/Categorias.vue')
+            import('@inventario/ConfiguracionDeInventario/Categorias/views/CategoryView.vue')
     },
 
     {
@@ -42,23 +59,27 @@ const routes = [
     {
         path: '/inventario/configuracion/marcas',
         name: 'Marcas',
-        component: () => import('@inventario/ConfiguracionDeInventario/Marcas/views/Marcas.vue')
+        component: () => import('@inventario/ConfiguracionDeInventario/Marcas/views/BrandsView.vue')
     },
     {
         path: '/inventario/configuracion/unidades',
         name: 'Unidades',
-        component: () => import('@inventario/ConfiguracionDeInventario/Unidades/views/Unidades.vue')
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/Unidades/views/UnitsView.vue')
     },
     {
         path: '/inventario/configuracion/atributos-variantes',
         name: 'AtributosVariantes',
         component: () =>
-            import('@inventario/ConfiguracionDeInventario/AtributosVariantes/views/AtributosVariantes.vue')
+            import(
+                '@inventario/ConfiguracionDeInventario/AtributosVariantes/views/VariantAttributesView.vue'
+            )
     },
     {
         path: '/inventario/configuracion/garantias',
         name: 'Garantias',
-        component: () => import('@inventario/ConfiguracionDeInventario/Garantias/views/Garantias.vue')
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/Garantias/views/WarrantyView.vue')
     },
     // {
     //     path: '/inventario/configuracion/imprimir-codigo-de-barras',
@@ -77,6 +98,14 @@ const routes = [
     //     component: () =>
     //         import('@inventario/ConfiguracionDeInventario/views/ManejoDeDescuentos.vue')
     // },
+    {
+        path: '/inventario/configuracion/crear-descuento',
+        name: 'CrearDescuento',
+        component: () =>
+            import(
+                '@inventario/ConfiguracionDeInventario/CrearDescuento/views/CreateDiscountView.vue'
+            )
+    }
 
     // // Operacion
     // {
@@ -116,21 +145,21 @@ const routes = [
     // },
 
     // Stock
-    {
-        path: '/inventario/stock/administrar-stock',
-        name: 'AdministrarStock',
-        component: () => import('@inventario/Stock/views/AdministrarStock.vue')
-    },
-    {
-        path: '/inventario/stock/ajuste-de-stock',
-        name: 'AjusteDeStock',
-        component: () => import('@inventario/Stock/views/AjusteDeStock.vue')
-    },
-    {
-        path: '/inventario/stock/transferir-stock',
-        name: 'TransferirStock',
-        component: () => import('@inventario/Stock/views/TransferirStock.vue')
-    }
+    // {
+    //     path: '/inventario/stock/administrar-stock',
+    //     name: 'AdministrarStock',
+    //     component: () => import('@inventario/Stock/views/AdministrarStock.vue')
+    // },
+    // {
+    //     path: '/inventario/stock/ajuste-de-stock',
+    //     name: 'AjusteDeStock',
+    //     component: () => import('@inventario/Stock/views/AjusteDeStock.vue')
+    // },
+    // {
+    //     path: '/inventario/stock/transferir-stock',
+    //     name: 'TransferirStock',
+    //     component: () => import('@inventario/Stock/views/TransferirStock.vue')
+    // }
 ]
 
 export default routes

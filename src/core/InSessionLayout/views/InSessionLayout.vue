@@ -633,9 +633,9 @@ const modulos = ref([
                         name: 'Imprimir Codigo QR'
                     },
                     {
-                        url: '/inventario/configuracion/manejo-de-descuentos',
-                        name: 'Manejo de Descuentos'
-                    }
+                         url: '/inventario/configuracion/crear-descuento',
+                         name: 'CrearDescuento'
+                     }
                 ]
             },
             {
