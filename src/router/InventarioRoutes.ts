@@ -81,31 +81,21 @@ const routes = [
         component: () =>
             import('@inventario/ConfiguracionDeInventario/Garantias/views/WarrantyView.vue')
     },
-    // {
-    //     path: '/inventario/configuracion/imprimir-codigo-de-barras',
-    //     name: 'ImprimirCodígoDeBarras',
-    //     component: () =>
-    //         import('@inventario/ConfiguracionDeInventario/views/ImprimirCodigoDeBarras.vue')
-    // },
-    // {
-    //     path: '/inventario/configuracion/imprimir-codigo-qr',
-    //     name: 'ImprimirCodigoQR',
-    //     component: () => import('@inventario/ConfiguracionDeInventario/views/ImprimirCodigoQR.vue')
-    // },
-    // {
-    //     path: '/inventario/configuracion/manejo-de-descuentos',
-    //     name: 'ManejoDeDescuentos',
-    //     component: () =>
-    //         import('@inventario/ConfiguracionDeInventario/views/ManejoDeDescuentos.vue')
-    // },
     {
-        path: '/inventario/configuracion/crear-descuento',
-        name: 'CrearDescuento',
-        component: () =>
-            import(
-                '@inventario/ConfiguracionDeInventario/CrearDescuento/views/CreateDiscountView.vue'
-            )
-    }
+        path: '/inventario/configuracion/imprimir-codigo-de-barras',
+        name: 'ImprimirCodigoDeBarras',
+        component: () => import('@inventario/ConfiguracionDeInventario/ImprimirCodigoDeBarras/views/ImprimirCodigoDeBarras.vue')
+    },
+    {
+        path: '/inventario/configuracion/imprimir-codigo-qr',
+        name: 'ImprimirCodigoQR',
+        component: () => import('@inventario/ConfiguracionDeInventario/ImprimirCodigoQR/views/ImprimirCodigoQR.vue')
+    },
+    {
+        path: '/inventario/configuracion/manejo-de-descuentos',
+        name: 'ManejoDeDescuentos',
+        component: () => import('@inventario/ConfiguracionDeInventario/ManejoDeDescuentos/views/ManejoDeDescuentos.vue')
+    },
 
     // // Operacion
     // {
