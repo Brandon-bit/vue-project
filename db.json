@@ -1115,7 +1115,8 @@
             "nombre": "Silicona selladora",
             "fecha_fabricacion": "2023-05-10",
             "fecha_expiracion": "2025-05-10",
-            "estado": false
+            "estado": false,
+            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
         },
         {
             "id": 2,
@@ -1123,7 +1124,8 @@
             "nombre": "Pintura acrílica blanca",
             "fecha_fabricacion": "2022-08-15",
             "fecha_expiracion": "2024-08-15",
-            "estado": true
+            "estado": true,
+            "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
         },
         {
             "id": 3,
@@ -1131,7 +1133,8 @@
             "nombre": "Spray lubricante multiusos",
             "fecha_fabricacion": "2024-01-20",
             "fecha_expiracion": "2026-01-20",
-            "estado": false
+            "estado": false,
+            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
         },
         {
             "id": 4,
@@ -1139,7 +1142,8 @@
             "nombre": "Pegamento epóxico",
             "fecha_fabricacion": "2021-11-05",
             "fecha_expiracion": "2023-11-05",
-            "estado": true
+            "estado": true,
+            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
         },
         {
             "id": 5,
@@ -1147,7 +1151,8 @@
             "nombre": "Removedor de óxido",
             "fecha_fabricacion": "2023-09-01",
             "fecha_expiracion": "2025-09-01",
-            "estado": false
+            "estado": false,
+            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
         },
         {
             "id": 6,
@@ -1155,7 +1160,8 @@
             "nombre": "Masilla para madera",
             "fecha_fabricacion": "2022-06-30",
             "fecha_expiracion": "2024-06-30",
-            "estado": true
+            "estado": true,
+            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
         },
         {
             "id": 7,
@@ -1163,7 +1169,8 @@
             "nombre": "Limpiador de contacto eléctrico",
             "fecha_fabricacion": "2024-03-12",
             "fecha_expiracion": "2026-03-12",
-            "estado": false
+            "estado": false,
+            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
         },
         {
             "id": 8,
@@ -1171,7 +1178,8 @@
             "nombre": "Esmalte anticorrosivo",
             "fecha_fabricacion": "2022-09-02",
             "fecha_expiracion": "2025-09-01",
-            "estado": true
+            "estado": true,
+            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
         },
         {
             "id": 9,
@@ -1179,7 +1187,8 @@
             "nombre": "Sellador de roscas",
             "fecha_fabricacion": "2023-02-18",
             "fecha_expiracion": "2025-02-18",
-            "estado": false
+            "estado": false,
+            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
         },
         {
             "id": 10,
@@ -1187,7 +1196,120 @@
             "nombre": "Disolvente de pintura",
             "fecha_fabricacion": "2021-07-25",
             "fecha_expiracion": "2023-07-25",
-            "estado": true
+            "estado": true,
+            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+        }
+    ],
+    "stockBajo": [
+        {
+            "id": 1,
+            "almacen": "Almacen Central",
+            "tienda": "Ferretería Norte",
+            "nombre": "Taladro Inalámbrico",
+            "categoria": "Herramientas eléctricas",
+            "sku": "FER-HER-001",
+            "cantidad": 3,
+            "cantidadAlerta": 5,
+            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+        },
+        {
+            "id": 2,
+            "almacen": "Almacen Central",
+            "tienda": "Ferretería Sur",
+            "nombre": "Destornillador Phillips",
+            "categoria": "Herramientas manuales",
+            "sku": "FER-HER-002",
+            "cantidad": 2,
+            "cantidadAlerta": 10,
+            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+        },
+        {
+            "id": 3,
+            "almacen": "Almacen Norte",
+            "tienda": "Ferretería Centro",
+            "nombre": "Cinta Métrica 5m",
+            "categoria": "Medición",
+            "sku": "FER-MED-001",
+            "cantidad": 4,
+            "cantidadAlerta": 7,
+            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+        },
+        {
+            "id": 4,
+            "almacen": "Almacen Sur",
+            "tienda": "Ferretería Norte",
+            "nombre": "Llave Ajustable 10\"",
+            "categoria": "Herramientas manuales",
+            "sku": "FER-HER-003",
+            "cantidad": 1,
+            "cantidadAlerta": 4,
+            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+        },
+        {
+            "id": 5,
+            "almacen": "Almacen Central",
+            "tienda": "Ferretería Sur",
+            "nombre": "Tornillo 4x20mm (100 unidades)",
+            "categoria": "Ferretería general",
+            "sku": "FER-FER-001",
+            "cantidad": 15,
+            "cantidadAlerta": 30,
+            "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
+        },
+        {
+            "id": 6,
+            "almacen": "Almacen Norte",
+            "tienda": "Ferretería Centro",
+            "nombre": "Taladro Percutor 800W",
+            "categoria": "Herramientas eléctricas",
+            "sku": "FER-HER-004",
+            "cantidad": 2,
+            "cantidadAlerta": 3,
+            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+        },
+        {
+            "id": 7,
+            "almacen": "Almacen Sur",
+            "tienda": "Ferretería Norte",
+            "nombre": "Nivel de burbuja 60cm",
+            "categoria": "Medición",
+            "sku": "FER-MED-002",
+            "cantidad": 5,
+            "cantidadAlerta": 8,
+            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+        },
+        {
+            "id": 8,
+            "almacen": "Almacen Central",
+            "tienda": "Ferretería Centro",
+            "nombre": "Cinta Aislante 20m",
+            "categoria": "Material eléctrico",
+            "sku": "FER-MAT-001",
+            "cantidad": 6,
+            "cantidadAlerta": 10,
+            "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
+        },
+        {
+            "id": 9,
+            "almacen": "Almacen Norte",
+            "tienda": "Ferretería Sur",
+            "nombre": "Sierra Manual 18\"",
+            "categoria": "Herramientas manuales",
+            "sku": "FER-HER-005",
+            "cantidad": 3,
+            "cantidadAlerta": 6,
+            "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
+        },
+        {
+            "id": 10,
+            "almacen": "Almacen Sur",
+            "tienda": "Ferretería Centro",
+            "nombre": "Guantes de seguridad talla M",
+            "categoria": "Seguridad Industrial",
+            "sku": "FER-SEG-001",
+            "cantidad": 10,
+            "cantidadAlerta": 20,
+            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
         }
     ]
 }
