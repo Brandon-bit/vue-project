@@ -39,7 +39,7 @@ const openCreateModal = () => {
     <h2 class="text-center mb-10">Unidades</h2>
 
     <div class="mb-10 text-right">
-        <BaseButton text="Nueva Unidad" @click="openCreateModal()" icon="add" />
+        <BaseButton text="Nueva unidad" @click="openCreateModal()" icon="add" />
     </div>
 
     <BaseSkeletonTable v-if="loading" />

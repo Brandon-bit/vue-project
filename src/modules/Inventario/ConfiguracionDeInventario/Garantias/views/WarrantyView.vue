@@ -38,7 +38,7 @@ const openCreateModal = () => {
 <template>
     <h2 class="text-center mb-10">Garantías</h2>
     <div class="mb-10 text-right">
-        <BaseButton text="Nueva Garantía" @click="openCreateModal()" icon="add" />
+        <BaseButton text="Nueva garantía" @click="openCreateModal()" icon="add" />
     </div>
 
     <BaseSkeletonTable v-if="loading" />

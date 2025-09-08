@@ -41,7 +41,7 @@ const openCreateModal = () => {
     <h2 class="text-center mb-10">Atributos Variantes</h2>
 
     <div class="mb-10 text-right">
-        <BaseButton text="Nuevo Atributo" @click="openCreateModal()" icon="add" />
+        <BaseButton text="Nuevo atributo variante" @click="openCreateModal()" icon="add" />
     </div>
 
     <BaseSkeletonTable v-if="loading" />
