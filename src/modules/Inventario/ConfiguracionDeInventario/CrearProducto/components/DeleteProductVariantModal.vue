@@ -3,14 +3,14 @@ import { watch, ref } from 'vue'
 import BaseModal from '@/shared/components/BaseModal.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import { showNotification } from '@/utils/toastNotifications'
-import useProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/product.store'
+import useCreateProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/createProduct.store'
 
 const modalId = 'delete-product-variant'
-const productStore = useProductStore()
+const createProductStore = useCreateProductStore()
 const modalStore = useModalStore()
 const selectedVariant = ref(0)
 const onSubmit = async () => {
-    await productStore.removeItemVariantsData(selectedVariant.value)
+    await createProductStore.removeItemVariantsData(selectedVariant.value)
     modalStore.close(modalId)
     showNotification('Variante eliminada correctamente', 'success')
 }
@@ -18,7 +18,7 @@ const onSubmit = async () => {
 const onClose = () => {}
 
 watch(
-    () => productStore.selectedVariantIndex,
+    () => createProductStore.selectedVariantIndex,
     (newValue) => {
         selectedVariant.value = newValue
     }

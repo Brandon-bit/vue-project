@@ -17,5 +17,3 @@ const pageTitle = computed(() => (isEditMode.value ? 'Editar producto' : 'Crear 
     <CreateProductVariantForm />
     <DeleteProductVariantModal />
 </template>
-
-<style module></style>

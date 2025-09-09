@@ -8,28 +8,22 @@ import {
     getBrandsService,
     getBarcodeSimbologiesService,
     getVariantsServices,
-    getValueVariantsServices,
     getTaxTypesService,
     getTaxesService,
     getDiscountTypesService,
     getLastNumberBarcodeService
-} from '@inventario/ConfiguracionDeInventario/CrearProducto/services/productService'
+} from '@inventario/ConfiguracionDeInventario/CrearProducto/services/createProductService'
 import { ref } from 'vue'
+import useCreateProductStore from '../store/createProduct.store'
 
-export const useProduct = () => {
+export const useCreateProduct = () => {
+    const createProductStore = useCreateProductStore()
     const stores = ref([])
     const warehouses = ref([])
     const sellingTypes = ref([])
-    const categories = ref([])
     const subcategories = ref([])
-    const units = ref([])
-    const brands = ref([])
-    const barcodeSimbologies = ref([])
     const variants = ref([])
     const valueVariants = ref([])
-    const taxTypes = ref([])
-    const taxes = ref([])
-    const discountTypes = ref([])
     const getStores = async () => {
         try {
             const { data } = await getStoresService()
@@ -57,7 +51,7 @@ export const useProduct = () => {
     const getCategories = async () => {
         try {
             const { data } = await getCategoriesService()
-            categories.value = data
+            createProductStore.categories = data
         } catch (error) {
             console.error(error)
         }
@@ -73,7 +67,7 @@ export const useProduct = () => {
     const getUnits = async () => {
         try {
             const { data } = await getUnitsService()
-            units.value = data
+            createProductStore.units = data
         } catch (error) {
             console.error(error)
         }
@@ -82,7 +76,7 @@ export const useProduct = () => {
     const getBrands = async () => {
         try {
             const { data } = await getBrandsService()
-            brands.value = data
+            createProductStore.brands = data
         } catch (error) {
             console.error(error)
         }
@@ -91,16 +85,7 @@ export const useProduct = () => {
     const getBarcodeSimbologies = async () => {
         try {
             const { data } = await getBarcodeSimbologiesService()
-            barcodeSimbologies.value = data
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
-    const getValueVariants = async () => {
-        try {
-            const { data } = await getValueVariantsServices()
-            valueVariants.value = data
+            createProductStore.barcodeSimbologies = data
         } catch (error) {
             console.error(error)
         }
@@ -109,7 +94,19 @@ export const useProduct = () => {
     const getVariants = async () => {
         try {
             const { data } = await getVariantsServices()
-            variants.value = data
+            let valueVariantsMap = [] as any
+            const variantsMap = data.map((el: any) => {
+                el.values.map((variant: any) => {
+                    valueVariantsMap.push({
+                        id: variant.id,
+                        idVariante: el.id,
+                        label: variant.value
+                    })
+                })
+                return { id: el.id, label: el.name }
+            })
+            variants.value = variantsMap
+            valueVariants.value = valueVariantsMap
         } catch (error) {
             console.error(error)
         }
@@ -118,7 +115,7 @@ export const useProduct = () => {
     const getTaxTypes = async () => {
         try {
             const { data } = await getTaxTypesService()
-            taxTypes.value = data
+            createProductStore.taxTypes = data
         } catch (error) {
             console.error(error)
         }
@@ -126,7 +123,7 @@ export const useProduct = () => {
     const getTaxes = async () => {
         try {
             const { data } = await getTaxesService()
-            taxes.value = data
+            createProductStore.taxes = data
         } catch (error) {
             console.error(error)
         }
@@ -134,7 +131,7 @@ export const useProduct = () => {
     const getDiscountTypes = async () => {
         try {
             const { data } = await getDiscountTypesService()
-            discountTypes.value = data
+            createProductStore.discountTypes = data
         } catch (error) {
             console.error(error)
         }
@@ -153,16 +150,9 @@ export const useProduct = () => {
         stores,
         warehouses,
         sellingTypes,
-        categories,
         subcategories,
-        units,
-        brands,
-        barcodeSimbologies,
         variants,
         valueVariants,
-        taxTypes,
-        taxes,
-        discountTypes,
         getStores,
         getWareHouses,
         getSellingTypes,
@@ -172,7 +162,6 @@ export const useProduct = () => {
         getBrands,
         getBarcodeSimbologies,
         getVariants,
-        getValueVariants,
         getTaxTypes,
         getTaxes,
         getDiscountTypes,
