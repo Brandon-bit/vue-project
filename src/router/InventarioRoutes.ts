@@ -1,11 +1,11 @@
 const routes = [
     // Configuracion de Inventarios
-    {
-        path: '/inventario/configuracion/productos',
-        name: 'Productos',
-        component: () =>
-            import('@inventario/ConfiguracionDeInventario/Productos/views/ProductsView.vue')
-    },
+    // {
+    //     path: '/inventario/configuracion/productos',
+    //     name: 'Productos',
+    //     component: () =>
+    //         import('@inventario/ConfiguracionDeInventario/Productos/views/ProductsView.vue')
+    // },
     {
         path: '/inventario/configuracion/crear-producto',
         name: 'CrearProducto',
@@ -18,12 +18,12 @@ const routes = [
         component: () =>
             import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CrearProducto.vue')
     },
-    {
-        path: '/inventario/configuracion/detalle-producto/:id',
-        name: 'DetalleProducto',
-        component: () =>
-            import('@inventario/ConfiguracionDeInventario/Producto/views/DetalleProducto.vue')
-    },
+    // {
+    //     path: '/inventario/configuracion/detalle-producto/:id',
+    //     name: 'DetalleProducto',
+    //     component: () =>
+    //         import('@inventario/ConfiguracionDeInventario/Producto/views/DetalleProducto.vue')
+    // },
     {
         path: '/inventario/configuracion/productos-expiracion',
         name: 'ProductosExpirados',

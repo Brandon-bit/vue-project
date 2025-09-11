@@ -1,25 +1,35 @@
-import axiosExampleInstance from '@/api/axiosExampleInstance'
+import axiosApiInstance from '@/api/axiosApiInstance'
+import { ApiResponseType } from '@/shared/types/apiResponseType'
+
 import type {
-    CategoryType,
-    CategoryFormType
-} from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryType'
+    CategoryApiType,
+} from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/types/CategoryType'
+import { CategoryRequestType } from '../types/CategoryRequestType'
+import { pagedResponseType } from '@/shared/types/pagedResponseType'
 
-export const getCategoriesService = async (): Promise<CategoryType[]> => {
-    const response = await axiosExampleInstance.get('/category')
+export const getCategoriesService = async (page : number, pageSize: number) : Promise<ApiResponseType<pagedResponseType<CategoryApiType>>> => {
+  const response = await axiosApiInstance.get('/producto/categoria', {
+    params: {
+      page: page,
+      pageSize: pageSize
+    }
+  })
+  return response.data
+}
+
+export const createCategoryService = async (data: CategoryRequestType): Promise<ApiResponseType<CategoryApiType>> => {
+    const response = await axiosApiInstance.post('/producto/categoria', data)
     return response.data
 }
 
-export const createCategoryService = async (data: CategoryFormType): Promise<T> => {
-    const response = await axiosExampleInstance.post('/category', { data })
+export const updateCategoryService = async (data: CategoryRequestType): Promise<ApiResponseType<CategoryApiType>> => {
+    const response = await axiosApiInstance.put(`/producto/categoria/${data.Id}`, data)
     return response.data
 }
 
-export const updateCategoryService = async (): Promise<T> => {
-    const response = await axiosExampleInstance.put('/category')
+export const deleteCategoryService = async (id: number): Promise<ApiResponseType<CategoryApiType>> => {
+    const response = await axiosApiInstance.delete(`/producto/categoria/${id}`)
+    console.log(response)
     return response.data
 }
 
-export const deleteCategoryService = async (): Promise<T> => {
-    const response = await axiosExampleInstance.delete('/category')
-    return response.data
-}

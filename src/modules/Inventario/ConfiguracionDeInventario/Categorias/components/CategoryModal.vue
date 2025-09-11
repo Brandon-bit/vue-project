@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BaseModal from '@/shared/components/BaseModal.vue'
-import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/category.store'
+import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 import { computed, watch } from 'vue'
 import { useForm } from 'vee-validate'
 import DeleteCategory from '@inventario/ConfiguracionDeInventario/Categorias/components/DeleteCategory.vue'
@@ -9,6 +9,11 @@ import { useModalStore } from '@/shared/stores/modal.store'
 import { categorySchema } from '@inventario/ConfiguracionDeInventario/Categorias/validations/categoryValidation'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useCategoryAction } from '@inventario/ConfiguracionDeInventario/Categorias/composables/useCategoryAction'
+import { showNotification } from '@/utils/toastNotifications'
+
+const props = defineProps<{
+  onRefresh?: () => void
+}>()
 
 const categoryStore = useCategoryStore()
 const modalStore = useModalStore()
@@ -16,7 +21,7 @@ const { createCategory, editCategory, deleteCategory } = useCategoryAction()
 
 const initialValues = {
     name: categoryStore.selectedCategory?.name,
-    sufix: categoryStore.selectedCategory?.sufix,
+    slug: categoryStore.selectedCategory?.slug,
     status: categoryStore.selectedCategory?.status
 }
 
@@ -32,7 +37,7 @@ watch(
         if (category) {
             setValues({
                 name: category?.name,
-                sufix: category?.sufix,
+                slug: category?.slug,
                 status: category?.status
             })
         }
@@ -64,7 +69,10 @@ const onSubmit = handleSubmit(async (formValues) => {
     const modalType = modalStore.modals[categoryStore.modalId]?.type
     const action = modalMap[modalType]?.action
     try {
-        const { message, status, data } = await action(formValues)
+        const { message, status } = await action(formValues)
+        showNotification(message, status)
+        if(status == "success") props.onRefresh?.()
+        modalStore.close(categoryStore.modalId)
     } catch (error) {
         console.error(error)
     }

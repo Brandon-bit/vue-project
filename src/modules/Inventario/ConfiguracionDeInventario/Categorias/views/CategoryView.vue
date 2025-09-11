@@ -1,25 +1,18 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
 import BaseTable from '@/shared/components/BaseTable.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
-import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
 import CategoryModal from '@inventario/ConfiguracionDeInventario/Categorias/components/CategoryModal.vue'
 import { useCategory } from '@inventario/ConfiguracionDeInventario/Categorias/composables/useCategory'
-import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/category.store'
+import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 
-const { getCategories, getTableColumns } = useCategory()
+const { getTableColumns, getCategories } = useCategory()
+
 const categoryStore = useCategoryStore()
 const modalStore = useModalStore()
-let loading = ref<boolean>(false)
 
-onMounted(async () => {
-    loading.value = true
-    await getCategories()
-    setTimeout(() => {
-        loading.value = false
-    }, 500)
-})
+const tablaRef = ref()
 
 const openCreateModal = () => {
     categoryStore.setData()
@@ -33,8 +26,11 @@ const openCreateModal = () => {
         <BaseButton text="Nueva categoría" @click="openCreateModal" icon="add" />
     </div>
 
-    <BaseSkeletonTable v-if="loading" />
-    <BaseTable v-else :data="categoryStore.categories" :headers="getTableColumns()" />
-    <CategoryModal />
+    <BaseTable
+        ref="tablaRef"
+        :headers="getTableColumns()"
+        :fetch-callback="getCategories"
+    />
+    <CategoryModal :onRefresh="tablaRef?.fetchData"/>
 </template>
 <style></style>

@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
-import { CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryType'
+import { CategoryType } from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/types/CategoryType'
 
 const initialCategory: CategoryType = {
     id: undefined,
     name: '',
-    sufix: '',
+    slug: '',
     status: true,
     creationDate: new Date()
 }

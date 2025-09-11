@@ -7,19 +7,34 @@ import {
     FlexRender
 } from '@tanstack/vue-table'
 import type { ColumnDef } from '@tanstack/vue-table'
-import { ref, computed, defineProps } from 'vue'
+import { ref, computed, defineProps, watch, onMounted } from 'vue'
 import * as XLSX from 'xlsx'
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
+//import axiosApiInstance from '@/api/axiosApiInstance'
+import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
+
+//type DataMapper<T> = (rawData: any) => T;
 
 const props = defineProps<{
-    data: T[]
+    //data: T[]
     headers: ColumnDef<T>[]
+    fetchCallback: (page: number, pageSize: number) => Promise<{items: T[], total : number}>
+    //endpoint: string,
+    //dataMapper: DataMapper<T>
 }>()
 
+// State
+const data = ref<T[]>([])
+const loading = ref(true)
+const totalRows = ref(0)
 const globalFilter = ref('')
+const pageSize = ref(5)
+const pageIndex = ref(1)
+
+
 const table = useVueTable({
-    data: props.data,
+    data: data,
     columns: props.headers,
     state: {
         get globalFilter() {
@@ -35,21 +50,41 @@ const table = useVueTable({
     getPaginationRowModel: getPaginationRowModel(),
     initialState: {
         pagination: {
-            pageIndex: 0,
-            pageSize: 5
+            pageIndex: pageIndex.value,
+            pageSize: pageSize.value
         }
-    }
+    },
+    manualPagination: true
 })
 
-const pageSize = computed(() => table.getState().pagination.pageSize)
-const pageIndex = computed(() => table.getState().pagination.pageIndex)
-const totalRows = computed(() => table.getFilteredRowModel().rows.length)
+const from = computed(() => ((pageIndex.value - 1) * pageSize.value) + 1)
+const to = computed(() => Math.min((pageIndex.value) * pageSize.value, totalRows.value))
 
-const from = computed(() => pageIndex.value * pageSize.value + 1)
-const to = computed(() => Math.min((pageIndex.value + 1) * pageSize.value, totalRows.value))
+const fetchData = async () => {
+    loading.value = true
+    try {
+        const { items, total } = await props.fetchCallback(pageIndex.value, pageSize.value)
+        data.value = items
+        totalRows.value = total
+    } catch (error) {
+        //TODO: Cambiar por toastify
+        console.error('Error fetching data:', error)
+    } finally {
+        loading.value = false
+    }
+}
+
+// Watchers to trigger data fetching
+watch([pageIndex, pageSize, globalFilter], () => {
+    fetchData()
+})
+
+onMounted(() => {
+    fetchData()
+})
 
 const exportToExcel = () => {
-    const ws = XLSX.utils.json_to_sheet(props.data)
+    const ws = XLSX.utils.json_to_sheet(data.value)
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, ws, 'Data')
     XLSX.writeFile(wb, 'data.xlsx')
@@ -69,7 +104,7 @@ const exportToPDF = () => {
         }
     })
 
-    const tableData = props.data.map((row) => {
+    const tableData = data.value.map((row) => {
         return props.headers.map((col) => {
             const value = row[col.accessorKey]
             return value !== undefined && value !== null ? value.toString() : ''
@@ -98,7 +133,12 @@ const exportToPDF = () => {
 
     doc.save('data.pdf')
 }
+
+defineExpose({
+  fetchData
+})
 </script>
+
 
 <template>
     <!-- Table filters -->
@@ -136,9 +176,10 @@ const exportToPDF = () => {
                 Mostrar
                 <select
                     class="select mx-2 w-full max-w-[70px]"
-                    @change="
-                        (e) => table.setPageSize(Number((e.target as HTMLSelectElement).value))
-                    "
+                    @change="(e) => {
+                        pageIndex = 1
+                        pageSize = Number((e.target as HTMLSelectElement).value)
+                    }"
                 >
                     <option
                         v-for="(number, index) in [5, 10, 20, 100]"
@@ -162,7 +203,9 @@ const exportToPDF = () => {
             </div>
         </div>
     </div>
-    <div class="rounded-box border border-base-content/5 bg-base-100 my-5 w-full max-w-[100vw] overflow-hidden">
+    <!-- Table Body -->
+    <BaseSkeletonTable v-if="loading"/>
+    <div v-else class="rounded-box border border-base-content/5 bg-base-100 my-5 w-full max-w-[100vw] overflow-hidden">
         <div class="overflow-x-auto">
             <table class="table text-center">
                 <thead>
@@ -183,7 +226,7 @@ const exportToPDF = () => {
                 </thead>
                 <tbody>
                     <tr v-for="(row, ix) in table.getRowModel().rows" :key="row.id" class="hover:bg-base-200">
-                        <td>{{ ix + 1 }}</td>
+                        <td>{{ ix + 1 + ((pageIndex - 1) * pageSize)}}</td>
                         <td v-for="cell in row.getVisibleCells()" :key="cell.id">
                             <FlexRender
                                 :render="cell.column.columnDef.cell"
@@ -195,6 +238,7 @@ const exportToPDF = () => {
             </table>
         </div>
     </div>
+    <!-- Table pagination -->
     <div class="grid grid-cols-12 gap-3 items-center w-full">
         <div class="col-span-12 md:col-span-5 flex items-center justify-center md:justify-start">
             <p>
@@ -210,15 +254,15 @@ const exportToPDF = () => {
             <div class="join">
                 <button
                     class="btn join-item"
-                    @click="() => table.firstPage()"
-                    :disabled="!table.getCanPreviousPage()"
+                    @click="() => pageIndex = 1"
+                    :disabled="pageIndex == 1 || loading"
                 >
                     Inicio
                 </button>
                 <button
                     class="btn join-item"
-                    @click="() => table.previousPage()"
-                    :disabled="!table.getCanPreviousPage()"
+                    @click="() => pageIndex--"
+                    :disabled="pageIndex - 1 == 0 || loading"
                 >
                     Anterior
                 </button>
@@ -226,22 +270,22 @@ const exportToPDF = () => {
             <p className="text-center md:text-left">
                 Página
                 <strong>
-                    {{ table.getState().pagination.pageIndex + 1 }} de
-                    {{ table.getPageCount() }}
+                    {{ pageIndex }} de
+                    {{ Math.ceil(totalRows / pageSize) }}
                 </strong>
             </p>
             <div class="join">
                 <button
                     class="btn join-item"
-                    @click="() => table.nextPage()"
-                    :disabled="!table.getCanNextPage()"
+                    @click="() => pageIndex++"
+                    :disabled="pageIndex == Math.ceil(totalRows / pageSize) || loading"
                 >
                     Siguiente
                 </button>
                 <button
                     class="btn join-item"
-                    @click="() => table.lastPage()"
-                    :disabled="!table.getCanNextPage()"
+                    @click="() => pageIndex = Math.ceil(totalRows / pageSize)"
+                    :disabled="pageIndex == Math.ceil(totalRows / pageSize) || loading"
                 >
                     Final
                 </button>
