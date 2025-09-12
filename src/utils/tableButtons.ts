@@ -38,3 +38,19 @@ export const deleteTableButton = (onClick: () => void) => {
         []
     )
 }
+
+export const detailTableButton = (onClick: () => void) => {
+    return withDirectives(
+        h('div', { class: 'tooltip', 'data-tip': 'Detalle' }, [
+            h(
+                'button',
+                {
+                    class: 'btn btn-outline btn-accent action-btn-table',
+                    onClick
+                },
+                [h('span', { class: 'material-symbols-outlined' }, 'visibility')]
+            )
+        ]),
+        []
+    )
+}

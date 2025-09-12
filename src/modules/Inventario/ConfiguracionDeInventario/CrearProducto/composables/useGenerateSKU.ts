@@ -1,20 +1,20 @@
-import useProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/product.store'
+import useCreateProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/createProduct.store'
 
 const useGenerateSKU = () => {
-    const productStore = useProductStore()
-    const category = productStore.category
-    const brand = productStore.brand
-    const unit = productStore.unit
-    const slug = productStore.slug
+    const createProductStore = useCreateProductStore()
+    const category = createProductStore.category
+    const brand = createProductStore.brand
+    const unit = createProductStore.unit
+    const slug = createProductStore.slug
 
     if (!category || !brand || !slug || !unit) {
         return false
     }
 
-    const selectedCategory = productStore.categories.find((el) => el.id == category)
-    const selectedBrand = productStore.brands.find((el) => el.id == brand)
-    const selectedUnit = productStore.units.find((el) => el.id == unit)
-    return `${selectedCategory.sufijo}-${selectedBrand.label.replace(/\s+/g, '')}-${slug.replace(/\s+/g, '')}-${selectedUnit.sufijo}-${productStore.changeSequentialValue(true)}`
+    const selectedCategory = createProductStore.categories.find((el: any) => el.id == category)
+    const selectedBrand = createProductStore.brands.find((el: any) => el.id == brand)
+    const selectedUnit = createProductStore.units.find((el: any) => el.id == unit)
+    return `${selectedCategory.sufix}-${selectedBrand.name.replace(/\s+/g, '')}-${slug.replace(/\s+/g, '')}-${selectedUnit.shortName}-${createProductStore.changeSequentialValue(true)}`
 }
 
 export default useGenerateSKU

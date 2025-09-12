@@ -593,8 +593,8 @@ const modulos = ref([
                         name: 'Crear Producto'
                     },
                     {
-                        url: '/inventario/configuracion/productos-expirados',
-                        name: 'Productos Expirados'
+                        url: '/inventario/configuracion/productos-expiracion',
+                        name: 'Productos con expiración'
                     },
                     {
                         url: '/inventario/configuracion/stock-bajo',
@@ -633,9 +633,9 @@ const modulos = ref([
                         name: 'Imprimir Codigo QR'
                     },
                     {
-                        url: '/inventario/configuracion/manejo-de-descuentos',
-                        name: 'Manejo de Descuentos'
-                    }
+                         url: '/inventario/configuracion/crear-descuento',
+                         name: 'CrearDescuento'
+                     }
                 ]
             },
             {

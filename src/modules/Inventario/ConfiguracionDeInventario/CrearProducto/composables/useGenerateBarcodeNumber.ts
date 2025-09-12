@@ -1,14 +1,14 @@
-import useProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/product.store'
-import { useProduct } from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useProduct'
+import useCreateProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/createProduct.store'
+import { useCreateProduct } from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useCreateProduct'
 const useGenerateBarcodeNumber = async () => {
     let number
-    const productStore = useProductStore()
-    if (!productStore.numberBarcode) {
-        const { getLastNumberBarcode } = useProduct()
+    const createProduct = useCreateProductStore()
+    if (!createProduct.numberBarcode) {
+        const { getLastNumberBarcode } = useCreateProduct()
         const data = await getLastNumberBarcode()
         number = data.number
     } else {
-        number = productStore.numberBarcode
+        number = createProduct.numberBarcode
     }
 
     let base
@@ -26,7 +26,7 @@ const useGenerateBarcodeNumber = async () => {
     let checksum = calculateEAN13Checksum(nextBase)
 
     let nextNumber = nextBase + checksum
-    productStore.numberBarcode = nextNumber
+    createProduct.numberBarcode = nextNumber
     return nextNumber
 }
 

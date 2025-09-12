@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useField } from 'vee-validate'
 
 const props = defineProps<{
@@ -12,22 +12,34 @@ const props = defineProps<{
 const fileNames = ref<string[]>([])
 const fileInput = ref<HTMLInputElement | null>(null)
 
-const { value, errorMessage, resetField } = useField(props.name)
+const { value, errorMessage } = useField(props.name)
 
-watch(value, (newValue) => {
-    if (!newValue.length) {
-        fileNames.value = ''
-        value.value = ''
-    } else {
-        fileNames.value = newValue
-        value.value = newValue
+// watch(value, (newValue) => {
+//     if (!newValue.length) {
+//         fileNames.value = []
+//         value.value = ''
+//         fileInput.value.value = ''
+//     } else {
+//         fileNames.value = newValue
+//         value.value = newValue
+//     }
+// })
+
+watchEffect(() => {
+    if ((!value.value || value.value.length === 0) && !errorMessage.value) {
+        fileNames.value = []
+        if (fileInput.value) {
+            fileInput.value.value = ''
+        }
     }
 })
 
-const handleFileChange = (event) => {
-    const files = event.target.files
-    fileNames.value = Array.from(files)
-    value.value = files
+const handleFileChange = (event: Event) => {
+    const files = (event.target as HTMLInputElement).files
+    if (!files) return
+    const arr = Array.from(files)
+    fileNames.value = arr
+    value.value = arr
 }
 </script>
 
@@ -44,7 +56,7 @@ const handleFileChange = (event) => {
                         : 'border-gray-300 hover:border-gray-400'
                 ]"
             >
-                <div class="text-center">
+                <div class="text-center px-2">
                     <span class="material-symbols-outlined animate-subtle-bounce text-lg">
                         cloud_upload
                     </span>
@@ -67,7 +79,7 @@ const handleFileChange = (event) => {
                     :class="{ 'input-error': errorMessage }"
                     @change="handleFileChange"
                     :multiple="props.multiple || false"
-                    :accept="accept || '*/*'" 
+                    :accept="accept || '*/*'"
                 />
             </label>
         </div>

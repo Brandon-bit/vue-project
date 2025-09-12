@@ -10,11 +10,14 @@ import BaseModal from '@/shared/components/BaseModal.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import ProgressBar from '@/shared/components/ProgressBar.vue'
 import { showNotification } from '@/utils/toastNotifications'
-import { useProduct } from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useProduct'
+import { useCreateProduct } from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useCreateProduct'
 import useGenerateSKU from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useGenerateSKU'
-import useProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/product.store'
+import useCreateProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/createProduct.store'
 import { addVariantProductSchema } from '@inventario/ConfiguracionDeInventario/CrearProducto/validations/productValidation'
 import useGenerateBarcodeNumber from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useGenerateBarcodeNumber'
+import { VueDraggable } from 'vue-draggable-plus'
+import { CreateVariantFormType } from '@/modules/Inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
+import styles from '@inventario/ConfiguracionDeInventario/CrearProducto/styles/createProduct.module.css'
 
 const initialValues = {
     variant: '',
@@ -29,17 +32,19 @@ const initialValues = {
     tax: '',
     discountType: '',
     discountValue: '',
-    variantImage: []
+    variantImage: [],
+    dragDropImage: []
 }
 
 const isGeneratedSku = ref(false)
 const isGeneratedNumberBarcode = ref(false)
 const modalId = 'add-variable-product-modal'
-const productStore = useProductStore()
+const createProductStore = useCreateProductStore()
 const modalStore = useModalStore()
 const step = ref(1)
 const skipNextVariantReset = ref(false)
-
+const dragImagesRef = ref([])
+const isReadyToDeleteData = ref(false)
 const {
     handleSubmit,
     values,
@@ -55,32 +60,48 @@ const {
     initialValues: initialValues
 })
 
-const onSubmit = handleSubmit(async (formValues) => {
-    let message
-    if (modalStore.modals[modalId].type == 'CREATE') {
-        productStore.variantsData = [...productStore.variantsData, formValues]
-        message = 'Variante agregada correctamente'
-    } else if (modalStore.modals[modalId].type == 'EDIT') {
-        productStore.variantsData[productStore.selectedVariantIndex] = formValues
-        message = 'Variante editada correctamente'
-    } else {
-        return
+const createVariant = (formValues: CreateVariantFormType) => {
+    formValues.dragDropImage = dragImagesRef.value
+    createProductStore.variantsData = [...createProductStore.variantsData, formValues]
+    dragImagesRef.value = []
+    return 'Variante agregada correctamente'
+}
+
+const editVariant = (formValues: CreateVariantFormType) => {
+    createProductStore.variantsData[createProductStore.currentVariantRef] = formValues
+    createProductStore.variantsData[createProductStore.currentVariantRef].dragDropImage =
+        dragImagesRef.value
+    dragImagesRef.value = []
+    return 'Variante editada correctamente'
+}
+
+const modalMap = {
+    CREATE: {
+        action: createVariant
+    },
+    EDIT: {
+        action: editVariant
     }
-    modalStore.close(modalId)
-    resetForm({ values: initialValues })
+}
+const onSubmit = handleSubmit(async (formValues) => {
+    const modalType = modalStore.modals[createProductStore.modalId]?.type
+    const action = modalMap[modalType]?.action
+    const messageResult = await action(formValues)
+
+    modalStore.close(createProductStore.modalId)
+    resetForm()
     isGeneratedSku.value = false
     isGeneratedNumberBarcode.value = false
-    showNotification(message, 'success')
+    showNotification(messageResult, 'success')
     step.value = 1
-    console.log(productStore.variantsData)
+    console.log(createProductStore.variantsData)
 })
 
-const { variants, valueVariants, getVariants, getValueVariants } = useProduct()
+const { variants, valueVariants, getVariants } = useCreateProduct()
 
 const currentValueVariants = ref([])
 onMounted(async () => {
     await getVariants()
-    await getValueVariants()
 })
 
 watch(
@@ -105,12 +126,26 @@ watch(
         if (modal?.type == 'EDIT') {
             skipNextVariantReset.value = true
             await nextTick()
-            const selectedVariant = productStore.variantsData[productStore.selectedVariantIndex]
+            const selectedVariant =
+                createProductStore.variantsData[createProductStore.selectedVariantIndex]
             for (const key in selectedVariant) {
                 setFieldValue(key, selectedVariant[key], false)
             }
         } else if (modal?.type == 'CREATE') {
             resetForm({ values: initialValues })
+        }
+    }
+)
+
+watch(
+    () => createProductStore.currentVariant,
+    (variantData) => {
+        console.log(variantData)
+        const modalType = modalStore.modals[createProductStore.modalId]?.type
+        if (modalType == 'EDIT') {
+            dragImagesRef.value = variantData?.dragDropImage
+        } else {
+            dragImagesRef.value = []
         }
     }
 )
@@ -176,9 +211,33 @@ const generateNumberBarcode = async () => {
 const onClose = () => {
     resetForm()
     step.value = 1
+    dragImagesRef.value = []
+    isReadyToDeleteData.value = false
+    createProductStore.setData()
     if (isGeneratedSku.value) {
         isGeneratedSku.value = false
-        productStore.changeSequentialValue(false)
+        createProductStore.changeSequentialValue(false)
+    }
+}
+
+function getImages() {
+    const files = values.variantImage
+    if (!files || files.length === 0) return
+
+    dragImagesRef.value = Array.from(files).map((file: any, index) => ({
+        id: `${index}-${file.name}`,
+        file,
+        url: URL.createObjectURL(file),
+        name: file.name
+    }))
+}
+
+const deleteImage = (imageIndex: number) => {
+    dragImagesRef.value.splice(imageIndex, 1)
+    if (!dragImagesRef.value.length) {
+        setFieldValue('variantImage', [])
+        dragImagesRef.value = []
+        isReadyToDeleteData.value = false
     }
 }
 </script>
@@ -225,7 +284,7 @@ const onClose = () => {
                     class="col-span-12 md:col-span-6"
                     name="barcodeSimbology"
                     label="Simbología código de barras"
-                    :options="productStore.barcodeSimbologies"
+                    :options="createProductStore.barcodeSimbologies"
                     :required="true"
                 />
                 <div class="relative col-span-12 md:col-span-6 grid grid-cols-12 gap-2">
@@ -258,21 +317,21 @@ const onClose = () => {
                     class="col-span-12 md:col-span-6"
                     name="taxType"
                     label="Tipo de impuesto"
-                    :options="productStore.taxTypes"
+                    :options="createProductStore.taxTypes"
                     :required="true"
                 />
                 <BaseFormSelect
                     class="col-span-12 md:col-span-6"
                     name="tax"
                     label="Impuesto"
-                    :options="productStore.taxes"
+                    :options="createProductStore.taxes"
                     :required="true"
                 />
                 <BaseFormSelect
                     class="col-span-12 md:col-span-6"
                     name="discountType"
                     label="Tipo de descuento"
-                    :options="productStore.discountTypes"
+                    :options="createProductStore.discountTypes"
                     :required="true"
                 />
                 <BaseFormInput
@@ -288,10 +347,72 @@ const onClose = () => {
                     name="variantImage"
                     label="Imágenes del producto"
                     :multiple="true"
+                    @change="getImages"
                 ></BaseFormInputFile>
+                <div v-if="dragImagesRef.length" class="text-right my-4">
+                    <BaseButton
+                        v-show="!isReadyToDeleteData"
+                        @click="isReadyToDeleteData = true"
+                        text="Eliminar"
+                        variant="outline"
+                        className="btn-error"
+                    />
+                    <BaseButton
+                        v-show="isReadyToDeleteData"
+                        @click="isReadyToDeleteData = false"
+                        text="Cancelar"
+                        variant="outline"
+                        className="btn-secondary"
+                    />
+                </div>
+                <VueDraggable
+                    v-model="dragImagesRef"
+                    class="grid grid-cols-12 gap-3 mt-10"
+                    :animation="200"
+                >
+                    <div
+                        v-for="(img, index) in dragImagesRef"
+                        :key="img.id"
+                        class="col-span-12 sm:col-span-6 m-auto"
+                    >
+                        <div :class="styles['container-product-image']">
+                            <div
+                                :class="[
+                                    'w-full aspect-square bg-white rounded-xl shadow-md hover:shadow-lg flex flex-col indicator transition-shadow duration-300 flex items-center justify-center',
+                                    { [styles.wiggle]: isReadyToDeleteData }
+                                ]"
+                            >
+                                <img
+                                    class="object-contain w-full h-full p-2 transition-transform duration-300 hover:scale-115"
+                                    :src="img.url"
+                                    alt=""
+                                />
+                                <span
+                                    v-show="!isReadyToDeleteData"
+                                    class="indicator-item badge badge-secondary"
+                                >
+                                    {{ index + 1 }}
+                                </span>
+                                <span
+                                    v-show="isReadyToDeleteData"
+                                    class="indicator-item badge badge-error text-white cursor-pointer p-1"
+                                    @click="() => deleteImage(index)"
+                                >
+                                    <span
+                                        :class="[
+                                            'material-symbols-outlined',
+                                            styles['icon-delete-image']
+                                        ]"
+                                    >
+                                        close
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-center mt-3 mb-2">{{ img.name }}</p>
+                    </div>
+                </VueDraggable>
             </div>
         </template>
     </BaseModal>
 </template>
-
-<style scoped></style>

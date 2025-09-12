@@ -1,15 +1,43 @@
-import { getCategoriesService } from '../services/categoryService'
-import useCategoryStore from '../store/category.store'
+import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 import { useModalStore } from '@/shared/stores/modal.store'
-import { ColumnTableType } from '@/shared/types/columnTableType'
+import type { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'
 import { editTableButton, deleteTableButton } from '@/utils/tableButtons'
+import type { CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryType'
+import type { CategoryApiType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryApiType'
+import type { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryFormType'
+import type { CategoryRequestType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryRequestType'
+import { getCategoriesService } from '@inventario/ConfiguracionDeInventario/Categorias/services/categoryService'
+
 export const useCategory = () => {
     const categoryStore = useCategoryStore()
     const modalStore = useModalStore()
-    const getCategories = async () => {
-        const response = await getCategoriesService()
-        categoryStore.categories = response
+
+    const getCategories = async (page : number, pageSize : number) : Promise<{ items: CategoryType[], total: number }> => {
+        const response = await getCategoriesService(page, pageSize)
+        return {
+            items: response.data.items.map(mapCategory),
+            total: response.data.totalItems
+        }
+    }
+
+    const mapCategory = (model : CategoryApiType) : CategoryType => {
+        return {
+            id: model.id,
+            name: model.nombre,
+            slug: model.slug,
+            status: model.activo,
+            creationDate: model.fechaCreacion
+        }
+    }
+
+    const mapCategoryRequest = (model : CategoryFormType) : CategoryRequestType => {
+        return {
+            Nombre: model.name,
+            Slug: model.slug,
+            Activo: model.status,
+            Eliminado: false
+        }
     }
 
     const getTableColumns = (): ColumnTableType[] => {
@@ -19,12 +47,16 @@ export const useCategory = () => {
                 accessorKey: 'name'
             },
             {
-                header: 'Sufijo',
-                accessorKey: 'sufix'
+                header: 'Slug',
+                accessorKey: 'slug'
             },
             {
                 header: 'Fecha de Creación',
-                accessorKey: 'creationDate'
+                accessorKey: 'creationDate',
+                cell: ({ row }: any) => {
+                    const creationDate = new Date(row.original.creationDate)
+                    return h('p', {}, creationDate.toISOString().split("T")[0])
+                }
             },
             {
                 header: 'Estado',
@@ -68,5 +100,5 @@ export const useCategory = () => {
         return columns
     }
 
-    return { getCategories, getTableColumns }
+    return { getTableColumns, mapCategory, mapCategoryRequest, getCategories }
 }
