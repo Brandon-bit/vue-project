@@ -1,14 +1,16 @@
-export type SubCategory = {
+export type SubCategoryType = {
   id?: number;
+  image: string; // URL de la imagen (opcional)
   name: string;
   description: string;
   createdAt: Date;
   updatedAt: Date;
-  status: boolean;
+  active: boolean;
   code: string;
+  parentCategory: string;
 }
 
-export type SubCategoryForm = {
+export type SubCategoryFormType = {
     name: string;
     description: string;
     status: boolean;

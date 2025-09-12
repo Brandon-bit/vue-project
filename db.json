@@ -306,48 +306,109 @@
             "creationDate": "2025-08-25T00:00:00Z"
         }
     ],
-    "subcategory": [
-        {
-            "id": "1",
-            "label": "Taladros y Perforadoras"
-        },
-        {
-            "id": "2",
-            "label": "Sierras Eléctricas"
-        },
-        {
-            "id": "3",
-            "label": "Llaves y Destornilladores"
-        },
-        {
-            "id": "4",
-            "label": "Pinturas y Barnices"
-        },
-        {
-            "id": "5",
-            "label": "Cinta Métrica"
-        },
-        {
-            "id": "6",
-            "label": "Riego y Accesorios de Jardín"
-        },
-        {
-            "id": "7",
-            "label": "Bombas de Agua"
-        },
-        {
-            "id": "8",
-            "label": "Accesorios de Fontanería"
-        },
-        {
-            "id": "9",
-            "label": "Cables y Conectores"
-        },
-        {
-            "id": "10",
-            "label": "Materiales de Aislamiento"
-        }
-    ],
+"subcategory": [
+    {
+        "id": "1",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Electric Tools",
+        "label": "Drills and Power Drillers",
+        "description": "Electric and cordless drills",
+        "status": true,
+        "code": "CT001",
+        "accessKey": "drills"
+    },
+    {
+        "id": "2",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Electric Tools",
+        "label": "Electric Saws",
+        "description": "Powerful saws for cutting wood",
+        "status": false,
+        "code": "CT002",
+        "accessKey": "saws"
+    },
+    {
+        "id": "3",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Hand Tools",
+        "label": "Wrenches and Screwdrivers",
+        "description": "Hand tools used for tightening",
+        "status": true,
+        "code": "CT003",
+        "accessKey": "wrenches"
+    },
+    {
+        "id": "4",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Paints and Accessories",
+        "label": "Paints and Varnishes",
+        "description": "Coatings and finishes for protection",
+        "status": true,
+        "code": "CT004",
+        "accessKey": "paints"
+    },
+    {
+        "id": "5",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Hand Tools",
+        "label": "Measuring Tape",
+        "description": "Flexible measuring tape",
+        "status": true,
+        "code": "CT005",
+        "accessKey": "tape"
+    },
+    {
+        "id": "6",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Gardening",
+        "label": "Garden Irrigation and Accessories",
+        "description": "Hoses, sprinklers, and irrigation systems",
+        "status": true,
+        "code": "CT006",
+        "accessKey": "irrigation"
+    },
+    {
+        "id": "7",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Gardening",
+        "label": "Water Pumps",
+        "description": "For residential or industrial use",
+        "status": true,
+        "code": "CT007",
+        "accessKey": "pumps"
+    },
+    {
+        "id": "8",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Construction Materials",
+        "label": "Cement and Concrete",
+        "description": "Materials for building and construction",
+        "status": true,
+        "code": "CT008",
+        "accessKey": "cement"
+    },
+    {
+        "id": "9",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Plumbing",
+        "label": "Pipes and Fittings",
+        "description": "Plumbing supplies and accessories",
+        "status": true,
+        "code": "CT009",
+        "accessKey": "pipes"
+    },
+    {
+        "id": "10",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+        "parentCategory": "Construction Materials",
+        "label": "Insulation Materials",
+        "description": "Products designed to control temperature",
+        "status": true,
+        "code": "CT010",
+        "accessKey": "insulation"
+    }
+]
+,
     "unit": [
         {
             "name": "Piece",
