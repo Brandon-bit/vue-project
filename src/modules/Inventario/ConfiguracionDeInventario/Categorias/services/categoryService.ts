@@ -2,9 +2,9 @@ import axiosApiInstance from '@/api/axiosApiInstance'
 import type { ApiResponseType } from '@/shared/types/apiResponseType'
 import type { CategoryApiType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryApiType'
 import type { CategoryRequestType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryRequestType'
-import type { pagedResponseType } from '@/shared/types/pagedResponseType'
+import type { PagedResponseType } from '@/shared/types/pagedResponseType'
 
-export const getCategoriesService = async (page : number, pageSize: number) : Promise<ApiResponseType<pagedResponseType<CategoryApiType>>> => {
+export const getCategoriesService = async (page : number, pageSize: number) : Promise<ApiResponseType<PagedResponseType<CategoryApiType>>> => {
   const response = await axiosApiInstance.get('/producto/categoria', {
     params: {
       page: page,

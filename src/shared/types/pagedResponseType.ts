@@ -1,4 +1,4 @@
-export type pagedResponseType<T> = {
+export type PagedResponseType<T> = {
     items: T[],
     totalItems: number,
     page: number,

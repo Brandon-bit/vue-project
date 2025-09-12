@@ -3,18 +3,29 @@ import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h  , withDirectives } from 'vue'
 import useWarrantyStore from '../store/warranty.store'
 import { useModalStore } from '@/shared/stores/modal.store'
+import { WarrantyType } from '../types/warrantyType'
 
 export const useWarranty = () => {
     const warrantyStore = useWarrantyStore()
     const modalStore = useModalStore()
     
-    const getWarranties = async () => {
-        try{
-            const response = await getWarrantiesService()
-            warrantyStore.warranties = response
-        }
-        catch(error){}
-    }
+    // const getWarranties = async (page : number, pageSize : number) : Promise<{ items: WarrantyType[], total: number }> => {
+    //     const response = await getWarrantiesService(page, pageSize)
+    //     return {
+    //         items: response.data.items.map(mapCategory),
+    //         total: response.data.totalItems
+    //     }
+    // }
+
+    // const mapWarranty = (model : CategoryApiType) : CategoryType => {
+    //     return {
+    //         id: model.id,
+    //         name: model.nombre,
+    //         slug: model.slug,
+    //         status: model.activo,
+    //         creationDate: model.fechaCreacion
+    //     }
+    // }
 
     const getWarrantiesTableColumns = () : ColumnTableType[] => {
         const columns = [
