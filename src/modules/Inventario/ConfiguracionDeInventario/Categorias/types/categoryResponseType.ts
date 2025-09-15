@@ -1,5 +1,4 @@
-// Type that is received from the API
-export type CategoryApiType = {
+export type CategoryResponseType = {
     id: number,
     idCategoriaPadre: number,
     nombre: string,

@@ -5,7 +5,7 @@ import BaseTable from '@/shared/components/BaseTable.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import CategoryModal from '@inventario/ConfiguracionDeInventario/Categorias/components/CategoryModal.vue'
 import { useCategory } from '@inventario/ConfiguracionDeInventario/Categorias/composables/useCategory'
-import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
+import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 
 const { getTableColumns, getCategories } = useCategory()
 

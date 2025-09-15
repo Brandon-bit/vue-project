@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
+import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 const categoryStore = useCategoryStore()
 </script>
 
