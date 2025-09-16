@@ -139,6 +139,7 @@ const openCreateModal = () => {
         v-else 
         :data="subCategoryStore.subcategories" 
         :headers="getTableColumns()"
+        
     />
 
     <!-- MODAL -->

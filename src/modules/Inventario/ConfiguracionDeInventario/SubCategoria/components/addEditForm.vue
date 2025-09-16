@@ -5,7 +5,7 @@ import BaseFormCheckbox from '@/shared/components/BaseFormCheckbox.vue';
 import BaseFormSelect from '@/shared/components/BaseFormSelect.vue';
 import { useCategory } from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/composables/useCategory';
 // 1. IMPORTA EL STORE DE CATEGORÍAS
-import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/category.store';
+import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore';
 
 // 2. ACTIVA EL STORE
 const categoryStore = useCategoryStore();
