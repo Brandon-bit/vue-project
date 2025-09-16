@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BaseModal from '@/shared/components/BaseModal.vue'
-import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
+import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 import { computed, watch } from 'vue'
 import { useForm } from 'vee-validate'
 import DeleteCategory from '@inventario/ConfiguracionDeInventario/Categorias/components/DeleteCategory.vue'

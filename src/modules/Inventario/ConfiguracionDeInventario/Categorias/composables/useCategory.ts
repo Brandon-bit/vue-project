@@ -1,12 +1,12 @@
-import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
+import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 import { useModalStore } from '@/shared/stores/modal.store'
 import type { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'
 import { editTableButton, deleteTableButton } from '@/utils/tableButtons'
 import type { CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryType'
-import type { CategoryApiType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryApiType'
+import type { CategoryResponseType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryResponseType'
 import type { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryFormType'
-import type { CategoryRequestType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryRequestType'
+import type { CategoryRequestType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryRequestType'
 import { getCategoriesService } from '@inventario/ConfiguracionDeInventario/Categorias/services/categoryService'
 
 export const useCategory = () => {
@@ -21,7 +21,7 @@ export const useCategory = () => {
         }
     }
 
-    const mapCategory = (model : CategoryApiType) : CategoryType => {
+    const mapCategory = (model : CategoryResponseType) : CategoryType => {
         return {
             id: model.id,
             name: model.nombre,
