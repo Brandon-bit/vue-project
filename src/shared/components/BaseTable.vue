@@ -19,7 +19,7 @@ import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
 const props = defineProps<{
     //data: T[]
     headers: ColumnDef<T>[]
-    fetchCallback: (page: number, pageSize: number) => Promise<{items: T[], total : number}>
+    fetchCallback?: (page: number, pageSize: number) => Promise<{items: T[], total : number}>
     //endpoint: string,
     //dataMapper: DataMapper<T>
 }>()
