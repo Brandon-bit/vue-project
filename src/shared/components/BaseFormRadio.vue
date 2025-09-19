@@ -13,6 +13,7 @@ const props = defineProps<{
     label: string
     options: Option[]
     class?: string
+    type? : string
 }>()
 
 const defaultVal = computed(() => {
@@ -28,7 +29,7 @@ const { value, errorMessage } = useField(() => props.name, undefined, {
 <template>
     <div class="mb-2" :class="props.class">
         <label class="block font-semibold mb-3">{{ props.label }}</label>
-        <div class="flex flex-col gap-4">
+        <div :class="['flex gap-4', props.type || 'flex-col']">
             <label
                 v-for="option in props.options"
                 :key="option.value"
@@ -41,7 +42,7 @@ const { value, errorMessage } = useField(() => props.name, undefined, {
                     v-model="value"
                     class="radio"
                 />
-                {{ option.label }}
+                <span v-html="option.label" />
             </label>
         </div>
 

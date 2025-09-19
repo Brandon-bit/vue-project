@@ -1,14 +1,24 @@
 <script setup lang="ts">
-const props = defineProps<{
-    icon?: string
-    variant?: string
-    text: string
-    className?: string
-}>()
+const props = withDefaults(
+    defineProps<{
+        icon?: string
+        variant?: string
+        text: string
+        className?: string
+        disabled?: boolean
+    }>(),
+    {
+        disabled: false
+    }
+)
 </script>
 
 <template>
-    <button type="button" :class="`btn btn-${variant || 'primary'} ${className}`">
+    <button
+        :disabled="props.disabled"
+        type="button"
+        :class="`btn btn-${variant || 'primary'} ${className}`"
+    >
         <span v-show="icon || false" class="material-symbols-outlined"> {{ props.icon }} </span>
         {{ text }}
     </button>

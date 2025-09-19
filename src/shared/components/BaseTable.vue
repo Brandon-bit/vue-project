@@ -154,7 +154,7 @@ defineExpose({
             <ul class="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
             popover id="popover-exportar" style="position-anchor:--anchor-exportar">
                 <li @click="exportToPDF">
-                    <a> 
+                    <a>
                         <span class="material-symbols-outlined">
                             picture_as_pdf
                         </span>
@@ -162,7 +162,7 @@ defineExpose({
                     </a>
                 </li>
                 <li @click="exportToExcel">
-                    <a> 
+                    <a>
                         <span class="material-symbols-outlined">
                             rubric
                         </span>
