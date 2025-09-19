@@ -27,7 +27,7 @@
 </script>
 
 <template>
-    <div class="navbar bg-base-100 shadow-sm rounded">
+    <div class="navbar bg-base-100 py-0 shadow-sm rounded">
         <div class="navbar-start" style="width: 100%">
             <button class="btn btn-sm btn-outline ml-4 p-1" @click="toggleSidebar">
                 <span class="material-symbols-outlined">

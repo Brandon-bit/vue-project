@@ -790,9 +790,9 @@ const modulos = ref([
                         name: 'Imprimir Codigo QR'
                     },
                     {
-                         url: '/inventario/configuracion/crear-descuento',
-                         name: 'CrearDescuento'
-                     }
+                        url: '/inventario/configuracion/crear-descuento',
+                        name: 'CrearDescuento'
+                    }
                 ]
             },
             {
@@ -802,8 +802,8 @@ const modulos = ref([
                 open: false,
                 views: [
                     {
-                        url: '/inventario/operacion/puntos-de-reorden',
-                        name: 'Puntos de Reorden'
+                        url: '/inventario/operacion/puntos-maximos-minimos',
+                        name: 'Puntos de Max/Min y Reorden'
                     },
                     {
                         url: '/inventario/operacion/auditoria-de-inventarios',
@@ -848,6 +848,25 @@ const modulos = ref([
                     {
                         url: '/inventario/stock/transferir-stock',
                         name: 'Transferir Stock'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        // Inventarios
+        icon: 'point_of_sale',
+        name: 'POS',
+        sections: [
+            {
+                // Configuración de Inventarios
+                icon: '',
+                name: 'POS',
+                open: false,
+                views: [
+                    {
+                        url: '/pos/punto-de-venta',
+                        name: 'Punto de Venta'
                     }
                 ]
             }
