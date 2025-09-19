@@ -1013,226 +1013,226 @@
         }
     ],
     "products": [
-      {
-        "id": 1,
-        "name": "Producto 1",
-        "code": "PROD-00001",
-        "price": 427.31,
-        "stock": 188,
-        "brandId": "8",
-        "categoryId": 5,
-        "storeId": "3",
-        "warehouseId": "9"
-      },
-      {
-        "id": 2,
-        "name": "Producto 2",
-        "code": "PROD-00002",
-        "price": 479.89,
-        "stock": 183,
-        "brandId": "9",
-        "categoryId": 10,
-        "storeId": "9",
-        "warehouseId": "10"
-      },
-      {
-        "id": 3,
-        "name": "Producto 3",
-        "code": "PROD-00003",
-        "price": 321.36,
-        "stock": 126,
-        "brandId": "3",
-        "categoryId": 3,
-        "storeId": "5",
-        "warehouseId": "1"
-      },
-      {
-        "id": 4,
-        "name": "Producto 4",
-        "code": "PROD-00004",
-        "price": 105.74,
-        "stock": 199,
-        "brandId": "7",
-        "categoryId": 8,
-        "storeId": "1",
-        "warehouseId": "1"
-      },
-      {
-        "id": 5,
-        "name": "Producto 5",
-        "code": "PROD-00005",
-        "price": 183.54,
-        "stock": 111,
-        "brandId": "5",
-        "categoryId": 1,
-        "storeId": "3",
-        "warehouseId": "4"
-      },
-      {
-        "id": 6,
-        "name": "Producto 6",
-        "code": "PROD-00006",
-        "price": 489.9,
-        "stock": 142,
-        "brandId": "6",
-        "categoryId": 6,
-        "storeId": "7",
-        "warehouseId": "8"
-      },
-      {
-        "id": 7,
-        "name": "Producto 7",
-        "code": "PROD-00007",
-        "price": 227.64,
-        "stock": 181,
-        "brandId": "7",
-        "categoryId": 7,
-        "storeId": "9",
-        "warehouseId": "2"
-      },
-      {
-        "id": 8,
-        "name": "Producto 8",
-        "code": "PROD-00008",
-        "price": 281.03,
-        "stock": 148,
-        "brandId": "8",
-        "categoryId": 8,
-        "storeId": "2",
-        "warehouseId": "5"
-      },
-      {
-        "id": 9,
-        "name": "Producto 9",
-        "code": "PROD-00009",
-        "price": 152.03,
-        "stock": 161,
-        "brandId": "9",
-        "categoryId": 9,
-        "storeId": "4",
-        "warehouseId": "6"
-      },
-      {
-        "id": 10,
-        "name": "Producto 10",
-        "code": "PROD-00010",
-        "price": 344.47,
-        "stock": 135,
-        "brandId": "10",
-        "categoryId": 10,
-        "storeId": "10",
-        "warehouseId": "3"
-      },
-      {
-        "id": 11,
-        "name": "Producto 11",
-        "code": "PROD-00011",
-        "price": 120.5,
-        "stock": 90,
-        "brandId": "1",
-        "categoryId": 2,
-        "storeId": "4",
-        "warehouseId": "7"
-      },
-      {
-        "id": 12,
-        "name": "Producto 12",
-        "code": "PROD-00012",
-        "price": 250.75,
-        "stock": 150,
-        "brandId": "2",
-        "categoryId": 4,
-        "storeId": "6",
-        "warehouseId": "1"
-      },
-      {
-        "id": 13,
-        "name": "Producto 13",
-        "code": "PROD-00013",
-        "price": 380.0,
-        "stock": 200,
-        "brandId": "3",
-        "categoryId": 6,
-        "storeId": "8",
-        "warehouseId": "3"
-      },
-      {
-        "id": 14,
-        "name": "Producto 14",
-        "code": "PROD-00014",
-        "price": 95.25,
-        "stock": 70,
-        "brandId": "4",
-        "categoryId": 8,
-        "storeId": "10",
-        "warehouseId": "5"
-      },
-      {
-        "id": 15,
-        "name": "Producto 15",
-        "code": "PROD-00015",
-        "price": 270.0,
-        "stock": 100,
-        "brandId": "5",
-        "categoryId": 10,
-        "storeId": "2",
-        "warehouseId": "7"
-      },
-      {
-        "id": 16,
-        "name": "Producto 16",
-        "code": "PROD-00016",
-        "price": 340.5,
-        "stock": 120,
-        "brandId": "6",
-        "categoryId": 1,
-        "storeId": "1",
-        "warehouseId": "9"
-      },
-      {
-        "id": 17,
-        "name": "Producto 17",
-        "code": "PROD-00017",
-        "price": 190.0,
-        "stock": 130,
-        "brandId": "7",
-        "categoryId": 3,
-        "storeId": "3",
-        "warehouseId": "2"
-      },
-      {
-        "id": 18,
-        "name": "Producto 18",
-        "code": "PROD-00018",
-        "price": 89.99,
-        "stock": 170,
-        "brandId": "8",
-        "categoryId": 5,
-        "storeId": "5",
-        "warehouseId": "4"
-      },
-      {
-        "id": 19,
-        "name": "Producto 19",
-        "code": "PROD-00019",
-        "price": 520.0,
-        "stock": 50,
-        "brandId": "9",
-        "categoryId": 7,
-        "storeId": "7",
-        "warehouseId": "6"
-      },
-      {
-        "id": 20,
-        "name": "Producto 20",
-        "code": "PROD-00020",
-        "price": 65.0,
-        "stock": 240,
-        "brandId": "10",
-        "categoryId": 9,
-        "storeId": "9",
-        "warehouseId": "8"
-      }
+        {
+            "id": 1,
+            "name": "Producto 1",
+            "code": "PROD-00001",
+            "price": 427.31,
+            "stock": 188,
+            "brandId": "8",
+            "categoryId": 5,
+            "storeId": "3",
+            "warehouseId": "9"
+        },
+        {
+            "id": 2,
+            "name": "Producto 2",
+            "code": "PROD-00002",
+            "price": 479.89,
+            "stock": 183,
+            "brandId": "9",
+            "categoryId": 10,
+            "storeId": "9",
+            "warehouseId": "10"
+        },
+        {
+            "id": 3,
+            "name": "Producto 3",
+            "code": "PROD-00003",
+            "price": 321.36,
+            "stock": 126,
+            "brandId": "3",
+            "categoryId": 3,
+            "storeId": "5",
+            "warehouseId": "1"
+        },
+        {
+            "id": 4,
+            "name": "Producto 4",
+            "code": "PROD-00004",
+            "price": 105.74,
+            "stock": 199,
+            "brandId": "7",
+            "categoryId": 8,
+            "storeId": "1",
+            "warehouseId": "1"
+        },
+        {
+            "id": 5,
+            "name": "Producto 5",
+            "code": "PROD-00005",
+            "price": 183.54,
+            "stock": 111,
+            "brandId": "5",
+            "categoryId": 1,
+            "storeId": "3",
+            "warehouseId": "4"
+        },
+        {
+            "id": 6,
+            "name": "Producto 6",
+            "code": "PROD-00006",
+            "price": 489.9,
+            "stock": 142,
+            "brandId": "6",
+            "categoryId": 6,
+            "storeId": "7",
+            "warehouseId": "8"
+        },
+        {
+            "id": 7,
+            "name": "Producto 7",
+            "code": "PROD-00007",
+            "price": 227.64,
+            "stock": 181,
+            "brandId": "7",
+            "categoryId": 7,
+            "storeId": "9",
+            "warehouseId": "2"
+        },
+        {
+            "id": 8,
+            "name": "Producto 8",
+            "code": "PROD-00008",
+            "price": 281.03,
+            "stock": 148,
+            "brandId": "8",
+            "categoryId": 8,
+            "storeId": "2",
+            "warehouseId": "5"
+        },
+        {
+            "id": 9,
+            "name": "Producto 9",
+            "code": "PROD-00009",
+            "price": 152.03,
+            "stock": 161,
+            "brandId": "9",
+            "categoryId": 9,
+            "storeId": "4",
+            "warehouseId": "6"
+        },
+        {
+            "id": 10,
+            "name": "Producto 10",
+            "code": "PROD-00010",
+            "price": 344.47,
+            "stock": 135,
+            "brandId": "10",
+            "categoryId": 10,
+            "storeId": "10",
+            "warehouseId": "3"
+        },
+        {
+            "id": 11,
+            "name": "Producto 11",
+            "code": "PROD-00011",
+            "price": 120.5,
+            "stock": 90,
+            "brandId": "1",
+            "categoryId": 2,
+            "storeId": "4",
+            "warehouseId": "7"
+        },
+        {
+            "id": 12,
+            "name": "Producto 12",
+            "code": "PROD-00012",
+            "price": 250.75,
+            "stock": 150,
+            "brandId": "2",
+            "categoryId": 4,
+            "storeId": "6",
+            "warehouseId": "1"
+        },
+        {
+            "id": 13,
+            "name": "Producto 13",
+            "code": "PROD-00013",
+            "price": 380.0,
+            "stock": 200,
+            "brandId": "3",
+            "categoryId": 6,
+            "storeId": "8",
+            "warehouseId": "3"
+        },
+        {
+            "id": 14,
+            "name": "Producto 14",
+            "code": "PROD-00014",
+            "price": 95.25,
+            "stock": 70,
+            "brandId": "4",
+            "categoryId": 8,
+            "storeId": "10",
+            "warehouseId": "5"
+        },
+        {
+            "id": 15,
+            "name": "Producto 15",
+            "code": "PROD-00015",
+            "price": 270.0,
+            "stock": 100,
+            "brandId": "5",
+            "categoryId": 10,
+            "storeId": "2",
+            "warehouseId": "7"
+        },
+        {
+            "id": 16,
+            "name": "Producto 16",
+            "code": "PROD-00016",
+            "price": 340.5,
+            "stock": 120,
+            "brandId": "6",
+            "categoryId": 1,
+            "storeId": "1",
+            "warehouseId": "9"
+        },
+        {
+            "id": 17,
+            "name": "Producto 17",
+            "code": "PROD-00017",
+            "price": 190.0,
+            "stock": 130,
+            "brandId": "7",
+            "categoryId": 3,
+            "storeId": "3",
+            "warehouseId": "2"
+        },
+        {
+            "id": 18,
+            "name": "Producto 18",
+            "code": "PROD-00018",
+            "price": 89.99,
+            "stock": 170,
+            "brandId": "8",
+            "categoryId": 5,
+            "storeId": "5",
+            "warehouseId": "4"
+        },
+        {
+            "id": 19,
+            "name": "Producto 19",
+            "code": "PROD-00019",
+            "price": 520.0,
+            "stock": 50,
+            "brandId": "9",
+            "categoryId": 7,
+            "storeId": "7",
+            "warehouseId": "6"
+        },
+        {
+            "id": 20,
+            "name": "Producto 20",
+            "code": "PROD-00020",
+            "price": 65.0,
+            "stock": 240,
+            "brandId": "10",
+            "categoryId": 9,
+            "storeId": "9",
+            "warehouseId": "8"
+        }
     ],
     "discounts": [
         {
@@ -1698,6 +1698,53 @@
             "cantidad": 10,
             "cantidadAlerta": 20,
             "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+        }
+    ],
+    "puntosMaximosMinimos": [
+        {
+            "sku": "A123",
+            "nombre": "Teclado Mecánico",
+            "minimo": 10,
+            "maximo": 50,
+            "stock": 8,
+            "puntos_reorden": 15,
+            "sugerencia": "Reordenar urgentemente"
+        },
+        {
+            "sku": "B456",
+            "nombre": "Mouse Inalámbrico",
+            "minimo": 20,
+            "maximo": 100,
+            "stock": 25,
+            "puntos_reorden": 30,
+            "sugerencia": "Revisar pronto, cerca del punto de reorden"
+        },
+        {
+            "sku": "C789",
+            "nombre": "Monitor 24 pulgadas",
+            "minimo": 5,
+            "maximo": 20,
+            "stock": 18,
+            "puntos_reorden": 10,
+            "sugerencia": "Stock saludable"
+        },
+        {
+            "sku": "D321",
+            "nombre": "Cable HDMI",
+            "minimo": 50,
+            "maximo": 200,
+            "stock": 210,
+            "puntos_reorden": 60,
+            "sugerencia": "Exceso de inventario"
+        },
+        {
+            "sku": "E654",
+            "nombre": "Webcam HD",
+            "minimo": 15,
+            "maximo": 60,
+            "stock": 15,
+            "puntos_reorden": 20,
+            "sugerencia": "Reordenar pronto"
         }
     ]
 }
