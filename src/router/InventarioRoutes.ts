@@ -1,11 +1,11 @@
 const routes = [
     // Configuracion de Inventarios
-    // {
-    //     path: '/inventario/configuracion/productos',
-    //     name: 'Productos',
-    //     component: () =>
-    //         import('@inventario/ConfiguracionDeInventario/Productos/views/ProductsView.vue')
-    // },
+    {
+        path: '/inventario/configuracion/productos',
+        name: 'Productos',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/Productos/views/ProductsView.vue')
+    },
     {
         path: '/inventario/configuracion/crear-producto',
         name: 'CrearProducto',
@@ -84,25 +84,35 @@ const routes = [
     {
         path: '/inventario/configuracion/imprimir-codigo-de-barras',
         name: 'ImprimirCodigoDeBarras',
-        component: () => import('@inventario/ConfiguracionDeInventario/ImprimirCodigoDeBarras/views/ImprimirCodigoDeBarras.vue')
+        component: () =>
+            import(
+                '@inventario/ConfiguracionDeInventario/ImprimirCodigoDeBarras/views/ImprimirCodigoDeBarras.vue'
+            )
     },
     {
         path: '/inventario/configuracion/imprimir-codigo-qr',
         name: 'ImprimirCodigoQR',
-        component: () => import('@inventario/ConfiguracionDeInventario/ImprimirCodigoQR/views/ImprimirCodigoQR.vue')
+        component: () =>
+            import(
+                '@inventario/ConfiguracionDeInventario/ImprimirCodigoQR/views/ImprimirCodigoQR.vue'
+            )
     },
     {
         path: '/inventario/configuracion/manejo-de-descuentos',
         name: 'ManejoDeDescuentos',
-        component: () => import('@inventario/ConfiguracionDeInventario/ManejoDeDescuentos/views/ManejoDeDescuentos.vue')
+        component: () =>
+            import(
+                '@inventario/ConfiguracionDeInventario/ManejoDeDescuentos/views/ManejoDeDescuentos.vue'
+            )
     },
 
-    // // Operacion
-    // {
-    //     path: '/inventario/operacion/puntos-de-reorden',
-    //     name: 'PuntosDeReorden',
-    //     component: () => import('@inventario/Operacion/views/PuntosDeReorden.vue')
-    // },
+    // Operacion
+    {
+        path: '/inventario/operacion/puntos-maximos-minimos',
+        name: 'PuntosDeReorden',
+        component: () =>
+            import('@inventario/Operacion/PuntosMaximosMinimos/views/MaxMinPointsView.vue')
+    }
     // {
     //     path: '/inventario/operacion/auditoria-de-inventarios',
     //     name: 'AuditoriaDeInventarios',
