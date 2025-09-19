@@ -26,6 +26,7 @@ export default defineConfig({
             '@recursosHumanos': path.resolve(__dirname, './src/modules/recursosHumanos'),
             '@compras': path.resolve(__dirname, './src/modules/compras'),
             '@inventario': path.resolve(__dirname, './src/modules/inventario'),
+            '@pos': path.resolve(__dirname, './src/modules/POS'),
             //NAVBAR
             '@exportar': path.resolve(__dirname, './src/navbar/Exportar'),
             '@listaDePendientes': path.resolve(__dirname, './src/navbar/ListaDePendientes'),
