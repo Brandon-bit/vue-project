@@ -802,6 +802,10 @@ const modulos = ref([
                 open: false,
                 views: [
                     {
+                        url: '/inventario/operacion/tablero',
+                        name: 'Tablero'
+                    },
+                    {
                         url: '/inventario/operacion/puntos-maximos-minimos',
                         name: 'Puntos de Max/Min y Reorden'
                     },
@@ -814,8 +818,8 @@ const modulos = ref([
                         name: 'Gestión de Pedidos'
                     },
                     {
-                        url: '/inventario/operacion/controles-de-autorizacion-de-pedidos',
-                        name: 'Controles de autorización de pedidos'
+                        url: '/inventario/operacion/autorizaciones-de-pedidos',
+                        name: 'Autorizaciones de pedidos'
                     },
                     {
                         url: '/inventario/operacion/generacion-de-polizas-de-inventario',
@@ -828,6 +832,10 @@ const modulos = ref([
                     {
                         url: '/inventario/operacion/salidas-de-inventario',
                         name: 'Salidas de Inventario'
+                    },
+                    {
+                        url: '/inventario/operacion/gestion-de-pedidos',
+                        name: 'Gestión de pedidos'
                     }
                 ]
             },

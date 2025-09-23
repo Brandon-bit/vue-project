@@ -306,109 +306,108 @@
             "creationDate": "2025-08-25T00:00:00Z"
         }
     ],
-"subcategory": [
-    {
-        "id": "1",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Electric Tools",
-        "label": "Drills and Power Drillers",
-        "description": "Electric and cordless drills",
-        "status": true,
-        "code": "CT001",
-        "accessKey": "drills"
-    },
-    {
-        "id": "2",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Electric Tools",
-        "label": "Electric Saws",
-        "description": "Powerful saws for cutting wood",
-        "status": false,
-        "code": "CT002",
-        "accessKey": "saws"
-    },
-    {
-        "id": "3",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Hand Tools",
-        "label": "Wrenches and Screwdrivers",
-        "description": "Hand tools used for tightening",
-        "status": true,
-        "code": "CT003",
-        "accessKey": "wrenches"
-    },
-    {
-        "id": "4",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Paints and Accessories",
-        "label": "Paints and Varnishes",
-        "description": "Coatings and finishes for protection",
-        "status": true,
-        "code": "CT004",
-        "accessKey": "paints"
-    },
-    {
-        "id": "5",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Hand Tools",
-        "label": "Measuring Tape",
-        "description": "Flexible measuring tape",
-        "status": true,
-        "code": "CT005",
-        "accessKey": "tape"
-    },
-    {
-        "id": "6",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Gardening",
-        "label": "Garden Irrigation and Accessories",
-        "description": "Hoses, sprinklers, and irrigation systems",
-        "status": true,
-        "code": "CT006",
-        "accessKey": "irrigation"
-    },
-    {
-        "id": "7",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Gardening",
-        "label": "Water Pumps",
-        "description": "For residential or industrial use",
-        "status": true,
-        "code": "CT007",
-        "accessKey": "pumps"
-    },
-    {
-        "id": "8",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Construction Materials",
-        "label": "Cement and Concrete",
-        "description": "Materials for building and construction",
-        "status": true,
-        "code": "CT008",
-        "accessKey": "cement"
-    },
-    {
-        "id": "9",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Plumbing",
-        "label": "Pipes and Fittings",
-        "description": "Plumbing supplies and accessories",
-        "status": true,
-        "code": "CT009",
-        "accessKey": "pipes"
-    },
-    {
-        "id": "10",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Construction Materials",
-        "label": "Insulation Materials",
-        "description": "Products designed to control temperature",
-        "status": true,
-        "code": "CT010",
-        "accessKey": "insulation"
-    }
-]
-,
+    "subcategory": [
+        {
+            "id": "1",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Electric Tools",
+            "label": "Drills and Power Drillers",
+            "description": "Electric and cordless drills",
+            "status": true,
+            "code": "CT001",
+            "accessKey": "drills"
+        },
+        {
+            "id": "2",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Electric Tools",
+            "label": "Electric Saws",
+            "description": "Powerful saws for cutting wood",
+            "status": false,
+            "code": "CT002",
+            "accessKey": "saws"
+        },
+        {
+            "id": "3",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Hand Tools",
+            "label": "Wrenches and Screwdrivers",
+            "description": "Hand tools used for tightening",
+            "status": true,
+            "code": "CT003",
+            "accessKey": "wrenches"
+        },
+        {
+            "id": "4",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Paints and Accessories",
+            "label": "Paints and Varnishes",
+            "description": "Coatings and finishes for protection",
+            "status": true,
+            "code": "CT004",
+            "accessKey": "paints"
+        },
+        {
+            "id": "5",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Hand Tools",
+            "label": "Measuring Tape",
+            "description": "Flexible measuring tape",
+            "status": true,
+            "code": "CT005",
+            "accessKey": "tape"
+        },
+        {
+            "id": "6",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Gardening",
+            "label": "Garden Irrigation and Accessories",
+            "description": "Hoses, sprinklers, and irrigation systems",
+            "status": true,
+            "code": "CT006",
+            "accessKey": "irrigation"
+        },
+        {
+            "id": "7",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Gardening",
+            "label": "Water Pumps",
+            "description": "For residential or industrial use",
+            "status": true,
+            "code": "CT007",
+            "accessKey": "pumps"
+        },
+        {
+            "id": "8",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Construction Materials",
+            "label": "Cement and Concrete",
+            "description": "Materials for building and construction",
+            "status": true,
+            "code": "CT008",
+            "accessKey": "cement"
+        },
+        {
+            "id": "9",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Plumbing",
+            "label": "Pipes and Fittings",
+            "description": "Plumbing supplies and accessories",
+            "status": true,
+            "code": "CT009",
+            "accessKey": "pipes"
+        },
+        {
+            "id": "10",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+            "parentCategory": "Construction Materials",
+            "label": "Insulation Materials",
+            "description": "Products designed to control temperature",
+            "status": true,
+            "code": "CT010",
+            "accessKey": "insulation"
+        }
+    ],
     "unit": [
         {
             "id": 1,
@@ -1745,6 +1744,214 @@
             "stock": 15,
             "puntos_reorden": 20,
             "sugerencia": "Reordenar pronto"
+        }
+    ],
+    "controlPanelData": [
+        {
+            "titulo": "Productos con bajo stock",
+            "cantidad": 8
+        },
+        {
+            "titulo": "Pedidos pendientes",
+            "cantidad": 5
+        },
+        {
+            "titulo": "Autorizaciones pendientes",
+            "cantidad": 2
+        },
+        {
+            "titulo": "Valor de inventario",
+            "cantidad": "$ 1,250,430.60"
+        }
+    ],
+    "auditGeneralData": [
+        {
+            "titulo": "Conteos realizados",
+            "cantidad": 3
+        },
+        {
+            "titulo": "Ajuste neto",
+            "cantidad": -5
+        }
+    ],
+    "inventoryAudit": [
+        {
+            "id": 1,
+            "fecha": "2025-09-15",
+            "auditorId": 1,
+            "auditorNombre": "Laura Martínez",
+            "productoId": 1,
+            "producto": "Taladro inalámbrico",
+            "conteo": 25,
+            "diferencia": -2,
+            "nota": "Faltan unidades posiblemente por préstamo a taller."
+        },
+        {
+            "id": 2,
+            "fecha": "2025-09-16",
+            "auditorId": 2,
+            "auditorNombre": "Carlos Ramírez",
+            "productoId": 2,
+            "producto": "Caja de tornillos 3mm",
+            "conteo": 120,
+            "diferencia": 0,
+            "nota": "Conteo correcto, sin diferencias."
+        },
+        {
+            "id": 3,
+            "fecha": "2025-09-17",
+            "auditorId": 3,
+            "auditorNombre": "Ana Gómez",
+            "productoId": 3,
+            "producto": "Martillo de uña",
+            "conteo": 40,
+            "diferencia": 1,
+            "nota": "Una unidad extra, posible error en ingreso anterior."
+        },
+        {
+            "id": 4,
+            "fecha": "2025-09-18",
+            "auditorId": 4,
+            "auditorNombre": "José Torres",
+            "productoId": 4,
+            "producto": "Llave inglesa ajustable",
+            "conteo": 15,
+            "diferencia": -1,
+            "nota": "Se encontró una dañada y fue retirada del inventario."
+        },
+        {
+            "id": 5,
+            "fecha": "2025-09-19",
+            "auditorId": 5,
+            "auditorNombre": "Sofía Delgado",
+            "productoId": 5,
+            "producto": "Cinta métrica 5m",
+            "conteo": 60,
+            "diferencia": 0,
+            "nota": "Sin novedades en este producto."
+        }
+    ],
+    "inventoryAuditors": [
+        {
+            "id": 1,
+            "nombre": "Laura Martínez"
+        },
+        {
+            "id": 2,
+            "nombre": "Carlos Ramírez"
+        },
+        {
+            "id": 3,
+            "nombre": "Ana Gómez"
+        },
+        {
+            "id": 4,
+            "nombre": "José Torres"
+        },
+        {
+            "id": 5,
+            "nombre": "Sofía Delgado"
+        }
+    ],
+    "gestionPedido": [
+        {
+            "id": 1,
+            "folio": "INV-001245",
+            "idProveedor": 101,
+            "proveedor": "Ferretería El Tornillo",
+            "fecha": "2025-09-18",
+            "estado": "pendiente",
+            "estadoId": 1
+        },
+        {
+            "id": 2,
+            "folio": "INV-001246",
+            "idProveedor": 102,
+            "proveedor": "Materiales Monterrey",
+            "fecha": "2025-09-17",
+            "estado": "en tránsito",
+            "estadoId": 2
+        },
+        {
+            "id": 3,
+            "folio": "INV-001247",
+            "idProveedor": 103,
+            "proveedor": "Distribuidora Rápida S.A.",
+            "fecha": "2025-09-16",
+            "estado": "recibido",
+            "estadoId": 3
+        },
+        {
+            "id": 4,
+            "folio": "INV-001248",
+            "idProveedor": 104,
+            "proveedor": "Clavos y Tornillos MX",
+            "fecha": "2025-09-15",
+            "estado": "cancelado",
+            "estadoId": 4
+        },
+        {
+            "id": 5,
+            "folio": "INV-001249",
+            "idProveedor": 105,
+            "proveedor": "Herramientas del Norte",
+            "fecha": "2025-09-14",
+            "estado": "pendiente",
+            "estadoId": 1
+        }
+    ],
+    "proveedores": [
+        {
+            "id": 101,
+            "nombre": "Ferretería El Tornillo"
+        },
+        {
+            "id": 102,
+            "nombre": "Materiales Monterrey"
+        },
+        {
+            "id": 103,
+            "nombre": "Distribuidora Rápida S.A."
+        },
+        {
+            "id": 104,
+            "nombre": "Clavos y Tornillos MX"
+        },
+        {
+            "id": 105,
+            "nombre": "Herramientas del Norte"
+        }
+    ],
+    "autorizacionesDePedidos": [
+        {
+            "id": 1,
+            "folio": "F-00123",
+            "proveedor": "Ferretería El Tornillo",
+            "fecha": "2025-09-20"
+        },
+        {
+            "id": 2,
+            "folio": "F-00124",
+            "proveedor": "Suministros Martínez",
+            "fecha": "2025-09-21"
+        },
+        {
+            "id": 3,
+            "folio": "F-00125",
+            "proveedor": "Herramientas y Más",
+            "fecha": "2025-09-22"
+        },
+        {
+            "id": 4,
+            "folio": "F-00126",
+            "proveedor": "Todo en Ferretería",
+            "fecha": "2025-09-23"
+        },
+        {
+            "id": 5,
+            "folio": "F-00127",
+            "proveedor": "La Casa del Martillo",
+            "fecha": "2025-09-24"
         }
     ]
 }
