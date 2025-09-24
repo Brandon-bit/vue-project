@@ -1,1703 +1,1511 @@
 {
-    "posts": [
-        {
-            "id": "1",
-            "title": "a title",
-            "views": 100
-        },
-        {
-            "id": "2",
-            "title": "another title",
-            "views": 200
-        }
-    ],
-    "comments": [
-        {
-            "id": "1",
-            "text": "a comment about post 1",
-            "postId": "1"
-        },
-        {
-            "id": "2",
-            "text": "another comment about post 1",
-            "postId": "1"
-        }
-    ],
-    "profile": {
-        "name": "typicode"
-    },
-    "stores": [
-        {
-            "id": "1",
-            "label": "Tienda Central - Santiago"
-        },
-        {
-            "id": "2",
-            "label": "Sucursal Las Condes"
-        },
-        {
-            "id": "3",
-            "label": "Outlet Viña del Mar"
-        },
-        {
-            "id": "4",
-            "label": "Tienda Express Providencia"
-        },
-        {
-            "id": "5",
-            "label": "Sucursal Antofagasta Centro"
-        },
-        {
-            "id": "6",
-            "label": "Tienda Costanera Mall"
-        },
-        {
-            "id": "7",
-            "label": "Sucursal Plaza Oeste"
-        },
-        {
-            "id": "8",
-            "label": "Tienda Independencia"
-        },
-        {
-            "id": "9",
-            "label": "Sucursal La Serena"
-        },
-        {
-            "id": "10",
-            "label": "Tienda Rancagua Norte"
-        }
-    ],
-    "warehouse": [
-        {
-            "id": "1",
-            "label": "Bodega Central Santiago"
-        },
-        {
-            "id": "2",
-            "label": "Almacén Zona Norte"
-        },
-        {
-            "id": "3",
-            "label": "Bodega Costanera Norte"
-        },
-        {
-            "id": "4",
-            "label": "Centro de Distribución Quilicura"
-        },
-        {
-            "id": "5",
-            "label": "Bodega Los Andes"
-        },
-        {
-            "id": "6",
-            "label": "Depósito Viña del Mar"
-        },
-        {
-            "id": "7",
-            "label": "Bodega Temuco"
-        },
-        {
-            "id": "8",
-            "label": "Centro Logístico La Serena"
-        },
-        {
-            "id": "9",
-            "label": "Bodega Express San Miguel"
-        },
-        {
-            "id": "10",
-            "label": "Almacén Renca"
-        }
-    ],
-    "warranty": [
-        {
-            "id": 1,
-            "name": "Replacement Warranty",
-            "duration": 2,
-            "period": "year",
-            "description": "Covers replacement of faulty items",
-            "active": true
-        },
-        {
-            "id": 2,
-            "name": "On-Site Warranty",
-            "duration": 1,
-            "period": "year",
-            "description": "Product repairs done at the customer’s location",
-            "active": true
-        },
-        {
-            "id": 3,
-            "name": "Accidental Protection Plan",
-            "duration": 6,
-            "period": "month",
-            "description": "Coverage for accidental damage",
-            "active": true
-        },
-        {
-            "id": 4,
-            "name": "Labor-Only Warranty",
-            "duration": 6,
-            "period": "month",
-            "description": "Covers only labor costs, not parts",
-            "active": true
-        },
-        {
-            "id": 5,
-            "name": "No-Cost Repairs",
-            "duration": 3,
-            "period": "month",
-            "description": "No charge for repairs during warranty period",
-            "active": true
-        },
-        {
-            "id": 6,
-            "name": "Accidental Damage",
-            "duration": 6,
-            "period": "month",
-            "description": "Coverage for unexpected damage",
-            "active": true
-        },
-        {
-            "id": 7,
-            "name": "Wear & Tear Warranty",
-            "duration": 1,
-            "period": "year",
-            "description": "Covers specific product aging issues",
-            "active": true
-        },
-        {
-            "id": 8,
-            "name": "Money-Back Guarantee",
-            "duration": 3,
-            "period": "month",
-            "description": "Refund within a specified period",
-            "active": true
-        },
-        {
-            "id": 9,
-            "name": "Water Damage Warranty",
-            "duration": 6,
-            "period": "month",
-            "description": "Coverage for water-related issues",
-            "active": true
-        },
-        {
-            "id": 10,
-            "name": "Power Surge Protection",
-            "duration": 6,
-            "period": "month",
-            "description": "Covers damage from power surges",
-            "active": true
-        }
-    ],
-    "sellingType": [
-        {
-            "id": "1",
-            "label": "Venta por unidad"
-        },
-        {
-            "id": "2",
-            "label": "Venta por kilo"
-        },
-        {
-            "id": "3",
-            "label": "Venta al por mayor"
-        },
-        {
-            "id": "4",
-            "label": "Venta a crédito"
-        },
-        {
-            "id": "5",
-            "label": "Venta online"
-        },
-        {
-            "id": "6",
-            "label": "Venta directa en tienda"
-        },
-        {
-            "id": "7",
-            "label": "Venta a consignación"
-        },
-        {
-            "id": "8",
-            "label": "Venta bajo pedido"
-        },
-        {
-            "id": "9",
-            "label": "Suscripción mensual"
-        },
-        {
-            "id": "10",
-            "label": "Venta por paquete"
-        }
-    ],
-    "category": [
-        {
-            "id": 1,
-            "name": "Herramientas Eléctricas",
-            "sufix": "HREL",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 2,
-            "name": "Herramientas Manuales",
-            "sufix": "HRMN",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 3,
-            "name": "Materiales de Construcción",
-            "sufix": "MCON",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 4,
-            "name": "Pinturas y Accesorios",
-            "sufix": "PINT",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 5,
-            "name": "Jardinería",
-            "sufix": "JARD",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 6,
-            "name": "Fontanería",
-            "sufix": "FONT",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 7,
-            "name": "Seguridad y Protección",
-            "sufix": "SEG",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 8,
-            "name": "Iluminación",
-            "sufix": "ILUM",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 9,
-            "name": "Ferretería General",
-            "sufix": "FERR",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        },
-        {
-            "id": 10,
-            "name": "Automotriz",
-            "sufix": "AUTO",
-            "status": true,
-            "creationDate": "2025-08-25T00:00:00Z"
-        }
-    ],
-"subcategory": [
+  "posts": [
     {
-        "id": "1",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Electric Tools",
-        "label": "Drills and Power Drillers",
-        "description": "Electric and cordless drills",
-        "status": true,
-        "code": "CT001",
-        "accessKey": "drills"
+      "id": "1",
+      "title": "a title",
+      "views": 100
     },
     {
-        "id": "2",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Electric Tools",
-        "label": "Electric Saws",
-        "description": "Powerful saws for cutting wood",
-        "status": false,
-        "code": "CT002",
-        "accessKey": "saws"
-    },
-    {
-        "id": "3",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Hand Tools",
-        "label": "Wrenches and Screwdrivers",
-        "description": "Hand tools used for tightening",
-        "status": true,
-        "code": "CT003",
-        "accessKey": "wrenches"
-    },
-    {
-        "id": "4",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Paints and Accessories",
-        "label": "Paints and Varnishes",
-        "description": "Coatings and finishes for protection",
-        "status": true,
-        "code": "CT004",
-        "accessKey": "paints"
-    },
-    {
-        "id": "5",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Hand Tools",
-        "label": "Measuring Tape",
-        "description": "Flexible measuring tape",
-        "status": true,
-        "code": "CT005",
-        "accessKey": "tape"
-    },
-    {
-        "id": "6",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Gardening",
-        "label": "Garden Irrigation and Accessories",
-        "description": "Hoses, sprinklers, and irrigation systems",
-        "status": true,
-        "code": "CT006",
-        "accessKey": "irrigation"
-    },
-    {
-        "id": "7",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Gardening",
-        "label": "Water Pumps",
-        "description": "For residential or industrial use",
-        "status": true,
-        "code": "CT007",
-        "accessKey": "pumps"
-    },
-    {
-        "id": "8",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Construction Materials",
-        "label": "Cement and Concrete",
-        "description": "Materials for building and construction",
-        "status": true,
-        "code": "CT008",
-        "accessKey": "cement"
-    },
-    {
-        "id": "9",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Plumbing",
-        "label": "Pipes and Fittings",
-        "description": "Plumbing supplies and accessories",
-        "status": true,
-        "code": "CT009",
-        "accessKey": "pipes"
-    },
-    {
-        "id": "10",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
-        "parentCategory": "Construction Materials",
-        "label": "Insulation Materials",
-        "description": "Products designed to control temperature",
-        "status": true,
-        "code": "CT010",
-        "accessKey": "insulation"
+      "id": "2",
+      "title": "another title",
+      "views": 200
     }
-]
-,
-    "unit": [
-        {
-            "id": 1,
-            "name": "Piece",
-            "shortName": "PC",
-            "productsCount": 25,
-            "creationDate": "2024-05-25",
-            "active": true
-        },
-        {
-            "id": 2,
-            "name": "Kilogram",
-            "shortName": "KG",
-            "productsCount": 15,
-            "creationDate": "2023-06-24",
-            "active": true
-        },
-        {
-            "id": 3,
-            "name": "Gram",
-            "shortName": "G",
-            "productsCount": 47,
-            "creationDate": "2024-07-23",
-            "active": true
-        },
-        {
-            "id": 4,
-            "name": "Meter",
-            "shortName": "M",
-            "productsCount": 28,
-            "creationDate": "2024-08-22",
-            "active": true
-        },
-        {
-            "id": 5,
-            "name": "Liter",
-            "shortName": "L",
-            "productsCount": 47,
-            "creationDate": "2024-09-21",
-            "active": true
-        },
-        {
-            "id": 6,
-            "name": "Kilo",
-            "shortName": "K",
-            "productsCount": 74,
-            "creationDate": "2024-09-20",
-            "active": true
-        }
-    ],
-    "brand": [
-        {
-            "id": "1",
-            "name": "Bosch",
-            "creationDate": "2025-08-22",
-            "active": true,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "2",
-            "name": "Sony",
-            "creationDate": "2025-07-15",
-            "active": true,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "3",
-            "name": "Samsung",
-            "creationDate": "2025-06-01",
-            "active": false,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "4",
-            "name": "LG",
-            "creationDate": "2025-05-10",
-            "active": true,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "5",
-            "name": "Apple",
-            "creationDate": "2025-04-25",
-            "active": true,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "6",
-            "name": "Panasonic",
-            "creationDate": "2025-03-30",
-            "active": false,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "7",
-            "name": "Dell",
-            "creationDate": "2025-02-18",
-            "active": true,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/320px-Dell_Logo.svg.png"
-        },
-        {
-            "id": "8",
-            "name": "HP",
-            "creationDate": "2025-01-12",
-            "active": true,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "9",
-            "name": "Microsoft",
-            "creationDate": "2024-12-05",
-            "active": false,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "10",
-            "name": "Asus",
-            "creationDate": "2024-11-22",
-            "active": true,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "11",
-            "name": "Lenovo",
-            "creationDate": "2024-10-09",
-            "active": true,
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
-        },
-        {
-            "id": "2444",
-            "name": "Plan de prueba 1.2",
-            "active": true,
-            "image": {
-                "0": {}
-            },
-            "creationDate": "2025-08-23T07:54:07.441Z",
-            "imageUrl": ""
-        },
-        {
-            "id": "94ea",
-            "name": "Marca 2",
-            "active": true,
-            "image": {
-                "0": {}
-            },
-            "creationDate": "2025-08-24T21:34:16.587Z",
-            "imageUrl": ""
-        },
-        {
-            "id": "8368",
-            "name": "Marca 3",
-            "active": true,
-            "image": {
-                "0": {}
-            },
-            "creationDate": "2025-08-25T19:38:31.117Z",
-            "imageUrl": ""
-        },
-        {
-            "id": "0433",
-            "name": "Marca 4",
-            "active": true,
-            "image": {
-                "0": {}
-            },
-            "creationDate": "2025-08-25T19:41:14.125Z",
-            "imageUrl": ""
-        }
-    ],
-    "barcodeSimbology": [
-        {
-            "id": "1",
-            "label": "EAN-13"
-        },
-        {
-            "id": "2",
-            "label": "UPC-A"
-        },
-        {
-            "id": "3",
-            "label": "Code 128"
-        },
-        {
-            "id": "4",
-            "label": "QR Code"
-        },
-        {
-            "id": "5",
-            "label": "Data Matrix"
-        },
-        {
-            "id": "6",
-            "label": "EAN-8"
-        },
-        {
-            "id": "7",
-            "label": "Code 39"
-        },
-        {
-            "id": "8",
-            "label": "PDF417"
-        },
-        {
-            "id": "9",
-            "label": "ITF-14"
-        },
-        {
-            "id": "10",
-            "label": "Aztec Code"
-        }
-    ],
-    "variant": [
-        {
-            "id": 1,
-            "name": "Size (T-shirts)",
-            "values": [
-                {
-                    "id": "1",
-                    "value": "S"
-                },
-                {
-                    "id": "2",
-                    "value": "M"
-                },
-                {
-                    "id": "3",
-                    "value": "L"
-                },
-                {
-                    "id": "4",
-                    "value": "XL"
-                }
-            ],
-            "creationDate": "2024-05-25",
-            "active": true
-        },
-        {
-            "id": 2,
-            "name": "Size (Shoes)",
-            "values": [
-                {
-                    "id": "5",
-                    "value": "5"
-                },
-                {
-                    "id": "6",
-                    "value": "6"
-                },
-                {
-                    "id": "7",
-                    "value": "7"
-                },
-                {
-                    "id": "8",
-                    "value": "8"
-                }
-            ],
-            "creationDate": "2024-06-24",
-            "active": true
-        },
-        {
-            "id": 3,
-            "name": "Color",
-            "values": [
-                {
-                    "id": "9",
-                    "value": "Red"
-                },
-                {
-                    "id": "10",
-                    "value": "Blue"
-                },
-                {
-                    "id": "11",
-                    "value": "Green"
-                },
-                {
-                    "id": "19",
-                    "value": "White"
-                }
-            ],
-            "creationDate": "2024-07-23",
-            "active": true
-        },
-        {
-            "id": 4,
-            "name": "Memory",
-            "values": [
-                {
-                    "id": "13",
-                    "value": "64 GB"
-                },
-                {
-                    "id": "14",
-                    "value": "128 GB"
-                },
-                {
-                    "id": "15",
-                    "value": "512 GB"
-                }
-            ],
-            "creationDate": "2024-08-22",
-            "active": true
-        },
-        {
-            "id": 5,
-            "name": "Storage",
-            "values": [
-                {
-                    "id": "17",
-                    "value": "250GB"
-                },
-                {
-                    "id": "18",
-                    "value": "1TB"
-                }
-            ],
-            "creationDate": "2024-09-21",
-            "active": true
-        }
-    ],
-    "valueVariant": [
-        {
-            "id": "1",
-            "idVariante": 1,
-            "label": "Pequeño"
-        },
-        {
-            "id": "2",
-            "idVariante": 1,
-            "label": "Mediano"
-        },
-        {
-            "id": "3",
-            "idVariante": 1,
-            "label": "Grande"
-        },
-        {
-            "id": "4",
-            "idVariante": 1,
-            "label": "Extra Grande"
-        },
-        {
-            "id": "5",
-            "idVariante": 2,
-            "label": "Negro"
-        },
-        {
-            "id": "6",
-            "idVariante": 2,
-            "label": "Rojo"
-        },
-        {
-            "id": "7",
-            "idVariante": 2,
-            "label": "Azul"
-        },
-        {
-            "id": "8",
-            "idVariante": 2,
-            "label": "Amarillo"
-        },
-        {
-            "id": "9",
-            "idVariante": 2,
-            "label": "Gris"
-        },
-        {
-            "id": "10",
-            "idVariante": 3,
-            "label": "Acero"
-        },
-        {
-            "id": "11",
-            "idVariante": 3,
-            "label": "Aluminio"
-        },
-        {
-            "id": "12",
-            "idVariante": 3,
-            "label": "Plástico"
-        },
-        {
-            "id": "13",
-            "idVariante": 3,
-            "label": "Madera"
-        },
-        {
-            "id": "14",
-            "idVariante": 3,
-            "label": "Cobre"
-        },
-        {
-            "id": "15",
-            "idVariante": 3,
-            "label": "Hierro"
-        },
-        {
-            "id": "16",
-            "idVariante": 4,
-            "label": "Destornillador"
-        },
-        {
-            "id": "17",
-            "idVariante": 4,
-            "label": "Martillo"
-        },
-        {
-            "id": "18",
-            "idVariante": 4,
-            "label": "Sierra"
-        },
-        {
-            "id": "19",
-            "idVariante": 4,
-            "label": "Alicates"
-        },
-        {
-            "id": "20",
-            "idVariante": 4,
-            "label": "Llave inglesa"
-        },
-        {
-            "id": "21",
-            "idVariante": 4,
-            "label": "Cinta métrica"
-        },
-        {
-            "id": "22",
-            "idVariante": 5,
-            "label": "Ligero"
-        },
-        {
-            "id": "23",
-            "idVariante": 5,
-            "label": "Medio"
-        },
-        {
-            "id": "24",
-            "idVariante": 5,
-            "label": "Pesado"
-        },
-        {
-            "id": "25",
-            "idVariante": 6,
-            "label": "110V"
-        },
-        {
-            "id": "26",
-            "idVariante": 6,
-            "label": "220V"
-        },
-        {
-            "id": "27",
-            "idVariante": 6,
-            "label": "Batería recargable"
-        },
-        {
-            "id": "28",
-            "idVariante": 6,
-            "label": "Sin batería"
-        },
-        {
-            "id": "29",
-            "idVariante": 7,
-            "label": "5mm"
-        },
-        {
-            "id": "30",
-            "idVariante": 7,
-            "label": "10mm"
-        },
-        {
-            "id": "31",
-            "idVariante": 7,
-            "label": "15mm"
-        },
-        {
-            "id": "32",
-            "idVariante": 7,
-            "label": "20mm"
-        },
-        {
-            "id": "33",
-            "idVariante": 7,
-            "label": "30mm"
-        },
-        {
-            "id": "34",
-            "idVariante": 8,
-            "label": "Bosch"
-        },
-        {
-            "id": "35",
-            "idVariante": 8,
-            "label": "Makita"
-        },
-        {
-            "id": "36",
-            "idVariante": 8,
-            "label": "DeWalt"
-        },
-        {
-            "id": "37",
-            "idVariante": 8,
-            "label": "Stanley"
-        },
-        {
-            "id": "38",
-            "idVariante": 8,
-            "label": "Black & Decker"
-        },
-        {
-            "id": "39",
-            "idVariante": 9,
-            "label": "2L"
-        },
-        {
-            "id": "40",
-            "idVariante": 9,
-            "label": "5L"
-        },
-        {
-            "id": "41",
-            "idVariante": 9,
-            "label": "10L"
-        },
-        {
-            "id": "42",
-            "idVariante": 9,
-            "label": "20L"
-        },
-        {
-            "id": "43",
-            "idVariante": 9,
-            "label": "50L"
-        },
-        {
-            "id": "44",
-            "idVariante": 10,
-            "label": "Profesional"
-        },
-        {
-            "id": "45",
-            "idVariante": 10,
-            "label": "Hogar"
-        },
-        {
-            "id": "46",
-            "idVariante": 10,
-            "label": "Industrial"
-        }
-    ],
-    "taxType": [
-        {
-            "id": "1",
-            "label": "IVA"
-        },
-        {
-            "id": "2",
-            "label": "Exento"
-        },
-        {
-            "id": "3",
-            "label": "Internacional"
-        },
-        {
-            "id": "4",
-            "label": "Retención"
-        }
-    ],
-    "tax": [
-        {
-            "id": "1",
-            "label": "10%"
-        },
-        {
-            "id": "2",
-            "label": "19%"
-        },
-        {
-            "id": "3",
-            "label": "5%"
-        },
-        {
-            "id": "4",
-            "label": "0%"
-        }
-    ],
-    "discountType": [
-        {
-            "id": "1",
-            "label": "Descuento porcentual"
-        },
-        {
-            "id": "2",
-            "label": "Descuento fijo"
-        },
-        {
-            "id": "3",
-            "label": "Descuento por volumen"
-        }
-    ],
-    "products": [
-      {
-        "id": 1,
-        "name": "Producto 1",
-        "code": "PROD-00001",
-        "price": 427.31,
-        "stock": 188,
-        "brandId": "8",
-        "categoryId": 5,
-        "storeId": "3",
-        "warehouseId": "9"
-      },
-      {
-        "id": 2,
-        "name": "Producto 2",
-        "code": "PROD-00002",
-        "price": 479.89,
-        "stock": 183,
-        "brandId": "9",
-        "categoryId": 10,
-        "storeId": "9",
-        "warehouseId": "10"
-      },
-      {
-        "id": 3,
-        "name": "Producto 3",
-        "code": "PROD-00003",
-        "price": 321.36,
-        "stock": 126,
-        "brandId": "3",
-        "categoryId": 3,
-        "storeId": "5",
-        "warehouseId": "1"
-      },
-      {
-        "id": 4,
-        "name": "Producto 4",
-        "code": "PROD-00004",
-        "price": 105.74,
-        "stock": 199,
-        "brandId": "7",
-        "categoryId": 8,
-        "storeId": "1",
-        "warehouseId": "1"
-      },
-      {
-        "id": 5,
-        "name": "Producto 5",
-        "code": "PROD-00005",
-        "price": 183.54,
-        "stock": 111,
-        "brandId": "5",
-        "categoryId": 1,
-        "storeId": "3",
-        "warehouseId": "4"
-      },
-      {
-        "id": 6,
-        "name": "Producto 6",
-        "code": "PROD-00006",
-        "price": 489.9,
-        "stock": 142,
-        "brandId": "6",
-        "categoryId": 6,
-        "storeId": "7",
-        "warehouseId": "8"
-      },
-      {
-        "id": 7,
-        "name": "Producto 7",
-        "code": "PROD-00007",
-        "price": 227.64,
-        "stock": 181,
-        "brandId": "7",
-        "categoryId": 7,
-        "storeId": "9",
-        "warehouseId": "2"
-      },
-      {
-        "id": 8,
-        "name": "Producto 8",
-        "code": "PROD-00008",
-        "price": 281.03,
-        "stock": 148,
-        "brandId": "8",
-        "categoryId": 8,
-        "storeId": "2",
-        "warehouseId": "5"
-      },
-      {
-        "id": 9,
-        "name": "Producto 9",
-        "code": "PROD-00009",
-        "price": 152.03,
-        "stock": 161,
-        "brandId": "9",
-        "categoryId": 9,
-        "storeId": "4",
-        "warehouseId": "6"
-      },
-      {
-        "id": 10,
-        "name": "Producto 10",
-        "code": "PROD-00010",
-        "price": 344.47,
-        "stock": 135,
-        "brandId": "10",
-        "categoryId": 10,
-        "storeId": "10",
-        "warehouseId": "3"
-      },
-      {
-        "id": 11,
-        "name": "Producto 11",
-        "code": "PROD-00011",
-        "price": 120.5,
-        "stock": 90,
-        "brandId": "1",
-        "categoryId": 2,
-        "storeId": "4",
-        "warehouseId": "7"
-      },
-      {
-        "id": 12,
-        "name": "Producto 12",
-        "code": "PROD-00012",
-        "price": 250.75,
-        "stock": 150,
-        "brandId": "2",
-        "categoryId": 4,
-        "storeId": "6",
-        "warehouseId": "1"
-      },
-      {
-        "id": 13,
-        "name": "Producto 13",
-        "code": "PROD-00013",
-        "price": 380.0,
-        "stock": 200,
-        "brandId": "3",
-        "categoryId": 6,
-        "storeId": "8",
-        "warehouseId": "3"
-      },
-      {
-        "id": 14,
-        "name": "Producto 14",
-        "code": "PROD-00014",
-        "price": 95.25,
-        "stock": 70,
-        "brandId": "4",
-        "categoryId": 8,
-        "storeId": "10",
-        "warehouseId": "5"
-      },
-      {
-        "id": 15,
-        "name": "Producto 15",
-        "code": "PROD-00015",
-        "price": 270.0,
-        "stock": 100,
-        "brandId": "5",
-        "categoryId": 10,
-        "storeId": "2",
-        "warehouseId": "7"
-      },
-      {
-        "id": 16,
-        "name": "Producto 16",
-        "code": "PROD-00016",
-        "price": 340.5,
-        "stock": 120,
-        "brandId": "6",
-        "categoryId": 1,
-        "storeId": "1",
-        "warehouseId": "9"
-      },
-      {
-        "id": 17,
-        "name": "Producto 17",
-        "code": "PROD-00017",
-        "price": 190.0,
-        "stock": 130,
-        "brandId": "7",
-        "categoryId": 3,
-        "storeId": "3",
-        "warehouseId": "2"
-      },
-      {
-        "id": 18,
-        "name": "Producto 18",
-        "code": "PROD-00018",
-        "price": 89.99,
-        "stock": 170,
-        "brandId": "8",
-        "categoryId": 5,
-        "storeId": "5",
-        "warehouseId": "4"
-      },
-      {
-        "id": 19,
-        "name": "Producto 19",
-        "code": "PROD-00019",
-        "price": 520.0,
-        "stock": 50,
-        "brandId": "9",
-        "categoryId": 7,
-        "storeId": "7",
-        "warehouseId": "6"
-      },
-      {
-        "id": 20,
-        "name": "Producto 20",
-        "code": "PROD-00020",
-        "price": 65.0,
-        "stock": 240,
-        "brandId": "10",
-        "categoryId": 9,
-        "storeId": "9",
-        "warehouseId": "8"
-      }
-    ],
-    "discounts": [
-        {
-            "id": 1,
-            "name": "Black Friday 2024",
-            "description": "Descuento especial por Black Friday",
-            "type": "PERCENTAGE",
-            "value": 25,
-            "startDate": "2024-11-25T00:00:00.000Z",
-            "endDate": "2024-11-29T23:59:59.000Z",
-            "status": "ACTIVE",
-            "applicationType": "ALL_PRODUCTS",
-            "canCombine": false,
-            "active": true,
-            "creationDate": "2024-11-01T10:00:00.000Z",
-            "currentUses": 15,
-            "maxUses": 100
-        },
-        {
-            "id": 2,
-            "name": "Descuento Cantidad",
-            "description": "Compra 5 o más productos y obtén descuento",
-            "type": "MIN_QUANTITY",
-            "value": 15,
-            "minQuantity": 5,
-            "startDate": "2024-10-01T00:00:00.000Z",
-            "endDate": "2024-12-31T23:59:59.000Z",
-            "status": "ACTIVE",
-            "applicationType": "SPECIFIC_PRODUCTS",
-            "applicableProductIds": [1, 2, 3, 4, 5],
-            "canCombine": true,
-            "active": true,
-            "creationDate": "2024-10-01T09:30:00.000Z",
-            "currentUses": 8,
-            "maxUses": 50
-        },
-        {
-            "id": 3,
-            "name": "Cupón Navideño",
-            "description": "Descuento especial con cupón para navidad",
-            "type": "FIXED_AMOUNT",
-            "value": 50,
-            "couponCode": "NAVIDAD2024",
-            "startDate": "2024-12-01T00:00:00.000Z",
-            "endDate": "2024-12-25T23:59:59.000Z",
-            "status": "ACTIVE",
-            "applicationType": "CATEGORIES",
-            "applicableCategoryIds": [1, 2, 3],
-            "canCombine": false,
-            "active": true,
-            "creationDate": "2024-11-15T14:00:00.000Z",
-            "currentUses": 3,
-            "maxUses": 25
-        },
-        {
-            "id": 4,
-            "name": "Descuento Monto Alto",
-            "description": "Descuento por compras superiores a $500",
-            "type": "MIN_AMOUNT",
-            "value": 10,
-            "minAmount": 500,
-            "startDate": "2024-09-01T00:00:00.000Z",
-            "endDate": "2025-01-31T23:59:59.000Z",
-            "status": "ACTIVE",
-            "applicationType": "ALL_PRODUCTS",
-            "canCombine": true,
-            "active": true,
-            "creationDate": "2024-09-01T08:00:00.000Z",
-            "currentUses": 22,
-            "maxUses": 200
-        },
-        {
-            "id": 5,
-            "name": "Outlet Verano",
-            "description": "Liquidación de productos de verano",
-            "type": "PERCENTAGE",
-            "value": 40,
-            "startDate": "2024-08-01T00:00:00.000Z",
-            "endDate": "2024-08-31T23:59:59.000Z",
-            "status": "EXPIRED",
-            "applicationType": "BRANDS",
-            "applicableBrandIds": ["3", "5", "7"],
-            "canCombine": false,
-            "active": false,
-            "creationDate": "2024-07-15T12:00:00.000Z",
-            "currentUses": 45,
-            "maxUses": 100
-        },
-        {
-            "id": 6,
-            "name": "Promo Estudiantes",
-            "description": "Descuento especial para estudiantes",
-            "type": "PERCENTAGE",
-            "value": 15,
-            "couponCode": "ESTUDIANTE2024",
-            "startDate": "2024-03-01T00:00:00.000Z",
-            "endDate": "2024-12-20T23:59:59.000Z",
-            "status": "INACTIVE",
-            "applicationType": "ALL_PRODUCTS",
-            "canCombine": true,
-            "active": false,
-            "creationDate": "2024-02-28T16:30:00.000Z",
-            "currentUses": 0,
-            "maxUses": 150
-        }
-    ],
-    "lastNumberBarcode": {
-        "number": "000000000001"
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
     },
-    "products": [
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "stores": [
+    {
+      "id": "1",
+      "label": "Tienda Central - Santiago"
+    },
+    {
+      "id": "2",
+      "label": "Sucursal Las Condes"
+    },
+    {
+      "id": "3",
+      "label": "Outlet Viña del Mar"
+    },
+    {
+      "id": "4",
+      "label": "Tienda Express Providencia"
+    },
+    {
+      "id": "5",
+      "label": "Sucursal Antofagasta Centro"
+    },
+    {
+      "id": "6",
+      "label": "Tienda Costanera Mall"
+    },
+    {
+      "id": "7",
+      "label": "Sucursal Plaza Oeste"
+    },
+    {
+      "id": "8",
+      "label": "Tienda Independencia"
+    },
+    {
+      "id": "9",
+      "label": "Sucursal La Serena"
+    },
+    {
+      "id": "10",
+      "label": "Tienda Rancagua Norte"
+    }
+  ],
+  "warehouse": [
+    {
+      "id": "1",
+      "label": "Bodega Central Santiago"
+    },
+    {
+      "id": "2",
+      "label": "Almacén Zona Norte"
+    },
+    {
+      "id": "3",
+      "label": "Bodega Costanera Norte"
+    },
+    {
+      "id": "4",
+      "label": "Centro de Distribución Quilicura"
+    },
+    {
+      "id": "5",
+      "label": "Bodega Los Andes"
+    },
+    {
+      "id": "6",
+      "label": "Depósito Viña del Mar"
+    },
+    {
+      "id": "7",
+      "label": "Bodega Temuco"
+    },
+    {
+      "id": "8",
+      "label": "Centro Logístico La Serena"
+    },
+    {
+      "id": "9",
+      "label": "Bodega Express San Miguel"
+    },
+    {
+      "id": "10",
+      "label": "Almacén Renca"
+    }
+  ],
+  "warranty": [
+    {
+      "id": "1",
+      "name": "Replacement Warranty",
+      "duration": 2,
+      "period": "year",
+      "description": "Covers replacement of faulty items",
+      "active": true
+    },
+    {
+      "id": "2",
+      "name": "On-Site Warranty",
+      "duration": 1,
+      "period": "year",
+      "description": "Product repairs done at the customer’s location",
+      "active": true
+    },
+    {
+      "id": "3",
+      "name": "Accidental Protection Plan",
+      "duration": 6,
+      "period": "month",
+      "description": "Coverage for accidental damage",
+      "active": true
+    },
+    {
+      "id": "4",
+      "name": "Labor-Only Warranty",
+      "duration": 6,
+      "period": "month",
+      "description": "Covers only labor costs, not parts",
+      "active": true
+    },
+    {
+      "id": "5",
+      "name": "No-Cost Repairs",
+      "duration": 3,
+      "period": "month",
+      "description": "No charge for repairs during warranty period",
+      "active": true
+    },
+    {
+      "id": "6",
+      "name": "Accidental Damage",
+      "duration": 6,
+      "period": "month",
+      "description": "Coverage for unexpected damage",
+      "active": true
+    },
+    {
+      "id": "7",
+      "name": "Wear & Tear Warranty",
+      "duration": 1,
+      "period": "year",
+      "description": "Covers specific product aging issues",
+      "active": true
+    },
+    {
+      "id": "8",
+      "name": "Money-Back Guarantee",
+      "duration": 3,
+      "period": "month",
+      "description": "Refund within a specified period",
+      "active": true
+    },
+    {
+      "id": "9",
+      "name": "Water Damage Warranty",
+      "duration": 6,
+      "period": "month",
+      "description": "Coverage for water-related issues",
+      "active": true
+    },
+    {
+      "id": "10",
+      "name": "Power Surge Protection",
+      "duration": 6,
+      "period": "month",
+      "description": "Covers damage from power surges",
+      "active": true
+    }
+  ],
+  "sellingType": [
+    {
+      "id": "1",
+      "label": "Venta por unidad"
+    },
+    {
+      "id": "2",
+      "label": "Venta por kilo"
+    },
+    {
+      "id": "3",
+      "label": "Venta al por mayor"
+    },
+    {
+      "id": "4",
+      "label": "Venta a crédito"
+    },
+    {
+      "id": "5",
+      "label": "Venta online"
+    },
+    {
+      "id": "6",
+      "label": "Venta directa en tienda"
+    },
+    {
+      "id": "7",
+      "label": "Venta a consignación"
+    },
+    {
+      "id": "8",
+      "label": "Venta bajo pedido"
+    },
+    {
+      "id": "9",
+      "label": "Suscripción mensual"
+    },
+    {
+      "id": "10",
+      "label": "Venta por paquete"
+    }
+  ],
+  "category": [
+    {
+      "id": "1",
+      "name": "Herramientas Eléctricas",
+      "sufix": "HREL",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Herramientas Manuales",
+      "sufix": "HRMN",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "3",
+      "name": "Materiales de Construcción",
+      "sufix": "MCON",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "4",
+      "name": "Pinturas y Accesorios",
+      "sufix": "PINT",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "5",
+      "name": "Jardinería",
+      "sufix": "JARD",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "6",
+      "name": "Fontanería",
+      "sufix": "FONT",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "7",
+      "name": "Seguridad y Protección",
+      "sufix": "SEG",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "8",
+      "name": "Iluminación",
+      "sufix": "ILUM",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "9",
+      "name": "Ferretería General",
+      "sufix": "FERR",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    },
+    {
+      "id": "10",
+      "name": "Automotriz",
+      "sufix": "AUTO",
+      "status": true,
+      "creationDate": "2025-08-25T00:00:00Z"
+    }
+  ],
+  "subcategory": [
+    {
+      "id": "1",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Electric Tools",
+      "label": "Drills and Power Drillers",
+      "description": "Electric and cordless drills",
+      "status": true,
+      "code": "CT001",
+      "accessKey": "drills"
+    },
+    {
+      "id": "2",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Electric Tools",
+      "label": "Electric Saws",
+      "description": "Powerful saws for cutting wood",
+      "status": false,
+      "code": "CT002",
+      "accessKey": "saws"
+    },
+    {
+      "id": "3",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Hand Tools",
+      "label": "Wrenches and Screwdrivers",
+      "description": "Hand tools used for tightening",
+      "status": true,
+      "code": "CT003",
+      "accessKey": "wrenches"
+    },
+    {
+      "id": "4",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Paints and Accessories",
+      "label": "Paints and Varnishes",
+      "description": "Coatings and finishes for protection",
+      "status": true,
+      "code": "CT004",
+      "accessKey": "paints"
+    },
+    {
+      "id": "5",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Hand Tools",
+      "label": "Measuring Tape",
+      "description": "Flexible measuring tape",
+      "status": true,
+      "code": "CT005",
+      "accessKey": "tape"
+    },
+    {
+      "id": "6",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Gardening",
+      "label": "Garden Irrigation and Accessories",
+      "description": "Hoses, sprinklers, and irrigation systems",
+      "status": true,
+      "code": "CT006",
+      "accessKey": "irrigation"
+    },
+    {
+      "id": "7",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Gardening",
+      "label": "Water Pumps",
+      "description": "For residential or industrial use",
+      "status": true,
+      "code": "CT007",
+      "accessKey": "pumps"
+    },
+    {
+      "id": "8",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Construction Materials",
+      "label": "Cement and Concrete",
+      "description": "Materials for building and construction",
+      "status": true,
+      "code": "CT008",
+      "accessKey": "cement"
+    },
+    {
+      "id": "9",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Plumbing",
+      "label": "Pipes and Fittings",
+      "description": "Plumbing supplies and accessories",
+      "status": true,
+      "code": "CT009",
+      "accessKey": "pipes"
+    },
+    {
+      "id": "10",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png",
+      "parentCategory": "Construction Materials",
+      "label": "Insulation Materials",
+      "description": "Products designed to control temperature",
+      "status": true,
+      "code": "CT010",
+      "accessKey": "insulation"
+    }
+  ],
+  "unit": [
+    {
+      "id": "1",
+      "name": "Piece",
+      "shortName": "PC",
+      "productsCount": 25,
+      "creationDate": "2024-05-25",
+      "active": true
+    },
+    {
+      "id": "2",
+      "name": "Kilogram",
+      "shortName": "KG",
+      "productsCount": 15,
+      "creationDate": "2023-06-24",
+      "active": true
+    },
+    {
+      "id": "3",
+      "name": "Gram",
+      "shortName": "G",
+      "productsCount": 47,
+      "creationDate": "2024-07-23",
+      "active": true
+    },
+    {
+      "id": "4",
+      "name": "Meter",
+      "shortName": "M",
+      "productsCount": 28,
+      "creationDate": "2024-08-22",
+      "active": true
+    },
+    {
+      "id": "5",
+      "name": "Liter",
+      "shortName": "L",
+      "productsCount": 47,
+      "creationDate": "2024-09-21",
+      "active": true
+    },
+    {
+      "id": "6",
+      "name": "Kilo",
+      "shortName": "K",
+      "productsCount": 74,
+      "creationDate": "2024-09-20",
+      "active": true
+    }
+  ],
+  "brand": [
+    {
+      "id": "1",
+      "name": "Bosch",
+      "creationDate": "2025-08-22",
+      "active": true,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "2",
+      "name": "Sony",
+      "creationDate": "2025-07-15",
+      "active": true,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "3",
+      "name": "Samsung",
+      "creationDate": "2025-06-01",
+      "active": false,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "4",
+      "name": "LG",
+      "creationDate": "2025-05-10",
+      "active": true,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "5",
+      "name": "Apple",
+      "creationDate": "2025-04-25",
+      "active": true,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "6",
+      "name": "Panasonic",
+      "creationDate": "2025-03-30",
+      "active": false,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "7",
+      "name": "Dell",
+      "creationDate": "2025-02-18",
+      "active": true,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/320px-Dell_Logo.svg.png"
+    },
+    {
+      "id": "8",
+      "name": "HP",
+      "creationDate": "2025-01-12",
+      "active": true,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "9",
+      "name": "Microsoft",
+      "creationDate": "2024-12-05",
+      "active": false,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "10",
+      "name": "Asus",
+      "creationDate": "2024-11-22",
+      "active": true,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "11",
+      "name": "Lenovo",
+      "creationDate": "2024-10-09",
+      "active": true,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/320px-Microsoft_logo.svg.png"
+    },
+    {
+      "id": "2444",
+      "name": "Plan de prueba 1.2",
+      "active": true,
+      "image": {
+        "0": {}
+      },
+      "creationDate": "2025-08-23T07:54:07.441Z",
+      "imageUrl": ""
+    },
+    {
+      "id": "94ea",
+      "name": "Marca 2",
+      "active": true,
+      "image": {
+        "0": {}
+      },
+      "creationDate": "2025-08-24T21:34:16.587Z",
+      "imageUrl": ""
+    },
+    {
+      "id": "8368",
+      "name": "Marca 3",
+      "active": true,
+      "image": {
+        "0": {}
+      },
+      "creationDate": "2025-08-25T19:38:31.117Z",
+      "imageUrl": ""
+    },
+    {
+      "id": "0433",
+      "name": "Marca 4",
+      "active": true,
+      "image": {
+        "0": {}
+      },
+      "creationDate": "2025-08-25T19:41:14.125Z",
+      "imageUrl": ""
+    }
+  ],
+  "barcodeSimbology": [
+    {
+      "id": "1",
+      "label": "EAN-13"
+    },
+    {
+      "id": "2",
+      "label": "UPC-A"
+    },
+    {
+      "id": "3",
+      "label": "Code 128"
+    },
+    {
+      "id": "4",
+      "label": "QR Code"
+    },
+    {
+      "id": "5",
+      "label": "Data Matrix"
+    },
+    {
+      "id": "6",
+      "label": "EAN-8"
+    },
+    {
+      "id": "7",
+      "label": "Code 39"
+    },
+    {
+      "id": "8",
+      "label": "PDF417"
+    },
+    {
+      "id": "9",
+      "label": "ITF-14"
+    },
+    {
+      "id": "10",
+      "label": "Aztec Code"
+    }
+  ],
+  "variant": [
+    {
+      "id": "1",
+      "name": "Size (T-shirts)",
+      "values": [
         {
-            "id": 1,
-            "sku": "HRMN-Bosch-llavestilson-PC-050",
-            "name": "Llave stilson 14\"",
-            "category": "Herramientas manuales",
-            "brand": "Bosch",
-            "store": "Tienda Express Providencia",
-            "price": 2500,
-            "unit": "pieza",
-            "quantity": 100,
-            "user": "admin2"
+          "id": "1",
+          "value": "S"
         },
         {
-            "id": 2,
-            "sku": "HREL-Bosch-mirotomartillo-PC-001",
-            "name": "Rotomartillo",
-            "category": "Herramientas eléctricas",
-            "brand": "Bosch",
-            "store": "Sucursal las condes",
-            "price": 1999,
-            "unit": "pieza",
-            "quantity": 10000,
-            "user": "admin"
-        }
-    ],
-    "detail": [
-        {
-            "id": "1",
-            "warehouse": "Almacén Zona Norte",
-            "slug": "mi llave stilson",
-            "sellingType": "Venta por unidad",
-            "subcategory": "Llaves y destornilladores",
-            "barcodeSimbology": "EAN-13",
-            "itemBarcode": "0000000000040",
-            "taxType": "IVA",
-            "tax": "16",
-            "discountType": "Descuento porcentual",
-            "discountValue": 20,
-            "quantityAlert": 5,
-            "image": [
-                "https://www.knova.com.mx/products/10644@3x.jpg",
-                "https://tomaco.mx/cdn/shop/files/00000MT-STI14_001_1200x1200.jpg?v=1752278466"
-            ],
-            "warranty": "Sin garantía",
-            "manufacturer": "456745678",
-            "manufacturedDate": "2024-06-20",
-            "expiryOnDate": "2026-08-29"
+          "id": "2",
+          "value": "M"
         },
         {
-            "id": "2",
-            "warehouse": "Bodega central santiago",
-            "slug": "mi rotomartillo",
-            "sellingType": "Venta por unidad",
-            "subcategory": "Taladros y perforadoras",
-            "barcodeSimbology": "EAN-13",
-            "itemBarcode": "0000000000024",
-            "taxType": "IVA",
-            "tax": "16",
-            "discountType": "Descuento porcentual",
-            "discountValue": 10,
-            "quantityAlert": 100,
-            "image": [
-                "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg",
-                "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg",
-                "https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"
-            ],
-            "warranty": "Extendida3",
-            "manufacturer": "32423423234",
-            "manufacturedDate": "2025-08-27",
-            "expiryOnDate": "2026-02-27"
+          "id": "3",
+          "value": "L"
+        },
+        {
+          "id": "4",
+          "value": "XL"
         }
+      ],
+      "creationDate": "2024-05-25",
+      "active": true
+    },
+    {
+      "id": "2",
+      "name": "Size (Shoes)",
+      "values": [
+        {
+          "id": "5",
+          "value": "5"
+        },
+        {
+          "id": "6",
+          "value": "6"
+        },
+        {
+          "id": "7",
+          "value": "7"
+        },
+        {
+          "id": "8",
+          "value": "8"
+        }
+      ],
+      "creationDate": "2024-06-24",
+      "active": true
+    },
+    {
+      "id": "3",
+      "name": "Color",
+      "values": [
+        {
+          "id": "9",
+          "value": "Red"
+        },
+        {
+          "id": "10",
+          "value": "Blue"
+        },
+        {
+          "id": "11",
+          "value": "Green"
+        },
+        {
+          "id": "19",
+          "value": "White"
+        }
+      ],
+      "creationDate": "2024-07-23",
+      "active": true
+    },
+    {
+      "id": "4",
+      "name": "Memory",
+      "values": [
+        {
+          "id": "13",
+          "value": "64 GB"
+        },
+        {
+          "id": "14",
+          "value": "128 GB"
+        },
+        {
+          "id": "15",
+          "value": "512 GB"
+        }
+      ],
+      "creationDate": "2024-08-22",
+      "active": true
+    },
+    {
+      "id": "5",
+      "name": "Storage",
+      "values": [
+        {
+          "id": "17",
+          "value": "250GB"
+        },
+        {
+          "id": "18",
+          "value": "1TB"
+        }
+      ],
+      "creationDate": "2024-09-21",
+      "active": true
+    }
+  ],
+  "valueVariant": [
+    {
+      "id": "1",
+      "idVariante": 1,
+      "label": "Pequeño"
+    },
+    {
+      "id": "2",
+      "idVariante": 1,
+      "label": "Mediano"
+    },
+    {
+      "id": "3",
+      "idVariante": 1,
+      "label": "Grande"
+    },
+    {
+      "id": "4",
+      "idVariante": 1,
+      "label": "Extra Grande"
+    },
+    {
+      "id": "5",
+      "idVariante": 2,
+      "label": "Negro"
+    },
+    {
+      "id": "6",
+      "idVariante": 2,
+      "label": "Rojo"
+    },
+    {
+      "id": "7",
+      "idVariante": 2,
+      "label": "Azul"
+    },
+    {
+      "id": "8",
+      "idVariante": 2,
+      "label": "Amarillo"
+    },
+    {
+      "id": "9",
+      "idVariante": 2,
+      "label": "Gris"
+    },
+    {
+      "id": "10",
+      "idVariante": 3,
+      "label": "Acero"
+    },
+    {
+      "id": "11",
+      "idVariante": 3,
+      "label": "Aluminio"
+    },
+    {
+      "id": "12",
+      "idVariante": 3,
+      "label": "Plástico"
+    },
+    {
+      "id": "13",
+      "idVariante": 3,
+      "label": "Madera"
+    },
+    {
+      "id": "14",
+      "idVariante": 3,
+      "label": "Cobre"
+    },
+    {
+      "id": "15",
+      "idVariante": 3,
+      "label": "Hierro"
+    },
+    {
+      "id": "16",
+      "idVariante": 4,
+      "label": "Destornillador"
+    },
+    {
+      "id": "17",
+      "idVariante": 4,
+      "label": "Martillo"
+    },
+    {
+      "id": "18",
+      "idVariante": 4,
+      "label": "Sierra"
+    },
+    {
+      "id": "19",
+      "idVariante": 4,
+      "label": "Alicates"
+    },
+    {
+      "id": "20",
+      "idVariante": 4,
+      "label": "Llave inglesa"
+    },
+    {
+      "id": "21",
+      "idVariante": 4,
+      "label": "Cinta métrica"
+    },
+    {
+      "id": "22",
+      "idVariante": 5,
+      "label": "Ligero"
+    },
+    {
+      "id": "23",
+      "idVariante": 5,
+      "label": "Medio"
+    },
+    {
+      "id": "24",
+      "idVariante": 5,
+      "label": "Pesado"
+    },
+    {
+      "id": "25",
+      "idVariante": 6,
+      "label": "110V"
+    },
+    {
+      "id": "26",
+      "idVariante": 6,
+      "label": "220V"
+    },
+    {
+      "id": "27",
+      "idVariante": 6,
+      "label": "Batería recargable"
+    },
+    {
+      "id": "28",
+      "idVariante": 6,
+      "label": "Sin batería"
+    },
+    {
+      "id": "29",
+      "idVariante": 7,
+      "label": "5mm"
+    },
+    {
+      "id": "30",
+      "idVariante": 7,
+      "label": "10mm"
+    },
+    {
+      "id": "31",
+      "idVariante": 7,
+      "label": "15mm"
+    },
+    {
+      "id": "32",
+      "idVariante": 7,
+      "label": "20mm"
+    },
+    {
+      "id": "33",
+      "idVariante": 7,
+      "label": "30mm"
+    },
+    {
+      "id": "34",
+      "idVariante": 8,
+      "label": "Bosch"
+    },
+    {
+      "id": "35",
+      "idVariante": 8,
+      "label": "Makita"
+    },
+    {
+      "id": "36",
+      "idVariante": 8,
+      "label": "DeWalt"
+    },
+    {
+      "id": "37",
+      "idVariante": 8,
+      "label": "Stanley"
+    },
+    {
+      "id": "38",
+      "idVariante": 8,
+      "label": "Black & Decker"
+    },
+    {
+      "id": "39",
+      "idVariante": 9,
+      "label": "2L"
+    },
+    {
+      "id": "40",
+      "idVariante": 9,
+      "label": "5L"
+    },
+    {
+      "id": "41",
+      "idVariante": 9,
+      "label": "10L"
+    },
+    {
+      "id": "42",
+      "idVariante": 9,
+      "label": "20L"
+    },
+    {
+      "id": "43",
+      "idVariante": 9,
+      "label": "50L"
+    },
+    {
+      "id": "44",
+      "idVariante": 10,
+      "label": "Profesional"
+    },
+    {
+      "id": "45",
+      "idVariante": 10,
+      "label": "Hogar"
+    },
+    {
+      "id": "46",
+      "idVariante": 10,
+      "label": "Industrial"
+    }
+  ],
+  "taxType": [
+    {
+      "id": "1",
+      "label": "IVA"
+    },
+    {
+      "id": "2",
+      "label": "Exento"
+    },
+    {
+      "id": "3",
+      "label": "Internacional"
+    },
+    {
+      "id": "4",
+      "label": "Retención"
+    }
+  ],
+  "tax": [
+    {
+      "id": "1",
+      "label": "10%"
+    },
+    {
+      "id": "2",
+      "label": "19%"
+    },
+    {
+      "id": "3",
+      "label": "5%"
+    },
+    {
+      "id": "4",
+      "label": "0%"
+    }
+  ],
+  "discountType": [
+    {
+      "id": "1",
+      "label": "Descuento porcentual"
+    },
+    {
+      "id": "2",
+      "label": "Descuento fijo"
+    },
+    {
+      "id": "3",
+      "label": "Descuento por volumen"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "sku": "HRMN-Bosch-llavestilson-PC-050",
+      "name": "Llave stilson 14\"",
+      "category": "Herramientas manuales",
+      "brand": "Bosch",
+      "store": "Tienda Express Providencia",
+      "price": 2500,
+      "unit": "pieza",
+      "quantity": 100,
+      "user": "admin2"
+    },
+    {
+      "id": "2",
+      "sku": "HREL-Bosch-mirotomartillo-PC-001",
+      "name": "Rotomartillo",
+      "category": "Herramientas eléctricas",
+      "brand": "Bosch",
+      "store": "Sucursal las condes",
+      "price": 1999,
+      "unit": "pieza",
+      "quantity": 10000,
+      "user": "admin"
+    }
+  ],
+  "discounts": [
+    {
+      "id": "1",
+      "name": "Black Friday 2024",
+      "description": "Descuento especial por Black Friday",
+      "type": "PERCENTAGE",
+      "value": 25,
+      "startDate": "2024-11-25T00:00:00.000Z",
+      "endDate": "2024-11-29T23:59:59.000Z",
+      "status": "ACTIVE",
+      "applicationType": "ALL_PRODUCTS",
+      "canCombine": false,
+      "active": true,
+      "creationDate": "2024-11-01T10:00:00.000Z",
+      "currentUses": 15,
+      "maxUses": 100
+    },
+    {
+      "id": "2",
+      "name": "Descuento Cantidad",
+      "description": "Compra 5 o más productos y obtén descuento",
+      "type": "MIN_QUANTITY",
+      "value": 15,
+      "minQuantity": 5,
+      "startDate": "2024-10-01T00:00:00.000Z",
+      "endDate": "2024-12-31T23:59:59.000Z",
+      "status": "ACTIVE",
+      "applicationType": "SPECIFIC_PRODUCTS",
+      "applicableProductIds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "canCombine": true,
+      "active": true,
+      "creationDate": "2024-10-01T09:30:00.000Z",
+      "currentUses": 8,
+      "maxUses": 50
+    },
+    {
+      "id": "3",
+      "name": "Cupón Navideño",
+      "description": "Descuento especial con cupón para navidad",
+      "type": "FIXED_AMOUNT",
+      "value": 50,
+      "couponCode": "NAVIDAD2024",
+      "startDate": "2024-12-01T00:00:00.000Z",
+      "endDate": "2024-12-25T23:59:59.000Z",
+      "status": "ACTIVE",
+      "applicationType": "CATEGORIES",
+      "applicableCategoryIds": [
+        1,
+        2,
+        3
+      ],
+      "canCombine": false,
+      "active": true,
+      "creationDate": "2024-11-15T14:00:00.000Z",
+      "currentUses": 3,
+      "maxUses": 25
+    },
+    {
+      "id": "4",
+      "name": "Descuento Monto Alto",
+      "description": "Descuento por compras superiores a $500",
+      "type": "MIN_AMOUNT",
+      "value": 10,
+      "minAmount": 500,
+      "startDate": "2024-09-01T00:00:00.000Z",
+      "endDate": "2025-01-31T23:59:59.000Z",
+      "status": "ACTIVE",
+      "applicationType": "ALL_PRODUCTS",
+      "canCombine": true,
+      "active": true,
+      "creationDate": "2024-09-01T08:00:00.000Z",
+      "currentUses": 22,
+      "maxUses": 200
+    },
+    {
+      "id": "5",
+      "name": "Outlet Verano",
+      "description": "Liquidación de productos de verano",
+      "type": "PERCENTAGE",
+      "value": 40,
+      "startDate": "2024-08-01T00:00:00.000Z",
+      "endDate": "2024-08-31T23:59:59.000Z",
+      "status": "EXPIRED",
+      "applicationType": "BRANDS",
+      "applicableBrandIds": [
+        "3",
+        "5",
+        "7"
+      ],
+      "canCombine": false,
+      "active": false,
+      "creationDate": "2024-07-15T12:00:00.000Z",
+      "currentUses": 45,
+      "maxUses": 100
+    },
+    {
+      "id": "6",
+      "name": "Promo Estudiantes",
+      "description": "Descuento especial para estudiantes",
+      "type": "PERCENTAGE",
+      "value": 15,
+      "couponCode": "ESTUDIANTE2024",
+      "startDate": "2024-03-01T00:00:00.000Z",
+      "endDate": "2024-12-20T23:59:59.000Z",
+      "status": "INACTIVE",
+      "applicationType": "ALL_PRODUCTS",
+      "canCombine": true,
+      "active": false,
+      "creationDate": "2024-02-28T16:30:00.000Z",
+      "currentUses": 0,
+      "maxUses": 150
+    }
+  ],
+  "lastNumberBarcode": {
+    "number": "000000000001"
+  },
+  "detail": [
+    {
+      "id": "1",
+      "warehouse": "Almacén Zona Norte",
+      "slug": "mi llave stilson",
+      "sellingType": "Venta por unidad",
+      "subcategory": "Llaves y destornilladores",
+      "barcodeSimbology": "EAN-13",
+      "itemBarcode": "0000000000040",
+      "taxType": "IVA",
+      "tax": "16",
+      "discountType": "Descuento porcentual",
+      "discountValue": 20,
+      "quantityAlert": 5,
+      "image": [
+        "https://www.knova.com.mx/products/10644@3x.jpg",
+        "https://tomaco.mx/cdn/shop/files/00000MT-STI14_001_1200x1200.jpg?v=1752278466"
+      ],
+      "warranty": "Sin garantía",
+      "manufacturer": "456745678",
+      "manufacturedDate": "2024-06-20",
+      "expiryOnDate": "2026-08-29"
+    },
+    {
+      "id": "2",
+      "warehouse": "Bodega central santiago",
+      "slug": "mi rotomartillo",
+      "sellingType": "Venta por unidad",
+      "subcategory": "Taladros y perforadoras",
+      "barcodeSimbology": "EAN-13",
+      "itemBarcode": "0000000000024",
+      "taxType": "IVA",
+      "tax": "16",
+      "discountType": "Descuento porcentual",
+      "discountValue": 10,
+      "quantityAlert": 100,
+      "image": [
+        "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg",
+        "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg",
+        "https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"
+      ],
+      "warranty": "Extendida3",
+      "manufacturer": "32423423234",
+      "manufacturedDate": "2025-08-27",
+      "expiryOnDate": "2026-02-27"
+    }
+  ],
+  "producto-editar": {
+    "store": 1,
+    "warehouse": 1,
+    "name": "Rotomartillo",
+    "slug": "mi rotomartillo",
+    "sku": "HREL-Bosch-mirotomartillo-PC-001",
+    "sellingType": 1,
+    "category": 1,
+    "subcategory": 1,
+    "brand": 1,
+    "unit": 1,
+    "barcodeSimbology": 1,
+    "itemBarcode": "0000000000024",
+    "quantity": 10000,
+    "price": 1999,
+    "taxType": 1,
+    "tax": 1,
+    "discountType": 1,
+    "discountValue": 10,
+    "quantityAlert": 100,
+    "image": [
+      "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg",
+      "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg",
+      "https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"
     ],
-    "producto-editar": {
-        "store": 1,
-        "warehouse": 1,
-        "name": "Rotomartillo",
-        "slug": "mi rotomartillo",
-        "sku": "HREL-Bosch-mirotomartillo-PC-001",
-        "sellingType": 1,
-        "category": 1,
-        "subcategory": 1,
-        "brand": 1,
-        "unit": 1,
-        "barcodeSimbology": 1,
-        "itemBarcode": "0000000000024",
-        "quantity": 10000,
+    "warranty": "Extendida3",
+    "manufacturer": "32423423234",
+    "manufacturedDate": "2025-08-27",
+    "expiryOnDate": "2026-02-27",
+    "variants": [
+      {
+        "variant": 1,
+        "variantValue": 1,
+        "skuVariant": "HREL-Bosch-mirotomartillo-PC-002",
         "price": 1999,
+        "barcodeSimbology": 1,
+        "itemBarcode": "0000000000031",
+        "quantity": 10000,
+        "quantityAlert": 123,
+        "taxType": 2,
+        "tax": 1,
+        "discountType": 1,
+        "discountValue": 79,
+        "variantImage": [
+          "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg"
+        ]
+      },
+      {
+        "variant": 2,
+        "variantValue": 5,
+        "skuVariant": "HREL-Bosch-mirotomartillo-PC-003",
+        "price": 1999,
+        "barcodeSimbology": 1,
+        "itemBarcode": "0000000000048",
+        "quantity": 10000,
+        "quantityAlert": 12,
         "taxType": 1,
         "tax": 1,
         "discountType": 1,
-        "discountValue": 10,
-        "quantityAlert": 100,
-        "image": [
-            "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg",
-            "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg",
-            "https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"
-        ],
-        "warranty": "Extendida3",
-        "manufacturer": "32423423234",
-        "manufacturedDate": "2025-08-27",
-        "expiryOnDate": "2026-02-27",
-        "variants": [
-            {
-                "variant": 1,
-                "variantValue": 1,
-                "skuVariant": "HREL-Bosch-mirotomartillo-PC-002",
-                "price": 1999,
-                "barcodeSimbology": 1,
-                "itemBarcode": "0000000000031",
-                "quantity": 10000,
-                "quantityAlert": 123,
-                "taxType": 2,
-                "tax": 1,
-                "discountType": 1,
-                "discountValue": 79,
-                "variantImage": [
-                    "https://multiherramientas.mx/viewimage.php?modulepart=product&entity=1&file=%2FMAKHR2470%2F1.jpg"
-                ]
-            },
-            {
-                "variant": 2,
-                "variantValue": 5,
-                "skuVariant": "HREL-Bosch-mirotomartillo-PC-003",
-                "price": 1999,
-                "barcodeSimbology": 1,
-                "itemBarcode": "0000000000048",
-                "quantity": 10000,
-                "quantityAlert": 12,
-                "taxType": 1,
-                "tax": 1,
-                "discountType": 1,
-                "discountValue": 12,
-                "variantImage": [
-                    "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg"
-                ]
-            },
-            {
-                "variant": 3,
-                "variantValue": 9,
-                "skuVariant": "HREL-Bosch-mirotomartillo-PC-004",
-                "price": 344,
-                "barcodeSimbology": 1,
-                "itemBarcode": "0000000000055",
-                "quantity": 10000,
-                "quantityAlert": 12,
-                "taxType": 1,
-                "tax": 1,
-                "discountType": 1,
-                "discountValue": 45,
-                "variantImage": ["https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"]
-            }
+        "discountValue": 12,
+        "variantImage": [
+          "https://ferreteria.elektron.com.mx/media/catalog/product/cache/f754e26643cb329b88fdebd0eb6736a1/t/p/tp-101273.jpg"
         ]
-    },
-    "expiration-products": [
-        {
-            "id": 1,
-            "sku": "FER-001",
-            "nombre": "Silicona selladora",
-            "fecha_fabricacion": "2023-05-10",
-            "fecha_expiracion": "2025-05-10",
-            "estado": false,
-            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
-        },
-        {
-            "id": 2,
-            "sku": "FER-002",
-            "nombre": "Pintura acrílica blanca",
-            "fecha_fabricacion": "2022-08-15",
-            "fecha_expiracion": "2024-08-15",
-            "estado": true,
-            "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
-        },
-        {
-            "id": 3,
-            "sku": "FER-003",
-            "nombre": "Spray lubricante multiusos",
-            "fecha_fabricacion": "2024-01-20",
-            "fecha_expiracion": "2026-01-20",
-            "estado": false,
-            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
-        },
-        {
-            "id": 4,
-            "sku": "FER-004",
-            "nombre": "Pegamento epóxico",
-            "fecha_fabricacion": "2021-11-05",
-            "fecha_expiracion": "2023-11-05",
-            "estado": true,
-            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
-        },
-        {
-            "id": 5,
-            "sku": "FER-005",
-            "nombre": "Removedor de óxido",
-            "fecha_fabricacion": "2023-09-01",
-            "fecha_expiracion": "2025-09-01",
-            "estado": false,
-            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
-        },
-        {
-            "id": 6,
-            "sku": "FER-006",
-            "nombre": "Masilla para madera",
-            "fecha_fabricacion": "2022-06-30",
-            "fecha_expiracion": "2024-06-30",
-            "estado": true,
-            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
-        },
-        {
-            "id": 7,
-            "sku": "FER-007",
-            "nombre": "Limpiador de contacto eléctrico",
-            "fecha_fabricacion": "2024-03-12",
-            "fecha_expiracion": "2026-03-12",
-            "estado": false,
-            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
-        },
-        {
-            "id": 8,
-            "sku": "FER-008",
-            "nombre": "Esmalte anticorrosivo",
-            "fecha_fabricacion": "2022-09-02",
-            "fecha_expiracion": "2025-09-01",
-            "estado": true,
-            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
-        },
-        {
-            "id": 9,
-            "sku": "FER-009",
-            "nombre": "Sellador de roscas",
-            "fecha_fabricacion": "2023-02-18",
-            "fecha_expiracion": "2025-02-18",
-            "estado": false,
-            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
-        },
-        {
-            "id": 10,
-            "sku": "FER-010",
-            "nombre": "Disolvente de pintura",
-            "fecha_fabricacion": "2021-07-25",
-            "fecha_expiracion": "2023-07-25",
-            "estado": true,
-            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
-        }
-    ],
-    "stockBajo": [
-        {
-            "id": 1,
-            "almacen": "Almacen Central",
-            "tienda": "Ferretería Norte",
-            "nombre": "Taladro Inalámbrico",
-            "categoria": "Herramientas eléctricas",
-            "sku": "FER-HER-001",
-            "cantidad": 3,
-            "cantidadAlerta": 5,
-            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
-        },
-        {
-            "id": 2,
-            "almacen": "Almacen Central",
-            "tienda": "Ferretería Sur",
-            "nombre": "Destornillador Phillips",
-            "categoria": "Herramientas manuales",
-            "sku": "FER-HER-002",
-            "cantidad": 2,
-            "cantidadAlerta": 10,
-            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
-        },
-        {
-            "id": 3,
-            "almacen": "Almacen Norte",
-            "tienda": "Ferretería Centro",
-            "nombre": "Cinta Métrica 5m",
-            "categoria": "Medición",
-            "sku": "FER-MED-001",
-            "cantidad": 4,
-            "cantidadAlerta": 7,
-            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
-        },
-        {
-            "id": 4,
-            "almacen": "Almacen Sur",
-            "tienda": "Ferretería Norte",
-            "nombre": "Llave Ajustable 10\"",
-            "categoria": "Herramientas manuales",
-            "sku": "FER-HER-003",
-            "cantidad": 1,
-            "cantidadAlerta": 4,
-            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
-        },
-        {
-            "id": 5,
-            "almacen": "Almacen Central",
-            "tienda": "Ferretería Sur",
-            "nombre": "Tornillo 4x20mm (100 unidades)",
-            "categoria": "Ferretería general",
-            "sku": "FER-FER-001",
-            "cantidad": 15,
-            "cantidadAlerta": 30,
-            "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
-        },
-        {
-            "id": 6,
-            "almacen": "Almacen Norte",
-            "tienda": "Ferretería Centro",
-            "nombre": "Taladro Percutor 800W",
-            "categoria": "Herramientas eléctricas",
-            "sku": "FER-HER-004",
-            "cantidad": 2,
-            "cantidadAlerta": 3,
-            "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
-        },
-        {
-            "id": 7,
-            "almacen": "Almacen Sur",
-            "tienda": "Ferretería Norte",
-            "nombre": "Nivel de burbuja 60cm",
-            "categoria": "Medición",
-            "sku": "FER-MED-002",
-            "cantidad": 5,
-            "cantidadAlerta": 8,
-            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
-        },
-        {
-            "id": 8,
-            "almacen": "Almacen Central",
-            "tienda": "Ferretería Centro",
-            "nombre": "Cinta Aislante 20m",
-            "categoria": "Material eléctrico",
-            "sku": "FER-MAT-001",
-            "cantidad": 6,
-            "cantidadAlerta": 10,
-            "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
-        },
-        {
-            "id": 9,
-            "almacen": "Almacen Norte",
-            "tienda": "Ferretería Sur",
-            "nombre": "Sierra Manual 18\"",
-            "categoria": "Herramientas manuales",
-            "sku": "FER-HER-005",
-            "cantidad": 3,
-            "cantidadAlerta": 6,
-            "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
-        },
-        {
-            "id": 10,
-            "almacen": "Almacen Sur",
-            "tienda": "Ferretería Centro",
-            "nombre": "Guantes de seguridad talla M",
-            "categoria": "Seguridad Industrial",
-            "sku": "FER-SEG-001",
-            "cantidad": 10,
-            "cantidadAlerta": 20,
-            "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
-        }
+      },
+      {
+        "variant": 3,
+        "variantValue": 9,
+        "skuVariant": "HREL-Bosch-mirotomartillo-PC-004",
+        "price": 344,
+        "barcodeSimbology": 1,
+        "itemBarcode": "0000000000055",
+        "quantity": 10000,
+        "quantityAlert": 12,
+        "taxType": 1,
+        "tax": 1,
+        "discountType": 1,
+        "discountValue": 45,
+        "variantImage": [
+          "https://cdn.homedepot.com.mx/productos/154130/154130-d.jpg"
+        ]
+      }
     ]
+  },
+  "expiration-products": [
+    {
+      "id": "1",
+      "sku": "FER-001",
+      "nombre": "Silicona selladora",
+      "fecha_fabricacion": "2023-05-10",
+      "fecha_expiracion": "2025-05-10",
+      "estado": false,
+      "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+    },
+    {
+      "id": "2",
+      "sku": "FER-002",
+      "nombre": "Pintura acrílica blanca",
+      "fecha_fabricacion": "2022-08-15",
+      "fecha_expiracion": "2024-08-15",
+      "estado": true,
+      "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
+    },
+    {
+      "id": "3",
+      "sku": "FER-003",
+      "nombre": "Spray lubricante multiusos",
+      "fecha_fabricacion": "2024-01-20",
+      "fecha_expiracion": "2026-01-20",
+      "estado": false,
+      "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+    },
+    {
+      "id": "4",
+      "sku": "FER-004",
+      "nombre": "Pegamento epóxico",
+      "fecha_fabricacion": "2021-11-05",
+      "fecha_expiracion": "2023-11-05",
+      "estado": true,
+      "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": "5",
+      "sku": "FER-005",
+      "nombre": "Removedor de óxido",
+      "fecha_fabricacion": "2023-09-01",
+      "fecha_expiracion": "2025-09-01",
+      "estado": false,
+      "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+    },
+    {
+      "id": "6",
+      "sku": "FER-006",
+      "nombre": "Masilla para madera",
+      "fecha_fabricacion": "2022-06-30",
+      "fecha_expiracion": "2024-06-30",
+      "estado": true,
+      "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": "7",
+      "sku": "FER-007",
+      "nombre": "Limpiador de contacto eléctrico",
+      "fecha_fabricacion": "2024-03-12",
+      "fecha_expiracion": "2026-03-12",
+      "estado": false,
+      "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+    },
+    {
+      "id": "8",
+      "sku": "FER-008",
+      "nombre": "Esmalte anticorrosivo",
+      "fecha_fabricacion": "2022-09-02",
+      "fecha_expiracion": "2025-09-01",
+      "estado": true,
+      "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": "9",
+      "sku": "FER-009",
+      "nombre": "Sellador de roscas",
+      "fecha_fabricacion": "2023-02-18",
+      "fecha_expiracion": "2025-02-18",
+      "estado": false,
+      "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+    },
+    {
+      "id": "10",
+      "sku": "FER-010",
+      "nombre": "Disolvente de pintura",
+      "fecha_fabricacion": "2021-07-25",
+      "fecha_expiracion": "2023-07-25",
+      "estado": true,
+      "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+    }
+  ],
+  "stockBajo": [
+    {
+      "id": "1",
+      "almacen": "Almacen Central",
+      "tienda": "Ferretería Norte",
+      "nombre": "Taladro Inalámbrico",
+      "categoria": "Herramientas eléctricas",
+      "sku": "FER-HER-001",
+      "cantidad": 3,
+      "cantidadAlerta": 5,
+      "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+    },
+    {
+      "id": "2",
+      "almacen": "Almacen Central",
+      "tienda": "Ferretería Sur",
+      "nombre": "Destornillador Phillips",
+      "categoria": "Herramientas manuales",
+      "sku": "FER-HER-002",
+      "cantidad": 2,
+      "cantidadAlerta": 10,
+      "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": "3",
+      "almacen": "Almacen Norte",
+      "tienda": "Ferretería Centro",
+      "nombre": "Cinta Métrica 5m",
+      "categoria": "Medición",
+      "sku": "FER-MED-001",
+      "cantidad": 4,
+      "cantidadAlerta": 7,
+      "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+    },
+    {
+      "id": "4",
+      "almacen": "Almacen Sur",
+      "tienda": "Ferretería Norte",
+      "nombre": "Llave Ajustable 10\"",
+      "categoria": "Herramientas manuales",
+      "sku": "FER-HER-003",
+      "cantidad": 1,
+      "cantidadAlerta": 4,
+      "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": "5",
+      "almacen": "Almacen Central",
+      "tienda": "Ferretería Sur",
+      "nombre": "Tornillo 4x20mm (100 unidades)",
+      "categoria": "Ferretería general",
+      "sku": "FER-FER-001",
+      "cantidad": 15,
+      "cantidadAlerta": 30,
+      "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
+    },
+    {
+      "id": "6",
+      "almacen": "Almacen Norte",
+      "tienda": "Ferretería Centro",
+      "nombre": "Taladro Percutor 800W",
+      "categoria": "Herramientas eléctricas",
+      "sku": "FER-HER-004",
+      "cantidad": 2,
+      "cantidadAlerta": 3,
+      "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
+    },
+    {
+      "id": "7",
+      "almacen": "Almacen Sur",
+      "tienda": "Ferretería Norte",
+      "nombre": "Nivel de burbuja 60cm",
+      "categoria": "Medición",
+      "sku": "FER-MED-002",
+      "cantidad": 5,
+      "cantidadAlerta": 8,
+      "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+    },
+    {
+      "id": "8",
+      "almacen": "Almacen Central",
+      "tienda": "Ferretería Centro",
+      "nombre": "Cinta Aislante 20m",
+      "categoria": "Material eléctrico",
+      "sku": "FER-MAT-001",
+      "cantidad": 6,
+      "cantidadAlerta": 10,
+      "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
+    },
+    {
+      "id": "9",
+      "almacen": "Almacen Norte",
+      "tienda": "Ferretería Sur",
+      "nombre": "Sierra Manual 18\"",
+      "categoria": "Herramientas manuales",
+      "sku": "FER-HER-005",
+      "cantidad": 3,
+      "cantidadAlerta": 6,
+      "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
+    },
+    {
+      "id": "10",
+      "almacen": "Almacen Sur",
+      "tienda": "Ferretería Centro",
+      "nombre": "Guantes de seguridad talla M",
+      "categoria": "Seguridad Industrial",
+      "sku": "FER-SEG-001",
+      "cantidad": 10,
+      "cantidadAlerta": 20,
+      "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
+    }
+  ],
+  "sales": [
+    {
+      "id": "1",
+      "nombre": "Cliente Ejemplo S.A.",
+      "referencia": "REF-001",
+      "fecha_venta": "2025-09-16",
+      "estado": "Completado",
+      "total_general": 1500.5,
+      "pagado": 1500.5,
+      "debido": 0,
+      "estado_pago": "Pagado",
+      "nombre_facturador": "Vendedor 1"
+    }
+  ]
+  
 }

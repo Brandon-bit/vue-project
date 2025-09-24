@@ -1,25 +1,35 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
+import { ref } from 'vue'
 
 // --- Importaciones de Componentes Visuales ---
 import BaseTable from '@/shared/components/BaseTable.vue';
 import BaseButton from '@/shared/components/BaseButton.vue';
+import UseModal from '../components/UseModal.vue';
 
 // --- Importaciones de Lógica ---
 import { useSale } from '../composables/useSale';
+import useSaleStore from '@/modules/Sales/Sales/online-orders/store/saleStore'
+import { useModalStore } from '@/shared/stores/modal.store';
 
 // 1. Activa el composable para obtener sus herramientas
-const { sales, isLoading, fetchSales, getSalesTableColumns } = useSale();
+const { getSales, getSalesTableColumns } = useSale();
+const tablaRef = ref()
+const saleStore = useSaleStore()
+const modalStore = useModalStore()
 
 // 2. Llama a la función para buscar los datos cuando el componente se monte
 onMounted(() => {
-    fetchSales();
+    getSales();
+ 
 });
 
 // --- Funciones para los modales (placeholders por ahora) ---
 const openCreateModal = () => {
     console.log('Abrir modal para crear venta...');
-    // Aquí irá la lógica para llamar a modalStore.open()
+    saleStore.setData()
+    modalStore.open(saleStore.modalId, { type: 'CREATE', title: 'Crear venta' })
+   
 };
 </script>
 
@@ -31,15 +41,20 @@ const openCreateModal = () => {
             <BaseButton text="Nueva Venta" @click="openCreateModal" icon="add" />
         </div>
 
-        <p v-if="isLoading">Cargando ventas...</p>
+      
 
         <BaseTable
-            v-else-if="sales.length > 0"
-            :data="sales"
+           
+           
             :headers="getSalesTableColumns()"
+            :fetch-callback="getSales"
+
         />
 
-        <p v-else>No hay ventas para mostrar.</p>
-        
-        </div>
+        <UseModal :onRefresh="tablaRef?.fetchData"/>
+            <!-- Se pasa getSales para refrescar la tabla tras acciones en el modal -->
+
+      
+
+    </div>
 </template>

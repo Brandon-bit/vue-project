@@ -698,7 +698,32 @@ const isSmallScreen = ref(false)
 //     }
 // ])
 const modulos = ref([
-    {
+
+    
+//sales module 
+{
+        icon: '',
+        name: 'Sales',
+        sections: [
+            {
+                icon: 'fas fa-shopping-cart',
+                name: 'Sales',
+                open: false,
+                views: [
+                    {
+                        url: '/ventas/ordenes-en-linea',
+                        name: 'Online orders'
+                    },
+                    {
+                        url: '/ventas/nueva-venta',
+                        name: 'POS orders'
+                    }
+                ]
+            }
+        ]
+    },
+
+{
         icon: '',
         name: '',
         sections: [
@@ -730,69 +755,69 @@ const modulos = ref([
             }
         ]
     },
-    {
-        // Inventarios
-        icon: 'inventory_2',
-        name: 'Inventarios',
-        sections: [
-            {
-                // Configuración de Inventarios
-                icon: '',
-                name: 'Configuración de Inventarios',
-                open: false,
-                views: [
-                    {
-                        url: '/inventario/configuracion/productos',
-                        name: 'Productos'
-                    },
-                    {
-                        url: '/inventario/configuracion/crear-producto',
-                        name: 'Crear Producto'
-                    },
-                    {
-                        url: '/inventario/configuracion/productos-expiracion',
-                        name: 'Productos con expiración'
-                    },
-                    {
-                        url: '/inventario/configuracion/stock-bajo',
-                        name: 'Stock bajo'
-                    },
-                    {
-                        url: '/inventario/configuracion/categoria',
-                        name: 'Categoría'
-                    },
-                    {
-                        url: '/inventario/configuracion/SubCategoria',
-                        name: 'Sub Categoria'
-                    },
-                    {
-                        url: '/inventario/configuracion/marcas',
-                        name: 'Marcas'
-                    },
-                    {
-                        url: '/inventario/configuracion/unidades',
-                        name: 'Unidades'
-                    },
-                    {
-                        url: '/inventario/configuracion/atributos-variantes',
-                        name: 'Atributos Variantes'
-                    },
-                    {
-                        url: '/inventario/configuracion/garantias',
-                        name: 'Garantias'
-                    },
-                    {
-                        url: '/inventario/configuracion/imprimir-codigo-de-barras',
-                        name: 'Imprimir Codigo de Barras'
-                    },
-                    {
-                        url: '/inventario/configuracion/imprimir-codigo-qr',
-                        name: 'Imprimir Codigo QR'
-                    },
-                    {
-                         url: '/inventario/configuracion/crear-descuento',
-                         name: 'CrearDescuento'
-                     }
+        {
+            // Inventarios
+            icon: 'inventory_2',
+            name: 'Inventarios',
+            sections: [
+                {
+                    // Configuración de Inventarios
+                    icon: '',
+                    name: 'Configuración de Inventarios',
+                    open: false,
+                    views: [
+                        {
+                            url: '/inventario/configuracion/productos',
+                            name: 'Productos'
+                        },
+                        {
+                            url: '/inventario/configuracion/crear-producto',
+                            name: 'Crear Producto'
+                        },
+                        {
+                            url: '/inventario/configuracion/productos-expiracion',
+                            name: 'Productos con expiración'
+                        },
+                        {
+                            url: '/inventario/configuracion/stock-bajo',
+                            name: 'Stock bajo'
+                        },
+                        {
+                            url: '/inventario/configuracion/categoria',
+                            name: 'Categoría'
+                        },
+                        {
+                            url: '/inventario/configuracion/SubCategoria',
+                            name: 'Sub Categoria'
+                        },
+                        {
+                            url: '/inventario/configuracion/marcas',
+                            name: 'Marcas'
+                        },
+                        {
+                            url: '/inventario/configuracion/unidades',
+                            name: 'Unidades'
+                        },
+                        {
+                            url: '/inventario/configuracion/atributos-variantes',
+                            name: 'Atributos Variantes'
+                        },
+                        {
+                            url: '/inventario/configuracion/garantias',
+                            name: 'Garantias'
+                        },
+                        {
+                            url: '/inventario/configuracion/imprimir-codigo-de-barras',
+                            name: 'Imprimir Codigo de Barras'
+                        },
+                        {
+                            url: '/inventario/configuracion/imprimir-codigo-qr',
+                            name: 'Imprimir Codigo QR'
+                        },
+                        {
+                            url: '/inventario/configuracion/crear-descuento',
+                            name: 'CrearDescuento'
+                        }
                 ]
             },
             {

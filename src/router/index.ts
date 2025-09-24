@@ -15,6 +15,8 @@ import ProyectosRoutes from './ProyectosRoutes'
 // Inventario Routes
 import InventarioRoutes from './InventarioRoutes'
 
+import SalesRoute from './SalesRoute'
+
 const routes = [
     {
         path: '/',
@@ -25,7 +27,8 @@ const routes = [
             ...DefaultRoutes,
             ...NavBarRoutes,
             ...ProyectosRoutes,
-            ...InventarioRoutes
+            ...InventarioRoutes,
+            ...SalesRoute,
         ]
     },
     {
