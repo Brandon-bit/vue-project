@@ -11,7 +11,12 @@ import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { createUnitSchema } from '../validations/unitValidation'
 import BaseModal from '@/shared/components/BaseModal.vue'
+import { showNotification } from '@/utils/toastNotifications'
 // #endregion
+
+const props = defineProps<{
+  onRefresh?: () => void
+}>()
 
 // #region Data
 const { createUnit, editUnit, deleteUnit } = useUnitActions()
@@ -82,10 +87,11 @@ const onSubmit = handleSubmit(async (formValues) => {
     const modalType = modalStore.modals[unitStore.modalId].type
     const action = modalMap[modalType]?.action
     try {
-        const { message, status, data } = await action(formValues)
-        console.log(message)
-        console.log(status)
-        console.log(data)
+        const { message, status } = await action(formValues)
+        showNotification(message, status)
+        if(status == "success") props.onRefresh?.()
+        onClose()
+        modalStore.close(unitStore.modalId)
     } catch (error) {
         console.error(error)
     }

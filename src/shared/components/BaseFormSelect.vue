@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useField } from 'vee-validate'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 
 const props = defineProps<{
     label: string
@@ -10,11 +10,9 @@ const props = defineProps<{
     class?: string
 }>()
 
-const { value, errorMessage } = useField(props.name, undefined, {
-    initialValue: ''
-})
+const { value, errorMessage } = useField(props.name)
 
-const optionsMap = computed(() => [{ id: '', label: 'Elige una opción' }, ...props.options])
+const optionsMap = computed(() => [{ id: 0, label: 'Elige una opción' }, ...props.options])
 </script>
 
 <template>

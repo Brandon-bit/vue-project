@@ -3,17 +3,43 @@ import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h  , withDirectives } from 'vue'
 import useUnitStore from '../store/unit.store';
 import { useModalStore } from '@/shared/stores/modal.store'
+import { UnitType } from '../types/unitType';
+import { UnitResponseType } from '../types/unitResponseType';
+import { UnitFormType } from '../types/unitFormType';
+import { UnitRequestType } from '../types/unitRequestType';
 
 export const useUnit = () => {
     const unitStore = useUnitStore()
     const modalStore = useModalStore()
     
-    const getUnits = async () => {
-        try{
-            const response = await getUnitsService()
-            unitStore.units = response
+    const getUnits = async (page : number, pageSize : number) : Promise<{ items: UnitType[], total: number }> => {
+        const response = await getUnitsService(page, pageSize)
+        return {
+            items: response.data.items.map(mapUnit),
+            total: response.data.totalItems
         }
-        catch(error){}
+    }
+
+    const mapUnit = (model : UnitResponseType) : UnitType => {
+        return {
+            id: model.id,
+            name: model.nombre,
+            shortName: model.nombreCorto,
+            active: model.activo,
+            creationDate: model.fechaCreacion,
+            productsCount: 0
+        }
+    }
+
+    const mapUnitRequest = (model : UnitFormType) : UnitRequestType => {
+        return {
+            Nombre: model.name,
+            NombreCorto: model.shortName,
+            FechaCreacion: new Date().toISOString(),
+            FechaActualizacion: new Date().toISOString(),
+            Activo: model.active,
+            Eliminado: false
+        }
     }
 
     const getUnitsTableColumns = () : ColumnTableType[] => {
@@ -32,7 +58,11 @@ export const useUnit = () => {
             },
             {
                 header: 'Fecha de Creación',
-                accessorKey: 'creationDate'
+                accessorKey: 'creationDate',
+                cell: ({ row }: any) => {
+                    const creationDate = new Date(row.original.creationDate)
+                    return h('p', {}, creationDate.toISOString().split("T")[0])
+                }
             },
             {
                 header: 'Estado',
@@ -105,6 +135,8 @@ export const useUnit = () => {
 
     return {
         getUnits,
-        getUnitsTableColumns
+        getUnitsTableColumns,
+        mapUnitRequest,
+        mapUnit
     }
 }

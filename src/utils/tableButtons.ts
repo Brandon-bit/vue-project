@@ -54,3 +54,19 @@ export const detailTableButton = (onClick: () => void) => {
         []
     )
 }
+
+export const customTableButton = (onClick: () => void, tooltipText: string, icon: string) => {
+    return withDirectives(
+        h('div', { class: 'tooltip', 'data-tip': `${tooltipText}` }, [
+            h(
+                'button',
+                {
+                    class: 'btn btn-outline btn-primary action-btn-table',
+                    onClick
+                },
+                [h('span', { class: 'material-symbols-outlined' }, `${icon}`)]
+            )
+        ]),
+        []
+    )
+}

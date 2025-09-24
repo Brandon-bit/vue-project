@@ -755,6 +755,69 @@ const modulos = ref([
             }
         ]
     },
+    {
+        // Inventarios
+        icon: 'inventory_2',
+        name: 'Inventarios',
+        sections: [
+            {
+                // Configuración de Inventarios
+                icon: '',
+                name: 'Configuración de Inventarios',
+                open: false,
+                views: [
+                    {
+                        url: '/inventario/configuracion/productos',
+                        name: 'Productos'
+                    },
+                    {
+                        url: '/inventario/configuracion/crear-producto',
+                        name: 'Crear Producto'
+                    },
+                    {
+                        url: '/inventario/configuracion/productos-expiracion',
+                        name: 'Productos con expiración'
+                    },
+                    {
+                        url: '/inventario/configuracion/stock-bajo',
+                        name: 'Stock bajo'
+                    },
+                    {
+                        url: '/inventario/configuracion/categoria',
+                        name: 'Categoría'
+                    },
+                    {
+                        url: '/inventario/configuracion/SubCategoria',
+                        name: 'Sub Categoria'
+                    },
+                    {
+                        url: '/inventario/configuracion/marcas',
+                        name: 'Marcas'
+                    },
+                    {
+                        url: '/inventario/configuracion/unidades',
+                        name: 'Unidades'
+                    },
+                    {
+                        url: '/inventario/configuracion/atributos-variantes',
+                        name: 'Atributos Variantes'
+                    },
+                    {
+                        url: '/inventario/configuracion/garantias',
+                        name: 'Garantias'
+                    },
+                    {
+                        url: '/inventario/configuracion/imprimir-codigo-de-barras',
+                        name: 'Imprimir Codigo de Barras'
+                    },
+                    {
+                        url: '/inventario/configuracion/imprimir-codigo-qr',
+                        name: 'Imprimir Codigo QR'
+                    },
+                    {
+                        url: '/inventario/configuracion/crear-descuento',
+                        name: 'CrearDescuento'
+                    }
         {
             // Inventarios
             icon: 'inventory_2',
@@ -827,8 +890,12 @@ const modulos = ref([
                 open: false,
                 views: [
                     {
-                        url: '/inventario/operacion/puntos-de-reorden',
-                        name: 'Puntos de Reorden'
+                        url: '/inventario/operacion/tablero',
+                        name: 'Tablero'
+                    },
+                    {
+                        url: '/inventario/operacion/puntos-maximos-minimos',
+                        name: 'Puntos de Max/Min y Reorden'
                     },
                     {
                         url: '/inventario/operacion/auditoria-de-inventarios',
@@ -839,8 +906,8 @@ const modulos = ref([
                         name: 'Gestión de Pedidos'
                     },
                     {
-                        url: '/inventario/operacion/controles-de-autorizacion-de-pedidos',
-                        name: 'Controles de autorización de pedidos'
+                        url: '/inventario/operacion/autorizaciones-de-pedidos',
+                        name: 'Autorizaciones de pedidos'
                     },
                     {
                         url: '/inventario/operacion/generacion-de-polizas-de-inventario',
@@ -853,6 +920,10 @@ const modulos = ref([
                     {
                         url: '/inventario/operacion/salidas-de-inventario',
                         name: 'Salidas de Inventario'
+                    },
+                    {
+                        url: '/inventario/operacion/gestion-de-pedidos',
+                        name: 'Gestión de pedidos'
                     }
                 ]
             },
@@ -873,6 +944,25 @@ const modulos = ref([
                     {
                         url: '/inventario/stock/transferir-stock',
                         name: 'Transferir Stock'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        // Inventarios
+        icon: 'point_of_sale',
+        name: 'POS',
+        sections: [
+            {
+                // Configuración de Inventarios
+                icon: '',
+                name: 'POS',
+                open: false,
+                views: [
+                    {
+                        url: '/pos/punto-de-venta',
+                        name: 'Punto de Venta'
                     }
                 ]
             }

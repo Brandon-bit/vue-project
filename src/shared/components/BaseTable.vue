@@ -57,7 +57,7 @@ const table = useVueTable({
     manualPagination: true
 })
 
-const from = computed(() => ((pageIndex.value - 1) * pageSize.value) + 1)
+const from = computed(() => data.value.length > 0 ? ((pageIndex.value - 1) * pageSize.value) + 1 : 0)
 const to = computed(() => Math.min((pageIndex.value) * pageSize.value, totalRows.value))
 
 const fetchData = async () => {
@@ -154,7 +154,7 @@ defineExpose({
             <ul class="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
             popover id="popover-exportar" style="position-anchor:--anchor-exportar">
                 <li @click="exportToPDF">
-                    <a> 
+                    <a>
                         <span class="material-symbols-outlined">
                             picture_as_pdf
                         </span>
@@ -162,7 +162,7 @@ defineExpose({
                     </a>
                 </li>
                 <li @click="exportToExcel">
-                    <a> 
+                    <a>
                         <span class="material-symbols-outlined">
                             rubric
                         </span>
@@ -225,7 +225,7 @@ defineExpose({
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(row, ix) in table.getRowModel().rows" :key="row.id" class="hover:bg-base-200">
+                    <tr v-if="data.length > 0" v-for="(row, ix) in table.getRowModel().rows" :key="row.id" class="hover:bg-base-200">
                         <td>{{ ix + 1 + ((pageIndex - 1) * pageSize)}}</td>
                         <td v-for="cell in row.getVisibleCells()" :key="cell.id">
                             <FlexRender
@@ -234,7 +234,12 @@ defineExpose({
                             />
                         </td>
                     </tr>
-                </tbody>
+                    <tr v-else>
+                        <td :colspan="table.getAllColumns().length + 1" class="text-center py-4">
+                        Aún no hay registros disponibles
+                        </td>
+                    </tr>
+                </tbody>    
             </table>
         </div>
     </div>

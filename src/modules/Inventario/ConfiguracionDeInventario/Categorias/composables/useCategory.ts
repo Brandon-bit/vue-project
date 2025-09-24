@@ -5,7 +5,7 @@ import { h } from 'vue'
 import { editTableButton, deleteTableButton } from '@/utils/tableButtons'
 import type { CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryType'
 import type { CategoryResponseType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryResponseType'
-import type { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryFormType'
+import type { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryFormType'
 import type { CategoryRequestType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryRequestType'
 import { getCategoriesService } from '@inventario/ConfiguracionDeInventario/Categorias/services/categoryService'
 

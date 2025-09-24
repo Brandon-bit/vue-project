@@ -1,5 +1,5 @@
 import type { CategoryResponseType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryResponseType'
-import type { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryFormType'
+import type { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryFormType'
 import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 import { createCategoryService, deleteCategoryService, updateCategoryService } from '@inventario/ConfiguracionDeInventario/Categorias/services/categoryService'
 import { useCategory } from '@inventario/ConfiguracionDeInventario/Categorias/composables/useCategory'
