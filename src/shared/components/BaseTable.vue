@@ -239,7 +239,7 @@ defineExpose({
                         Aún no hay registros disponibles
                         </td>
                     </tr>
-                </tbody>    
+                </tbody>
             </table>
         </div>
     </div>

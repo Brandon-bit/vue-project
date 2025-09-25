@@ -40,8 +40,18 @@ export const numberValidator = (
     )
 }
 
-export const stringValidator = (message: string, minMessage: string, minLength: number) => {
-    return z.string({ required_error: message }).min(minLength, minMessage)
+export const stringValidator = (requiredMessage: string, minMessage: string, minLength: number) => {
+    return z.string({ required_error: requiredMessage }).min(minLength, minMessage)
+}
+
+export const optionalStringValidator = (minMessage: string, minLength: number) => {
+    return z
+        .string()
+        .transform((val) => val?.trim() || '')
+        .refine((val) => val.length === 0 || val.length >= minLength, {
+            message: minMessage
+        })
+        .optional()
 }
 
 export const dateValidator = (message: string) => {

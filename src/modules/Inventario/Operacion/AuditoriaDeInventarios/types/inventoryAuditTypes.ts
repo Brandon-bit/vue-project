@@ -13,11 +13,9 @@ export type InventoryAuditRecordsType = {
     fecha: string
     auditorId: number
     auditorNombre: string
-    productoId: number
-    producto: string
-    conteo: number
-    diferencia: number
-    nota: string
+    notaGeneral: string
+    calificacion: number
+    productosAuditados: number
 }
 
 export type InventoryAuditRecordsTranslatedType = {
@@ -25,20 +23,15 @@ export type InventoryAuditRecordsTranslatedType = {
     date: string
     auditorId: number
     auditorName: string
-    productId: number
-    product: string
-    count: number
-    difference: number
-    note: string
+    generalNote: string
+    calification: number
+    auditedProducts: number
 }
 
 export type InventoryAuditRecordPayload = {
     id?: number
     fecha: string
     auditorId: number
-    productoId: number
-    conteo: number
-    diferencia: number
     nota: string
 }
 

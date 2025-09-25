@@ -17,20 +17,16 @@ export const useInventoryAuditTableHeaders = (): ColumnTableType[] => {
             accessorKey: 'auditorName'
         },
         {
-            header: 'Producto',
-            accessorKey: 'product'
+            header: 'Calificacion',
+            accessorKey: 'calification'
         },
         {
-            header: 'Conteo',
-            accessorKey: 'count'
-        },
-        {
-            header: 'Diferencia',
-            accessorKey: 'difference'
+            header: 'Productos auditados',
+            accessorKey: 'auditedProducts'
         },
         {
             header: 'Nota',
-            accessorKey: 'note'
+            accessorKey: 'generalNote'
         },
         {
             header: 'Acciones',
