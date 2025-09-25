@@ -2,10 +2,10 @@
 import { onMounted, ref } from 'vue'
 import BaseTable from '@/shared/components/BaseTable.vue'
 import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
-import useLowStockStore from '@inventario/ConfiguracionDeInventario/StockBajo/store/lowStockStore'
+import useLowStockStore from '@inventario/Stock/StockBajo/store/lowStockStore'
 import { useLowStock } from '@/modules/Inventario/Stock/StockBajo/composables/useLowStock'
-import LowStockModal from '@inventario/ConfiguracionDeInventario/StockBajo/components/LowStockModal.vue'
-import ToggleNotification from '@inventario/ConfiguracionDeInventario/StockBajo/components/ToggleNotification.vue'
+import LowStockModal from '@inventario/Stock/StockBajo/components/LowStockModal.vue'
+import ToggleNotification from '@inventario/Stock/StockBajo/components/ToggleNotification.vue'
 
 const { getLowStock, getTableColumns } = useLowStock()
 const lowStockStore = useLowStockStore()

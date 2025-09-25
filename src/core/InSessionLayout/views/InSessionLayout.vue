@@ -838,7 +838,7 @@ const modulos = ref([
                 open: false,
                 views: [
                     {
-                        url: '/inventario/configuracion/stock-bajo',
+                        url: '/inventario/stock/stock-bajo',
                         name: 'Stock bajo'
                     },
                     {

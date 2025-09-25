@@ -33,12 +33,6 @@ const routes = [
             )
     },
     {
-        path: '/inventario/configuracion/stock-bajo',
-        name: 'StockBajo',
-        component: () =>
-            import('@inventario/ConfiguracionDeInventario/StockBajo/views/LowStockView.vue')
-    },
-    {
         path: '/inventario/configuracion/categoria',
         name: 'Categoría',
         component: () =>
@@ -151,6 +145,12 @@ const routes = [
     // },
 
     // Stock
+    {
+        path: '/inventario/stock/stock-bajo',
+        name: 'StockBajo',
+        component: () =>
+            import('@inventario/Stock/StockBajo/views/LowStockView.vue')
+    },
     // {
     //     path: '/inventario/stock/administrar-stock',
     //     name: 'AdministrarStock',
