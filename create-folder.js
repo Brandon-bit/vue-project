@@ -20,20 +20,17 @@ const fullPath = `${fullPathSplit.join('/')}/${capitalize(baseName)}`
 
 const foldersStructure = [
     {
-        path: `views/${capitalize(baseName)}Views.vue`,
+        path: `views/${capitalize(baseName)}View.vue`,
         content: `<script setup lang="ts">\n</script>\n<template>\n<h2>${capitalize(baseName)} View</h2>\n</template>\n<style>\n</style>`
     },
     {
-        path: `validations/${baseName}Validation.ts`,
-        content: `// Validations for ${baseName}`
+        path: `validations/`,
     },
     {
-        path: `types/${baseName}Types.ts`,
-        content: `// Types for ${baseName}`
+        path: `types/`,
     },
     {
-        path: `services/${baseName}Service.ts`,
-        content: `// Services for ${baseName}`
+        path: `services/`,
     },
     {
         path: `components/`

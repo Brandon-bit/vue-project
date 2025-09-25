@@ -22,11 +22,9 @@ export const mapInventoryAuditRecords = (
     date: data.fecha,
     auditorId: data.auditorId,
     auditorName: data.auditorNombre,
-    productId: data.productoId,
-    product: data.producto,
-    count: data.conteo,
-    difference: data.diferencia,
-    note: data.nota
+    generalNote: data.notaGeneral,
+    calification: data.calificacion,
+    auditedProducts: data.productosAuditados
 })
 
 export const mapInventoryAuditRecordToBackend = (
@@ -34,10 +32,7 @@ export const mapInventoryAuditRecordToBackend = (
 ): InventoryAuditRecordPayload => ({
     fecha: data.date,
     auditorId: data.auditorId,
-    productoId: data.productId,
-    conteo: data.count,
-    diferencia: data.difference,
-    nota: data.note
+    nota: data.generalNote
 })
 
 export const mapInventoryAuditors = (

@@ -7,8 +7,8 @@ import type { PagedResponseType } from '@/shared/types/pagedResponseType'
 export const getCategoriesService = async (page : number, pageSize: number) : Promise<ApiResponseType<PagedResponseType<CategoryResponseType>>> => {
   const response = await axiosApiInstance.get('/producto/categoria', {
     params: {
-      page: page,
-      pageSize: pageSize
+      limit: page,
+      skip: pageSize
     }
   })
   return response.data

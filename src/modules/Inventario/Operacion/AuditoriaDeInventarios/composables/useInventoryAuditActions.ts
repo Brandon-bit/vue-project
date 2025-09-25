@@ -59,7 +59,7 @@ export const useInventoryAuditActions = () => {
     ): Promise<{ message: string; status: string; data: any }> => {
         const model = mapInventoryAuditRecordToBackend(data)
         model.id = inventoryAuditStore.selectedInventoryAudit?.id
-        model.productoId = inventoryAuditStore.selectedInventoryAudit.productId
+        // model.productoId = inventoryAuditStore.selectedInventoryAudit.productId
         const response = await updateInventoryAuditService(model)
         return {
             message: response.message,

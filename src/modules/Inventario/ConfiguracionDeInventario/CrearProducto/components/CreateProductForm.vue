@@ -150,7 +150,7 @@ const generateSKU = () => {
     if (!isGeneratedSku.value) {
         const result = useGenerateSKU()
         if (!result) {
-            showNotification('Asegúrate llenar los campos categoría, marca, slug y unidad', 'error')
+            showNotification('Asegúrate llenar los campos categoría y marca', 'error')
         } else {
             setFieldValue('sku', result)
             isGeneratedSku.value = true
@@ -187,7 +187,7 @@ const deleteImage = (imageIndex: number) => {
                 </div>
                 <div class="collapse-content text-sm">
                     <div class="grid grid-cols-12 gap-5">
-                        <BaseFormSelect
+                        <!-- <BaseFormSelect
                             class="col-span-12 md:col-span-6"
                             name="store"
                             label="Tienda"
@@ -200,7 +200,7 @@ const deleteImage = (imageIndex: number) => {
                             label="Almacén"
                             :options="warehouses"
                             :required="true"
-                        />
+                        /> -->
                         <BaseFormInput
                             class="col-span-12 md:col-span-6"
                             name="name"
@@ -226,13 +226,13 @@ const deleteImage = (imageIndex: number) => {
                                 text="Generar"
                             />
                         </div>
-                        <BaseFormSelect
+                        <!-- <BaseFormSelect
                             class="col-span-12 md:col-span-6"
                             name="sellingType"
                             label="Tipo de venta"
                             :options="sellingTypes"
                             :required="true"
-                        />
+                        /> -->
                         <BaseFormSelect
                             class="col-span-12 md:col-span-6"
                             name="category"
@@ -318,13 +318,13 @@ const deleteImage = (imageIndex: number) => {
                     </div>
                     <div v-show="singleProduct">
                         <div class="grid grid-cols-12 gap-5">
-                            <BaseFormInput
+                            <!-- <BaseFormInput
                                 class="col-span-12 md:col-span-6"
                                 name="quantity"
                                 type="number"
                                 label="Cantidad"
                                 :required="true"
-                            />
+                            /> -->
                             <BaseFormInput
                                 class="col-span-12 md:col-span-6"
                                 name="price"
@@ -346,27 +346,27 @@ const deleteImage = (imageIndex: number) => {
                                 :options="createProductStore.taxes"
                                 :required="true"
                             />
-                            <BaseFormSelect
+                            <!-- <BaseFormSelect
                                 class="col-span-12 md:col-span-6"
                                 name="discountType"
                                 label="Tipo de descuento"
                                 :options="createProductStore.discountTypes"
                                 :required="true"
-                            />
-                            <BaseFormInput
+                            /> -->
+                            <!-- <BaseFormInput
                                 class="col-span-12 md:col-span-6"
                                 name="discountValue"
                                 type="number"
                                 label="Valor del descuento"
                                 :required="true"
-                            />
-                            <BaseFormInput
+                            /> -->
+                            <!-- <BaseFormInput
                                 class="col-span-12 md:col-span-6"
                                 name="quantityAlert"
                                 type="number"
                                 label="Alerta de cantidad"
                                 :required="true"
-                            />
+                            /> -->
                         </div>
                     </div>
                     <div v-show="!singleProduct">
@@ -530,16 +530,17 @@ const deleteImage = (imageIndex: number) => {
                 <div class="collapse-title border-b-1 border-base-300 mb-6 !font-bold">Extras</div>
                 <div class="collapse-content text-sm">
                     <div class="grid grid-cols-12 gap-5">
+                        <!-- CAMBIAR A SELECT-->
                         <BaseFormInput
                             class="col-span-12 md:col-span-6"
                             name="warranty"
                             label="Garantía"
                         ></BaseFormInput>
-                        <BaseFormInput
+                        <!-- <BaseFormInput
                             class="col-span-12 md:col-span-6"
                             name="manufacturer"
                             label="Fabricante"
-                        ></BaseFormInput>
+                        ></BaseFormInput> -->
                         <BaseFormInput
                             class="col-span-12 md:col-span-6"
                             name="manufacturedDate"
