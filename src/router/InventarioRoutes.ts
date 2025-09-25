@@ -107,33 +107,33 @@ const routes = [
     },
 
     // Operacion
-    {
-        path: '/inventario/operacion/tablero',
-        name: 'Tablero',
-        component: () => import('@inventario/Operacion/Tablero/views/ControlPanelView.vue')
-    },
-    {
-        path: '/inventario/operacion/puntos-maximos-minimos',
-        name: 'PuntosDeReorden',
-        component: () =>
-            import('@inventario/Operacion/PuntosMaximosMinimos/views/MaxMinPointsView.vue')
-    },
-    {
-        path: '/inventario/operacion/auditoria-de-inventarios',
-        name: 'Auditoría de Inventarios',
-        component: () =>
-            import('@inventario/Operacion/AuditoriaDeInventarios/views/InventoryAuditView.vue')
-    },
-    {
-        path: '/inventario/operacion/gestion-de-pedidos',
-        name: 'Gestión de pedidos',
-        component: () => import('@inventario/Operacion/GestionDePedidos/views/OrderManagementView.vue')
-    },
-    {
-        path: '/inventario/operacion/autorizaciones-de-pedidos',
-         name: 'Autorizaciones de pedidos',
-         component: () => import('@inventario/Operacion/AutorizacionesDePedidos/views/OrderAuthorizationsView.vue')
-    },
+    // {
+    //     path: '/inventario/operacion/tablero',
+    //     name: 'Tablero',
+    //     component: () => import('@inventario/Operacion/Tablero/views/ControlPanelView.vue')
+    // },
+    // {
+    //     path: '/inventario/operacion/puntos-maximos-minimos',
+    //     name: 'PuntosDeReorden',
+    //     component: () =>
+    //         import('@inventario/Operacion/PuntosMaximosMinimos/views/MaxMinPointsView.vue')
+    // },
+    // {
+    //     path: '/inventario/operacion/auditoria-de-inventarios',
+    //     name: 'Auditoría de Inventarios',
+    //     component: () =>
+    //         import('@inventario/Operacion/AuditoriaDeInventarios/views/InventoryAuditView.vue')
+    // },
+    // {
+    //     path: '/inventario/operacion/gestion-de-pedidos',
+    //     name: 'Gestión de pedidos',
+    //     component: () => import('@inventario/Operacion/GestionDePedidos/views/OrderManagementView.vue')
+    // },
+    // {
+    //     path: '/inventario/operacion/autorizaciones-de-pedidos',
+    //      name: 'Autorizaciones de pedidos',
+    //      component: () => import('@inventario/Operacion/AutorizacionesDePedidos/views/OrderAuthorizationsView.vue')
+    // },
     // {
     //     path: '/inventario/operacion/generacion-de-polizas-de-inventario',
     //     name: 'GeneraciónDePolizasDeInventario',

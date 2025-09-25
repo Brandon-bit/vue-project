@@ -8,7 +8,7 @@ import BaseButton from '@/shared/components/BaseButton.vue';
 import UseModal from '../components/UseModal.vue';
 
 // --- Importaciones de Lógica ---
-import { useSale } from '../composables/useSale';
+import { useSale } from '../../../OnlineOrders/composables/useSale';
 import useSaleStore from '@/modules/Sales/Sales/online-orders/store/saleStore'
 import { useModalStore } from '@/shared/stores/modal.store';
 

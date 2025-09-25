@@ -1,7 +1,7 @@
 import { SaleResponseType, SaleType } from "../types/saleType";
 import useSaleStore from '@/modules/Sales/Sales/online-orders/store/saleStore'
 import {getSalesService, putSalesService, deleteSalesService} from '../services/sales-services'
-import { useSale } from "../composables/useSale";
+import { useSale } from "./useSale";
 
 
 

@@ -30,8 +30,8 @@ const routes = [
             ...NavBarRoutes,
             ...ProyectosRoutes,
             ...InventarioRoutes,
-            ...SalesRoute,
-            ...PosRoutes
+            //...SalesRoute,
+            //...PosRoutes
         ]
     },
     {
