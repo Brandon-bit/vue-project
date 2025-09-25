@@ -1,12 +1,11 @@
 import { defineStore } from 'pinia'
-import { AdminStockType } from '@inventario/Stock/types/AdminStockType'
+import { AdminStockType } from '@inventario/Stock/AdministrarStock/types/adminStockTypes'
 
 const initialProduct: AdminStockType = {
     id: undefined,
     warehouse: '',
     store: '',
     product: '',
-    creationDate: new Date(),
     quantity: 0,
     user: ''
 }

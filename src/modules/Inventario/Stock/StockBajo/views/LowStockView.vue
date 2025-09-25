@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import BaseTable from '@/shared/components/BaseTable.vue'
 import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
 import useLowStockStore from '@inventario/ConfiguracionDeInventario/StockBajo/store/lowStockStore'
-import { useLowStock } from '@inventario/ConfiguracionDeInventario/StockBajo/composables/useLowStock'
+import { useLowStock } from '@/modules/Inventario/Stock/StockBajo/composables/useLowStock'
 import LowStockModal from '@inventario/ConfiguracionDeInventario/StockBajo/components/LowStockModal.vue'
 import ToggleNotification from '@inventario/ConfiguracionDeInventario/StockBajo/components/ToggleNotification.vue'
 

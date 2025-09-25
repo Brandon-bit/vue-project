@@ -1,5 +1,5 @@
-import { getLowStockService } from '@inventario/ConfiguracionDeInventario/StockBajo/services/lowStockService'
-import useLowStockStore from '@inventario/ConfiguracionDeInventario/StockBajo/store/lowStockStore'
+import { getLowStockService } from '@/modules/Inventario/Stock/StockBajo/services/lowStockService'
+import useLowStockStore from '@inventario/Stock/StockBajo/store/lowStockStore'
 import { useModalStore } from '@/shared/stores/modal.store'
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'

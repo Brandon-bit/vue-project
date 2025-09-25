@@ -39,7 +39,13 @@ const routes = [
         component: OutSessionLayout,
         meta: { requiresGuest: true },
         children: [{ path: '', name: 'login', component: Login }]
-    }
+    },
+    {
+        path: "/:pathMatch(.*)*",
+        name: "NotFound",
+        component: () =>
+            import('@/shared/views/NotFound.vue'),
+    },
 ]
 
 const router = createRouter({

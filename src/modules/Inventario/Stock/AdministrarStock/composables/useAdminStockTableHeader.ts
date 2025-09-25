@@ -1,4 +1,4 @@
-import useAdminStockStore from '@inventario/Stock/store/adminStockStore'
+import useAdminStockStore from '@inventario/Stock/AdministrarStock/store/adminStockStore'
 import { useModalStore } from '@/shared/stores/modal.store'
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'

@@ -1,4 +1,4 @@
-import { LowStockFormType } from '@inventario/ConfiguracionDeInventario/StockBajo/types/lowStockTypes'
+import { LowStockFormType } from '@/modules/Inventario/Stock/StockBajo/types/lowStockTypes'
 export const useLowStockAction = () => {
     const updateLowStockProduct = (data: LowStockFormType) => {
         console.log(data)

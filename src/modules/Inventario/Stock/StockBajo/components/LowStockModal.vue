@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import BaseModal from '@/shared/components/BaseModal.vue'
-import useLowStockStore from '@inventario/ConfiguracionDeInventario/StockBajo/store/lowStockStore'
+import useLowStockStore from '@inventario/Stock/StockBajo/store/lowStockStore'
 import { computed, watch } from 'vue'
 import { useForm } from 'vee-validate'
 import EditForm from '@inventario/ConfiguracionDeInventario/StockBajo/components/EditForm.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
-import { updateLowStockSchema } from '@inventario/ConfiguracionDeInventario/StockBajo/validations/lowStockValidation'
+import { updateLowStockSchema } from '@/modules/Inventario/Stock/StockBajo/validations/lowStockValidation'
 import { toTypedSchema } from '@vee-validate/zod'
-import { useLowStockAction } from '@inventario/ConfiguracionDeInventario/StockBajo/composables/useLowStockAction'
+import { useLowStockAction } from '@/modules/Inventario/Stock/StockBajo/composables/useLowStockAction'
 
 const lowStockStore = useLowStockStore()
 const modalStore = useModalStore()
