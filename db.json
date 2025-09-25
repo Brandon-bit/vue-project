@@ -1953,5 +1953,43 @@
             "proveedor": "La Casa del Martillo",
             "fecha": "2025-09-24"
         }
+    ],
+    "administrarStock": [
+        {
+            "id": 1,
+            "almacen": "Bodega central santiago",
+            "tienda": "Ferretería Centro",
+            "producto": "Caja de tornillos 3mm",
+            "fecha": "2025-09-23",
+            "cantidad": "100",
+            "personaResponsable": "Ricardo"
+        },
+        {
+            "id": 2,
+            "almacen": "Almacen Norte",
+            "tienda": "Ferretería Norte",
+            "producto": "Cinta métrica 5m",
+            "fecha": "2025-09-16",
+            "cantidad": "80",
+            "personaResponsable": "Brandon"
+        },
+        {
+            "id": 3,
+            "almacen": "Almacen Sur",
+            "tienda": "Ferretería Sur",
+            "producto": "Llave inglesa ajustable",
+            "fecha": "2025-09-17",
+            "cantidad": "40",
+            "personaResponsable": "Martin"
+        },
+        {
+            "id": 4,
+            "almacen": "Almacen Central",
+            "tienda": "Ferretería Norte",
+            "producto": "Taladro inalámbrico",
+            "fecha": "2025-09-14",
+            "cantidad": "10",
+            "personaResponsable": "David"
+        }
     ]
 }
