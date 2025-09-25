@@ -754,10 +754,6 @@ const modulos = ref([
                         name: 'Productos con expiración'
                     },
                     {
-                        url: '/inventario/configuracion/stock-bajo',
-                        name: 'Stock bajo'
-                    },
-                    {
                         url: '/inventario/configuracion/categoria',
                         name: 'Categoría'
                     },
@@ -784,15 +780,15 @@ const modulos = ref([
                     {
                         url: '/inventario/configuracion/imprimir-codigo-de-barras',
                         name: 'Imprimir Codigo de Barras'
-                    },
-                    {
-                        url: '/inventario/configuracion/imprimir-codigo-qr',
-                        name: 'Imprimir Codigo QR'
-                    },
-                    {
-                        url: '/inventario/configuracion/crear-descuento',
-                        name: 'CrearDescuento'
                     }
+                    // {
+                    //     url: '/inventario/configuracion/imprimir-codigo-qr',
+                    //     name: 'Imprimir Codigo QR'
+                    // },
+                    // {
+                    //     url: '/inventario/configuracion/crear-descuento',
+                    //     name: 'CrearDescuento'
+                    // }
                 ]
             },
             {
@@ -806,26 +802,6 @@ const modulos = ref([
                         name: 'Tablero'
                     },
                     {
-                        url: '/inventario/operacion/puntos-maximos-minimos',
-                        name: 'Puntos de Max/Min y Reorden'
-                    },
-                    {
-                        url: '/inventario/operacion/auditoria-de-inventarios',
-                        name: 'Auditoría de Inventarios'
-                    },
-                    {
-                        url: '/inventario/operacion/gestion-de-pedidos',
-                        name: 'Gestión de Pedidos'
-                    },
-                    {
-                        url: '/inventario/operacion/autorizaciones-de-pedidos',
-                        name: 'Autorizaciones de pedidos'
-                    },
-                    {
-                        url: '/inventario/operacion/generacion-de-polizas-de-inventario',
-                        name: 'Generación de Polizas de Inventario'
-                    },
-                    {
                         url: '/inventario/operacion/entradas-de-inventario',
                         name: 'Entradas de Inventario'
                     },
@@ -834,8 +810,24 @@ const modulos = ref([
                         name: 'Salidas de Inventario'
                     },
                     {
-                        url: '/inventario/operacion/gestion-de-pedidos',
-                        name: 'Gestión de pedidos'
+                        url: '/inventario/operacion/puntos-maximos-minimos',
+                        name: 'Puntos de Max/Min y Reorden'
+                    },
+                    {
+                        url: '/inventario/operacion/auditoria-de-inventarios',
+                        name: 'Auditoría de Inventarios'
+                    },
+                    // {
+                    //     url: '/inventario/operacion/gestion-de-pedidos',
+                    //     name: 'Gestión de Pedidos'
+                    // },
+                    // {
+                    //     url: '/inventario/operacion/autorizaciones-de-pedidos',
+                    //     name: 'Autorizaciones de pedidos'
+                    // },
+                    {
+                        url: '/inventario/operacion/generacion-de-polizas-de-inventario',
+                        name: 'Generación de Polizas de Inventario'
                     }
                 ]
             },
@@ -845,6 +837,10 @@ const modulos = ref([
                 name: 'Stock',
                 open: false,
                 views: [
+                    {
+                        url: '/inventario/configuracion/stock-bajo',
+                        name: 'Stock bajo'
+                    },
                     {
                         url: '/inventario/stock/administrar-stock',
                         name: 'Administrar Stock'
