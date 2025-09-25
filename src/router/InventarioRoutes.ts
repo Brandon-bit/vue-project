@@ -151,11 +151,11 @@ const routes = [
         component: () =>
             import('@inventario/Stock/StockBajo/views/LowStockView.vue')
     },
-    // {
-    //     path: '/inventario/stock/administrar-stock',
-    //     name: 'AdministrarStock',
-    //     component: () => import('@inventario/Stock/views/AdministrarStock.vue')
-    // },
+    {
+        path: '/inventario/stock/administrar-stock',
+        name: 'AdministrarStock',
+        component: () => import('@inventario/Stock/AdministrarStock/views/AdminStockView.vue')
+    },
     // {
     //     path: '/inventario/stock/ajuste-de-stock',
     //     name: 'AjusteDeStock',

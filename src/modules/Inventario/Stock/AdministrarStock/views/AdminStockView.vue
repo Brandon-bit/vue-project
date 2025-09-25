@@ -30,6 +30,6 @@ onMounted(async () => {
         </router-link>
     </div>
     <BaseSkeletonTable v-if="loading" />
-    <BaseTable v-else :data="adminStockStore.adminStock" :headers="getTableColumns()" />
+    <!-- <BaseTable v-else :data="adminStockStore.adminStock" :headers="getTableColumns()" /> -->
     <AdminStockModal />
 </template>
