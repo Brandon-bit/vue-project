@@ -1,37 +1,51 @@
-import { ApiResponseType } from "@/shared/types/apiResponseType"
-import { WarrantyType } from "../types/warrantyType"
+import { WarrantyResponseType, WarrantyType, WarrantyFormType } from "@inventario/ConfiguracionDeInventario/Garantias/types/warrantyTypes"
+import { getWarrantiesService, createWarrantyService, updateWarrantyService, deleteWarrantyService } from "@inventario/ConfiguracionDeInventario/Garantias/services/warrantyServices"
+import { mapWarranty, mapWarrantyRequest } from "@inventario/ConfiguracionDeInventario/Garantias/composables/mappingWarrantyData"
+import useWarrantyStore from '@inventario/ConfiguracionDeInventario/Garantias/store/warrantyStore'
 
 export function useWarrantyActions() {
 
-    const createWarranty = async (data : WarrantyType) : Promise<ApiResponseType<WarrantyType>> => {
-        const response : ApiResponseType<WarrantyType> = {
-            message: "Mensaje Default",
-            success: true,
-            data: data
-        }
+    const warrantyStoe = useWarrantyStore()
 
-        return response
+    const getWarranties = async (page : number, pageSize : number) : Promise<{ items: WarrantyType[], total: number }> => {
+        const response = await getWarrantiesService(page, pageSize)
+        return {
+            items: response.data.items.map(mapWarranty),
+            total: response.data.totalItems
+        }
     }
 
-    const editWarranty = async (data : WarrantyType) : Promise<ApiResponseType<boolean>> => {
-        const response : ApiResponseType<boolean> = {
-            message: "Mensaje Default",
-            success: true,
-            data: true
+    const createWarranty = async (data : WarrantyFormType) : Promise<{ message : string, status : string , data : WarrantyResponseType }> => {
+        const model = mapWarrantyRequest(data)
+        const response = await createWarrantyService(model)
+        return {
+            message: response.message,
+            status: response.success ? "success" : "error",
+            data: response.data
         }
-
-        return response
     }
 
-    const deleteWarranty = async (data : WarrantyType) : Promise<ApiResponseType<boolean>> => {
-        const response : ApiResponseType<boolean> = {
-            message: "Mensaje Default",
-            success: true,
-            data: true
+    const editWarranty = async (data: WarrantyFormType) : Promise<{ message : string, status : string , data : WarrantyResponseType }> => {
+        const model = mapWarrantyRequest(data)
+        model.id = warrantyStoe.selectedWarranty?.id
+        const response = await updateWarrantyService(model)
+        return {
+            message: response.message,
+            status: response.success ? "success" : "error",
+            data: response.data
         }
-
-        return response
+    }
+    
+    const deleteWarranty = async () : Promise<{ message : string, status : string , data : WarrantyResponseType }> => {
+        let id = warrantyStoe.selectedWarranty?.id
+        if(id == undefined) id = 0
+        const response = await deleteWarrantyService(id)
+        return {
+            message: response.message,
+            status: response.success ? "success" : "error",
+            data: response.data
+        }
     }
 
-  return { createWarranty, editWarranty, deleteWarranty }
+  return { createWarranty, editWarranty, deleteWarranty, getWarranties }
 }
