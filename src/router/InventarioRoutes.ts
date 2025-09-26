@@ -112,12 +112,12 @@ const routes = [
     //     component: () =>
     //         import('@inventario/Operacion/PuntosMaximosMinimos/views/MaxMinPointsView.vue')
     // },
-    // {
-    //     path: '/inventario/operacion/auditoria-de-inventarios',
-    //     name: 'Auditoría de Inventarios',
-    //     component: () =>
-    //         import('@inventario/Operacion/AuditoriaDeInventarios/views/InventoryAuditView.vue')
-    // },
+    {
+        path: '/inventario/operacion/auditoria-de-inventarios',
+        name: 'Auditoría de Inventarios',
+        component: () =>
+            import('@inventario/Operacion/AuditoriaDeInventarios/views/InventoryAuditView.vue')
+    },
     // {
     //     path: '/inventario/operacion/gestion-de-pedidos',
     //     name: 'Gestión de pedidos',
