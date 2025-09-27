@@ -1,18 +1,19 @@
 import { defineStore } from 'pinia'
-import type { CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryType'
+import type { CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryTypes'
 
 const initialCategory: CategoryType = {
     id: undefined,
     name: '',
     slug: '',
     status: true,
-    creationDate: new Date()
+    creationDate: new Date(),
+    imageUrl: ''
 }
 
 const useCategoryStore = defineStore('category-store', {
     state: () => ({
         categories: [] as CategoryType[],
-        selectedCategory: null as CategoryType | null,
+        selectedCategory: initialCategory as CategoryType,
         modalId: 'category-modal'
     }),
     actions: {

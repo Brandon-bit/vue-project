@@ -1,17 +1,26 @@
-import type { CategoryResponseType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryResponseType'
-import type { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryFormType'
+import type { CategoryResponseType, CategoryFormType, CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryTypes'
 import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
-import { createCategoryService, deleteCategoryService, updateCategoryService } from '@inventario/ConfiguracionDeInventario/Categorias/services/categoryService'
-import { useCategory } from '@inventario/ConfiguracionDeInventario/Categorias/composables/useCategory'
+import { createCategoryService, deleteCategoryService, updateCategoryService, getCategoriesService } from '@inventario/ConfiguracionDeInventario/Categorias/services/categoryService'
+import { mapCategory, mapCategoryRequest } from '@inventario/ConfiguracionDeInventario/Categorias/composables/mappingCategoryData'
 
-const { mapCategoryRequest } = useCategory()
 
-export const useCategoryAction = () => {
+export const useCategoryActions = () => {
+    
     const categoryStore = useCategoryStore()
 
+    const getCategories = async (page : number, pageSize : number) : Promise<{ items: CategoryType[], total: number }> => {
+        const response = await getCategoriesService(page, pageSize)
+        return {
+            items: response.data.items.map(mapCategory),
+            total: response.data.totalItems
+        }
+    }
+
     const createCategory = async (data: CategoryFormType) : Promise<{ message : string, status : string , data : CategoryResponseType }> => {
+        console.log(data)
         const model = mapCategoryRequest(data)
         const response = await createCategoryService(model)
+        console.log(response)
         return {
             message: response.message,
             status: response.success ? "success" : "error",
@@ -20,9 +29,10 @@ export const useCategoryAction = () => {
     }
 
     const editCategory = async (data: CategoryFormType) : Promise<{ message : string, status : string , data : CategoryResponseType }> => {
+        console.log(data)
         const model = mapCategoryRequest(data)
-        model.Id = categoryStore.selectedCategory?.id
-        const response = await updateCategoryService(model)
+        const id = categoryStore.selectedCategory.id ?? 0
+        const response = await updateCategoryService(id, model)
         return {
             message: response.message,
             status: response.success ? "success" : "error",
@@ -42,5 +52,5 @@ export const useCategoryAction = () => {
         }
     }
 
-    return { createCategory, editCategory, deleteCategory }
+    return { createCategory, editCategory, deleteCategory, getCategories }
 }

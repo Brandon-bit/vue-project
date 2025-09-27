@@ -3,7 +3,7 @@ import { onMounted, computed } from 'vue';
 import BaseFormInput from '@/shared/components/BaseFormInput.vue';
 import BaseFormCheckbox from '@/shared/components/BaseFormCheckbox.vue';
 import BaseFormSelect from '@/shared/components/BaseFormSelect.vue';
-import { useCategory } from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/composables/useCategory';
+import { useCategory } from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/composables/useCategoryTableHeaders';
 // 1. IMPORTA EL STORE DE CATEGORÍAS
 import useCategoryStore from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/store/categoryStore';
 

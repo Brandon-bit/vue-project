@@ -4,10 +4,12 @@ import BaseButton from '@/shared/components/BaseButton.vue'
 import BaseTable from '@/shared/components/BaseTable.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import CategoryModal from '@inventario/ConfiguracionDeInventario/Categorias/components/CategoryModal.vue'
-import { useCategory } from '@inventario/ConfiguracionDeInventario/Categorias/composables/useCategory'
+import { useCategoryTableHeaders } from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/composables/useCategoryTableHeaders'
 import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
+import { useCategoryActions } from "@/modules/Inventario/ConfiguracionDeInventario/Categorias/composables/useCategoryActions"
 
-const { getTableColumns, getCategories } = useCategory()
+const { getTableColumns } = useCategoryTableHeaders()
+const { getCategories } = useCategoryActions()
 
 const categoryStore = useCategoryStore()
 const modalStore = useModalStore()
