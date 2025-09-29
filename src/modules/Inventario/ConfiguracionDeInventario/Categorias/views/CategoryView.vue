@@ -33,6 +33,6 @@ const openCreateModal = () => {
         :headers="getTableColumns()"
         :fetch-callback="getCategories"
     />
-    <CategoryModal :onRefresh="tablaRef?.fetchData"/>
+    <CategoryModal />
 </template>
 <style></style>
