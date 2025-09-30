@@ -4,7 +4,7 @@ import type { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'
 import { editTableButton, deleteTableButton } from '@/utils/tableButtons'
 
-export const useCategoryTableHeaders = () => {
+const useCategory = () => {
     
     const categoryStore = useCategoryStore()
     const modalStore = useModalStore()
@@ -104,3 +104,5 @@ export const useCategoryTableHeaders = () => {
 
     return { getTableColumns }
 }
+
+export default useCategory

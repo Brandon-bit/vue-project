@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { BrandType } from '../types/brandType'
+import { BrandType } from '@inventario/ConfiguracionDeInventario/Marcas/types/brandType'
 
 const initialBrand: BrandType = {
     id: undefined,
@@ -12,16 +12,12 @@ const initialBrand: BrandType = {
 
 const useBrandStore = defineStore('brand-store', {
     state: () => ({
-        brands: [] as BrandType[],
         selectedBrand: initialBrand as BrandType,
         modalId: 'brand-modal'
     }),
     actions: {
         setData(data: BrandType = initialBrand) {
             this.selectedBrand = data
-        },
-        async removeItemFromBrands(index: number) {
-            this.brands.splice(index, 1)
         }
     }
 })

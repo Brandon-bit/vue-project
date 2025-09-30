@@ -35,5 +35,5 @@ export const categorySchema = z.object({
                 }
             }
         }),
-        removeImage: z.boolean()
+    removeImage: z.boolean()
 })

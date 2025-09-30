@@ -22,6 +22,6 @@ onMounted(async () => {
     <BaseFormSelect label="Categoría padre" name="parentCategoryId" :options="parentCategoriesOptions" :required="true" />
     <BaseFormInput name="name" type="text" label="Categoría" :required="true" />
     <BaseFormInput name="slug" type="text" label="Slug" :required="true" />
-    <BaseFormSingleImageInput name="image" label="Imagen" :multiple="false" accept="image/png, image/jpeg" :image-url="subCategoryStore.selectedSubCategory.imageUrl" />
+    <BaseFormSingleImageInput name="image" label="Imagen" :multiple="false" accept="image/png, image/jpeg" :image-url="subCategoryStore.selectedSubCategory?.imageUrl" />
     <BaseFormCheckbox class="mt-4" name="status" label="Estado" />
 </template>

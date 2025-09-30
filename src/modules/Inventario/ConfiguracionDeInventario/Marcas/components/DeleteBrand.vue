@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useBrandStore from '../store/brand.store'
+import useBrandStore from '../store/brandStore'
 const brandStore = useBrandStore()
 </script>
 

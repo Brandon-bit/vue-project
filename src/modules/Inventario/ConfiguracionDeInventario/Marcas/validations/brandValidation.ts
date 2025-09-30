@@ -5,16 +5,10 @@ export const createBrandSchema = z.object({
         .min(2, 'Mínimo 2 caracteres'),
     active: z.boolean(),
     image: z
-        .custom<FileList | undefined>((value) => value instanceof FileList || value === undefined, {
-            message: 'Debes subir al menos una imagen'
-        })
+        .any()
         .optional()
         .superRefine((fileList, ctx) => {
             if (!fileList || fileList.length === 0) {
-                ctx.addIssue({
-                    code: z.ZodIssueCode.custom,
-                    message: 'Debes subir al menos una imagen'
-                })
                 return
             }
 
@@ -35,5 +29,6 @@ export const createBrandSchema = z.object({
                     })
                 }
             }
-        })
+        }),
+    removeImage: z.boolean()
 })

@@ -4,5 +4,19 @@ export type BrandType = {
     creationDate: Date
     active: boolean
     imageUrl: string
-    image: FileList | undefined
+}
+
+export type BrandFormType = {
+    name: string
+    image: FileList
+    active: boolean
+    removeImage: boolean
+}
+
+export type BrandResponseType = {
+    id: number
+    nombre: string
+    urlLogo: string
+    fechaCreacion: Date
+    activo: boolean
 }

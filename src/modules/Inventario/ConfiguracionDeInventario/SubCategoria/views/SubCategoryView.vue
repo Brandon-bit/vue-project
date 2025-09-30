@@ -33,6 +33,6 @@ const openCreateModal = () => {
         :headers="getSubCategoryTableColumns()"
         :fetch-callback="getSubCategories"
     />
-    <SubCategoryModal/>
+    <SubCategoryModal :onRefresh="tablaRef?.fetchData" />
 </template>
 <style></style>
