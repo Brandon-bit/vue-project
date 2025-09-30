@@ -1,4 +1,4 @@
-import { UnitType } from './../types/unitType';
+import { UnitType } from '../types/unitTypes';
 import { defineStore } from 'pinia'
 
 const initialUnit: UnitType = {
@@ -12,16 +12,12 @@ const initialUnit: UnitType = {
 
 const useUnitStore = defineStore('unit-store', {
     state: () => ({
-        units: [] as UnitType[],
         selectedUnit: initialUnit as UnitType,
         modalId: 'unit-modal'
     }),
     actions: {
         setData(data: UnitType = initialUnit) {
             this.selectedUnit = data
-        },
-        async removeItemFromUnits(index: number) {
-            this.units.splice(index, 1)
         }
     }
 })

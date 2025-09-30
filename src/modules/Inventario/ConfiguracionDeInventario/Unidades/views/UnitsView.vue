@@ -1,18 +1,21 @@
 <script setup lang="ts">
 // #region Imports
 import { ref } from 'vue'
-import { useUnit } from '../composables/useUnit'
+import useUnit from '../composables/useUnit'
 import { useModalStore } from '@/shared/stores/modal.store'
 import useUnitStore from '../store/unit.store'
 import BaseTable from '@/shared/components/BaseTable.vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
 import UnitsModal from '@inventario/ConfiguracionDeInventario/Unidades/components/UnitsModal.vue'
+import { useUnitActions } from '@inventario/ConfiguracionDeInventario/Unidades/composables/useUnitActions'
 // #endregion
 
 // #region Data
 const tablaRef = ref()
 
-const { getUnits, getUnitsTableColumns } = useUnit()
+const { getUnitsTableColumns } = useUnit()
+const { getUnits } = useUnitActions()
+
 const unitStore = useUnitStore()
 const modalStore = useModalStore()
 
