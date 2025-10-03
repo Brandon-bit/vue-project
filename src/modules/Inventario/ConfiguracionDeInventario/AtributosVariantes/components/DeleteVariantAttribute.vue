@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useVariantAttributeStore from '../store/variantAttribute.store';
+import useVariantAttributeStore from '../store/variantAttributeStore';
 const variantAttributeStore = useVariantAttributeStore()
 </script>
 
