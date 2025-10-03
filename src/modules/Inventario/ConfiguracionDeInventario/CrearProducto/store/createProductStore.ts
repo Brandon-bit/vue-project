@@ -1,5 +1,11 @@
 import { defineStore } from 'pinia'
-import { CreateVariantFormType } from '../types/createProductTypes'
+import { 
+    CreateVariantFormType, 
+    CreateProductFormType,
+    SingleProductType,
+    ExtraInfoType
+} from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
+import { SelectOptionType } from '@/shared/types/selectOptionTypes'
 
 const initialValuesCreateVariant: CreateVariantFormType = {
     variant: '',
@@ -18,19 +24,33 @@ const initialValuesCreateVariant: CreateVariantFormType = {
     dragDropImage: []
 }
 
+const initialValuesCreateProduct : CreateProductFormType = {
+    name: '',
+    slug: '',
+    sku: '',
+    idCategory: '0',
+    idSubCategory: '0',
+    idBrand: '0',
+    idUnit: '0',
+    barcodeSimbology: '1',
+    itemBarcode: '',
+    description: '',
+    priceAndStock: { price: 0, idTaxType: '0', tax: 0} as SingleProductType,
+    image: null,
+    extraInfo: { idWarranty: '0', manufacturingDate: null, expirationDate: null} as ExtraInfoType
+}
+
 const useCreateProductStore = defineStore('create-product-store', {
     state: () => ({
         sequential: '000',
-        numberBarcode: '',
-        category: '',
-        brand: '',
-        unit: '',
-        slug: '',
-        categories: [],
-        brands: [],
-        units: [],
-        barcodeSimbologies: [],
-        taxTypes: [],
+        currentProductInfo: initialValuesCreateProduct as CreateProductFormType | null,
+        categories: [] as SelectOptionType[],
+        subcategories: [] as SelectOptionType[],
+        brands: [] as SelectOptionType[],
+        units: [] as SelectOptionType[],
+        warranties: [] as SelectOptionType[],
+        barcodeSimbologies: [{id: '1', label: 'EAN-13'}],
+        taxTypes: [] as SelectOptionType[],
         taxes: [],
         discountTypes: [],
         selectedVariantIndex: 0,
@@ -51,6 +71,9 @@ const useCreateProductStore = defineStore('create-product-store', {
         },
         async removeItemVariantsData(index: number) {
             this.variantsData.splice(index, 1)
+        },
+        setProductInfo(data: CreateProductFormType = initialValuesCreateProduct){
+            this.currentProductInfo = data
         },
         setData(id: number | null = null) {
             // console.log(id)

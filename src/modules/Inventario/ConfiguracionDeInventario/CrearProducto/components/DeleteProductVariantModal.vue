@@ -3,7 +3,7 @@ import { watch, ref } from 'vue'
 import BaseModal from '@/shared/components/BaseModal.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import { showNotification } from '@/utils/toastNotifications'
-import useCreateProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/createProduct.store'
+import useCreateProductStore from '@/modules/Inventario/ConfiguracionDeInventario/CrearProducto/store/createProductStore'
 
 const modalId = 'delete-product-variant'
 const createProductStore = useCreateProductStore()

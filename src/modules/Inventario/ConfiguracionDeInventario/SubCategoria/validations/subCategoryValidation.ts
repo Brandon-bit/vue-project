@@ -1,4 +1,4 @@
-import { numberValidator, selectValidator } from '@/shared/validations/globalValidation';
+import { selectValidator } from '@/shared/validations/globalValidation';
 import { z } from 'zod'
 
 export const subCategorySchema = z.object({

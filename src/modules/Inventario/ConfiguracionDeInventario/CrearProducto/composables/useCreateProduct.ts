@@ -14,7 +14,7 @@ import {
     getLastNumberBarcodeService
 } from '@inventario/ConfiguracionDeInventario/CrearProducto/services/createProductService'
 import { ref } from 'vue'
-import useCreateProductStore from '../store/createProduct.store'
+import useCreateProductStore from '../store/createProductStore'
 
 export const useCreateProduct = () => {
     const createProductStore = useCreateProductStore()
@@ -24,6 +24,7 @@ export const useCreateProduct = () => {
     const subcategories = ref([])
     const variants = ref([])
     const valueVariants = ref([])
+    
     const getStores = async () => {
         try {
             const { data } = await getStoresService()

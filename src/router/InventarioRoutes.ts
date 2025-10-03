@@ -10,13 +10,13 @@ const routes = [
         path: '/inventario/configuracion/crear-producto',
         name: 'CrearProducto',
         component: () =>
-            import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CrearProducto.vue')
+            import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CreateProductView.vue')
     },
     {
         path: '/inventario/configuracion/editar-producto',
         name: 'EditarProducto',
         component: () =>
-            import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CrearProducto.vue')
+            import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CreateProductView.vue')
     },
     // {
     //     path: '/inventario/configuracion/detalle-producto/:id',
