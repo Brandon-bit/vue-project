@@ -4,17 +4,15 @@ import { defineStore } from 'pinia'
 const initialProductExpiration: ProductsExpirationType = {
     id: undefined,
     sku: '',
-    nombre: '',
-    fecha_fabricacion: '',
-    fecha_expiracion: '',
-    estado: false,
-    imagen: ''
+    name: '',
+    manufacturedDate: '',
+    expirationDate: '',
+    imageUrl: ''
 }
 
 const useExpirationStore = defineStore('expiration-store', {
     state: () => ({
-        productsExpiration: [] as ProductsExpirationType[],
-        currentProductExpiration: null as ProductsExpirationType | null,
+        currentProductExpiration: initialProductExpiration,
         modalId: 'product-expiration-modal'
     }),
     actions: {

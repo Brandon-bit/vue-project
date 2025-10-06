@@ -1,14 +1,27 @@
 export type ProductsExpirationType = {
     id?: number
     sku: string
+    name: string
+    manufacturedDate: string
+    expirationDate: string
+    imageUrl: string
+}
+
+export type ProductsExpirationResponseType = {
+    id?: number
+    sku: string
     nombre: string
-    fecha_fabricacion: string
-    fecha_expiracion: string
-    estado: boolean
-    imagen?: string
+    fechaDeCreacion: string
+    fechaDeExpiracion: string
+    imagenUrl: string
+}
+
+export type ProductsExpirationRequestType = {
+    fechaDeCreacion: string
+    fechaDeExpiracion: string
 }
 
 export type ProductsExpirationFormType = {
-    fecha_fabricacion: string
-    fecha_expiracion: string
+    manufacturedDate: string
+    expirationDate: string
 }

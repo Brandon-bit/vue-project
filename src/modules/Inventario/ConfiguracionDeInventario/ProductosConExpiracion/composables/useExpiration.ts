@@ -1,16 +1,13 @@
-import { getProductsWithExpirationService } from '@inventario/ConfiguracionDeInventario/ProductosConExpiracion/services/expirationService'
 import useExpirationStore from '@inventario/ConfiguracionDeInventario/ProductosConExpiracion/store/expirationStore'
 import { useModalStore } from '@/shared/stores/modal.store'
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'
 import { editTableButton } from '@/utils/tableButtons'
+
 export const useExpiration = () => {
+
     const expirationStore = useExpirationStore()
     const modalStore = useModalStore()
-    const getProductsWithExpiration = async () => {
-        const response = await getProductsWithExpirationService()
-        expirationStore.productsExpiration = response
-    }
 
     const getTableColumns = (): ColumnTableType[] => {
         const columns = [
@@ -98,5 +95,5 @@ export const useExpiration = () => {
         return columns
     }
 
-    return { getProductsWithExpiration, getTableColumns }
+    return { getTableColumns }
 }
