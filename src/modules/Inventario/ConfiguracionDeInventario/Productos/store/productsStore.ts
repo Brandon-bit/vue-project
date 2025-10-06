@@ -1,28 +1,29 @@
 import { defineStore } from 'pinia'
-import { productType } from '@inventario/ConfiguracionDeInventario/Productos/types/productsTypes'
+import { ProductType } from '@inventario/ConfiguracionDeInventario/Productos/types/productsTypes'
 
-const initialProduct: productType = {
-    id: undefined,
+const initialProduct: ProductType = {
+    id: 0,
     sku: '',
     name: '',
-    category: '',
-    brand: '',
+    categoryId: 0,
+    categoryName: '',
+    brandId: 0,
+    brandName: '',
     price: 0,
-    unit: '',
+    unitId: 0,
+    unitName: '',
     quantity: 0,
-    user: '',
-    archivo: []
+    urlImage: '',
 }
 
 const useProductsStore = defineStore('products-store', {
     state: () => ({
-        products: [] as productType[],
-        currentProduct: null as productType | null,
+        selectedProduct: initialProduct as ProductType,
         modalId: 'product-modal'
     }),
     actions: {
-        setData(data: productType = initialProduct) {
-            this.currentProduct = data
+        setData(data: ProductType = initialProduct) {
+            this.selectedProduct = data
         }
     }
 })
