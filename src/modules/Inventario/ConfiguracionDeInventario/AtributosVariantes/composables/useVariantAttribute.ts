@@ -31,7 +31,11 @@ export const useVariantAttribute = () => {
             },
             {
                 header: 'Fecha de Creación',
-                accessorKey: 'creationDate'
+                accessorKey: 'creationDate',
+                cell: ({ row }: any) => {
+                    const creationDate = new Date(row.original.creationDate)
+                    return h('p', {}, creationDate.toISOString().split("T")[0])
+                }
             },
             {
                 header: 'Estado',

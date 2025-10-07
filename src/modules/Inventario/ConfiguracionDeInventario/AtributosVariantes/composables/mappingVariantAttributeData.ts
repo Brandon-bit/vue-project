@@ -12,7 +12,7 @@ export const mapVariantAttribute = (data: VariantAttributeResponseType): Variant
     return {
         id: data.id,
         name: data.nombre,
-        values: data.valor.split(",").map((value) => value.trim()),
+        values: data.valores.split(",").map((value) => value.trim()),
         active: data.activo,
         creationDate: data.fechaCreacion
     }
@@ -21,7 +21,7 @@ export const mapVariantAttribute = (data: VariantAttributeResponseType): Variant
 export const mapVariantAttributeRequest = (model : VariantAttributeFormType) : VariantAttributeRequestType => {
     return{
         nombre: model.name,
-        valor: variantAttributeStore.valuesCopy.join(","),
+        valores: variantAttributeStore.valuesCopy.join(","),
         activo: model.active
     }
 }

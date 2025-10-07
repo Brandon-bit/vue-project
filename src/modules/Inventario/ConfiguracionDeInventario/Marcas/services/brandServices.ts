@@ -31,7 +31,9 @@ export const updateBrandService = async (id : number, data: FormData): Promise<A
     return response.data
 }
 
-export const deleteBrandService = async (id: number): Promise<ApiResponseType<BrandResponseType>> => {
-    const response = await axiosApiInstance.delete(`/producto/marca/${id}`)
+export const deleteBrandService = async (id: number, borradoLogico : boolean = false): Promise<ApiResponseType<BrandResponseType>> => {
+    const response = await axiosApiInstance.delete(`/producto/marca/${id}`, {
+        params: { borradoLogico }
+    })
     return response.data
 }

@@ -68,8 +68,8 @@ export const createProductSchema = z.object({
 
 
 export const addVariantProductSchema = z.object({
-    variant: selectValidator('El campo valor variante es obligatorio'),
-    variantValue: selectValidator('Asegúrate de elegir un valor de variante'),
+    // variant: selectValidator('El campo valor variante es obligatorio'),
+    // variantValue: selectValidator('Asegúrate de elegir un valor de variante'),
     skuVariant: createProductSchema.shape.sku,
     // price: createProductSchema.shape.price,
     // barcodeSimbology: createProductSchema.shape.barcodeSimbology,

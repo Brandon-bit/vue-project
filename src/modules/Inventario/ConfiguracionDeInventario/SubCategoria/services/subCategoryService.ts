@@ -40,8 +40,10 @@ export const updateSubCategoryService = async (id : number, data: FormData): Pro
   return response.data
 }
 
-export const deleteSubCategoryService = async (id: number): Promise<ApiResponseType<SubCategoryResponseType>> => {
-    const response = await axiosApiInstance.delete(`/producto/subcategoria/${id}`)
+export const deleteSubCategoryService = async (id: number, borradoLogico : boolean = false): Promise<ApiResponseType<SubCategoryResponseType>> => {
+    const response = await axiosApiInstance.delete(`/producto/subcategoria/${id}`, {
+        params: { borradoLogico }
+    })
     return response.data
 }
 

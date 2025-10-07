@@ -19,14 +19,14 @@ export type VariantAttributeFormType = {
 
 export type VariantAttributeRequestType = {
     nombre: string
-    valor: string
+    valores: string
     activo: boolean
 }
 
 export type VariantAttributeResponseType = {
     id: number
     nombre: string
-    valor: string
+    valores: string
     fechaCreacion: Date
     activo: boolean
 }
