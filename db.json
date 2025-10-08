@@ -1991,5 +1991,18 @@
             "cantidad": "10",
             "personaResponsable": "David"
         }
-    ]
+    ],
+
+    
+  "warehouses": [
+    { "id": "wh-001", "nombre": "Almacén Central (Monterrey)" },
+    { "id": "wh-002", "nombre": "Bodega Norte (Apodaca)" },
+    { "id": "wh-003", "nombre": "Centro de Distribución (Santa Catarina)" },
+    { "id": "wh-004", "nombre": "Punto de Venta (Santiago)" }
+  ],
+  "carriers": [
+    { "id": "car-fedex", "nombre": "FedEx" },
+    { "id": "car-dhl", "nombre": "DHL" }
+  ]
+
 }

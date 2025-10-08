@@ -68,6 +68,7 @@ const close = () => {
                         />
 
                         <template v-else>
+                            
                             <button type="button" @click="close" class="btn col-span-6">
                                 Cancelar
                             </button>
