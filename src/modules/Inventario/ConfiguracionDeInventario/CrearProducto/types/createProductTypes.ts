@@ -9,7 +9,8 @@ export type CreateProductFormType = {
     barcodeSimbology: string
     itemBarcode: string
     description: string
-    priceAndStock: SingleProductType
+    singleProduct: SingleProductType
+    variableProduct: CreateVariantFormType[]
     image: FileList | null
     extraInfo: ExtraInfoType
 }
@@ -20,33 +21,20 @@ export type SingleProductType = {
     tax: number
 }
 
-export type VariantProductType = {
-    variant: string
+export type CreateVariantFormType = {
+    idVariant: string
+    //variantName: string
+    variantValue: string
+    skuVariant: string
+    variantBarcodeSimbology: string
+    variantItemBarcode: string
+    variantPrice: number
 }
 
 export type ExtraInfoType = {
     idWarranty: string | null
     manufacturingDate: Date | null
     expirationDate: Date | null
-}
-
-
-
-export type CreateVariantFormType = {
-    variant: string
-    variantValue: string
-    skuVariant: string
-    barcodeSimbology: string
-    itemBarcode: string
-    quantity: number | string
-    quantityAlert: number | string
-    price: number | string
-    taxType: string
-    tax: string
-    discountType: string
-    discountValue: number | string
-    variantImage: any
-    dragDropImage: any
 }
 
 export type imagesDragValues = {

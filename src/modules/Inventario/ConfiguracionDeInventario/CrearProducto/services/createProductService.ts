@@ -5,6 +5,7 @@ import {
   ProductSkuCodeRequestType,
   SkuBarcodeResponseType
 } from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
+import { VariantAttributeResponseType } from '../../AtributosVariantes/types/variantAttributeTypes'
 
 export const getStoresService = () => axiosExampleInstance.get('/stores')
 export const getWareHousesService = () => axiosExampleInstance.get('/warehouse')
@@ -54,3 +55,13 @@ export const getTaxOptionsService = async () : Promise<SelectOptionResponseType[
   const response = await axiosApiInstance.get('/producto/tipoimpuesto/lista')
   return response.data.data.items
 };
+
+export const getVariantAttributesOptionsService = async () : Promise<SelectOptionResponseType[]> => {
+  const response = await axiosApiInstance.get('/producto/atributovariantecat/lista')
+  return response.data.data.items
+};
+
+export const getVariantAttributeById = async (id : string) : Promise<VariantAttributeResponseType> => {
+  const response = await axiosApiInstance.get(`/producto/atributovariantecat/${id}`)
+  return response.data.data.items[0]
+}

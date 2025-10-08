@@ -42,12 +42,18 @@ const showDeleteProductVariantModal = (variantIndex: number) => {
     createProductStore.setData(variantIndex)
 }
 
-const { handleSubmit, values, isSubmitting, setFieldError, setFieldValue, validateField } =
-    useForm({
-        validationSchema: toTypedSchema(createProductSchema),
-        validateOnMount: false,
-        initialValues: createProductStore.currentProductInfo
-    })
+const { 
+    handleSubmit, 
+    values, 
+    isSubmitting, 
+    setFieldError, 
+    setFieldValue, 
+    validateField 
+} = useForm({
+    validationSchema: toTypedSchema(createProductSchema),
+    validateOnMount: false,
+    initialValues: createProductStore.currentProductInfo
+})
 
 const onSubmit = handleSubmit(
     async (formValues) => {
@@ -101,10 +107,13 @@ onMounted(async () => {
 })
 
 watch(() => values.idCategory, (newValue) => {
+    createProductStore.idCategorySelected = String(newValue)
     if (newValue !== null && newValue !== undefined && newValue !== "") {
         getSubCategoryOptions(String(newValue))
     }
 })
+
+watch(() => values.idSubCategory, (newValue) => createProductStore.idSubCategorySelected = String(newValue))
 
 const generateSKUOrBarcode = async (option: 'sku' | 'barcode') => {
     const validateCategory = await validateField('idCategory')
@@ -275,7 +284,7 @@ const deleteImage = (imageIndex: number) => {
                             <!-- Price -->
                             <BaseFormInput
                                 class="col-span-12 md:col-span-6"
-                                name="priceAndStock.price"
+                                name="singleProduct.price"
                                 type="number"
                                 label="Precio ($)"
                                 :required="true"
@@ -283,7 +292,7 @@ const deleteImage = (imageIndex: number) => {
                             <!-- Tax Type -->
                             <BaseFormSelect
                                 class="col-span-12 md:col-span-6"
-                                name="priceAndStock.idTaxType"
+                                name="singleProduct.idTaxType"
                                 label="Tipo de impuesto"
                                 :options="createProductStore.taxTypes"
                                 :required="true"
@@ -291,7 +300,7 @@ const deleteImage = (imageIndex: number) => {
                             <!-- Tax -->
                             <BaseFormInput
                                 class="col-span-12 md:col-span-6"
-                                name="priceAndStock.tax"
+                                name="singleProduct.tax"
                                 type="number"
                                 label="Impuesto (%)"
                                 :required="true"
@@ -323,7 +332,6 @@ const deleteImage = (imageIndex: number) => {
                                                 <th>Valor variante</th>
                                                 <th>SKU</th>
                                                 <th>Numero codigo de barras</th>
-                                                <th>Cantidad</th>
                                                 <th>Precio</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -336,12 +344,11 @@ const deleteImage = (imageIndex: number) => {
                                                 :key="index"
                                             >
                                                 <td>{{ index + 1 }}</td>
-                                                <td>{{ value.variant }}</td>
+                                                <td>{{ value.variantName }}</td>
                                                 <td>{{ value.variantValue }}</td>
                                                 <td>{{ value.skuVariant }}</td>
                                                 <td>{{ value.itemBarcode }}</td>
                                                 <td>{{ value.price }}</td>
-                                                <td>{{ value.quantity }}</td>
                                                 <td>
                                                     <div class="flex gap-4">
                                                         <BaseActionButtonTable

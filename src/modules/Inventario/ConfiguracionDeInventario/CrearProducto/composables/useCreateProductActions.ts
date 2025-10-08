@@ -10,7 +10,9 @@ import {
     getSubCategoriesOptionsService,
     getSkuBarcodeService,
     getTaxOptionsService,
-    getWarrantiesOptionsService
+    getWarrantiesOptionsService,
+    getVariantAttributesOptionsService,
+    getVariantAttributeById
 } from "@inventario/ConfiguracionDeInventario/CrearProducto/services/createProductService"
 import { 
     mapProductSkuCodeRequestType,
@@ -113,6 +115,34 @@ const useProductActions = () => {
         }
     }
 
+    const getVariantAttributesOptions = async () => {
+        try {
+            const res = await getVariantAttributesOptionsService()
+            createProductStore.variantAttributes = res.map((c): SelectOptionType => ({
+                id: c.id,
+                label: c.nombre
+            }))
+        } catch (error) {
+            createProductStore.variantAttributes = [] as SelectOptionType[]
+        }
+    }
+
+    const getVariantAttributesValues = async (id : string) => {
+        try{
+            const res = await getVariantAttributeById(id)
+            const values = res.valores.split(',')
+            console.log(values)
+            createProductStore.variantValues = values.map((c): SelectOptionType => ({
+                id: c,
+                label: c
+            }))
+            console.log(createProductStore.variantValues)
+        } catch(error){
+            console.log(error)
+            createProductStore.variantValues = [] as SelectOptionType[]
+        }
+    }
+
     return { 
         getCategoryOptions, 
         getBrandOptions, 
@@ -121,7 +151,9 @@ const useProductActions = () => {
         getSku, 
         getBarcode, 
         getWarrantyOptions,
-        getTaxOptions 
+        getTaxOptions,
+        getVariantAttributesOptions,
+        getVariantAttributesValues
     }
 
 }

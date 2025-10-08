@@ -8,7 +8,6 @@ const singleProductSchema = z.object({
     price: z.number({
         required_error: "El precio es requerido"
     }).min(0, "El precio debe ser mayor o igual a 0"),
-    //idTaxType: selectValidator('Asegúrate de elegir un tipo de impuesto'),
     tax: z.number({
         required_error: "El impuesto es requerido"
     }).min(0, "El impuesto debe ser mayor o igual a 0"),
@@ -35,7 +34,7 @@ export const createProductSchema = z.object({
         10
     ),
     description: stringValidator('El campo descripción es requerido', 'Mínimo 10 caracteres', 10),
-    priceAndStock: singleProductSchema,
+    singleProduct: singleProductSchema,
     image: z
     .any()
     .optional()
@@ -65,20 +64,16 @@ export const createProductSchema = z.object({
     extraInfo: extraInfoSchema,
 })
 
-
-
 export const addVariantProductSchema = z.object({
-    // variant: selectValidator('El campo valor variante es obligatorio'),
-    // variantValue: selectValidator('Asegúrate de elegir un valor de variante'),
+    idVariant: selectValidator('El campo valor variante es obligatorio'),
+    variantValue: z
+        .string()
+        .refine(val => val !== '0', {
+            message: 'Asegúrate de elegir un valor de variante',
+        }
+    ),
     skuVariant: createProductSchema.shape.sku,
-    // price: createProductSchema.shape.price,
-    // barcodeSimbology: createProductSchema.shape.barcodeSimbology,
-    // itemBarcode: createProductSchema.shape.itemBarcode,
-    // quantity: createProductSchema.shape.quantity,
-    // quantityAlert: createProductSchema.shape.quantityAlert,
-    // taxType: createProductSchema.shape.taxType,
-    // tax: createProductSchema.shape.tax,
-    // discountType: createProductSchema.shape.discountType,
-    // discountValue: createProductSchema.shape.discountValue,
-    // variantImage: createProductSchema.shape.image
+    variantPrice: createProductSchema.shape.singleProduct.shape.price,
+    variantBarcodeSimbology: createProductSchema.shape.barcodeSimbology,
+    variantItemBarcode: createProductSchema.shape.itemBarcode,
 })

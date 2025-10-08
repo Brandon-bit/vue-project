@@ -7,21 +7,13 @@ import {
 } from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
 import { SelectOptionType } from '@/shared/types/selectOptionTypes'
 
-const initialValuesCreateVariant: CreateVariantFormType = {
-    variant: '',
-    variantValue: '',
+const initialValuesCreateVariant : CreateVariantFormType = {
+    idVariant: '0',
+    variantValue: '0',
     skuVariant: '',
-    barcodeSimbology: '',
-    itemBarcode: '',
-    quantity: '',
-    quantityAlert: '',
-    price: '',
-    taxType: '',
-    tax: '',
-    discountType: '',
-    discountValue: '',
-    variantImage: [],
-    dragDropImage: []
+    variantBarcodeSimbology: '1',
+    variantItemBarcode: '',
+    variantPrice: 0,
 }
 
 const initialValuesCreateProduct : CreateProductFormType = {
@@ -35,7 +27,8 @@ const initialValuesCreateProduct : CreateProductFormType = {
     barcodeSimbology: '1',
     itemBarcode: '',
     description: '',
-    priceAndStock: { price: 0, idTaxType: '0', tax: 0} as SingleProductType,
+    singleProduct: { price: 0, idTaxType: '0', tax: 0} as SingleProductType,
+    variableProduct: [] as CreateVariantFormType[],
     image: null,
     extraInfo: { idWarranty: '0', manufacturingDate: null, expirationDate: null} as ExtraInfoType
 }
@@ -44,6 +37,7 @@ const useCreateProductStore = defineStore('create-product-store', {
     state: () => ({
         sequential: '000',
         currentProductInfo: initialValuesCreateProduct as CreateProductFormType | null,
+        currentVariantInfo: initialValuesCreateVariant as CreateVariantFormType | null,
         categories: [] as SelectOptionType[],
         subcategories: [] as SelectOptionType[],
         brands: [] as SelectOptionType[],
@@ -51,6 +45,10 @@ const useCreateProductStore = defineStore('create-product-store', {
         warranties: [] as SelectOptionType[],
         barcodeSimbologies: [{id: '1', label: 'EAN-13'}],
         taxTypes: [] as SelectOptionType[],
+        variantAttributes: [] as SelectOptionType[],
+        variantValues:[] as SelectOptionType[],
+        idCategorySelected: '0',
+        idSubCategorySelected: '0',
         taxes: [],
         discountTypes: [],
         selectedVariantIndex: 0,
@@ -75,10 +73,8 @@ const useCreateProductStore = defineStore('create-product-store', {
         setProductInfo(data: CreateProductFormType = initialValuesCreateProduct){
             this.currentProductInfo = data
         },
-        setData(id: number | null = null) {
-            // console.log(id)
-            this.currentVariantRef = id
-            this.currentVariant = id === null ? initialValuesCreateVariant : this.variantsData[id]
+        setVariantData(data: CreateVariantFormType = initialValuesCreateVariant) {
+            this.currentVariantInfo = data
         }
     }
 })
