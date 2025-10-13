@@ -18,6 +18,12 @@ const routes = [
         component: () =>
             import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CreateProductView.vue')
     },
+    {
+        path: '/inventario/configuracion/producto/:id',
+        name: 'DetalleProducto',
+        component: () =>
+            import('@inventario/ConfiguracionDeInventario/Productos/views/DetailView.vue')
+    },
     // {
     //     path: '/inventario/configuracion/detalle-producto/:id',
     //     name: 'DetalleProducto',
