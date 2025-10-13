@@ -6,7 +6,10 @@ import { computed, watch } from 'vue'
 import { useForm } from 'vee-validate'
 import CreateUpdateForm from '@inventario/Operacion/PuntosMaximosMinimos/components/CreateUpdateForm.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
-import { createUpdateMaxMinSchema } from '@inventario/Operacion/PuntosMaximosMinimos/validations/maxMinSchema'
+import {
+    createUpdateMaxMinSchema,
+    deleteMaxMinSchema
+} from '@inventario/Operacion/PuntosMaximosMinimos/validations/maxMinSchema'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useMaxMinActions } from '@/modules/Inventario/Operacion/PuntosMaximosMinimos/composables/useMaxMinActions'
 import { showNotification } from '@/utils/toastNotifications'
@@ -18,18 +21,41 @@ const props = defineProps<{
 const maxMinStore = useMaxMinStore()
 const modalStore = useModalStore()
 const { createMaxMin, updateMaxMin, deleteMaxMin } = useMaxMinActions()
-const mode = computed(() => modalStore.modals[maxMinStore.modalId]?.type ?? 'CREATE')
+const mode = computed(() => modalStore.modals[maxMinStore.modalId]?.type)
+
+const modalMap = {
+    CREATE: {
+        component: CreateUpdateForm,
+        action: createMaxMin,
+        schemaValidation: createUpdateMaxMinSchema
+    },
+    UPDATE: {
+        component: CreateUpdateForm,
+        action: updateMaxMin,
+        schemaValidation: createUpdateMaxMinSchema
+    },
+    DELETE: {
+        component: DeleteMaxMin,
+        action: deleteMaxMin,
+        schemaValidation: deleteMaxMinSchema
+    }
+}
+
+const currentSchema = computed(() => {
+    return modalMap[mode.value]?.schemaValidation || modalMap.CREATE.schemaValidation
+})
 
 const initialValues = {
     minimum: maxMinStore.selectedProduct?.minimum,
     maximum: maxMinStore.selectedProduct?.maximum,
-    stock: maxMinStore.selectedProduct?.stock,
+    productId: maxMinStore.selectedProduct?.productId,
+    productName: maxMinStore.selectedProduct?.productName,
     reorderPoints: maxMinStore.selectedProduct?.reorderPoints,
     suggestion: maxMinStore.selectedProduct?.suggestion
 }
 
 const { handleSubmit, isSubmitting, resetForm, setValues } = useForm({
-    validationSchema: toTypedSchema(createUpdateMaxMinSchema),
+    validationSchema: computed(() => toTypedSchema(currentSchema.value)),
     initialValues: initialValues,
     validateOnMount: false
 })
@@ -44,21 +70,6 @@ watch(
         }
     }
 )
-
-const modalMap = {
-    CREATE: {
-        component: CreateUpdateForm,
-        action: createMaxMin
-    },
-    UPDATE: {
-        component: CreateUpdateForm,
-        action: updateMaxMin
-    },
-    DELETE: {
-        component: DeleteMaxMin,
-        action: deleteMaxMin
-    }
-}
 
 const currentModalComponent = computed(() => {
     const modalType = modalStore.modals[maxMinStore.modalId]?.type

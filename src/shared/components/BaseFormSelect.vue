@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { useField } from 'vee-validate'
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 
-const props = defineProps<{
-    label: string
-    name: string
-    options: { id: number | string; label: string }[]
-    required?: boolean
-    class?: string
-}>()
+const props = withDefaults(
+    defineProps<{
+        label: string
+        name: string
+        options: { id: number | string; label: string }[]
+        required?: boolean
+        class?: string
+        disabled?: boolean
+    }>(),
+    {
+        disabled: false
+    }
+)
 
 const { value, errorMessage } = useField(props.name)
 
@@ -26,6 +32,7 @@ const optionsMap = computed(() => [{ id: 0, label: 'Elige una opción' }, ...pro
             class="select w-full"
             :name="props.name"
             :class="{ 'select-error': errorMessage }"
+            :disabled="props.disabled"
         >
             <option
                 v-for="(option, index) in optionsMap"

@@ -4,15 +4,14 @@ import useInventoryAuditStore from '@inventario/Operacion/AuditoriaDeInventarios
 import { useModalStore } from '@/shared/stores/modal.store'
 
 const inventoryAuditStore = useInventoryAuditStore()
-const setShowModal = () => {
-    inventoryAuditStore.setShowAddProductForm(true)
+const modalStore = useModalStore()
+const openAddProductModal = () => {
+    modalStore.open(inventoryAuditStore.modalId, {
+        type: 'CREATE',
+        title: 'Añadir producto'
+    })
 }
 </script>
 <template>
-    <BaseButton
-        text="Añadir producto"
-        variant="outline"
-        @click="setShowModal"
-        class-name="w-full mb-0 mt-4 btn-primary"
-    />
+    <BaseButton text="Agregar producto" @click="openAddProductModal" />
 </template>

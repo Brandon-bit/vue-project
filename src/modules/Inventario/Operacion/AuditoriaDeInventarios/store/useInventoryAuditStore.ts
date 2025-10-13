@@ -1,47 +1,61 @@
 import { defineStore } from 'pinia'
-import { InventoryAuditSummaryItemTranslatedType } from '@inventario/Operacion/AuditoriaDeInventarios/types/inventoryAuditTypes'
-import { InventoryAuditRecordsTranslatedType } from '@inventario/Operacion/AuditoriaDeInventarios/types/inventoryAuditTypes'
+import {
+    InventoryAuditSummaryDTO,
+    InventoryAuditForm,
+    Product
+} from '@inventario/Operacion/AuditoriaDeInventarios/types/inventoryAuditTypes'
 
-type SelectedProduct = {
-    id: number
-    product: string
-}
-
-const initialInventoryAudit: InventoryAuditRecordsTranslatedType = {
-    id: undefined,
+const initialInventoryAudit: InventoryAuditForm = {
+    id: 0,
     date: '',
     auditorId: 0,
-    auditorName: '',
-    generalNote: '',
-    calification: 0,
-    auditedProducts: 0
+    stateId: 0,
+    generalNote: ''
+}
+
+const initialCurrentProduct: Product = {
+    id: 0,
+    productId: 0,
+    productName: '',
+    realCount: 0,
+    expectedCount: 0,
+    difference: 0,
+    note: ''
 }
 
 const useInventoryAuditStore = defineStore('inventory-audit-store', {
     state: () => ({
-        selectedInventoryAudit: initialInventoryAudit as InventoryAuditRecordsTranslatedType,
-        summary: [] as InventoryAuditSummaryItemTranslatedType[],
+        selectedInventoryAudit: initialInventoryAudit as InventoryAuditForm,
+        summary: [] as InventoryAuditSummaryDTO[],
         modalId: 'inventory-audit-modal',
-        showAddProductForm: false as boolean,
-        isCloseAddProductForm: true as boolean,
-        addedProducts: [] as any,
-        selectedProduct: null as SelectedProduct | null
+        addedProducts: [] as Product[],
+        currentProduct: initialCurrentProduct as Product,
+        indexProduct: 0 as number
     }),
     actions: {
-        setData(data: InventoryAuditRecordsTranslatedType = initialInventoryAudit) {
+        setData(data: InventoryAuditForm = initialInventoryAudit) {
             this.selectedInventoryAudit = data
         },
-        setShowAddProductForm(value: boolean) {
-            this.showAddProductForm = value
+        setCurrentProductByIndex(index: number | null = null) {
+            this.currentProduct = index === null ? initialCurrentProduct : this.addedProducts[index]
         },
-        setIsCloseAddProductForm(value: boolean) {
-            this.isCloseAddProductForm = value
+        setIndexProduct(index: number) {
+            this.indexProduct = index
         },
-        setAddedProducts(product: any) {
-            this.addedProducts = [...this.addedProducts, product]
+        removeItemProduct() {
+            this.addedProducts.splice(this.indexProduct, 1)
+            return 'El producto se eliminó correctamente'
         },
-        setSelectedProduct(id: number, product: string) {
-            this.selectedProduct = {id, product}
+        addProduct(data: Product) {
+            this.addedProducts = [...this.addedProducts, data]
+            return 'El producto se añadió correctamente'
+        },
+        updateProduct(data: Product) {
+            this.addedProducts[this.indexProduct] = data
+            return 'El producto se actualizó correctamente'
+        },
+        clearAddedProducts() {
+            this.addedProducts = []
         }
     }
 })

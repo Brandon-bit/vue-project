@@ -107,43 +107,102 @@ const routes = [
     },
 
     // Operacion
-    // {
-    //     path: '/inventario/operacion/tablero',
-    //     name: 'Tablero',
-    //     component: () => import('@inventario/Operacion/Tablero/views/ControlPanelView.vue')
-    // },
-    // {
-    //     path: '/inventario/operacion/puntos-maximos-minimos',
-    //     name: 'PuntosDeReorden',
-    //     component: () =>
-    //         import('@inventario/Operacion/PuntosMaximosMinimos/views/MaxMinPointsView.vue')
-    // },
     {
-        path: '/inventario/operacion/auditoria-de-inventarios',
-        name: 'Auditoría de Inventarios',
+        path: '/inventario/operacion/tablero',
+        name: 'Tablero',
+        component: () => import('@inventario/Operacion/Tablero/views/ControlPanelView.vue')
+    },
+    {
+        path: '/inventario/operacion/puntos-maximos-minimos',
+        name: 'PuntosDeReorden',
+        component: () =>
+            import('@inventario/Operacion/PuntosMaximosMinimos/views/MaxMinPointsView.vue')
+    },
+    {
+        path: '/inventario/operacion/auditorias-de-inventario',
+        name: 'Auditorías de inventario',
         component: () =>
             import('@inventario/Operacion/AuditoriaDeInventarios/views/InventoryAuditView.vue')
     },
-    // {
-    //     path: '/inventario/operacion/gestion-de-pedidos',
-    //     name: 'Gestión de pedidos',
-    //     component: () => import('@inventario/Operacion/GestionDePedidos/views/OrderManagementView.vue')
-    // },
-    // {
-    //     path: '/inventario/operacion/autorizaciones-de-pedidos',
-    //      name: 'Autorizaciones de pedidos',
-    //      component: () => import('@inventario/Operacion/AutorizacionesDePedidos/views/OrderAuthorizationsView.vue')
-    // },
+    {
+        path: '/inventario/operacion/crear-auditoria-de-inventario',
+        name: 'Crear auditoria de inventario',
+        component: () =>
+            import(
+                '@inventario/Operacion/AuditoriaDeInventarios/views/CreateUpdateInventoryAuditView.vue'
+            )
+    },
+    {
+        path: '/inventario/operacion/actualizar-auditoria-de-inventario/:id',
+        name: 'Actualizar auditoria de inventario',
+        component: () =>
+            import(
+                '@inventario/Operacion/AuditoriaDeInventarios/views/CreateUpdateInventoryAuditView.vue'
+            )
+    },
+    {
+        path: '/inventario/operacion/gestion-de-pedidos',
+        name: 'Gestión de pedidos',
+        component: () =>
+            import('@inventario/Operacion/GestionDePedidos/views/OrderManagementView.vue')
+    },
+    {
+        path: '/inventario/operacion/autorizaciones-de-pedidos',
+        name: 'Autorizaciones de pedidos',
+        component: () =>
+            import(
+                '@inventario/Operacion/AutorizacionesDePedidos/views/OrderAuthorizationsView.vue'
+            )
+    },
     // {
     //     path: '/inventario/operacion/generacion-de-polizas-de-inventario',
     //     name: 'GeneraciónDePolizasDeInventario',
     //     component: () => import('@inventario/Operacion/views/GeneracionDePolizasDeInventario.vue')
     // },
-    // {
-    //     path: '/inventario/operacion/entradas-de-inventario',
-    //     name: 'EntradasDeInventario',
-    //     component: () => import('@inventario/Operacion/views/EntradasDeInventario.vue')
-    // },
+    {
+        path: '/inventario/operacion/entradas-de-inventario',
+        name: 'Entradas de inventario',
+        component: () =>
+            import('@inventario/Operacion/EntradasDeInventario/views/InventoryEntriesView.vue')
+    },
+    {
+        path: '/inventario/operacion/crear-entrada-de-inventario',
+        name: 'Crear entrada de inventario',
+        component: () =>
+            import(
+                '@inventario/Operacion/EntradasDeInventario/views/CreateUpdateInventoryEntryView.vue'
+            )
+    },
+    {
+        path: '/inventario/operacion/actualizar-entrada-de-inventario/:id',
+        name: 'Editar entrada de inventario',
+        component: () =>
+            import(
+                '@inventario/Operacion/EntradasDeInventario/views/CreateUpdateInventoryEntryView.vue'
+            )
+    },
+    {
+        path: '/inventario/operacion/salidas-de-inventario',
+        name: 'Salidas de inventario',
+        component: () =>
+            import('@inventario/Operacion/SalidasDeInventario/views/InventoryWithdrawalsVue.vue')
+    },
+    {
+        path: '/inventario/operacion/crear-salida-de-inventario',
+        name: 'Crear salida de inventario',
+        component: () =>
+            import(
+                '@inventario/Operacion/SalidasDeInventario/views/CreateUpdateInventoryWithdrawalsView.vue'
+            )
+    },
+    {
+        path: '/inventario/operacion/actualizar-salida-de-inventario/:id',
+        name: 'Editar salida de inventario',
+        component: () =>
+            import(
+                '@inventario/Operacion/SalidasDeInventario/views/CreateUpdateInventoryWithdrawalsView.vue'
+            )
+    },
     // {
     //     path: '/inventario/operacion/salidas-de-inventario',
     //     name: 'SalidasDeInventario',
@@ -154,24 +213,34 @@ const routes = [
     {
         path: '/inventario/stock/stock-bajo',
         name: 'StockBajo',
-        component: () =>
-            import('@inventario/Stock/StockBajo/views/LowStockView.vue')
+        component: () => import('@inventario/Stock/StockBajo/views/LowStockView.vue')
     },
     {
         path: '/inventario/stock/administrar-stock',
         name: 'AdministrarStock',
         component: () => import('@inventario/Stock/AdministrarStock/views/AdminStockView.vue')
-    },
+    }
     // {
     //     path: '/inventario/stock/ajuste-de-stock',
     //     name: 'AjusteDeStock',
     //     component: () => import('@inventario/Stock/views/AjusteDeStock.vue')
     // },
-    // {
-    //     path: '/inventario/stock/transferir-stock',
-    //     name: 'TransferirStock',
-    //     component: () => import('@inventario/Stock/views/TransferirStock.vue')
-    // }
+     {
+         path: '/inventario/stock/transferir-stock',
+         name: 'TransferirStock',
+         component: () => import('@inventario/Stock/TransferenciaStock/views/transferStock.vue')
+     },
+
+                    {
+                path: '/traslados/crear',
+                name: 'Crear Traslado', 
+                component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
+                },
+                {
+                path: '/traslados/editar/:id',
+                name: 'Editar Traslado', 
+                component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
+                }
 ]
 
 export default routes

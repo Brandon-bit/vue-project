@@ -4,7 +4,7 @@ import {
     updateMaxMinService,
     deleteMaxMinService
 } from '@inventario/Operacion/PuntosMaximosMinimos/services/maxMinService'
-import { InventoryFormType } from '@inventario/Operacion/PuntosMaximosMinimos/types/maxMinTypes'
+import { InventoryFormDTO } from '@inventario/Operacion/PuntosMaximosMinimos/types/maxMinTypes'
 import useMaxMinStore from '@inventario/Operacion/PuntosMaximosMinimos/store/maxMinStore'
 import {
     mapRequestData,
@@ -23,7 +23,7 @@ export const useMaxMinActions = () => {
     }
 
     const createMaxMin = async (
-        data: InventoryFormType
+        data: InventoryFormDTO
     ): Promise<{ message: string; status: string; data: any }> => {
         const model = mapRequestData(data)
         const response = await createMaxMinPointsService(model)
@@ -35,7 +35,7 @@ export const useMaxMinActions = () => {
     }
 
     const updateMaxMin = async (
-        data: InventoryFormType
+        data: InventoryFormDTO
     ): Promise<{ message: string; status: string; data: any }> => {
         const model = mapRequestData(data)
         model.id = maxMinStore.selectedProduct?.id
@@ -47,13 +47,13 @@ export const useMaxMinActions = () => {
         }
     }
 
-    const deleteMaxMin = async () : Promise<{ message : string, status : string , data : any }> => {
+    const deleteMaxMin = async (): Promise<{ message: string; status: string; data: any }> => {
         let id = maxMinStore.selectedProduct?.id
-        if(id == undefined) id = 0
+        if (id == undefined) id = 0
         const response = await deleteMaxMinService(id)
         return {
             message: response.message,
-            status: response.success ? "success" : "error",
+            status: response.success ? 'success' : 'error',
             data: response.data
         }
     }

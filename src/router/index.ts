@@ -31,7 +31,7 @@ const routes = [
             ...ProyectosRoutes,
             ...InventarioRoutes,
             //...SalesRoute,
-            //...PosRoutes
+            ...PosRoutes
         ]
     },
     {
@@ -41,11 +41,10 @@ const routes = [
         children: [{ path: '', name: 'login', component: Login }]
     },
     {
-        path: "/:pathMatch(.*)*",
-        name: "NotFound",
-        component: () =>
-            import('@/shared/views/NotFound.vue'),
-    },
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('@/shared/views/NotFound.vue')
+    }
 ]
 
 const router = createRouter({
