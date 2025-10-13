@@ -8,8 +8,8 @@ export const createWarrantySchema = z.object({
         .number()
         .min(1, 'La duración debe ser al menos de 1.'),
     period: z
-        .enum(['month', 'year'], {
-            errorMap: () => ({ message: 'El periodo debe ser "month" o "year".' })
+        .enum(['DIAS', 'SEMANAS', 'MESES', 'ANIOS'], {
+            errorMap: () => ({ message: 'Debes de seleccionar un periodo valido.' })
         }),
     description: z
         .string()

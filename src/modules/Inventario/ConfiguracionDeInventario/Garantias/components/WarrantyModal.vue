@@ -1,24 +1,27 @@
 <script setup lang="ts">
-// #region Imports
 import { computed, watch } from 'vue'
 import { useWarrantyActions } from '@inventario/ConfiguracionDeInventario/Garantias/composables/useWarrantyActions'
 import { useModalStore } from '@/shared/stores/modal.store'
-import useWarrantyStore from '@inventario/ConfiguracionDeInventario/Garantias/store/warranty.store'
+import useWarrantyStore from '@/modules/Inventario/ConfiguracionDeInventario/Garantias/store/warrantyStore'
 import BaseModal from '@/shared/components/BaseModal.vue'
 import { useForm } from 'vee-validate'
 import AddEditWarrantyForm from '@inventario/ConfiguracionDeInventario/Garantias/components/AddEditWarrantyForm.vue'
 import DeleteWarranty from '@inventario/ConfiguracionDeInventario/Garantias/components/DeleteWarranty.vue'
 import { toTypedSchema } from '@vee-validate/zod'
 import { createWarrantySchema } from '@inventario/ConfiguracionDeInventario/Garantias/validation/warrantyValidation'
-import { WarrantyType } from '@inventario/ConfiguracionDeInventario/Garantias/types/warrantyType'
-// #endregion
+import { showNotification } from '@/utils/toastNotifications'
+import { WarrantyFormType } from '../types/warrantyTypes'
+
+const props = defineProps<{
+  onRefresh?: () => void
+}>()
 
 // #region Data
 const { createWarranty, editWarranty, deleteWarranty } = useWarrantyActions()
 const modalStore = useModalStore()
 const warrantyStore = useWarrantyStore()
 
-const initialValues : WarrantyType = {
+const initialValues : WarrantyFormType = {
     name: warrantyStore.selectedWarranty.name,
     duration: warrantyStore.selectedWarranty.duration,
     period: warrantyStore.selectedWarranty.period,
@@ -83,10 +86,10 @@ const onSubmit = handleSubmit(async (formValues) => {
     const modalType = modalStore.modals[warrantyStore.modalId].type
     const action = modalMap[modalType]?.action
     try {
-        const { message, status, data } = await action(formValues)
-        console.log(message)
-        console.log(status)
-        console.log(data)
+        const { message, status } = await action(formValues)
+        showNotification(message, status)
+        if(status == "success") props.onRefresh?.()
+        modalStore.close(warrantyStore.modalId)
     } catch (error) {
         console.error(error)
     }

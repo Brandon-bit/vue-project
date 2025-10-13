@@ -3,48 +3,50 @@ import { useModalStore } from '@/shared/stores/modal.store'
 import type { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'
 import { editTableButton, deleteTableButton } from '@/utils/tableButtons'
-import type { CategoryType } from '@inventario/ConfiguracionDeInventario/Categorias/types/CategoryType'
-import type { CategoryResponseType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryResponseType'
-import type { CategoryFormType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryFormType'
-import type { CategoryRequestType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryRequestType'
-import { getCategoriesService } from '@inventario/ConfiguracionDeInventario/Categorias/services/categoryService'
 
-export const useCategory = () => {
+export const useCategoryTableHeaders = () => {
+    
     const categoryStore = useCategoryStore()
     const modalStore = useModalStore()
-
-    const getCategories = async (page : number, pageSize : number) : Promise<{ items: CategoryType[], total: number }> => {
-        const response = await getCategoriesService(page, pageSize)
-        return {
-            items: response.data.items.map(mapCategory),
-            total: response.data.totalItems
-        }
-    }
-
-    const mapCategory = (model : CategoryResponseType) : CategoryType => {
-        return {
-            id: model.id,
-            name: model.nombre,
-            slug: model.slug,
-            status: model.activo,
-            creationDate: model.fechaCreacion
-        }
-    }
-
-    const mapCategoryRequest = (model : CategoryFormType) : CategoryRequestType => {
-        return {
-            Nombre: model.name,
-            Slug: model.slug,
-            Activo: model.status,
-            Eliminado: false
-        }
-    }
 
     const getTableColumns = (): ColumnTableType[] => {
         const columns = [
             {
                 header: 'Categoría',
-                accessorKey: 'name'
+                accessorKey: 'name',
+                cell: ({ row } : any) => {
+                    const categoryName = row.original.name
+                    const imageUrl = row.original.imageUrl
+                    const avatar = !(!imageUrl || imageUrl.trim() === "") ? 
+                        h('div', { class: 'avatar' }, [
+                            h('div', { class: 'mask mask-squircle h-8 w-8' }, [
+                                h('img', {
+                                src: imageUrl,
+                                alt: 'Category image'
+                                })
+                            ])
+                        ]) : 
+                        h('div', { class: 'avatar' }, [
+                            h('div', { class: 'mask mask-squircle h-8 w-8 bg-secondary-100' }, [
+                                h('span', { class: 'material-symbols-outlined' }, 'question_mark')
+                            ])
+                        ])
+
+                    const vnode = h(
+                        'div',
+                        { class: 'flex items-center gap-3' },
+                        [
+                            // avatar
+                            avatar,
+
+                            // texto
+                            h('div', {}, [
+                            h('div', { class: 'font-bold' }, categoryName)
+                            ])
+                        ]
+                    )
+                    return vnode
+                }
             },
             {
                 header: 'Slug',
@@ -100,5 +102,5 @@ export const useCategory = () => {
         return columns
     }
 
-    return { getTableColumns, mapCategory, mapCategoryRequest, getCategories }
+    return { getTableColumns }
 }

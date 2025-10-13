@@ -1,7 +1,6 @@
 import axiosApiInstance from '@/api/axiosApiInstance'
 import type { ApiResponseType } from '@/shared/types/apiResponseType'
-import type { CategoryResponseType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryResponseType'
-import type { CategoryRequestType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryRequestType'
+import type { CategoryResponseType } from '@inventario/ConfiguracionDeInventario/Categorias/types/categoryTypes'
 import type { PagedResponseType } from '@/shared/types/pagedResponseType'
 
 export const getCategoriesService = async (page : number, pageSize: number) : Promise<ApiResponseType<PagedResponseType<CategoryResponseType>>> => {
@@ -14,19 +13,30 @@ export const getCategoriesService = async (page : number, pageSize: number) : Pr
   return response.data
 }
 
-export const createCategoryService = async (data: CategoryRequestType): Promise<ApiResponseType<CategoryResponseType>> => {
-    const response = await axiosApiInstance.post('/producto/categoria', data)
-    return response.data
-}
+export const createCategoryService = async (data: FormData): Promise<ApiResponseType<CategoryResponseType>> => {
+  
+  const response = await axiosApiInstance.post('/producto/categoria', data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 
-export const updateCategoryService = async (data: CategoryRequestType): Promise<ApiResponseType<CategoryResponseType>> => {
-    const response = await axiosApiInstance.put(`/producto/categoria/${data.Id}`, data)
-    return response.data
+  return response.data;
+};
+
+export const updateCategoryService = async (id : number, data: FormData): Promise<ApiResponseType<CategoryResponseType>> => {
+  
+  const response = await axiosApiInstance.put(`/producto/categoria/${id}`, data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  })
+  
+  return response.data
 }
 
 export const deleteCategoryService = async (id: number): Promise<ApiResponseType<CategoryResponseType>> => {
     const response = await axiosApiInstance.delete(`/producto/categoria/${id}`)
-    console.log(response)
     return response.data
 }
 

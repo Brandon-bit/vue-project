@@ -219,11 +219,22 @@ const routes = [
     //     name: 'AjusteDeStock',
     //     component: () => import('@inventario/Stock/views/AjusteDeStock.vue')
     // },
-    // {
-    //     path: '/inventario/stock/transferir-stock',
-    //     name: 'TransferirStock',
-    //     component: () => import('@inventario/Stock/views/TransferirStock.vue')
-    // }
+     {
+         path: '/inventario/stock/transferir-stock',
+         name: 'TransferirStock',
+         component: () => import('@inventario/Stock/TransferenciaStock/views/transferStock.vue')
+     },
+
+                    {
+                path: '/traslados/crear',
+                name: 'Crear Traslado', 
+                component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
+                },
+                {
+                path: '/traslados/editar/:id',
+                name: 'Editar Traslado', 
+                component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
+                }
 ]
 
 export default routes

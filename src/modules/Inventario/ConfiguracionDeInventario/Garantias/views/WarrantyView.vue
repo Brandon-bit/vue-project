@@ -1,38 +1,24 @@
 <script setup lang="ts">
-// #region Imports
+
 import BaseTable from '@/shared/components/BaseTable.vue'
-import { onMounted, ref } from 'vue'
-import { useWarranty } from '@inventario/ConfiguracionDeInventario/Garantias/composables/useWarranty'
+import { ref } from 'vue'
+import { useWarrantyTableHeaders } from '@inventario/ConfiguracionDeInventario/Garantias/composables/useWarrantyTableHeaders'
+import { useWarrantyActions } from '@inventario/ConfiguracionDeInventario/Garantias/composables/useWarrantyActions'
 import { useModalStore } from '@/shared/stores/modal.store'
 import BaseButton from '@/shared/components/BaseButton.vue'
-import useWarrantyStore from '@inventario/ConfiguracionDeInventario/Garantias/store/warranty.store'
-import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
+import useWarrantyStore from '@/modules/Inventario/ConfiguracionDeInventario/Garantias/store/warrantyStore'
 import WarrantyModal from '@inventario/ConfiguracionDeInventario/Garantias/components/WarrantyModal.vue'
-// #endregion
 
-// #region Data
-let loading = ref<boolean>(false)
-const { getWarranties, getWarrantiesTableColumns } = useWarranty()
-const modalStore = useModalStore()
 const warrantyStore = useWarrantyStore()
+const modalStore = useModalStore()
+const { getWarranties } = useWarrantyActions()
 
-// #endregion
+const tablaRef = ref()
 
-// #region OnMounted
-onMounted(async () => {
-    // Once the view is rendered, the data is loaded
-    loading.value = true
-    await getWarranties()
-    loading.value = false
-})
-// #endregion
-
-// #region Methods
 const openCreateModal = () => {
     warrantyStore.setData()
     modalStore.open(warrantyStore.modalId, { type: 'CREATE', title: 'Crear Garantía' })
 }
-// #endregion
 </script>
 
 <template>
@@ -41,7 +27,10 @@ const openCreateModal = () => {
         <BaseButton text="Nueva garantía" @click="openCreateModal()" icon="add" />
     </div>
 
-    <BaseSkeletonTable v-if="loading" />
-    <BaseTable v-else :data="warrantyStore.warranties" :headers="getWarrantiesTableColumns()" />
-    <WarrantyModal />
+    <BaseTable
+        ref="tablaRef"
+        :headers="useWarrantyTableHeaders()"
+        :fetch-callback="getWarranties"
+    />
+    <WarrantyModal :onRefresh="tablaRef?.fetchData"/>
 </template>

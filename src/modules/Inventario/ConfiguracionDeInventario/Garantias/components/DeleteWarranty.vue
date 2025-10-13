@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useWarrantyStore from '../store/warranty.store';
+import useWarrantyStore from '../store/warrantyStore';
 const warrantyStore = useWarrantyStore()
 </script>
 

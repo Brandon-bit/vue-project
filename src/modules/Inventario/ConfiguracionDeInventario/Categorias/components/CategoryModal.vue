@@ -8,7 +8,7 @@ import AddEditForm from '@inventario/ConfiguracionDeInventario/Categorias/compon
 import { useModalStore } from '@/shared/stores/modal.store'
 import { categorySchema } from '@inventario/ConfiguracionDeInventario/Categorias/validations/categoryValidation'
 import { toTypedSchema } from '@vee-validate/zod'
-import { useCategoryAction } from '@inventario/ConfiguracionDeInventario/Categorias/composables/useCategoryAction'
+import { useCategoryActions } from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/composables/useCategoryActions'
 import { showNotification } from '@/utils/toastNotifications'
 
 const props = defineProps<{
@@ -17,12 +17,13 @@ const props = defineProps<{
 
 const categoryStore = useCategoryStore()
 const modalStore = useModalStore()
-const { createCategory, editCategory, deleteCategory } = useCategoryAction()
+const { createCategory, editCategory, deleteCategory } = useCategoryActions()
 
 const initialValues = {
-    name: categoryStore.selectedCategory?.name,
-    slug: categoryStore.selectedCategory?.slug,
-    status: categoryStore.selectedCategory?.status
+    name: categoryStore.selectedCategory.name,
+    slug: categoryStore.selectedCategory.slug,
+    status: categoryStore.selectedCategory.status,
+    removeImage: false
 }
 
 const { handleSubmit, isSubmitting, resetForm, setValues } = useForm({
@@ -38,7 +39,8 @@ watch(
             setValues({
                 name: category?.name,
                 slug: category?.slug,
-                status: category?.status
+                status: category?.status,
+                removeImage: false
             })
         }
     },

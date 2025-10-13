@@ -6,11 +6,19 @@ import BaseFormSelect from '@/shared/components/BaseFormSelect.vue';
 
 const options = [
     {
-        id: 'month',
+        id: 'DIAS',
+        label: 'Diario'
+    },
+    {
+        id: 'SEMANAS',
+        label: 'Semanal'
+    },
+    {
+        id: 'MESES',
         label: 'Mensual'
     },
     {
-        id: 'year',
+        id: 'ANIOS',
         label: 'Anual'
     }
 ]
