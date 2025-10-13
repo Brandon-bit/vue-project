@@ -20,18 +20,18 @@ export type SupplierDTO = {
 
 export type InventoryEntry = {
     id: number
-    almacenId: number
-    nombreAlmacen: string
-    proveedorId: number
-    nombreProveedor: string
-    fecha: string
+    idProveedor: number
+    idTipoMovimiento: number
+    idEstado: number
+    idAlmacen: number
+    fechaEntrada: string
     documentoReferencia: string
     observaciones: string
-    tipoMovimientoId: number
-    tipoMovimiento: string
-    estadoId: number
-    estado: string
-    productos?: ProductPayload[]
+    nombreProveedor: string
+    nombreAlmacen: string
+    nombreTipoMovimiento: string
+    nombreEstado: string
+    detalles: ProductPayload[]
 }
 
 export type InventoryEntryDTO = {
@@ -71,20 +71,20 @@ export type InventoryEntryRequest = {
 }
 
 export type InventoryEntryRequestPayload = {
-    almacenId: number
-    proveedorId: number
-    fecha: string
+    idAlmacen: number
+    idProveedor: number
+    fechaEntrada: string
     documentoReferencia: string
-    estadoId: number
-    movimientoId: number
+    idEstado: number
+    idTipoMovimiento: number
     observaciones: string
-    products?: ProductPayload[]
+    detalles?: ProductPayload[]
 }
 
 export type Product = {
     id?: number | undefined
     productId: number
-    productName: string
+    productName?: string
     quantity: number
     unitPrice: number
     subtotal: number
@@ -94,11 +94,18 @@ export type Product = {
 
 export type ProductPayload = {
     id?: number | undefined
-    productoId: number
-    productoNombre: string
+    idProducto: number
+    productoNombre?: string
     cantidad: number
-    precioUnitario: number
+    costoUnitario: number
     subtotal: number
     lote: string
     fechaExpiracion: string
+}
+
+export type InventoryEntryResponseType<T> = {
+    items: T[]
+    totalItems: number
+    page: number
+    pageSize: number
 }

@@ -14,10 +14,10 @@ export const useMaxMinTableHeaders = (): ColumnTableType[] => {
         },
         {
             header: 'Nombre',
-            accessorKey: 'name'
+            accessorKey: 'productName'
         },
         {
-            header: 'Míninos',
+            header: 'Mínimos',
             accessorKey: 'minimum'
         },
         {

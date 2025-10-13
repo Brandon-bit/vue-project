@@ -23,37 +23,36 @@ export const mapSupplier = (data: Supplier): SupplierDTO => ({
 
 export const mapInventoryEntry = (data: InventoryEntry): InventoryEntryDTO => ({
     id: data.id,
-    warehouseId: data.almacenId,
+    warehouseId: data.idAlmacen,
     warehouseName: data.nombreAlmacen,
-    supplierId: data.proveedorId,
+    supplierId: data.idProveedor,
     supplierName: data.nombreProveedor,
-    date: data.fecha,
+    date: data.fechaEntrada,
     referenceDocument: data.documentoReferencia,
     observations: data.observaciones,
-    movementTypeId: data.tipoMovimientoId,
-    movementType: data.tipoMovimiento,
-    stateId: data.estadoId,
-    state: data.estado
+    movementTypeId: data.idTipoMovimiento,
+    movementType: data.nombreTipoMovimiento,
+    stateId: data.idEstado,
+    state: data.nombreEstado
 })
 
 export const mapInventoryEntryRequest = (
     data: InventoryEntryRequest
 ): InventoryEntryRequestPayload => ({
-    almacenId: data.warehouseId,
-    proveedorId: data.supplierId,
-    fecha: data.date,
+    idAlmacen: data.warehouseId,
+    idProveedor: data.supplierId,
+    fechaEntrada: data.date,
     documentoReferencia: data.referenceDocument,
     observaciones: data.observations,
-    estadoId: data.stateId,
-    movimientoId: data.movementTypeId
+    idEstado: data.stateId,
+    idTipoMovimiento: data.movementTypeId
 })
 
 export const mapProduct = (data: Product): ProductPayload => ({
     id: data.id,
-    productoId: data.productId,
-    productoNombre: data.productName,
+    idProducto: data.productId,
     cantidad: data.quantity,
-    precioUnitario: data.unitPrice,
+    costoUnitario: data.unitPrice,
     subtotal: data.subtotal,
     lote: data.batch,
     fechaExpiracion: data.expirationDate
@@ -61,10 +60,9 @@ export const mapProduct = (data: Product): ProductPayload => ({
 
 export const mapProductDTO = (data: ProductPayload): Product => ({
     id: data.id,
-    productId: data.productoId,
-    productName: data.productoNombre,
+    productId: data.idProducto,
     quantity: data.cantidad,
-    unitPrice: data.precioUnitario,
+    unitPrice: data.costoUnitario,
     subtotal: data.subtotal,
     batch: data.lote,
     expirationDate: data.fechaExpiracion

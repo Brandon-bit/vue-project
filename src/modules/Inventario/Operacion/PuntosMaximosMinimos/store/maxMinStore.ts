@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
-import { InventoryThresholdsResponseType } from '@inventario/Operacion/PuntosMaximosMinimos/types/maxMinTypes'
+import { InventoryThresholdDTO } from '@inventario/Operacion/PuntosMaximosMinimos/types/maxMinTypes'
 
-const initialProduct: InventoryThresholdsResponseType = {
+const initialProduct: InventoryThresholdDTO = {
     id: undefined,
     sku: '',
-    name: '',
+    productId: 0,
+    productName: '',
     minimum: 0,
     maximum: 0,
     stock: 0,
@@ -14,12 +15,12 @@ const initialProduct: InventoryThresholdsResponseType = {
 
 const useMaxMinStore = defineStore('max-min-points-store', {
     state: () => ({
-        maxMinProducts: [] as InventoryThresholdsResponseType[],
-        selectedProduct: null as InventoryThresholdsResponseType | null,
+        maxMinProducts: [] as InventoryThresholdDTO[],
+        selectedProduct: null as InventoryThresholdDTO | null,
         modalId: 'max-min-points-modal'
     }),
     actions: {
-        setData(data: InventoryThresholdsResponseType = initialProduct) {
+        setData(data: InventoryThresholdDTO = initialProduct) {
             console.log(data)
             this.selectedProduct = { ...data }
         }

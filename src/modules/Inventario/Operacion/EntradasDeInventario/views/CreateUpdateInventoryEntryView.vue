@@ -42,12 +42,42 @@ const states: SelectOptionsType[] = [
     { id: 4, label: 'Cancelado' }
 ]
 
+interface StateTransitions {
+    [key: number]: number[]
+}
+
+const stateTransitions: StateTransitions = {
+    0: [1, 2, 3, 4],
+    3: [1, 2, 4],
+    2: [1, 4],
+    1: [4],
+    4: []
+}
+
+const getStateTransitions = (currentStateId: number): number[] => {
+    return stateTransitions[currentStateId] || []
+}
+
+const availableStates = computed((): SelectOptionsType[] => {
+    const currentStateId = inventoryEntriesStore.selectedInventoryEntry.stateId
+    const allowedStateIds = getStateTransitions(currentStateId)
+    const currentState = states.find((state) => state.id === currentStateId)
+
+    const available = states.filter((state) => allowedStateIds.includes(state.id))
+
+    if (currentState && !available.some((state) => state.id === currentStateId)) {
+        available.unshift(currentState)
+    }
+
+    return available
+})
+
 const movements: SelectOptionsType[] = [
     { id: 1, label: 'Compra' },
     { id: 2, label: 'Ajuste positivo' },
-    { id: 3, label: 'Traslado reicibido' },
+    { id: 3, label: 'Traslado recibido' },
     { id: 4, label: 'Devolución de cliente' },
-    { id: 5, label: 'Donaión recibida' }
+    { id: 5, label: 'Donación recibida' }
 ]
 
 onMounted(async () => {
@@ -92,8 +122,34 @@ watch(
     }
 )
 
+const editable = computed(() => {
+    const stateId = inventoryEntriesStore.selectedInventoryEntry.stateId
+    const isCreating = stateId === 0
+    const isPending = stateId === 3
+
+    return {
+        date: isCreating || isPending,
+        warehouseId: isCreating || isPending,
+        supplierId: isCreating || isPending,
+        movementType: isCreating || isPending, // Solo creación y pendiente
+        observations: stateId !== 4, // Editable en todos excepto cancelado
+        referenceDocument: isCreating, // Solo en creación
+        productos: getProductsEditableState(stateId),
+        state: getStateTransitions(stateId).length > 0
+    }
+})
+
+const getProductsEditableState = (stateId: number): boolean => {
+    if (stateId === 0) return true // Creación
+    if (stateId === 3) return true // Pendiente
+    if (stateId === 2) return true // Parcial - asumiendo que se pueden ajustar cantidades
+    if (stateId === 1) return false // Recibido - no editable
+    if (stateId === 4) return false // Cancelado - no editable
+    return false
+}
+
 const onSubmit = handleSubmit(async (formValues) => {
-    console.log(formValues)
+    // console.log(formValues)
     let result
     if (isEditMode.value) {
         result = await updateInventoryEntry(formValues)
@@ -118,6 +174,7 @@ const onSubmit = handleSubmit(async (formValues) => {
                     name="date"
                     label="Fecha"
                     type="date"
+                    :readonly="!editable.date"
                     class="col-span-12 md:col-span-4 lg:col-span-3"
                 />
                 <BaseFormSelect
@@ -125,6 +182,7 @@ const onSubmit = handleSubmit(async (formValues) => {
                     label="Almacén"
                     :options="warehouses"
                     :required="true"
+                    :disabled="!editable.warehouseId"
                     class="col-span-12 md:col-span-4 lg:col-span-3"
                 />
                 <BaseFormSelect
@@ -132,29 +190,34 @@ const onSubmit = handleSubmit(async (formValues) => {
                     label="Proveedor"
                     :options="suppliers"
                     class="col-span-12 md:col-span-4 lg:col-span-3"
+                    :disabled="!editable.supplierId"
                 />
                 <BaseFormSelect
                     name="movementTypeId"
                     label="Tipo de moviento"
                     :options="movements"
                     :required="true"
+                    :disabled="!editable.movementType"
                     class="col-span-12 md:col-span-4 lg:col-span-3"
                 />
                 <BaseTextArea
                     name="observations"
                     label="Observaciones"
+                    :readonly="!editable.observations"
                     class="col-span-12 md:col-span-4"
                 />
                 <BaseFormInput
                     name="referenceDocument"
                     label="Documento de referencia"
                     class="col-span-12 md:col-span-4"
+                    :readonly="!editable.referenceDocument"
                 />
                 <BaseFormSelect
                     name="stateId"
                     label="Estado"
-                    :options="states"
+                    :options="availableStates"
                     :required="true"
+                    :disabled="!editable.state"
                     class="col-span-12 md:col-span-4"
                 />
                 <div class="col-span-12">

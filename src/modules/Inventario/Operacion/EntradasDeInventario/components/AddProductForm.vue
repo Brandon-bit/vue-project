@@ -111,6 +111,11 @@ const onScroll = async (event: Event) => {
         await searchProducts(currentPage.value)
     }
 }
+
+const canEditField = computed((): boolean => {
+    const stateId = inventoryEntriesStore.selectedInventoryEntry.stateId
+    return stateId === 0 || stateId === 3
+})
 </script>
 <template>
     <div class="grid grid-cols-12 gap-3">
@@ -152,6 +157,7 @@ const onScroll = async (event: Event) => {
             label="Cantidad"
             type="number"
             :required="true"
+            :readonly="!canEditField"
             class="col-span-6"
         />
         <BaseFormInput
@@ -160,6 +166,7 @@ const onScroll = async (event: Event) => {
             type="number"
             :allowDecimal="true"
             :required="true"
+            :readonly="!canEditField"
             class="col-span-6"
         />
         <BaseFormInput
@@ -176,7 +183,8 @@ const onScroll = async (event: Event) => {
             label="Fecha de expiracion"
             type="date"
             class="col-span-6"
+            :readonly="!canEditField"
         />
-        <BaseFormInput name="batch" label="Lote" class="col-span-12" />
+        <BaseFormInput name="batch" label="Lote" :readonly="!canEditField" class="col-span-12" />
     </div>
 </template>

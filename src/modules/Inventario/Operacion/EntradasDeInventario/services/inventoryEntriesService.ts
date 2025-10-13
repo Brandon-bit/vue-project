@@ -1,3 +1,4 @@
+import axiosApiInstance from '@/api/axiosApiInstance'
 import axiosExampleInstance from '@/api/axiosExampleInstance'
 import axiosExampleInstanceTwo from '@/api/axiosExampleInstanceTwo'
 import {
@@ -6,13 +7,20 @@ import {
     InventoryEntry,
     InventoryEntryRequestPayload
 } from '@inventario/Operacion/EntradasDeInventario/types/inventoryEntriesTypes'
+import { ApiResponseType } from '@/shared/types/apiResponseType'
+import { PagedResponseType } from '@/shared/types/pagedResponseType'
 
 export const getInventoryEntriesService = async (
     page: number,
     pageSize: number
-): Promise<InventoryEntry[]> => {
+): Promise<ApiResponseType<PagedResponseType<InventoryEntry>>> => {
     console.log(page, pageSize)
-    const response = await axiosExampleInstance.get('/entradasDeInventario')
+    const response = await axiosApiInstance.get('/entrada/entrada', {
+        params: {
+            limit: page,
+            skip: pageSize
+        }
+    })
     return response.data
 }
 

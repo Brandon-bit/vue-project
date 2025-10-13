@@ -1,15 +1,15 @@
 import {
-    InventoryThresholdsResponseType,
-    InventoryThresholdsType,
-    InventoryFormType,
-    InventoryFormResponseType
+    InventoryThreshold,
+    InventoryThresholdDTO,
+    InventoryForm,
+    InventoryFormDTO
 } from '@inventario/Operacion/PuntosMaximosMinimos/types/maxMinTypes'
 
-export const mapResponseData = (
-    data: InventoryThresholdsType
-): InventoryThresholdsResponseType => ({
+export const mapResponseData = (data: InventoryThreshold): InventoryThresholdDTO => ({
+    id: data.id,
     sku: data.sku,
-    name: data.nombre,
+    productName: data.productoNombre,
+    productId: data.productoId,
     minimum: data.minimo,
     maximum: data.maximo,
     stock: data.stock,
@@ -17,10 +17,12 @@ export const mapResponseData = (
     suggestion: data.sugerencia
 })
 
-export const mapRequestData = (data: InventoryFormType): InventoryFormResponseType => ({
+export const mapRequestData = (data: InventoryFormDTO): InventoryForm => ({
+    id: data.id,
+    productoId: data.productId,
+    productoNombre: data.productName,
     minimo: data.minimum,
     maximo: data.maximum,
-    stock: data.stock,
     puntos_reorden: data.reorderPoints,
     sugerencia: data.suggestion
 })

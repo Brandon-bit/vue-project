@@ -28,8 +28,8 @@ export const useInventoryEntriesActions = () => {
     const getInventoryEntries = async (page: number, pageSize: number) => {
         const response = await getInventoryEntriesService(page, pageSize)
         return {
-            items: response.map(mapInventoryEntry),
-            total: 10
+            items: response.data.items.map(mapInventoryEntry),
+            total: response.data.totalItems
         }
     }
 
@@ -37,26 +37,26 @@ export const useInventoryEntriesActions = () => {
         const response = await getInventoryEntyByIdService()
         const {
             id,
-            almacenId,
-            proveedorId,
-            fecha,
+            idAlmacen,
+            idProveedor,
+            fechaEntrada,
             documentoReferencia,
-            estadoId,
-            tipoMovimientoId,
+            idEstado,
+            idTipoMovimiento,
             observaciones,
-            productos
+            detalles
         } = response
         inventoryEntriesStore.setData({
             id: id,
-            warehouseId: almacenId,
-            supplierId: proveedorId,
-            date: fecha,
+            warehouseId: idAlmacen,
+            supplierId: idProveedor,
+            date: fechaEntrada,
             observations: observaciones,
             referenceDocument: documentoReferencia,
-            movementTypeId: tipoMovimientoId,
-            stateId: estadoId
+            movementTypeId: idTipoMovimiento,
+            stateId: idEstado
         })
-        productos?.forEach((product) => {
+        detalles?.forEach((product) => {
             const result = mapProductDTO(product)
             inventoryEntriesStore.addProduct(result)
         })
@@ -82,9 +82,8 @@ export const useInventoryEntriesActions = () => {
     }
 
     const createInventoryEntry = async (data: InventoryEntryRequest) => {
-        console.log(data)
         const model = mapInventoryEntryRequest(data)
-        model.products = inventoryEntriesStore.addedProducts.map(mapProduct)
+        model.detalles = inventoryEntriesStore.addedProducts.map(mapProduct)
         const response = await createInventoryEntryService(model)
 
         return {
@@ -95,15 +94,17 @@ export const useInventoryEntriesActions = () => {
     }
 
     const updateInventoryEntry = async (data: InventoryEntryRequest) => {
-        const model = mapInventoryEntryRequest(data)
-        model.products = inventoryEntriesStore.addedProducts.map(mapProduct)
-        const id = inventoryEntriesStore.selectedInventoryEntry?.id
-        const response = await updateInventoryEntryService(model, id)
-        return {
-            message: response.message,
-            status: response.success ? 'success' : 'error',
-            data: response.data
-        }
+        console.log(data)
+
+        // const model = mapInventoryEntryRequest(data)
+        // model.products = inventoryEntriesStore.addedProducts.map(mapProduct)
+        // const id = inventoryEntriesStore.selectedInventoryEntry?.id
+        // const response = await updateInventoryEntryService(model, id)
+        // return {
+        //     message: response.message,
+        //     status: response.success ? 'success' : 'error',
+        //     data: response.data
+        // }
     }
 
     return {

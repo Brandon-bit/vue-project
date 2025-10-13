@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import useInventoryEntriesStore from '@inventario/Operacion/EntradasDeInventario/store/useInventoryEntriesStore'
 import BaseActionButtonTable from '@/shared/components/BaseActionButtonTable.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
@@ -22,6 +23,11 @@ const showDeleteProductModal = (index: number) => {
         title: 'Eliminar producto'
     })
 }
+
+const isPerformAction = computed((): boolean => {
+    const stateId = inventoryEntriesStore.selectedInventoryEntry.stateId
+    return stateId === 0 || stateId === 3 // Solo creación y pendiente
+})
 </script>
 
 <template>
@@ -60,7 +66,10 @@ const showDeleteProductModal = (index: number) => {
                                     <td>{{ value.batch }}</td>
                                     <td>{{ value.expirationDate }}</td>
                                     <td>
-                                        <div class="flex justify-center gap-4">
+                                        <div
+                                            v-if="isPerformAction"
+                                            class="flex justify-center gap-4"
+                                        >
                                             <BaseActionButtonTable
                                                 icon="edit_square"
                                                 variant="info"

@@ -1701,49 +1701,59 @@
     ],
     "puntosMaximosMinimos": [
         {
+            "id": 1,
             "sku": "A123",
-            "nombre": "Teclado Mecánico",
             "minimo": 10,
             "maximo": 50,
             "stock": 8,
             "puntos_reorden": 15,
-            "sugerencia": "Reordenar urgentemente"
+            "sugerencia": "Reordenar urgentemente",
+            "productoId": 1,
+            "productoNombre": "Teclado Mecánico"
         },
         {
+            "id": 2,
             "sku": "B456",
-            "nombre": "Mouse Inalámbrico",
             "minimo": 20,
             "maximo": 100,
             "stock": 25,
             "puntos_reorden": 30,
-            "sugerencia": "Revisar pronto, cerca del punto de reorden"
+            "sugerencia": "Revisar pronto, cerca del punto de reorden",
+            "productoId": 2,
+            "productoNombre": "Mouse Inalámbrico"
         },
         {
+            "id": 3,
             "sku": "C789",
-            "nombre": "Monitor 24 pulgadas",
             "minimo": 5,
             "maximo": 20,
             "stock": 18,
             "puntos_reorden": 10,
-            "sugerencia": "Stock saludable"
+            "sugerencia": "Stock saludable",
+            "productoId": 3,
+            "productoNombre": "Monitor 24 pulgadas"
         },
         {
+            "id": 4,
             "sku": "D321",
-            "nombre": "Cable HDMI",
             "minimo": 50,
             "maximo": 200,
             "stock": 210,
             "puntos_reorden": 60,
-            "sugerencia": "Exceso de inventario"
+            "sugerencia": "Exceso de inventario",
+            "productoId": 4,
+            "productoNombre": "Cable HDMI"
         },
         {
+            "id": 5,
             "sku": "E654",
-            "nombre": "Webcam HD",
             "minimo": 15,
             "maximo": 60,
             "stock": 15,
             "puntos_reorden": 20,
-            "sugerencia": "Reordenar pronto"
+            "sugerencia": "Reordenar pronto",
+            "productoId": 5,
+            "productoNombre": "Webcam HD"
         }
     ],
     "controlPanelData": [
@@ -1780,57 +1790,97 @@
             "fecha": "2025-09-15",
             "auditorId": 1,
             "auditorNombre": "Laura Martínez",
-            "productoId": 1,
-            "producto": "Taladro inalámbrico",
-            "conteo": 25,
-            "diferencia": -2,
-            "nota": "Faltan unidades posiblemente por préstamo a taller."
+            "estadoId": 2,
+            "estado": "Finalizada",
+            "calificacion": 25,
+            "productosAuditados": 30,
+            "notaGeneral": "Faltan unidades posiblemente por préstamo a taller."
         },
         {
             "id": 2,
             "fecha": "2025-09-16",
             "auditorId": 2,
             "auditorNombre": "Carlos Ramírez",
-            "productoId": 2,
-            "producto": "Caja de tornillos 3mm",
-            "conteo": 120,
-            "diferencia": 0,
-            "nota": "Conteo correcto, sin diferencias."
+            "estadoId": 3,
+            "estado": "Ajustada",
+            "calificacion": 120,
+            "productosAuditados": 2,
+            "notaGeneral": "Conteo correcto, sin diferencias."
         },
         {
             "id": 3,
             "fecha": "2025-09-17",
             "auditorId": 3,
             "auditorNombre": "Ana Gómez",
-            "productoId": 3,
-            "producto": "Martillo de uña",
-            "conteo": 40,
-            "diferencia": 1,
-            "nota": "Una unidad extra, posible error en ingreso anterior."
+            "estadoId": 2,
+            "estado": "Finalizada",
+            "calificacion": 40,
+            "productosAuditados": 1,
+            "notaGeneral": "Una unidad extra, posible error en ingreso anterior."
         },
         {
             "id": 4,
             "fecha": "2025-09-18",
             "auditorId": 4,
             "auditorNombre": "José Torres",
-            "productoId": 4,
-            "producto": "Llave inglesa ajustable",
-            "conteo": 15,
-            "diferencia": -1,
-            "nota": "Se encontró una dañada y fue retirada del inventario."
+            "estadoId": 1,
+            "estado": "Borrador",
+            "calificacion": 15,
+            "productosAuditados": -1,
+            "notaGeneral": "Se encontró una dañada y fue retirada del inventario."
         },
         {
             "id": 5,
             "fecha": "2025-09-19",
             "auditorId": 5,
             "auditorNombre": "Sofía Delgado",
-            "productoId": 5,
-            "producto": "Cinta métrica 5m",
-            "conteo": 60,
-            "diferencia": 0,
-            "nota": "Sin novedades en este producto."
+            "estadoId": 4,
+            "estado": "Cancelada",
+            "calificacion": 60,
+            "productosAuditados": 5,
+            "notaGeneral": "Sin novedades en este producto."
         }
     ],
+    "inventoryAuditId": {
+        "id": 4,
+        "fecha": "2025-09-18",
+        "auditorId": 4,
+        "auditorNombre": "José Torres",
+        "estadoId": 1,
+        "estado": "Borrador",
+        "calificacion": 15,
+        "productosAuditados": -1,
+        "notaGeneral": "Se encontró una dañada y fue retirada del inventario.",
+        "productos": [
+            {
+                "id": 1,
+                "productoId": 5,
+                "productoNombre": "Mi producto 5",
+                "conteoReal": 20,
+                "conteoEsperado": 20,
+                "diferencia": 0,
+                "nota": "Aquí va una nota"
+            },
+            {
+                "id": 1,
+                "productoId": 6,
+                "productoNombre": "Mi producto 6",
+                "conteoReal": 50,
+                "conteoEsperado": 50,
+                "diferencia": 0,
+                "nota": "Aquí va una nota 2"
+            },
+            {
+                "id": 1,
+                "productoId": 7,
+                "productoNombre": "Mi producto 7",
+                "conteoReal": 5,
+                "conteoEsperado": 5,
+                "diferencia": 0,
+                "nota": "Aquí va una nota 3"
+            }
+        ]
+    },
     "inventoryAuditors": [
         {
             "id": 1,
@@ -1990,6 +2040,247 @@
             "fecha": "2025-09-14",
             "cantidad": "10",
             "personaResponsable": "David"
+        }
+    ],
+    "entradasDeInventario": [
+        {
+            "id": 1,
+            "almacenId": 1,
+            "nombreAlmacen": "Ferretería Central",
+            "proveedorId": 1,
+            "nombreProveedor": "Suministros Industriales Gómez",
+            "fecha": "2025-09-25",
+            "documentoReferencia": "DOC-20250925-001",
+            "fechaVencimiento": "2025-09-23",
+            "observaciones": "Entrega completa sin daños.",
+            "tipoMovimientoId": 1,
+            "tipoMovimiento": "Compra",
+            "estadoId": 1,
+            "estado": "Recibido"
+        },
+        {
+            "id": 2,
+            "almacenId": 2,
+            "nombreAlmacen": "Almacén Norte",
+            "proveedorId": 2,
+            "nombreProveedor": "Materiales y Herramientas S.A.",
+            "fecha": "2025-09-24",
+            "documentoReferencia": "DOC-20250924-014",
+            "fechaVencimiento": "2025-09-22",
+            "observaciones": "Faltan 3 cajas de clavos.",
+            "tipoMovimientoId": 1,
+            "tipoMovimiento": "Ajuste positivo",
+            "estadoId": 2,
+            "estado": "Parcial"
+        },
+        {
+            "id": 3,
+            "almacenId": 3,
+            "nombreAlmacen": "Ferretería El Tornillo Feliz",
+            "proveedorId": 3,
+            "nombreProveedor": "Distribuidora Eléctrica del Sur",
+            "fecha": "2025-09-22",
+            "documentoReferencia": "DOC-20250922-003",
+            "fechaVencimiento": "2025-09-21",
+            "observaciones": "Producto entregado con retraso.",
+            "tipoMovimientoId": 3,
+            "tipoMovimiento": "Translado recibido",
+            "estadoId": 3,
+            "estado": "Pendiente"
+        },
+        {
+            "id": 4,
+            "almacenId": 4,
+            "nombreAlmacen": "Sucursal Oriente",
+            "proveedorId": 4,
+            "nombreProveedor": "Metales y Aceros del Centro",
+            "fecha": "2025-09-20",
+            "documentoReferencia": "DOC-20250920-008",
+            "fechaVencimiento": "2025-09-20",
+            "observaciones": "Folio duplicado, se requiere verificación.",
+            "tipoMovimientoId": 4,
+            "tipoMovimiento": "Devolución de cliente",
+            "estadoId": 3,
+            "estado": "Pendiente"
+        },
+        {
+            "id": 5,
+            "almacenId": 5,
+            "nombreAlmacen": "Ferretería La Tuerca",
+            "proveedorId": 5,
+            "nombreProveedor": "Grupo Tornillería Nacional",
+            "fecha": "2025-09-18",
+            "documentoReferencia": "DOC-20250918-010",
+            "fechaVencimiento": "2025-09-19",
+            "observaciones": "Cancelado por error en el pedido.",
+            "tipoMovimientoId": 5,
+            "tipoMovimiento": "Donación recibida",
+            "estadoId": 4,
+            "estado": "Cancelado"
+        }
+    ],
+    "entradaDeInventarioId": {
+        "id": 1,
+        "almacenId": 1,
+        "nombreAlmacen": "Ferretería Central",
+        "proveedorId": 1,
+        "nombreProveedor": "Suministros Industriales Gómez",
+        "fecha": "2025-09-25",
+        "documentoReferencia": "DOC-20250925-001",
+        "fechaVencimiento": "2025-09-23",
+        "observaciones": "Entrega completa sin daños.",
+        "estadoId": 1,
+        "estado": "Recibido",
+        "tipoMovimientoId": 5,
+        "tipoMovimiento": "Donación recibida",
+        "productos": [
+            {
+                "id": 1,
+                "productoId": 5,
+                "productoNombre": "Mi producto 5",
+                "cantidad": 20,
+                "precioUnitario": 567.89,
+                "subtotal": 600.89,
+                "lote": "",
+                "fechaExpiracion": ""
+            },
+            {
+                "id": 1,
+                "productoId": 6,
+                "productoNombre": "Mi producto 6",
+                "cantidad": 50,
+                "precioUnitario": 567.89,
+                "subtotal": 600.89,
+                "lote": "LOR-124-4545",
+                "fechaExpiracion": "2026-01-01"
+            },
+            {
+                "id": 1,
+                "productoId": 7,
+                "productoNombre": "Mi producto 7",
+                "cantidad": 5,
+                "precioUnitario": 567.89,
+                "subtotal": 600.89,
+                "lote": "LOR-124-45ERT45",
+                "fechaExpiracion": "2026-01-01"
+            }
+        ]
+    },
+    "almacenes": [
+        {
+            "id": 1,
+            "nombre": "Ferretería Central"
+        },
+        {
+            "id": 2,
+            "nombre": "Almacén Norte"
+        },
+        {
+            "id": 3,
+            "nombre": "Ferretería El Tornillo Feliz"
+        },
+        {
+            "id": 4,
+            "nombre": "Sucursal Oriente"
+        },
+        {
+            "id": 5,
+            "nombre": "Ferretería La Tuerca"
+        }
+    ],
+    "proveedores1": [
+        {
+            "id": 1,
+            "nombre": "Suministros Industriales Gómez"
+        },
+        {
+            "id": 2,
+            "nombre": "Materiales y Herramientas S.A."
+        },
+        {
+            "id": 3,
+            "nombre": "Distribuidora Eléctrica del Sur"
+        },
+        {
+            "id": 4,
+            "nombre": "Metales y Aceros del Centro"
+        },
+        {
+            "id": 5,
+            "nombre": "Grupo Tornillería Nacional"
+        }
+    ],
+    "salidasDeInventario": [
+        {
+            "id": 1,
+            "almacenId": 1,
+            "nombreAlmacen": "Ferretería Central",
+            "destinoId": 1,
+            "nombreDestino": "Suministros Industriales Gómez",
+            "fecha": "2025-09-25",
+            "documentoReferencia": "DOC-20250925-001",
+            "observaciones": "Entrega completa sin daños.",
+            "tipoMovimientoId": 2,
+            "tipoMovimiento": "Traslado enviado",
+            "estadoId": 1,
+            "estado": "Despachado"
+        },
+        {
+            "id": 2,
+            "almacenId": 2,
+            "nombreAlmacen": "Almacén Norte",
+            "destinoId": 2,
+            "nombreDestino": "Materiales y Herramientas S.A.",
+            "fecha": "2025-09-24",
+            "documentoReferencia": "DOC-20250924-014",
+            "observaciones": "Faltan 3 cajas de clavos.",
+            "tipoMovimientoId": 1,
+            "tipoMovimiento": "Ajuste negativo",
+            "estadoId": 2,
+            "estado": "Parcialmente despachado"
+        },
+        {
+            "id": 3,
+            "almacenId": 3,
+            "nombreAlmacen": "Ferretería El Tornillo Feliz",
+            "destinoId": 3,
+            "nombreDestino": "Distribuidora Eléctrica del Sur",
+            "fecha": "2025-09-22",
+            "documentoReferencia": "DOC-20250922-003",
+            "fechaVencimiento": "2025-09-21",
+            "observaciones": "Producto entregado con retraso.",
+            "tipoMovimientoId": 2,
+            "tipoMovimiento": "Traslado enviado",
+            "estadoId": 3,
+            "estado": "Pendiente"
+        },
+        {
+            "id": 4,
+            "almacenId": 4,
+            "nombreAlmacen": "Sucursal Oriente",
+            "destinoId": 4,
+            "nombreDestino": "Metales y Aceros del Centro",
+            "fecha": "2025-09-20",
+            "documentoReferencia": "DOC-20250920-008",
+            "observaciones": "Folio duplicado, se requiere verificación.",
+            "tipoMovimientoId": 3,
+            "tipoMovimiento": "Devolución a proveedor",
+            "estadoId": 3,
+            "estado": "Pendiente"
+        },
+        {
+            "id": 5,
+            "almacenId": 5,
+            "nombreAlmacen": "Ferretería La Tuerca",
+            "destinoId": 5,
+            "nombreDestino": "Grupo Tornillería Nacional",
+            "fecha": "2025-09-18",
+            "documentoReferencia": "DOC-20250918-010",
+            "observaciones": "Cancelado por error en el pedido.",
+            "tipoMovimientoId": 4,
+            "tipoMovimiento": "Consumo interno",
+            "estadoId": 4,
+            "estado": "Cancelado"
         }
     ]
 }
