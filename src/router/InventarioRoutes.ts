@@ -219,7 +219,7 @@ const routes = [
         path: '/inventario/stock/administrar-stock',
         name: 'AdministrarStock',
         component: () => import('@inventario/Stock/AdministrarStock/views/AdminStockView.vue')
-    }
+    },
     // {
     //     path: '/inventario/stock/ajuste-de-stock',
     //     name: 'AjusteDeStock',
