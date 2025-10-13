@@ -15,10 +15,9 @@ import useCreateProductActions from '@inventario/ConfiguracionDeInventario/Crear
 import { createProductSchema } from '@inventario/ConfiguracionDeInventario/CrearProducto/validations/productValidation'
 import { VueDraggable } from 'vue-draggable-plus'
 import styles from '@inventario/ConfiguracionDeInventario/CrearProducto/styles/createProduct.module.css'
-import { 
-    ProductSkuCodeType,
-    imagesDragValues 
-} from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
+import { imagesDragValues } from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
+import { formatToMoney } from '@/utils/formatToMoney'
+import { VariantAttributeType, CreateVariantFormType } from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
 
 const singleProduct = ref(true)
 const modalStore = useModalStore()
@@ -29,26 +28,38 @@ const isReadyToDeleteData = ref(false)
 
 const showProductVariantModal = () => {
     modalStore.open(createProductStore.modalId, { type: 'CREATE', title: 'Añadir variante' })
-    createProductStore.setData()
+    createProductStore.setProductInfo()
 }
 
-const showEditVariantModal = (variantIndex: number) => {
+const showEditVariantModal = (index: number) => {
+    const variant = createProductStore.variantsData[index]
+    const variantForm : CreateVariantFormType = {
+        idVariant: variant.idVariant.toString(),
+        variantValue: variant.variantValue,
+        variantPrice: variant.variantPrice
+    }
+    createProductStore.setVariantData(variantForm)
+    createProductStore.selectedVariantIndex = index
     modalStore.open(createProductStore.modalId, { type: 'EDIT', title: 'Editar variante' })
-    createProductStore.setData(variantIndex)
 }
 
-const showDeleteProductVariantModal = (variantIndex: number) => {
+const showDeleteProductVariantModal = (index: number) => {
+    const variant = createProductStore.variantsData[index]
+    const variantForm : CreateVariantFormType = {
+        idVariant: variant.idVariant.toString(),
+        variantValue: variant.variantValue,
+        variantPrice: variant.variantPrice
+    }
+    createProductStore.setVariantData(variantForm)
+    createProductStore.selectedVariantIndex = index
     modalStore.open(deleteProductVariantModalId, { type: 'DELETE', title: 'Eliminar variante' })
-    createProductStore.setData(variantIndex)
 }
 
 const { 
     handleSubmit, 
     values, 
-    isSubmitting, 
-    setFieldError, 
+    isSubmitting,
     setFieldValue, 
-    validateField 
 } = useForm({
     validationSchema: toTypedSchema(createProductSchema),
     validateOnMount: false,
@@ -57,7 +68,8 @@ const {
 
 const onSubmit = handleSubmit(
     async (formValues) => {
-        console.log(formValues)
+        const res = await createProduct(formValues)
+        console.log(res)
     },
     async () => {
         await nextTick()
@@ -90,10 +102,9 @@ const {
     getBrandOptions,
     getUnitOptions,
     getSubCategoryOptions,
-    getSku,
-    getBarcode,
     getWarrantyOptions,
-    getTaxOptions
+    getTaxOptions,
+    createProduct
 } = useCreateProductActions()
 
 onMounted(async () => {
@@ -114,30 +125,6 @@ watch(() => values.idCategory, (newValue) => {
 })
 
 watch(() => values.idSubCategory, (newValue) => createProductStore.idSubCategorySelected = String(newValue))
-
-const generateSKUOrBarcode = async (option: 'sku' | 'barcode') => {
-    const validateCategory = await validateField('idCategory')
-    const validateSubCategory = await validateField('idSubCategory')
-
-    if (!validateCategory.valid) setFieldError('idCategory', 'Asegúrate de elegir una categoría')
-    if (!validateSubCategory.valid) setFieldError('idSubCategory', 'Asegúrate de elegir una subcategoría')
-    if (!validateCategory.valid || !validateSubCategory.valid) return
-
-    const data : ProductSkuCodeType = {
-        idCategory: Number(values.idCategory),
-        idSubCategory: Number(values.idSubCategory)
-    }
-
-    if (option === 'sku') {
-        const sku = await getSku(data)
-        setFieldValue('sku', sku)
-    } else {
-        const barcode = await getBarcode(data)
-        setFieldValue('itemBarcode', barcode)
-    }
-}
-
-
 
 const deleteImage = (imageIndex: number) => {
     dragImagesRef.value.splice(imageIndex, 1)
@@ -174,21 +161,6 @@ const deleteImage = (imageIndex: number) => {
                             label="Slug"
                             :required="true"
                         />
-                        <!-- SKU -->
-                        <div class="relative col-span-12 md:col-span-6 grid grid-cols-12 gap-2">
-                            <BaseFormInput
-                                class="col-span-9"
-                                name="sku"
-                                label="SKU"
-                                :required="true"
-                                :readonly="true"
-                            />
-                            <BaseButton
-                                @click="generateSKUOrBarcode('sku')"
-                                className="col-span-3 mt-7"
-                                text="Generar"
-                            />
-                        </div>
                         <!-- Category Select -->
                         <BaseFormSelect
                             class="col-span-12 md:col-span-6"
@@ -221,29 +193,6 @@ const deleteImage = (imageIndex: number) => {
                             :options="createProductStore.units"
                             :required="true"
                         />
-                        <!-- Barcode Simbology Select -->
-                        <BaseFormSelect
-                            class="col-span-12 md:col-span-6"
-                            name="barcodeSimbology"
-                            label="Simbología código de barras"
-                            :options="createProductStore.barcodeSimbologies"
-                            :required="true"
-                        />
-                        <!-- Barcode -->
-                        <div class="relative col-span-12 md:col-span-6 grid grid-cols-12 gap-2">
-                            <BaseFormInput
-                                class="col-span-9"
-                                name="itemBarcode"
-                                label="Código de barras"
-                                :required="true"
-                                :readonly="true"
-                            />
-                            <BaseButton
-                                @click="generateSKUOrBarcode('barcode')"
-                                className="col-span-3 mt-7"
-                                text="Generar"
-                            />
-                        </div>
                         <!-- Description -->
                         <BaseTextArea class="col-span-12" name="description" label="Descripción" />
                     </div>
@@ -297,14 +246,6 @@ const deleteImage = (imageIndex: number) => {
                                 :options="createProductStore.taxTypes"
                                 :required="true"
                             />
-                            <!-- Tax -->
-                            <BaseFormInput
-                                class="col-span-12 md:col-span-6"
-                                name="singleProduct.tax"
-                                type="number"
-                                label="Impuesto (%)"
-                                :required="true"
-                            />
                         </div>
                     </div>
                     <!-- VARIANT PRODUCT -->
@@ -330,8 +271,6 @@ const deleteImage = (imageIndex: number) => {
                                                 <th>Id</th>
                                                 <th>Variante</th>
                                                 <th>Valor variante</th>
-                                                <th>SKU</th>
-                                                <th>Numero codigo de barras</th>
                                                 <th>Precio</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -345,18 +284,16 @@ const deleteImage = (imageIndex: number) => {
                                             >
                                                 <td>{{ index + 1 }}</td>
                                                 <td>{{ value.variantName }}</td>
-                                                <td>{{ value.variantValue }}</td>
-                                                <td>{{ value.skuVariant }}</td>
-                                                <td>{{ value.itemBarcode }}</td>
-                                                <td>{{ value.price }}</td>
-                                                <td>
+                                                <td>{{ value.variantValue }}</td>   
+                                                <td>{{ formatToMoney(value.variantPrice) }}</td>
+                                                <td class="flex justify-center">
                                                     <div class="flex gap-4">
                                                         <BaseActionButtonTable
                                                             icon="edit_square"
                                                             variant="info"
                                                             tooltipText="Editar"
                                                             :onClick="
-                                                                () => showEditVariantModal(index)
+                                                                () => showEditVariantModal(value)
                                                             "
                                                         >
                                                         </BaseActionButtonTable>
@@ -365,10 +302,7 @@ const deleteImage = (imageIndex: number) => {
                                                             variant="error"
                                                             tooltipText="Eliminar"
                                                             :onClick="
-                                                                () =>
-                                                                    showDeleteProductVariantModal(
-                                                                        index
-                                                                    )
+                                                                () => showDeleteProductVariantModal(value)
                                                             "
                                                         >
                                                         </BaseActionButtonTable>
@@ -460,36 +394,6 @@ const deleteImage = (imageIndex: number) => {
                             <p class="text-center mt-3 mb-2">{{ img.name }}</p>
                         </div>
                     </VueDraggable>
-                </div>
-            </div>
-            <!-- COLLAPSE EXTRAS-->
-            <div class="collapse collapse-arrow bg-base-100 mb-5 border border-base-300">
-                <input type="checkbox" name="create-product-extra-data" checked />
-                <div class="collapse-title border-b-1 border-base-300 mb-6 !font-bold">Extras</div>
-                <div class="collapse-content text-sm">
-                    <div class="grid grid-cols-12 gap-5">
-                        <!-- Warranty Select -->
-                        <BaseFormSelect
-                            class="col-span-12 md:col-span-6"
-                            name="extraInfo.idWarranty"
-                            label="Garantía"
-                            :options="createProductStore.warranties"
-                        />
-                        <!-- Manufacturing Date -->
-                        <BaseFormInput
-                            class="col-span-12 md:col-span-6"
-                            name="extraInfo.manufacturingDate"
-                            label="Fecha fabricación"
-                            type="date"
-                        ></BaseFormInput>
-                        <!-- Expiration Date -->
-                        <BaseFormInput
-                            class="col-span-12 md:col-span-6"
-                            name="extraInfo.expirationDate"
-                            label="Fecha expiración"
-                            type="date"
-                        ></BaseFormInput>
-                    </div>
                 </div>
             </div>
             <div class="grid grid-cols-12 justify-end gap-4 mt-10">

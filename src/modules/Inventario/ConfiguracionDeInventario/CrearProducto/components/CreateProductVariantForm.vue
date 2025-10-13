@@ -13,8 +13,9 @@ import { addVariantProductSchema } from '@inventario/ConfiguracionDeInventario/C
 import { CreateVariantFormType } from '@/modules/Inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
 import useCreateProductActions from '@inventario/ConfiguracionDeInventario/CrearProducto/composables/useCreateProductActions'
 import { ProductSkuCodeType } from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
+import { mapVariantAttributeType } from '@/modules/Inventario/ConfiguracionDeInventario/CrearProducto/composables/mappingCreateProductData'
 
-const initialValues : CreateVariantFormType | null = useCreateProductStore().currentVariantInfo
+const initialValues : CreateVariantFormType = useCreateProductStore().currentVariantInfo
 
 const modalId = 'add-variable-product-modal'
 const createProductStore = useCreateProductStore()
@@ -23,8 +24,6 @@ const modalStore = useModalStore()
 const {
     getVariantAttributesOptions,
     getVariantAttributesValues,
-    getSku,
-    getBarcode
 } = useCreateProductActions()
 
 
@@ -33,9 +32,8 @@ const {
     handleSubmit,
     values,
     isSubmitting,
-    setFieldError,
     resetForm,
-    setFieldValue
+    setValues
 } = useForm({
     validationSchema: toTypedSchema(addVariantProductSchema),
     validateOnMount: false,
@@ -44,16 +42,28 @@ const {
 
 
 watch(() => values.idVariant, (newValue) => {
-    console.log(newValue)
     if (newValue !== null && newValue !== undefined && newValue !== "") {
         getVariantAttributesValues(String(newValue))
     }
-    console.log(createProductStore.variantValues)
 })
+
+watch(
+    () => createProductStore.currentVariantInfo,
+    (variant) => {
+        if (variant) {
+            setValues({
+                idVariant: variant?.idVariant,
+                variantValue: variant?.variantValue,
+                variantPrice: variant?.variantPrice
+            })
+        }
+    },
+    { immediate: true }
+)
 
 const createVariant = (formValues: CreateVariantFormType) => {
     if(!createProductStore.currentProductInfo) return;
-    createProductStore.currentProductInfo.variableProduct.push(formValues)
+    createProductStore.variantsData.push(mapVariantAttributeType(formValues))
     return 'Variante agregada correctamente'
 }
 
@@ -74,14 +84,13 @@ const modalMap = {
     // }
 }
 const onSubmit = handleSubmit(async (formValues) => {
+    console.log(formValues)
     const modalType = modalStore.modals[createProductStore.modalId]?.type
     const action = modalMap[modalType]?.action
     const messageResult = await action(formValues)
-
-    modalStore.close(createProductStore.modalId)
     resetForm()
     showNotification(messageResult, 'success')
-    console.log(createProductStore.currentProductInfo)
+    modalStore.close(createProductStore.modalId)
 })
 
 onMounted(async () => {
@@ -93,31 +102,31 @@ const onClose = () => {
     createProductStore.setVariantData()
 }
 
-const generateSKUOrBarcode = async (option: 'sku' | 'barcode') => {
-    const idCategory = useCreateProductStore().idCategorySelected
-    const isSubcategory = useCreateProductStore().idSubCategorySelected
+// const generateSKUOrBarcode = async (option: 'sku' | 'barcode') => {
+//     const idCategory = useCreateProductStore().idCategorySelected
+//     const isSubcategory = useCreateProductStore().idSubCategorySelected
 
-    const name = option === 'sku' ? 'skuVariant' : 'variantItemBarcode'
+//     const name = option === 'sku' ? 'skuVariant' : 'variantItemBarcode'
 
-    if (idCategory == '0') 
-        return setFieldError(name, 'Asegúrate de elegir una categoría')
+//     if (idCategory == '0') 
+//         return setFieldError(name, 'Asegúrate de elegir una categoría')
 
-    if (isSubcategory == '0') 
-        return setFieldError(name, 'Asegúrate de elegir una subcategoría')
+//     if (isSubcategory == '0') 
+//         return setFieldError(name, 'Asegúrate de elegir una subcategoría')
 
-    const data : ProductSkuCodeType = {
-        idCategory: Number(idCategory),
-        idSubCategory: Number(isSubcategory)
-    }
+//     const data : ProductSkuCodeType = {
+//         idCategory: Number(idCategory),
+//         idSubCategory: Number(isSubcategory)
+//     }
 
-    if (option === 'sku') {
-        const sku = await getSku(data)
-        setFieldValue(name, sku)
-    } else {
-        const barcode = await getBarcode(data)
-        setFieldValue(name, barcode)
-    }
-}
+//     if (option === 'sku') {
+//         const sku = await getSku(data)
+//         setFieldValue(name, sku)
+//     } else {
+//         const barcode = await getBarcode(data)
+//         setFieldValue(name, barcode)
+//     }
+// }
 </script>
 
 <template>
@@ -144,41 +153,6 @@ const generateSKUOrBarcode = async (option: 'sku' | 'barcode') => {
                     :options="createProductStore.variantValues"
                     :required="true"
                 />
-                <div class="relative col-span-12 md:col-span-6 grid grid-cols-12 gap-2">
-                    <BaseFormInput
-                        class="col-span-9"
-                        name="skuVariant"
-                        label="SKU"
-                        :required="true"
-                        :readonly="true"
-                    />
-                    <BaseButton
-                        @click="generateSKUOrBarcode('sku')"
-                        className="col-span-3 mt-8 btn-outline"
-                        text="Generar"
-                    />
-                </div>
-                <BaseFormSelect
-                    class="col-span-12 md:col-span-6"
-                    name="variantBarcodeSimbology"
-                    label="Simbología código de barras"
-                    :options="createProductStore.barcodeSimbologies"
-                    :required="true"
-                />
-                <div class="relative col-span-12 md:col-span-6 grid grid-cols-12 gap-2">
-                    <BaseFormInput
-                        class="col-span-9"
-                        name="variantItemBarcode"
-                        label="Código de barras"
-                        :required="true"
-                        :readonly="true"
-                    />
-                    <BaseButton
-                        @click="generateSKUOrBarcode('barcode')"
-                        className="col-span-3 mt-8 btn-outline"
-                        text="Generar"
-                    />
-                </div>
                 <BaseFormInput name="variantPrice" label="Precio ($)" type="number" :required="true" />
             </div>
         </template>

@@ -6,6 +6,7 @@ import {
   SkuBarcodeResponseType
 } from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
 import { VariantAttributeResponseType } from '../../AtributosVariantes/types/variantAttributeTypes'
+import { ApiResponseType } from '@/shared/types/apiResponseType'
 
 export const getStoresService = () => axiosExampleInstance.get('/stores')
 export const getWareHousesService = () => axiosExampleInstance.get('/warehouse')
@@ -65,3 +66,12 @@ export const getVariantAttributeById = async (id : string) : Promise<VariantAttr
   const response = await axiosApiInstance.get(`/producto/atributovariantecat/${id}`)
   return response.data.data.items[0]
 }
+
+export const createProductService = async (data : FormData) : Promise<ApiResponseType<any>> => {
+  const response = await axiosApiInstance.post('/producto/producto', data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return response.data;
+};

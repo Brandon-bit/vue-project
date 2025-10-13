@@ -3,16 +3,14 @@ import {
     CreateVariantFormType, 
     CreateProductFormType,
     SingleProductType,
-    ExtraInfoType
+    ExtraInfoType,
+    VariantAttributeType
 } from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
 import { SelectOptionType } from '@/shared/types/selectOptionTypes'
 
 const initialValuesCreateVariant : CreateVariantFormType = {
     idVariant: '0',
     variantValue: '0',
-    skuVariant: '',
-    variantBarcodeSimbology: '1',
-    variantItemBarcode: '',
     variantPrice: 0,
 }
 
@@ -27,7 +25,7 @@ const initialValuesCreateProduct : CreateProductFormType = {
     barcodeSimbology: '1',
     itemBarcode: '',
     description: '',
-    singleProduct: { price: 0, idTaxType: '0', tax: 0} as SingleProductType,
+    singleProduct: { price: 0, idTaxType: '0'} as SingleProductType,
     variableProduct: [] as CreateVariantFormType[],
     image: null,
     extraInfo: { idWarranty: '0', manufacturingDate: null, expirationDate: null} as ExtraInfoType
@@ -37,7 +35,7 @@ const useCreateProductStore = defineStore('create-product-store', {
     state: () => ({
         sequential: '000',
         currentProductInfo: initialValuesCreateProduct as CreateProductFormType | null,
-        currentVariantInfo: initialValuesCreateVariant as CreateVariantFormType | null,
+        currentVariantInfo: initialValuesCreateVariant as CreateVariantFormType,
         categories: [] as SelectOptionType[],
         subcategories: [] as SelectOptionType[],
         brands: [] as SelectOptionType[],
@@ -53,7 +51,7 @@ const useCreateProductStore = defineStore('create-product-store', {
         discountTypes: [],
         selectedVariantIndex: 0,
         currentVariantRef: 0 as number | null,
-        variantsData: [] as CreateVariantFormType[],
+        variantsData: [] as VariantAttributeType[],
         currentVariant: null as CreateVariantFormType | null,
         modalId: 'add-variable-product-modal'
     }),

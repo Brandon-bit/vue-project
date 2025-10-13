@@ -1,6 +1,7 @@
 import { SelectOptionType } from '@/shared/types/selectOptionTypes'
 import { 
-    ProductSkuCodeType
+    ProductSkuCodeType,
+    CreateProductFormType
  } from '@inventario/ConfiguracionDeInventario/CrearProducto/types/createProductTypes'
 import useCreateProductStore from "@/modules/Inventario/ConfiguracionDeInventario/CrearProducto/store/createProductStore"
 import { 
@@ -12,11 +13,13 @@ import {
     getTaxOptionsService,
     getWarrantiesOptionsService,
     getVariantAttributesOptionsService,
-    getVariantAttributeById
+    getVariantAttributeById,
+    createProductService
 } from "@inventario/ConfiguracionDeInventario/CrearProducto/services/createProductService"
 import { 
     mapProductSkuCodeRequestType,
-    mapSkuBarcodeType 
+    mapSkuBarcodeType,
+    mapCreateProductRequest 
 } from "@inventario/ConfiguracionDeInventario/CrearProducto/composables/mappingCreateProductData"
 
 const useProductActions = () => {
@@ -131,15 +134,23 @@ const useProductActions = () => {
         try{
             const res = await getVariantAttributeById(id)
             const values = res.valores.split(',')
-            console.log(values)
             createProductStore.variantValues = values.map((c): SelectOptionType => ({
                 id: c,
                 label: c
             }))
-            console.log(createProductStore.variantValues)
         } catch(error){
             console.log(error)
             createProductStore.variantValues = [] as SelectOptionType[]
+        }
+    }
+
+    const createProduct = async (data : CreateProductFormType) => {
+        try {
+            const res = await createProductService(mapCreateProductRequest(data))
+            return res
+        } catch (error) {
+            console.log(error)
+            return null
         }
     }
 
@@ -153,7 +164,8 @@ const useProductActions = () => {
         getWarrantyOptions,
         getTaxOptions,
         getVariantAttributesOptions,
-        getVariantAttributesValues
+        getVariantAttributesValues,
+        createProduct
     }
 
 }

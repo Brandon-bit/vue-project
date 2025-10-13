@@ -8,31 +8,16 @@ const singleProductSchema = z.object({
     price: z.number({
         required_error: "El precio es requerido"
     }).min(0, "El precio debe ser mayor o igual a 0"),
-    tax: z.number({
-        required_error: "El impuesto es requerido"
-    }).min(0, "El impuesto debe ser mayor o igual a 0"),
-})
-
-const extraInfoSchema = z.object({
-    idWarranty: z.string().nullable(),
-    manufacturingDate: z.date().nullable(),
-    expirationDate: z.date().nullable(),
+    idTaxType: selectValidator('Asegúrate de elegir un tipo de impuesto'),
 })
 
 export const createProductSchema = z.object({
     name: stringValidator('El campo nombre es requerido', 'Mínimo 10 caracteres', 10),
     slug: stringValidator('El campo slug es requerido', 'Mínimo 10 caracteres', 10),
-    sku: stringValidator('El campo sku es requerido', 'Mínimo 10 caracteres', 10),
     idCategory: selectValidator('Asegúrate de elegir una categoría'),
     idSubCategory: selectValidator('Asegúrate de elegir una subcategoría'),
     idBrand: selectValidator('Asegúrate de elegir una marca'),
     idUnit: selectValidator('Asegúrate de elegir una unidad'),
-    barcodeSimbology: selectValidator('Asegúrate de elegir una simbolgía de código de barras'),
-    itemBarcode: stringValidator(
-        'El campo código de barras es requerido',
-        'Mínimo 10 caracteres',
-        10
-    ),
     description: stringValidator('El campo descripción es requerido', 'Mínimo 10 caracteres', 10),
     singleProduct: singleProductSchema,
     image: z
@@ -60,8 +45,7 @@ export const createProductSchema = z.object({
                 })
             }
         }
-    }),
-    extraInfo: extraInfoSchema,
+    })
 })
 
 export const addVariantProductSchema = z.object({
@@ -72,8 +56,7 @@ export const addVariantProductSchema = z.object({
             message: 'Asegúrate de elegir un valor de variante',
         }
     ),
-    skuVariant: createProductSchema.shape.sku,
-    variantPrice: createProductSchema.shape.singleProduct.shape.price,
-    variantBarcodeSimbology: createProductSchema.shape.barcodeSimbology,
-    variantItemBarcode: createProductSchema.shape.itemBarcode,
+    variantPrice: z.number({
+        required_error: "El precio es requerido"
+    }).min(0, "El precio debe ser mayor o igual a 0"),
 })
