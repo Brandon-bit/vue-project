@@ -1991,5 +1991,22 @@
             "cantidad": "10",
             "personaResponsable": "David"
         }
-    ]
+    ],
+      "marketingData": {
+        "ventas": [
+        { "mes": "Ene", "cantidad": 30 },
+        { "mes": "Feb", "cantidad": 50 },
+        { "mes": "Mar", "cantidad": 40 }
+        ],
+        "usuarios": [
+        { "dia": "Lun", "cantidad": 10 },
+        { "dia": "Mar", "cantidad": 20 },
+        { "dia": "Mié", "cantidad": 15 }
+        ],
+        "ingresos": [
+        { "producto": "Nike", "monto": 1000 },
+        { "producto": "Adidas", "monto": 1500 },
+        { "producto": "Puma", "monto": 800 }
+        ]
+  }
 }
