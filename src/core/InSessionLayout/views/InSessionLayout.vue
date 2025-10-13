@@ -750,6 +750,10 @@ const modulos = ref([
                         name: 'Crear Producto'
                     },
                     {
+                        url: '/inventario/configuracion/producto/1',
+                        name: 'Detalle Producto'
+                    },
+                    {
                         url: '/inventario/configuracion/productos-expiracion',
                         name: 'Productos con expiración'
                     },
