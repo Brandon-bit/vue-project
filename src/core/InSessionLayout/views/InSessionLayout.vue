@@ -879,6 +879,27 @@ const modulos = ref([
                 ]
             }
         ]
+    },
+    {
+        icon: 'diversity_3',
+        name: 'Recursos Humanos',
+        sections: [
+            {
+                icon: '',
+                name: 'Recursos Humanos',
+                open: false,
+                views: [
+                    {
+                        url: '/rrhh/empresas',
+                        name: 'Empresas'
+                    },
+                    {
+                        url: '/rrhh/empleados',
+                        name: 'Empleados'
+                    }
+                ]
+            }
+        ]
     }
 ])
 

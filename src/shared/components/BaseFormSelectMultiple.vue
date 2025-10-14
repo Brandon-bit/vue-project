@@ -26,13 +26,13 @@ const { value, errorMessage } = useField(props.name, undefined, {
         <Multiselect
             :name="props.name"
             v-model="value"
-            open-direction="bottom"
             :options="props.options"
             :multiple="true"
             placeholder="Elige una o varias opciones"
             label="label"
             :show-labels="false"
             track-by="id"
+            :max-height="200"
             :class="{ '!select w-full': errorMessage }"
         />
         <div v-if="errorMessage" class="text-error">{{ errorMessage }}</div>
@@ -45,5 +45,11 @@ const { value, errorMessage } = useField(props.name, undefined, {
 
 .multiselect__option--highlight {
     background: var(--color-primary);
+}
+
+/* Limit dropdown height for better accordion compatibility */
+.multiselect__content-wrapper {
+    max-height: 200px !important;
+    overflow-y: auto;
 }
 </style>

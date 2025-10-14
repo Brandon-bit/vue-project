@@ -10,13 +10,17 @@ const routes = [
         path: '/inventario/configuracion/crear-producto',
         name: 'CrearProducto',
         component: () =>
-            import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CreateProductView.vue')
+            import(
+                '@inventario/ConfiguracionDeInventario/CrearProducto/views/CreateProductView.vue'
+            )
     },
     {
         path: '/inventario/configuracion/editar-producto',
         name: 'EditarProducto',
         component: () =>
-            import('@inventario/ConfiguracionDeInventario/CrearProducto/views/CreateProductView.vue')
+            import(
+                '@inventario/ConfiguracionDeInventario/CrearProducto/views/CreateProductView.vue'
+            )
     },
     {
         path: '/inventario/configuracion/producto/:id',
@@ -225,22 +229,52 @@ const routes = [
     //     name: 'AjusteDeStock',
     //     component: () => import('@inventario/Stock/views/AjusteDeStock.vue')
     // },
-     {
-         path: '/inventario/stock/transferir-stock',
-         name: 'TransferirStock',
-         component: () => import('@inventario/Stock/TransferenciaStock/views/transferStock.vue')
-     },
+    {
+        path: '/inventario/stock/transferir-stock',
+        name: 'TransferirStock',
+        component: () => import('@inventario/Stock/TransferenciaStock/views/transferStock.vue')
+    },
 
-                    {
-                path: '/traslados/crear',
-                name: 'Crear Traslado', 
-                component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
-                },
-                {
-                path: '/traslados/editar/:id',
-                name: 'Editar Traslado', 
-                component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
-                }
+    {
+        path: '/traslados/crear',
+        name: 'Crear Traslado',
+        component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
+    },
+    {
+        path: '/traslados/editar/:id',
+        name: 'Editar Traslado',
+        component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
+    },
+    {
+        path: '/rrhh/empresas',
+        name: 'Empresas',
+        component: () => import('@rrhh/AltaEmpresas/views/CompaniesListView.vue')
+    },
+    {
+        path: '/rrhh/empresas/crear',
+        name: 'Crear empresa',
+        component: () => import('@rrhh/AltaEmpresas/views/CreateUpdateCompanyView.vue')
+    },
+    {
+        path: '/rrhh/empresas/editar/:id',
+        name: 'Actualizar empresa',
+        component: () => import('@rrhh/AltaEmpresas/views/CreateUpdateCompanyView.vue')
+    },
+    {
+        path: '/rrhh/empleados',
+        name: 'Empleados',
+        component: () => import('@/modules/RRHH/AltaEmpleados/views/EmployeesListView.vue')
+    },
+    {
+        path: '/rrhh/empleados/crear',
+        name: 'Crear empleado',
+        component: () => import('@/modules/RRHH/AltaEmpleados/views/CreateUpdateEmployeeView.vue')
+    },
+    {
+        path: '/rrhh/empleados/editar/:id',
+        name: 'Actualizar empleado',
+        component: () => import('@/modules/RRHH/AltaEmpleados/views/CreateUpdateEmployeeView.vue')
+    }
 ]
 
 export default routes
