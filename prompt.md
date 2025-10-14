@@ -107,3 +107,43 @@ Toma como base el patrón de @inventario/ConfiguracionDeInventario/Productos/Pro
 El modal tomalo de @src/shared/components/BaseModal.vue
 Sigue la misma linea que usa el proyecto para los modales. Si ves necesario crear
 mas componentes, sin ser excesivo, hazlo.
+
+------------------------------------------------------------------------------------
+Crea un módulo completo de Activos Fijos en @modules/Contabilidad/ActivosFijos en Vue 3 + TypeScript con la siguiente estructura:
+
+1. Basandote en el componente @src/react/ActivosFijos.tsx crea una vista de tabla (FixedAssetsView.vue) que:
+   - En lugar de la tabla que se muestra use BaseTable de shared components
+   - Tenga un botón "Agregar Activo" que abra el modal de crear.
+   - Cada fila tenga un botón "Ver" que abra el mismo modal pero en lugar de mostrar 
+   el formulario, solo muestre la informacion del activo.
+   - Muestre columnas de información principal.
+
+2. Crea una vista de formulario (CreateUpdateEmployeeView.vue) que:
+   - Solo muestre el formulario de @src/ejemplo/AltaEmpleados.jsx, sin cards adicionales ni títulos decorativos
+   - El formulario debe ocupar todo el espacio disponible
+
+3. Crea el componente FixedAssetForm.vue, este es el formulario que se usara en el modal:
+   - Toma los mismos inputs que ocupa el archivo @src/react/ActivosFijos.tsx.
+   - En modo crear: formulario vacío
+
+4. Crea useFixedAssetsActions.ts con funciones simuladas (mock data):
+   - getFixedAssets(page, pageSize, name, area, estatus): retorna lista paginada de activos fijos, el name, area o estatus seran parametros por default los cuales seran por defecto un string vacio
+   - getFixedAssetById(id): retorna el activo fijo con datos ya predefinidos
+   - createFixedAsset(data): simula creación
+
+5. Crea useFixedAssets.ts con:
+   - Configuración de columnas para BaseTable
+
+6. Crea validaciones con Zod
+
+7. Crea mappingFixedAssetsData.ts:
+   - mapFixedAssetRequest(): convierte frontend (inglés) a backend (español)
+   - mapFixedAsset(): convierte backend a frontend
+   - Crea mas si lo consideras correcto
+
+8. Define tipos en fixedAssetsTypes.ts:
+
+Toma como base el patrón de @inventario/ConfiguracionDeInventario/Productos/ProductosView.vue o @inventario/ConfiguracionDeInventario/Categorias/CategoriasView.vue  y usa componentes de @/shared/components/.
+El modal tomalo de @src/shared/components/BaseModal.vue
+Sigue la misma linea que usa el proyecto para los modales. Si ves necesario crear
+mas componentes, sin ser excesivo, hazlo.
