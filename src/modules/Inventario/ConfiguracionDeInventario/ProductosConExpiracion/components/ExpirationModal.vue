@@ -7,15 +7,15 @@ import EditForm from '@inventario/ConfiguracionDeInventario/ProductosConExpiraci
 import { useModalStore } from '@/shared/stores/modal.store'
 import { editProductExpirationSchema } from '@inventario/ConfiguracionDeInventario/ProductosConExpiracion/validations/expirationValidation'
 import { toTypedSchema } from '@vee-validate/zod'
-import { useExpirationAction } from '@inventario/ConfiguracionDeInventario/ProductosConExpiracion/composables/useExpirationAction'
+import { useExpirationActions } from '@inventario/ConfiguracionDeInventario/ProductosConExpiracion/composables/useExpirationAction'
 
 const expirationStore = useExpirationStore()
 const modalStore = useModalStore()
-const { editProductExpiration } = useExpirationAction()
+const { editProductWithExpiration } = useExpirationActions()
 
 const initialValues = {
-    fecha_fabricacion: expirationStore.currentProductExpiration?.fecha_fabricacion,
-    fecha_expiracion: expirationStore.currentProductExpiration?.fecha_expiracion
+    fecha_fabricacion: expirationStore.currentProductExpiration?.manufacturedDate,
+    fecha_expiracion: expirationStore.currentProductExpiration?.expirationDate
 }
 
 const { handleSubmit, isSubmitting, resetForm, setValues } = useForm({
@@ -29,8 +29,8 @@ watch(
     (category) => {
         if (category) {
             setValues({
-                fecha_fabricacion: expirationStore.currentProductExpiration?.fecha_fabricacion,
-                fecha_expiracion: expirationStore.currentProductExpiration?.fecha_expiracion
+                fecha_fabricacion: expirationStore.currentProductExpiration?.manufacturedDate,
+                fecha_expiracion: expirationStore.currentProductExpiration?.expirationDate
             })
         }
     },
@@ -40,7 +40,7 @@ watch(
 const modalMap = {
     EDIT: {
         component: EditForm,
-        action: editProductExpiration
+        action: editProductWithExpiration
     }
 }
 

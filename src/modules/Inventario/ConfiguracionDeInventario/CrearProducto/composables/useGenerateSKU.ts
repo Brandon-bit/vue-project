@@ -1,4 +1,4 @@
-import useCreateProductStore from '@inventario/ConfiguracionDeInventario/CrearProducto/store/createProduct.store'
+import useCreateProductStore from '@/modules/Inventario/ConfiguracionDeInventario/CrearProducto/store/createProductStore'
 
 const useGenerateSKU = () => {
     const createProductStore = useCreateProductStore()

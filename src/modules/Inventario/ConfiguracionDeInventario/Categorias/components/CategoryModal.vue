@@ -20,9 +20,9 @@ const modalStore = useModalStore()
 const { createCategory, editCategory, deleteCategory } = useCategoryActions()
 
 const initialValues = {
-    name: categoryStore.selectedCategory.name,
-    slug: categoryStore.selectedCategory.slug,
-    status: categoryStore.selectedCategory.status,
+    name: categoryStore.selectedCategory?.name,
+    slug: categoryStore.selectedCategory?.slug,
+    status: categoryStore.selectedCategory?.status,
     removeImage: false
 }
 

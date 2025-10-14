@@ -1,37 +1,25 @@
 <script setup lang="ts">
-// #region Imports
+import { ref } from 'vue'
 import BaseTable from '@/shared/components/BaseTable.vue'
-import { onMounted, ref } from 'vue'
-import { useBrand } from '@inventario/ConfiguracionDeInventario/Marcas/composables/useBrand'
+import useBrand from '@inventario/ConfiguracionDeInventario/Marcas/composables/useBrand'
 import { useModalStore } from '@/shared/stores/modal.store'
 import BaseButton from '@/shared/components/BaseButton.vue'
-import useBrandStore from '@inventario/ConfiguracionDeInventario/Marcas/store/brand.store'
-import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
+import useBrandStore from '@/modules/Inventario/ConfiguracionDeInventario/Marcas/store/brandStore'
 import BrandsModal from '@inventario/ConfiguracionDeInventario/Marcas/components/BrandsModal.vue'
-// #endregion
+import { useBrandActions } from '@inventario/ConfiguracionDeInventario/Marcas/composables/useBrandActions'
 
-// #region Data
-let loading = ref<boolean>(false)
-const { getBrands, getBrandsTableColumns } = useBrand()
+const { getBrandsTableColumns } = useBrand()
+const { getBrands } = useBrandActions()
+
 const modalStore = useModalStore()
 const brandStore = useBrandStore()
-// #endregion
 
-// #region OnMounted
-onMounted(async () => {
-    // Once the view is rendered, the data is loaded
-    loading.value = true
-    await getBrands()
-    loading.value = false
-})
-// #endregion
+const tablaRef = ref()
 
-// #region Methods
 const openCreateModal = () => {
     brandStore.setData()
-    modalStore.open(brandStore.modalId, { type: 'CREATE', title: 'Crear categoría' })
+    modalStore.open(brandStore.modalId, { type: 'CREATE', title: 'Agregar marca' })
 }
-// #endregion
 </script>
 
 <template>
@@ -41,7 +29,10 @@ const openCreateModal = () => {
         <BaseButton text="Nueva marca" @click="openCreateModal()" icon="add" />
     </div>
 
-    <BaseSkeletonTable v-if="loading" />
-    <BaseTable v-else :data="brandStore.brands" :headers="getBrandsTableColumns()" />
-    <BrandsModal />
+    <BaseTable
+        ref="tablaRef"
+        :headers="getBrandsTableColumns()"
+        :fetch-callback="getBrands"
+    />
+    <BrandsModal :onRefresh="tablaRef?.fetchData" />
 </template>

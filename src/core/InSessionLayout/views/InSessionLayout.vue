@@ -750,6 +750,10 @@ const modulos = ref([
                         name: 'Crear Producto'
                     },
                     {
+                        url: '/inventario/configuracion/producto/1',
+                        name: 'Detalle Producto'
+                    },
+                    {
                         url: '/inventario/configuracion/productos-expiracion',
                         name: 'Productos con expiración'
                     },
@@ -803,7 +807,7 @@ const modulos = ref([
                     },
                     {
                         url: '/inventario/operacion/entradas-de-inventario',
-                        name: 'Entradas de Inventario'
+                        name: 'Entradas de inventario'
                     },
                     {
                         url: '/inventario/operacion/salidas-de-inventario',
@@ -814,8 +818,8 @@ const modulos = ref([
                         name: 'Puntos de Max/Min y Reorden'
                     },
                     {
-                        url: '/inventario/operacion/auditoria-de-inventarios',
-                        name: 'Auditoría de Inventarios'
+                        url: '/inventario/operacion/auditorias-de-inventario',
+                        name: 'Auditorías de inventario'
                     },
                     // {
                     //     url: '/inventario/operacion/gestion-de-pedidos',
@@ -871,6 +875,27 @@ const modulos = ref([
                     {
                         url: '/pos/punto-de-venta',
                         name: 'Punto de Venta'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        icon: 'diversity_3',
+        name: 'Recursos Humanos',
+        sections: [
+            {
+                icon: '',
+                name: 'Recursos Humanos',
+                open: false,
+                views: [
+                    {
+                        url: '/rrhh/empresas',
+                        name: 'Empresas'
+                    },
+                    {
+                        url: '/rrhh/empleados',
+                        name: 'Empleados'
                     }
                 ]
             }

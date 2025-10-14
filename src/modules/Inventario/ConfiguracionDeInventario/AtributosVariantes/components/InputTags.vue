@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import useVariantAttributeStore from '../store/variantAttribute.store'
-import { VariantAttributeValueType } from "../types/variantAttributeValueType";
+import useVariantAttributeStore from '../store/variantAttributeStore'
 
 const props = defineProps<{
     name: string
@@ -17,7 +16,7 @@ const items = computed({
     get() {
         return variantAttributeStore.valuesCopy;
     },
-    set(newValues: VariantAttributeValueType[]) {
+    set(newValues: string[]) {
         variantAttributeStore.valuesCopy = newValues;
     }
 });
@@ -27,10 +26,7 @@ const inputValue = ref("")
 function handleKeydown(event: KeyboardEvent) {
     if (event.key === " " && inputValue.value.trim() !== "") {
         event.preventDefault()
-        const newVariant : VariantAttributeValueType = {
-            value: inputValue.value.trim()
-        }
-        items.value.push(newVariant)
+        items.value.push(inputValue.value.trim())
         inputValue.value = ""
     }
 }
@@ -55,7 +51,7 @@ function removeTag(index: number) {
             :key="index"
             class="badge badge-info flex items-center gap-1"
             >
-            {{ item.value }}
+            {{ item }}
             <button
                 class="ml-1 flex items-center justify-center text-xs hover:cursor-pointer"
                 @click="removeTag(index)"

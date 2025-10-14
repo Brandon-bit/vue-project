@@ -1,7 +1,8 @@
-export type InventoryThresholdsType = {
+export type InventoryThreshold = {
     id?: number
     sku: string
-    nombre: string
+    productoId: number
+    productoNombre: string
     minimo: number
     maximo: number
     stock: number
@@ -9,10 +10,11 @@ export type InventoryThresholdsType = {
     sugerencia: string
 }
 
-export type InventoryThresholdsResponseType = {
+export type InventoryThresholdDTO = {
     id?: number
     sku: string
-    name: string
+    productId: number
+    productName: string
     minimum: number
     maximum: number
     stock: number
@@ -20,20 +22,22 @@ export type InventoryThresholdsResponseType = {
     suggestion: string
 }
 
-export type InventoryFormType = {
+export type InventoryFormDTO = {
     id?: number
+    productId: number
+    productName: string
     minimum: number
     maximum: number
-    stock: number
     reorderPoints: number
     suggestion: string
 }
 
-export type InventoryFormResponseType = {
+export type InventoryForm = {
     id?: number
     minimo: number
+    productoId: number
+    productoNombre: string
     maximo: number
-    stock: number
     puntos_reorden: number
     sugerencia: string
 }

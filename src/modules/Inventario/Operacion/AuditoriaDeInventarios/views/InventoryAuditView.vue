@@ -4,8 +4,7 @@ import { useInventoryAuditActions } from '@inventario/Operacion/AuditoriaDeInven
 import useInventoryAuditStore from '@inventario/Operacion/AuditoriaDeInventarios/store/useInventoryAuditStore'
 import { useInventoryAuditTableHeaders } from '@inventario/Operacion/AuditoriaDeInventarios/composables/useInventoryAuditTableHeaders'
 import BaseTable from '@/shared/components/BaseTable.vue'
-import CreateButton from '@inventario/Operacion/AuditoriaDeInventarios/components/CreateButton.vue'
-import InventoryAuditModal from '@inventario/Operacion/AuditoriaDeInventarios/components/InventoryAuditModal.vue'
+import CreateInventoryAuditButton from '@inventario/Operacion/AuditoriaDeInventarios/components/CreateInventoryAuditButton.vue'
 
 const { getInventoryAuditSummary, getInventoryAuditRecords } = useInventoryAuditActions()
 const inventoryAuditStore = useInventoryAuditStore()
@@ -15,7 +14,7 @@ onMounted(async () => {
 })
 </script>
 <template>
-    <h2 class="text-center mb-10">Auditoría de inventarios</h2>
+    <h2 class="text-center mb-10">Auditorías de inventario</h2>
     <div class="secondary-cards-container grid grid-cols-12 gap-4 md:gap-6 mb-10">
         <div
             v-for="data in inventoryAuditStore.summary"
@@ -30,11 +29,10 @@ onMounted(async () => {
         </div>
     </div>
     <div class="mb-10 text-right">
-        <CreateButton />
+        <CreateInventoryAuditButton />
     </div>
     <BaseTable
         :headers="useInventoryAuditTableHeaders()"
         :fetch-callback="getInventoryAuditRecords"
     />
-    <InventoryAuditModal />
 </template>

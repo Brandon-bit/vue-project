@@ -8,21 +8,15 @@ import {
 } from '@/shared/validations/globalValidation'
 
 export const createUpdateInventoryAuditSchema = z.object({
-    date: dateValidator('El campo fecha es requerido'),
+    date: dateValidator('El campo fecha es requerido', true),
     auditorId: selectValidator('El campo auditor es requerido'),
-    product: stringValidator('El campo  producto es requerido', 'Mínimo 1 caracter', 1),
-    difference: numberValidator(
-        'El campo diferencia es requerido',
-        true,
-        'El campo diferencia es requerido'
-    ),
-    count: numberValidator('El campo conteo es requerido', true, 'El campo conteo es requerido'),
-    note: stringValidator('El campo nota es requerido', 'Mínimo 10 caracteres', 10)
+    stateId: selectValidator('El campo estado id es requerido'),
+    generalNote: optionalStringValidator('Mínimo 10 caracteres', 10)
 })
 
-export const addProductInventoryAuditSchema = z.object({
+export const createUpdateProductInventoryAuditSchema = z.object({
     productId: numberValidator('El campo producto Id es requerido'),
-    product: stringValidator('El campo  producto es requerido', 'Mínimo 1 caracter', 1),
+    productName: stringValidator('El campo  producto es requerido', 'Mínimo 1 caracter', 1),
     difference: numberValidator(
         'El campo diferencia es requerido',
         true,
@@ -40,3 +34,5 @@ export const addProductInventoryAuditSchema = z.object({
     ),
     note: optionalStringValidator('Mínimo 5 caracteres', 5).optional()
 })
+
+export const deleteProductSchema = z.object({})

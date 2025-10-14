@@ -4,7 +4,7 @@ import { computed, watch } from 'vue'
 import { useUnitActions } from '../composables/useUnitActions'
 import { useModalStore } from '@/shared/stores/modal.store'
 import useUnitStore from '../store/unit.store'
-import { UnitType } from '../types/unitType'
+import { UnitType } from '../types/unitTypes'
 import AddEditUnitForm from '../components/AddEditUnitForm.vue'
 import DeleteUnit from '../components/DeleteUnit.vue'
 import { useForm } from 'vee-validate'
@@ -24,11 +24,11 @@ const modalStore = useModalStore()
 const unitStore = useUnitStore()
 
 const initialValues : UnitType = {
-    name: unitStore.selectedUnit.name,
-    shortName: unitStore.selectedUnit.shortName,
-    productsCount: unitStore.selectedUnit.productsCount,
-    active: unitStore.selectedUnit.active,
-    creationDate:  unitStore.selectedUnit.creationDate
+    name: unitStore.selectedUnit?.name,
+    shortName: unitStore.selectedUnit?.shortName,
+    productsCount: unitStore.selectedUnit?.productsCount,
+    active: unitStore.selectedUnit?.active,
+    creationDate:  unitStore.selectedUnit?.creationDate
 }
 
 const modalMap = {

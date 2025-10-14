@@ -1,20 +1,11 @@
-import { getBrandsService } from "../services/brandServices"
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h  , withDirectives } from 'vue'
-import useBrandStore from "../store/brand.store"
+import useBrandStore from "../store/brandStore"
 import { useModalStore } from '@/shared/stores/modal.store'
 
-export const useBrand = () => {
+const useBrand = () => {
     const brandStore = useBrandStore()
     const modalStore = useModalStore()
-    
-    const getBrands = async () => {
-        try{
-            const response = await getBrandsService()
-            brandStore.brands = response
-        }
-        catch(error){}
-    }
 
     const getBrandsTableColumns = () : ColumnTableType[] => {
         const columns = [
@@ -58,7 +49,11 @@ export const useBrand = () => {
             },
             {
                 header: 'Fecha de Creación',
-                accessorKey: 'creationDate'
+                accessorKey: 'creationDate',
+                cell: ({ row }: any) => {
+                    const creationDate = new Date(row.original.creationDate)
+                    return h('p', {}, creationDate.toISOString().split("T")[0])
+                }
             },
             {
                 header: 'Estado',
@@ -129,8 +124,7 @@ export const useBrand = () => {
         return columns;
     }
 
-    return {
-        getBrands,
-        getBrandsTableColumns
-    }
+    return { getBrandsTableColumns }
 }
+
+export default useBrand

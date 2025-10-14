@@ -1,10 +1,6 @@
 import { z } from 'zod'
 
-export const selectValidator = (
-    message: string,
-    requiredMessage: string = message,
-    allowZero: boolean = false
-) =>
+export const selectValidator = (message: string, allowZero: boolean = false) =>
     z.preprocess(
         (val) => {
             if (val === '' || val === null || val === undefined) return undefined
@@ -12,8 +8,7 @@ export const selectValidator = (
         },
         z
             .number({
-                invalid_type_error: requiredMessage,
-                required_error: requiredMessage
+                invalid_type_error: message
             })
             .refine(
                 (val) => {
@@ -21,9 +16,7 @@ export const selectValidator = (
                     if (!allowZero && val === 0) return false
                     return true
                 },
-                {
-                    message
-                }
+                { message }
             )
     )
 
@@ -54,9 +47,16 @@ export const optionalStringValidator = (minMessage: string, minLength: number) =
         .optional()
 }
 
-export const dateValidator = (message: string) => {
+export const dateValidator = (message: string, required: boolean = false) => {
+    if (required) {
+        return z
+            .string({ required_error: message })
+            .min(1, message)
+            .refine((val) => /^\d{4}-\d{2}-\d{2}$/.test(val), { message })
+    }
+
     return z
-        .string({ required_error: message })
-        .min(1, { message })
-        .regex(/^\d{4}-\d{2}-\d{2}$/, { message })
+        .string()
+        .optional()
+        .refine((val) => !val || /^\d{4}-\d{2}-\d{2}$/.test(val), { message })
 }

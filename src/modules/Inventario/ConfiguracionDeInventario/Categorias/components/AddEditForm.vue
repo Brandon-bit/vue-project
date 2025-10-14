@@ -10,6 +10,6 @@ const categoryStore = useCategoryStore()
 <template>
     <BaseFormInput name="name" type="text" label="Categoría" :required="true" />
     <BaseFormInput name="slug" type="text" label="Slug" :required="true" />
-    <BaseFormSingleImageInput name="image" label="Imagen" :multiple="false" accept="image/png, image/jpeg" :image-url="categoryStore.selectedCategory.imageUrl" />
+    <BaseFormSingleImageInput name="image" label="Imagen" :multiple="false" accept="image/png, image/jpeg" :image-url="categoryStore.selectedCategory?.imageUrl" />
     <BaseFormCheckbox class="mt-4" name="status" label="Estado" />
 </template>

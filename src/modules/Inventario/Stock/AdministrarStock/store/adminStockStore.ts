@@ -1,13 +1,20 @@
 import { defineStore } from 'pinia'
-import { AdminStockType } from '@inventario/Stock/AdministrarStock/types/adminStockTypes'
+import { AdminStockType } from '@/modules/Inventario/Stock/AdministrarStock/types/adminStockType'
 
 const initialProduct: AdminStockType = {
-    id: undefined,
-    warehouse: '',
-    store: '',
-    product: '',
+    id: '',
+    idWarehouse: '',
+    idProduct: '',
+    idMovimiento: '',
     quantity: 0,
-    user: ''
+    unitCost: 0,
+    stockAnterior: 0,
+    stockResultante: 0,
+    idUser: '',
+    creationDate: new Date(),
+    updateDate: new Date(),
+    activo: '',
+    eliminado: ''
 }
 
 const useAdminStockType = defineStore('adminStock-store', {

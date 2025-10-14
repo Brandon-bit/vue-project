@@ -1701,49 +1701,59 @@
     ],
     "puntosMaximosMinimos": [
         {
+            "id": 1,
             "sku": "A123",
-            "nombre": "Teclado Mecánico",
             "minimo": 10,
             "maximo": 50,
             "stock": 8,
             "puntos_reorden": 15,
-            "sugerencia": "Reordenar urgentemente"
+            "sugerencia": "Reordenar urgentemente",
+            "productoId": 1,
+            "productoNombre": "Teclado Mecánico"
         },
         {
+            "id": 2,
             "sku": "B456",
-            "nombre": "Mouse Inalámbrico",
             "minimo": 20,
             "maximo": 100,
             "stock": 25,
             "puntos_reorden": 30,
-            "sugerencia": "Revisar pronto, cerca del punto de reorden"
+            "sugerencia": "Revisar pronto, cerca del punto de reorden",
+            "productoId": 2,
+            "productoNombre": "Mouse Inalámbrico"
         },
         {
+            "id": 3,
             "sku": "C789",
-            "nombre": "Monitor 24 pulgadas",
             "minimo": 5,
             "maximo": 20,
             "stock": 18,
             "puntos_reorden": 10,
-            "sugerencia": "Stock saludable"
+            "sugerencia": "Stock saludable",
+            "productoId": 3,
+            "productoNombre": "Monitor 24 pulgadas"
         },
         {
+            "id": 4,
             "sku": "D321",
-            "nombre": "Cable HDMI",
             "minimo": 50,
             "maximo": 200,
             "stock": 210,
             "puntos_reorden": 60,
-            "sugerencia": "Exceso de inventario"
+            "sugerencia": "Exceso de inventario",
+            "productoId": 4,
+            "productoNombre": "Cable HDMI"
         },
         {
+            "id": 5,
             "sku": "E654",
-            "nombre": "Webcam HD",
             "minimo": 15,
             "maximo": 60,
             "stock": 15,
             "puntos_reorden": 20,
-            "sugerencia": "Reordenar pronto"
+            "sugerencia": "Reordenar pronto",
+            "productoId": 5,
+            "productoNombre": "Webcam HD"
         }
     ],
     "controlPanelData": [
@@ -1780,57 +1790,97 @@
             "fecha": "2025-09-15",
             "auditorId": 1,
             "auditorNombre": "Laura Martínez",
-            "productoId": 1,
-            "producto": "Taladro inalámbrico",
-            "conteo": 25,
-            "diferencia": -2,
-            "nota": "Faltan unidades posiblemente por préstamo a taller."
+            "estadoId": 2,
+            "estado": "Finalizada",
+            "calificacion": 25,
+            "productosAuditados": 30,
+            "notaGeneral": "Faltan unidades posiblemente por préstamo a taller."
         },
         {
             "id": 2,
             "fecha": "2025-09-16",
             "auditorId": 2,
             "auditorNombre": "Carlos Ramírez",
-            "productoId": 2,
-            "producto": "Caja de tornillos 3mm",
-            "conteo": 120,
-            "diferencia": 0,
-            "nota": "Conteo correcto, sin diferencias."
+            "estadoId": 3,
+            "estado": "Ajustada",
+            "calificacion": 120,
+            "productosAuditados": 2,
+            "notaGeneral": "Conteo correcto, sin diferencias."
         },
         {
             "id": 3,
             "fecha": "2025-09-17",
             "auditorId": 3,
             "auditorNombre": "Ana Gómez",
-            "productoId": 3,
-            "producto": "Martillo de uña",
-            "conteo": 40,
-            "diferencia": 1,
-            "nota": "Una unidad extra, posible error en ingreso anterior."
+            "estadoId": 2,
+            "estado": "Finalizada",
+            "calificacion": 40,
+            "productosAuditados": 1,
+            "notaGeneral": "Una unidad extra, posible error en ingreso anterior."
         },
         {
             "id": 4,
             "fecha": "2025-09-18",
             "auditorId": 4,
             "auditorNombre": "José Torres",
-            "productoId": 4,
-            "producto": "Llave inglesa ajustable",
-            "conteo": 15,
-            "diferencia": -1,
-            "nota": "Se encontró una dañada y fue retirada del inventario."
+            "estadoId": 1,
+            "estado": "Borrador",
+            "calificacion": 15,
+            "productosAuditados": -1,
+            "notaGeneral": "Se encontró una dañada y fue retirada del inventario."
         },
         {
             "id": 5,
             "fecha": "2025-09-19",
             "auditorId": 5,
             "auditorNombre": "Sofía Delgado",
-            "productoId": 5,
-            "producto": "Cinta métrica 5m",
-            "conteo": 60,
-            "diferencia": 0,
-            "nota": "Sin novedades en este producto."
+            "estadoId": 4,
+            "estado": "Cancelada",
+            "calificacion": 60,
+            "productosAuditados": 5,
+            "notaGeneral": "Sin novedades en este producto."
         }
     ],
+    "inventoryAuditId": {
+        "id": 4,
+        "fecha": "2025-09-18",
+        "auditorId": 4,
+        "auditorNombre": "José Torres",
+        "estadoId": 1,
+        "estado": "Borrador",
+        "calificacion": 15,
+        "productosAuditados": -1,
+        "notaGeneral": "Se encontró una dañada y fue retirada del inventario.",
+        "productos": [
+            {
+                "id": 1,
+                "productoId": 5,
+                "productoNombre": "Mi producto 5",
+                "conteoReal": 20,
+                "conteoEsperado": 20,
+                "diferencia": 0,
+                "nota": "Aquí va una nota"
+            },
+            {
+                "id": 1,
+                "productoId": 6,
+                "productoNombre": "Mi producto 6",
+                "conteoReal": 50,
+                "conteoEsperado": 50,
+                "diferencia": 0,
+                "nota": "Aquí va una nota 2"
+            },
+            {
+                "id": 1,
+                "productoId": 7,
+                "productoNombre": "Mi producto 7",
+                "conteoReal": 5,
+                "conteoEsperado": 5,
+                "diferencia": 0,
+                "nota": "Aquí va una nota 3"
+            }
+        ]
+    },
     "inventoryAuditors": [
         {
             "id": 1,

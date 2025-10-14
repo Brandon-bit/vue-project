@@ -12,7 +12,6 @@ const initialCategory: CategoryType = {
 
 const useCategoryStore = defineStore('category-store', {
     state: () => ({
-        categories: [] as CategoryType[],
         selectedCategory: initialCategory as CategoryType,
         modalId: 'category-modal'
     }),

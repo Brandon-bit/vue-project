@@ -4,19 +4,19 @@ import { computed, watch } from 'vue'
 import { useForm } from 'vee-validate'
 import BaseModal from '@/shared/components/BaseModal.vue'
 import DeleteProduct from '@inventario/ConfiguracionDeInventario/Productos/components/DeleteProduct.vue'
-import { useProductsAction } from '@inventario/ConfiguracionDeInventario/Productos/composables/useProductsActions'
+import { useProductsActions } from '@inventario/ConfiguracionDeInventario/Productos/composables/useProductsActions'
 import { useModalStore } from '@/shared/stores/modal.store'
 import useProductsStore from '@inventario/ConfiguracionDeInventario/Productos/store/productsStore'
 import BulkUploadForm from '@inventario/ConfiguracionDeInventario/Productos/components/BulkUploadForm.vue'
 import { bulkProductSchema } from '@inventario/ConfiguracionDeInventario/Productos/validations/productsValidation'
 
-const { deleteProduct, uploadBulkProducts } = useProductsAction()
+const { deleteProduct, uploadBulkProducts } = useProductsActions()
 const modalStore = useModalStore()
 const productsStore = useProductsStore()
 
 const initialValues = {
-    archivo: productsStore.currentProduct?.archivo,
-    name: productsStore.currentProduct?.name
+    //archivo: productsStore.selectedProduct?.archivo,
+    name: productsStore.selectedProduct?.name
 }
 
 const { handleSubmit, isSubmitting, resetForm, setValues } = useForm({
@@ -26,12 +26,12 @@ const { handleSubmit, isSubmitting, resetForm, setValues } = useForm({
 })
 
 watch(
-    () => productsStore.currentProduct,
+    () => productsStore.selectedProduct,
     (product) => {
         if (product) {
             setValues({
                 name: product?.name,
-                archivo: product?.archivo
+                //archivo: product?.archivo
             })
         }
     },

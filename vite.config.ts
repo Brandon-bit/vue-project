@@ -39,7 +39,8 @@ export default defineConfig({
             '@perfil': path.resolve(__dirname, './src/navbar/Perfil'),
             '@escalaTuNegocio': path.resolve(__dirname, './src/navbar/EscalaTuNegocio'),
             //GLOBAL STORE
-            '@sharedstore': path.resolve(__dirname, './src/shared/stores')
+            '@sharedstore': path.resolve(__dirname, './src/shared/stores'),
+            '@rrhh': path.resolve(__dirname, './src/modules/RRHH')
         }
     }
 })

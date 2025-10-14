@@ -35,7 +35,8 @@
             "@perfil/*": ["src/navbar/Perfil/*"],
             "@escalaTuNegocio/*": ["src/navbar/EscalaTuNegocio/*"],
             //GLOBAL STORE
-            "@sharedstore/*": ["src/shared/stores/*"]
+            "@sharedstore/*": ["src/shared/stores/*"],
+            "@rrhh/*": ["src/modules/RRHH/*"],
         },
         "jsx": "preserve",
         "jsxImportSource": "vue"

@@ -1,22 +1,13 @@
-import { VariantAttributeValueType } from './../types/variantAttributeValueType';
-import { getVariantAttributesService } from '../services/variantAttributeServices';
+
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h  , withDirectives } from 'vue'
-import useVariantAttributeStore from '../store/variantAttribute.store'
+import useVariantAttributeStore from '../store/variantAttributeStore'
 import { useModalStore } from '@/shared/stores/modal.store'
 
 export const useVariantAttribute = () => {
     const variantAttributeStore = useVariantAttributeStore()
     const modalStore = useModalStore()
     
-    const getVariantAttributes = async () => {
-        try{
-            const response = await getVariantAttributesService()
-            variantAttributeStore.variantAttributes = response
-        }
-        catch(error){}
-    }
-
     const getVariantAttributesTableColumns = () : ColumnTableType[] => {
         const columns = [
             {
@@ -27,20 +18,24 @@ export const useVariantAttribute = () => {
                 header: 'Valores',
                 accessorKey: 'values',
                 cell: ({row} : any) => {
-                    const values : VariantAttributeValueType[] = row.original.values 
+                    const values : string[] = row.original.values 
 
                     return h(
                         'div',
                         { class: 'flex gap-1 flex-wrap' },
                         values.map(item =>
-                            h('span', { class: 'badge badge-sm badge-info' }, item.value)
+                            h('span', { class: 'badge badge-sm badge-info' }, item)
                         )
                     )
                 }
             },
             {
                 header: 'Fecha de Creación',
-                accessorKey: 'creationDate'
+                accessorKey: 'creationDate',
+                cell: ({ row }: any) => {
+                    const creationDate = new Date(row.original.creationDate)
+                    return h('p', {}, creationDate.toISOString().split("T")[0])
+                }
             },
             {
                 header: 'Estado',
@@ -112,7 +107,6 @@ export const useVariantAttribute = () => {
     }
 
     return {
-        getVariantAttributes,
         getVariantAttributesTableColumns
     }
 }

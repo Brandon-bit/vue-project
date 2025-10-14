@@ -29,3 +29,14 @@ export type productDetailType = {
     expiryOnDate: number
     images: []
 }
+
+export interface ProductTypeApi {
+  id: string;
+  nombre: string;
+  
+}
+
+export interface ProductSearchResponse {
+  productos: ProductTypeApi[]; // Coincide con la clave "productos"
+  TotalItems: number;
+}

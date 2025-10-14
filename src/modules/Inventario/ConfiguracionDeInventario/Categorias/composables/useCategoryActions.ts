@@ -17,10 +17,8 @@ export const useCategoryActions = () => {
     }
 
     const createCategory = async (data: CategoryFormType) : Promise<{ message : string, status : string , data : CategoryResponseType }> => {
-        console.log(data)
         const model = mapCategoryRequest(data)
         const response = await createCategoryService(model)
-        console.log(response)
         return {
             message: response.message,
             status: response.success ? "success" : "error",
@@ -29,7 +27,6 @@ export const useCategoryActions = () => {
     }
 
     const editCategory = async (data: CategoryFormType) : Promise<{ message : string, status : string , data : CategoryResponseType }> => {
-        console.log(data)
         const model = mapCategoryRequest(data)
         const id = categoryStore.selectedCategory.id ?? 0
         const response = await updateCategoryService(id, model)
@@ -43,7 +40,6 @@ export const useCategoryActions = () => {
     const deleteCategory = async () : Promise<{ message : string, status : string , data : CategoryResponseType }> => {
         let id = categoryStore.selectedCategory?.id
         if(id == undefined) id = 0
-        console.log(id)
         const response = await deleteCategoryService(id)
         return {
             message: response.message,

@@ -3,15 +3,20 @@
 import { computed, watch } from 'vue'
 import { useVariantAttributeActions } from '@inventario/ConfiguracionDeInventario/AtributosVariantes//composables/useVariantAttributeActions'
 import { useModalStore } from '@/shared/stores/modal.store'
-import useVariantAttributeStore from '@inventario/ConfiguracionDeInventario/AtributosVariantes//store/variantAttribute.store'
-import { VariantAttributeType } from '@inventario/ConfiguracionDeInventario/AtributosVariantes//types/variantAttributeType'
+import useVariantAttributeStore from '@/modules/Inventario/ConfiguracionDeInventario/AtributosVariantes/store/variantAttributeStore'
+import { VariantAttributeType } from '@inventario/ConfiguracionDeInventario/AtributosVariantes//types/variantAttributeTypes'
 import AddEditVariantAttributeForm from '@inventario/ConfiguracionDeInventario/AtributosVariantes//components/AddEditVariantAttributeForm.vue'
 import DeleteVariantAttribute from '@inventario/ConfiguracionDeInventario/AtributosVariantes//components/DeleteVariantAttribute.vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { createVariantAttributeSchema } from '@inventario/ConfiguracionDeInventario/AtributosVariantes//validations/variantAttributeValidation'
 import BaseModal from '@/shared/components/BaseModal.vue'
+import { showNotification } from '@/utils/toastNotifications'
 // #endregion
+
+const props = defineProps<{
+  onRefresh?: () => void
+}>()
 
 // #region Data
 const { createVariantAttribute, editVariantAttribute, deleteVariantAttribute } =
@@ -20,10 +25,10 @@ const modalStore = useModalStore()
 const variantAttributeStore = useVariantAttributeStore()
 
 const initialValues: VariantAttributeType = {
-    name: variantAttributeStore.selectedVariantAttribute.name,
-    values: variantAttributeStore.selectedVariantAttribute.values,
-    active: variantAttributeStore.selectedVariantAttribute.active,
-    creationDate: variantAttributeStore.selectedVariantAttribute.creationDate
+    name: variantAttributeStore.selectedVariantAttribute?.name,
+    values: variantAttributeStore.selectedVariantAttribute?.values,
+    active: variantAttributeStore.selectedVariantAttribute?.active,
+    creationDate: variantAttributeStore.selectedVariantAttribute?.creationDate
 }
 
 const modalMap = {
@@ -75,10 +80,10 @@ const onSubmit = handleSubmit(async (formValues) => {
     const modalType = modalStore.modals[variantAttributeStore.modalId].type
     const action = modalMap[modalType]?.action
     try {
-        const { message, status, data } = await action(formValues)
-        console.log(message)
-        console.log(status)
-        console.log(data)
+        const { message, status } = await action(formValues)
+        showNotification(message, status)
+        if(status == "success") props.onRefresh?.()
+        modalStore.close(variantAttributeStore.modalId)
     } catch (error) {
         console.error(error)
     }
