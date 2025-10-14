@@ -5,10 +5,10 @@ import type { adminRequestType } from '@inventario/Stock/AdministrarStock/types/
 import type { PagedResponseType } from '@/shared/types/pagedResponseType'
 
 export const getAdminStockService = async (page : number, pageSize: number) : Promise<ApiResponseType<PagedResponseType<adminResponseType>>> => {
-  const response = await axiosApiInstance.get('/Movimiento/kardex"', {
+  const response = await axiosApiInstance.get('Movimiento/kardex', {
     params: {
-      limit: page,
-      skip: pageSize
+      page: page,
+      pageSize: pageSize
     }
   })
   return response.data
