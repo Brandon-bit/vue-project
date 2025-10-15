@@ -28,6 +28,12 @@ const routes = [
         name: 'PolizasDeIngresos',
         component: () =>
             import('@contabilidad/PolizasDeIngresos/views/IncomePoliciesView.vue')
+    },
+    {
+        path: '/contabilidad/polizas-de-gastos',
+        name: 'PolizasDeGastos',
+        component: () =>
+            import('@contabilidad/PolizasDeGastos/views/ExpensePoliciesView.vue')
     }
 ]
 
