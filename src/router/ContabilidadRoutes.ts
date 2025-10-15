@@ -22,6 +22,12 @@ const routes = [
         name: 'PolizasDeDiario',
         component: () =>
             import('@contabilidad/PolizasDeDiario/views/JournalPoliciesView.vue')
+    },
+    {
+        path: '/contabilidad/polizas-de-ingresos',
+        name: 'PolizasDeIngresos',
+        component: () =>
+            import('@contabilidad/PolizasDeIngresos/views/IncomePoliciesView.vue')
     }
 ]
 

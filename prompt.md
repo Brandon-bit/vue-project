@@ -109,39 +109,41 @@ Sigue la misma linea que usa el proyecto para los modales. Si ves necesario crea
 mas componentes, sin ser excesivo, hazlo.
 
 ------------------------------------------------------------------------------------
-Crea un módulo completo de Activos Fijos en @modules/Contabilidad/ActivosFijos en Vue 3 + TypeScript con la siguiente estructura:
+Crea un módulo completo de Catalogo de Cuentas en @modules/Contabilidad/CatalogoDeCuentas en Vue 3 + TypeScript con la siguiente estructura:
 
-1. Basandote en el componente @src/react/ActivosFijos.tsx crea una vista de tabla (FixedAssetsView.vue) que:
-   - En lugar de la tabla que se muestra use BaseTable de shared components
-   - Tenga un botón "Agregar Activo" que abra el modal de crear.
-   - Cada fila tenga un botón "Ver" que abra el mismo modal pero en lugar de mostrar 
-   el formulario, solo muestre la informacion del activo.
+1. Basandote en el componente @src/react/CatalogoCuentas.tsx crea una vista de tabla (AccountsCatalogView.vue) que:
+   - En lugar de la tabla que se muestra crea una tabla con estilos similares al componente BaseTable de shared/components, no se usara ese componente como tal porque esta tabla no contiene paginacion, se mostraran todos los registros existentes respetando la funcion de acordion que tiene la tabla del componente de react
+   - Tenga un botón "Agregar Cuenta" que abra el modal de crear.
+   - Cada fila tenga un botón "Editar" que abra el mismo modal pero en lugar de mostrar 
+   el formulario, solo muestre la informacion del activo y un boton de "Eliminar" que abra un modal de confirmacion.
    - Muestre columnas de información principal.
 
-2. Crea una vista de formulario (CreateUpdateEmployeeView.vue) que:
-   - Solo muestre el formulario de @src/ejemplo/AltaEmpleados.jsx, sin cards adicionales ni títulos decorativos
+2. Crea una vista de formulario (CreateUpdateAccountView.vue) que:
+   - Solo muestre el formulario de @src/react/CatalogoCuentas.tsx, sin cards adicionales ni títulos decorativos
    - El formulario debe ocupar todo el espacio disponible
 
-3. Crea el componente FixedAssetForm.vue, este es el formulario que se usara en el modal:
-   - Toma los mismos inputs que ocupa el archivo @src/react/ActivosFijos.tsx.
+3. Crea el componente AccountForm.vue, este es el formulario que se usara en el modal:
+   - Toma los mismos inputs que ocupa el archivo @src/react/CatalogoCuentas.tsx.
    - En modo crear: formulario vacío
+   - En modo editar: cargar datos con getAccountById(id) y prellenar todos los campos
 
-4. Crea useFixedAssetsActions.ts con funciones simuladas (mock data):
-   - getFixedAssets(page, pageSize, name, area, estatus): retorna lista paginada de activos fijos, el name, area o estatus seran parametros por default los cuales seran por defecto un string vacio
-   - getFixedAssetById(id): retorna el activo fijo con datos ya predefinidos
-   - createFixedAsset(data): simula creación
+4. Crea useAccountCatalogActions.ts con funciones simuladas (mock data):
+   - getAccountsCatalog(): retorna lista de las cuentas en el catalogo
+   - getAccountById(id): retorna la cuenta con datos ya predefinidos
+   - createAccount(data): simula creación
+   - updateAccount(id, data): simula actualización
 
-5. Crea useFixedAssets.ts con:
-   - Configuración de columnas para BaseTable
+5. Crea useAccountCatalog.ts con:
+   - Configuración de columnas para la tabla
 
 6. Crea validaciones con Zod
 
-7. Crea mappingFixedAssetsData.ts:
-   - mapFixedAssetRequest(): convierte frontend (inglés) a backend (español)
-   - mapFixedAsset(): convierte backend a frontend
+7. Crea mappingAccountsCatalogData.ts:
+   - mapAccountRequest(): convierte frontend (inglés) a backend (español)
+   - mapAccount(): convierte backend a frontend
    - Crea mas si lo consideras correcto
 
-8. Define tipos en fixedAssetsTypes.ts:
+8. Define tipos en accountsCatalogTypes.ts:
 
 Toma como base el patrón de @inventario/ConfiguracionDeInventario/Productos/ProductosView.vue o @inventario/ConfiguracionDeInventario/Categorias/CategoriasView.vue  y usa componentes de @/shared/components/.
 El modal tomalo de @src/shared/components/BaseModal.vue
