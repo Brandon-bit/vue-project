@@ -14,6 +14,10 @@ import DefaultRoutes from './DefaultModuleRoutes'
 import ProyectosRoutes from './ProyectosRoutes'
 // Inventario Routes
 import InventarioRoutes from './InventarioRoutes'
+
+// Marketing Routes
+import MarketingRoutes from './MarketingRoutes'
+
 // POS Routes
 import PosRoutes from './POSRoutes'
 
@@ -30,6 +34,7 @@ const routes = [
             ...NavBarRoutes,
             ...ProyectosRoutes,
             ...InventarioRoutes,
+            ...MarketingRoutes,
             //...SalesRoute,
             ...PosRoutes
         ]

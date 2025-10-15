@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import useInventoryAuditStore from '@inventario/Operacion/AuditoriaDeInventarios/store/useInventoryAuditStore'
+//import useInventoryAuditStore from '@inventario/Operacion/AuditoriaDeInventarios/store/useInventoryAuditStore'
 import BaseTable from '@/shared/components/BaseTable.vue'
 import InventoryAuditModal from '@inventario/Operacion/AuditoriaDeInventarios/components/InventoryAuditModal.vue'
 import CreateOrderManagementButton from '@inventario/Operacion/GestionDePedidos/components/CreateOrderManagementButton.vue'
