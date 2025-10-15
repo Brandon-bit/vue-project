@@ -937,28 +937,6 @@ const modulos = ref([
                 ]
             }
         ]
-    },
-    {
-        icon: 'store',
-        name: 'Marketing',
-        sections: [
-            {
-                icon: '',
-                name: 'Marketing',
-                open: false,
-                views: [
-                    {
-                        url: '/marketing/dashboard',
-                        name: 'Dashboard'
-                    },
-                    {
-                        url: '/marketing/redes-sociales',
-                        name: 'Coordinador Redes Sociales'
-                    }
-                   
-                ]
-            }
-        ]
     }
 ])
 
