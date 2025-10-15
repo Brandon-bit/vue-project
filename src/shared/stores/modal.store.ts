@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-type ModalType = 'EDIT' | 'INFO' | 'DELETE' | 'STATUS' | 'CREATE' | 'LOAD' | 'UPDATE'
+type ModalType = 'EDIT' | 'INFO' | 'DELETE' | 'STATUS' | 'CREATE' | 'LOAD' | 'UPDATE' | 'DETAIL'
 
 interface ModalState {
     status: boolean
@@ -32,6 +32,16 @@ export const useModalStore = defineStore('modal', {
         },
         close(modalId: string) {
             this.modals[modalId].status = false
+        },
+        updateModal(modalId: string, options: ModalOptions) {
+            if (this.modals[modalId]) {
+                this.modals[modalId] = {
+                    ...this.modals[modalId],
+                    data: options?.data,
+                    title: options?.title,
+                    type: options?.type
+                }
+            }
         },
         toggle(modalId: string) {
             this.modals[modalId].status = !this.modals[modalId].status
