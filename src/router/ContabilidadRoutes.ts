@@ -46,6 +46,12 @@ const routes = [
         name: 'PolizasContables',
         component: () =>
             import('@contabilidad/PolizasContables/views/AccountingPoliciesView.vue')
+    },
+    {
+        path: '/contabilidad/operacion-de-movimientos',
+        name: 'OperacionDeMovimientos',
+        component: () =>
+            import('@contabilidad/OperacionDeMovimientos/views/AccountingMovementsView.vue')
     }
 ]
 
