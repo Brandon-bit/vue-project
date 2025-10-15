@@ -4,6 +4,12 @@ const routes = [
         name: 'Activos',
         component: () =>
             import('@contabilidad/ActivosFijos/views/FixedAssetsView.vue')
+    },
+    {
+        path: '/contabilidad/catalogo-de-cuentas',
+        name: 'CatalogoDeCuentas',
+        component: () =>
+            import('@contabilidad/CatalogoDeCuentas/views/AccountsCatalogView.vue')
     }
 ]
 
