@@ -34,6 +34,12 @@ const routes = [
         name: 'PolizasDeGastos',
         component: () =>
             import('@contabilidad/PolizasDeGastos/views/ExpensePoliciesView.vue')
+    },
+    {
+        path: '/contabilidad/depreciacion',
+        name: 'Depreciacion',
+        component: () =>
+            import('@contabilidad/Depreciacion/views/DepreciationView.vue')
     }
 ]
 
