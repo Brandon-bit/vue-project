@@ -20,7 +20,8 @@ import MarketingRoutes from './MarketingRoutes'
 
 // POS Routes
 import PosRoutes from './POSRoutes'
-
+// Contabilidad Routes
+import ContabilidadRoutes from './ContabilidadRoutes'
 import SalesRoute from './SalesRoute'
 
 const routes = [
@@ -34,6 +35,7 @@ const routes = [
             ...NavBarRoutes,
             ...ProyectosRoutes,
             ...InventarioRoutes,
+            ...ContabilidadRoutes,
             ...MarketingRoutes,
             //...SalesRoute,
             ...PosRoutes
