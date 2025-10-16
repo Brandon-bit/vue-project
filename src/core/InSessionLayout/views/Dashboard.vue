@@ -24,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-
   const dashboards = [
     {
       name: "Proyectos",
