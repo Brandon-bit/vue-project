@@ -16,6 +16,12 @@ const routes = [
         name: 'OrdenesDeCompra',
         component: () =>
             import('@compras/OrdenesDeCompra/views/PurchaseOrderView.vue')
+    },
+    {
+        path: '/compras/presupuestos',
+        name: 'Presupuestos',
+        component: () =>
+            import('@compras/Presupuestos/views/BudgetView.vue')
     }
 ]
 
