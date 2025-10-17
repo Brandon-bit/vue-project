@@ -10,7 +10,7 @@ import DashboardRecursosHumanos from '@/core/InSessionLayout/views/DashboardRecu
 
 const routes = [
     {
-        path: '/',
+        path: '',
         name: 'Dashboard',
         component: Dashboard
     },

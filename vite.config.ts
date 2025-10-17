@@ -17,6 +17,7 @@ export default defineConfig({
             '@core': path.resolve(__dirname, './src/core'),
             //MODULES
             '@defaultModule': path.resolve(__dirname, './src/modules/DefaultModule'),
+            '@contabilidad': path.resolve(__dirname, './src/modules/Contabilidad'),
             '@administracion': path.resolve(__dirname, './src/modules/administracion'),
             '@dashboard': path.resolve(__dirname, './src/modules/dashboard'),
             '@mantenimiento': path.resolve(__dirname, './src/modules/mantenimiento'),
