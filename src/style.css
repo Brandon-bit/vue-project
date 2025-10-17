@@ -77,9 +77,9 @@
     font-weight: 700;
     font-style: normal;
 }
-h2 {
+/* h2 {
     @apply text-3xl font-semibold mb-5;
-}
+} */
 
 .action-btn-table {
     padding: 0 !important;
