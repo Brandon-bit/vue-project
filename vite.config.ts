@@ -28,6 +28,7 @@ export default defineConfig({
             '@compras': path.resolve(__dirname, './src/modules/compras'),
             '@inventario': path.resolve(__dirname, './src/modules/inventario'),
             '@pos': path.resolve(__dirname, './src/modules/POS'),
+            '@facturacion': path.resolve(__dirname, './src/modules/facturacion'),
             //NAVBAR
             '@exportar': path.resolve(__dirname, './src/navbar/Exportar'),
             '@listaDePendientes': path.resolve(__dirname, './src/navbar/ListaDePendientes'),
