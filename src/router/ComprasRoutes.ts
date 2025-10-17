@@ -22,6 +22,12 @@ const routes = [
         name: 'Presupuestos',
         component: () =>
             import('@compras/Presupuestos/views/BudgetView.vue')
+    },
+    {
+        path: '/compras/proveedores',
+        name: 'Proveedores',
+        component: () =>
+            import('@compras/Proveedores/views/SupplierView.vue')
     }
 ]
 
