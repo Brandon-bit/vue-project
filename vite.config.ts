@@ -4,12 +4,12 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-
+import svgLoader from 'vite-svg-loader'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 export default defineConfig({
-    plugins: [vue(), tailwindcss(), vueJsx()],
+    plugins: [vue(), tailwindcss(), vueJsx(),svgLoader()],
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
@@ -28,6 +28,7 @@ export default defineConfig({
             '@compras': path.resolve(__dirname, './src/modules/compras'),
             '@inventario': path.resolve(__dirname, './src/modules/inventario'),
             '@pos': path.resolve(__dirname, './src/modules/POS'),
+            '@facturacion': path.resolve(__dirname, './src/modules/facturacion'),
             //NAVBAR
             '@exportar': path.resolve(__dirname, './src/navbar/Exportar'),
             '@listaDePendientes': path.resolve(__dirname, './src/navbar/ListaDePendientes'),

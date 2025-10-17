@@ -7,7 +7,7 @@ import AccountingPolicyModal from '@/modules/Contabilidad/PolizasContables/compo
 import useAccountingPolicies from '@/modules/Contabilidad/PolizasContables/composables/useAccountingPolicies'
 import useAccountingPoliciesStore from '@/modules/Contabilidad/PolizasContables/store/accountingPoliciesStore'
 import { useAccountingPoliciesActions } from '@/modules/Contabilidad/PolizasContables/composables/useAccountingPoliciesActions'
-
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 const { getTableColumns } = useAccountingPolicies()
 const { getAccountingPolicies } = useAccountingPoliciesActions()
 
@@ -25,13 +25,9 @@ const openCreateModal = () => {
 
 <template>
     <div class="space-y-6">
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-3xl font-bold">Pólizas Contables</h2>
-                <p class="text-gray-500 mt-1">
-                    Registro y gestión de movimientos contables
-                </p>
-            </div>
+        <BaseTitle title="Pólizas Contables" subtitle="Registro y gestión de movimientos contables" />
+
+        <div class="flex justify-end">
             <BaseButton text="Nueva Póliza" @click="openCreateModal" icon="add" />
         </div>
 

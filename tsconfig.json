@@ -23,6 +23,7 @@
             "@inversiones/*": ["src/modules/Inversiones/*"],
             "@inventario/*": ["src/modules/Inventario/*"],
             "@comercial/*": ["src/modules/Comercial/*"],
+            "@facturacion/*": ["src/modules/Facturacion/*"],
             "@compras/*": ["src/modules/Compras/*"],
             // NAVBAR
             "@exportar/*": ["src/navbar/Exportar/*"],

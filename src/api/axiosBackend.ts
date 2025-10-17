@@ -7,7 +7,6 @@ const axiosBackend = axios.create({
     }
 })
 
-// Interceptor de respuestas - Manejar errores de autenticación
 axiosBackend.interceptors.response.use(
     (response) => response,
     (error) => {
