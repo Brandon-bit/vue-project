@@ -28,6 +28,12 @@ const routes = [
         name: 'Proveedores',
         component: () =>
             import('@compras/Proveedores/views/SupplierView.vue')
+    },
+    {
+        path: '/compras/solicitudes-de-compra',
+        name: 'SolicitudesDeCompra',
+        component: () =>
+            import('@compras/SolicitudesDeCompra/views/PurchaseRequestView.vue')
     }
 ]
 
