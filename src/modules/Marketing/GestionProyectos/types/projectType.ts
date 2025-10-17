@@ -2,10 +2,17 @@ export type TaskPriority = "low" | "medium" | "high";
 export type TaskStatus = "todo" | "inprogress" | "review" | "done";
 
 export interface Task {
-  id: string;
-  title: string;
-  description: string;
-  assignee: string;
-  priority: TaskPriority;
-  status: TaskStatus;
+  id: string;
+  title: string;
+  description: string;
+  assignee: string;
+  priority: TaskPriority;
+  status: TaskStatus;
+}
+
+export interface TaskFormType {
+  title: string;
+  description: string;
+  assignee: string;
+  priority: TaskPriority;
 }

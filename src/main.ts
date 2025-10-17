@@ -17,11 +17,20 @@ import 'floating-vue/dist/style.css'
 import { useThemeStore } from './store/theme'
 import { nextTick } from 'vue'
 
+import { setupCalendar, Calendar, DatePicker } from 'v-calendar';
+import 'v-calendar/style.css'
+
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.use(Toast)
 app.use(FloatingVue)
+
+// //calendar
+// app.component('VCalendar', Calendar)
+
+app.component('VDatePicker', DatePicker)
+
 const themeStore = useThemeStore()
 themeStore.loadTheme()
 app.mount('#app')

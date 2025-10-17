@@ -3,4 +3,5 @@ export type PagedResponseType<T> = {
     totalItems: number,
     page: number,
     pageSize: number
+    length: number
 }

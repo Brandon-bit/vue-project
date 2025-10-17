@@ -15,12 +15,14 @@
         "create-module": "node create-folder.js"
     },
     "dependencies": {
+        "@popperjs/core": "^2.11.8",
         "@tailwindcss/vite": "4.1.11",
         "@tanstack/vue-table": "8.21.3",
         "@vee-validate/zod": "4.15.1",
         "apexcharts": "^5.3.5",
         "axios": "1.11.0",
         "daisyui": "5.0.50",
+        "date-fns": "^2.30.0",
         "echarts": "^6.0.0",
         "floating-vue": "5.2.2",
         "json-server": "^1.0.0-beta.3",
