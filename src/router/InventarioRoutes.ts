@@ -244,36 +244,6 @@ const routes = [
         path: '/traslados/editar/:id',
         name: 'Editar Traslado',
         component: () => import('@inventario/Stock/TransferenciaStock/views/CreateTransferView.vue')
-    },
-    {
-        path: '/rrhh/empresas',
-        name: 'Empresas',
-        component: () => import('@rrhh/AltaEmpresas/views/CompaniesListView.vue')
-    },
-    {
-        path: '/rrhh/empresas/crear',
-        name: 'Crear empresa',
-        component: () => import('@rrhh/AltaEmpresas/views/CreateUpdateCompanyView.vue')
-    },
-    {
-        path: '/rrhh/empresas/editar/:id',
-        name: 'Actualizar empresa',
-        component: () => import('@rrhh/AltaEmpresas/views/CreateUpdateCompanyView.vue')
-    },
-    {
-        path: '/rrhh/empleados',
-        name: 'Empleados',
-        component: () => import('@/modules/RRHH/AltaEmpleados/views/EmployeesListView.vue')
-    },
-    {
-        path: '/rrhh/empleados/crear',
-        name: 'Crear empleado',
-        component: () => import('@/modules/RRHH/AltaEmpleados/views/CreateUpdateEmployeeView.vue')
-    },
-    {
-        path: '/rrhh/empleados/editar/:id',
-        name: 'Actualizar empleado',
-        component: () => import('@/modules/RRHH/AltaEmpleados/views/CreateUpdateEmployeeView.vue')
     }
 ]
 

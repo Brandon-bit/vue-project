@@ -3,10 +3,10 @@ import { useRoute } from 'vue-router'
 import { onMounted, ref, computed, watch } from 'vue'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { useField } from 'vee-validate'
 import BaseFormInput from '@/shared/components/BaseFormInput.vue'
 import BaseFormSelect from '@/shared/components/BaseFormSelect.vue'
 import BaseTextArea from '@/shared/components/BaseTextArea.vue'
+import BaseFormActionButtons from '@/shared/components/BaseFormActionButtons.vue'
 import useInventoryWithdrawalsStore from '@inventario/Operacion/SalidasDeInventario/store/useInventoryWithdrawalsStore'
 import { useInventoryWithdrawalsActions } from '@inventario/Operacion/SalidasDeInventario/composables/useInventoryWithdrawalsActions'
 import { createUpdateInventoryWithdrawalSchema } from '@inventario/Operacion/SalidasDeInventario/validations/inventoryWithdrawalsSchema'
@@ -174,25 +174,14 @@ const onSubmit = handleSubmit(async (formValues) => {
                 <div class="col-span-12">
                     <ProductList />
                 </div>
-                <div class="col-span-12 grid grid-cols-12 justify-end gap-4 mt-10">
-                    <router-link
-                        to="/inventario/operacion/salidas-de-inventario"
-                        class="btn col-span-6"
-                        @click="() => inventoryWithdrawalsStore.clearAddedProducts()"
-                    >
-                        <button>Regresar</button>
-                    </router-link>
-                    <button
-                        type="submit"
-                        class="btn btn-primary col-span-6"
-                        :disabled="isSubmitting"
-                    >
-                        <template v-if="isSubmitting">
-                            <span class="loading loading-spinner"></span>
-                            Procesando...
-                        </template>
-                        <template v-else> Aceptar </template>
-                    </button>
+                <div class="col-span-12">
+                    <BaseFormActionButtons
+                        :is-submitting="isSubmitting"
+                        :is-edit-mode="isEditMode"
+                        submit-text="salida de inventario"
+                        cancel-text="Regresar"
+                        :on-cancel="() => { inventoryWithdrawalsStore.clearAddedProducts(); $router.push('/inventario/operacion/salidas-de-inventario'); }"
+                    />
                 </div>
             </div>
         </form>
