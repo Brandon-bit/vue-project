@@ -1,80 +1,76 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
 
 import BaseFormInput from '@/shared/components/BaseFormInput.vue'
-import BaseFormSelect from '@/shared/components/BaseFormSelect.vue';
+import BaseFormSelect from '@/shared/components/BaseFormSelect.vue'
+import BaseFormSelectFilter from '@/shared/components/BaseFormSelectFilter.vue'
+
 import { WarehouseType } from '../Types/transferStock'
 import { getListWarehouse } from '../services/transferStockServices'
-import { getProductDetailService } from '@/modules/Inventario/ConfiguracionDeInventario/Producto/services/productService';
 import useTransferStore from '@/modules/Inventario/Stock/TransferenciaStock/store/transferStore'
-import BaseFormSelectFilter from '@/shared/components/BaseFormSelectFilter.vue';
 
-
+// --- Store y variables reactivas ---
 const transferStock = useTransferStore()
-const warehouseOptions = ref<{ id: string; label: string; }[]>([])
+const warehouseOptions = ref<{ id: string | number; label: string }[]>([])
 
+// --- Ciclo de vida ---
 onMounted(async () => {
-  console.log("El modal se ha montado. Obteniendo lista de almacenes...");
+  console.log("El modal se ha montado. Obteniendo lista de almacenes...")
+
   try {
-   
-    const warehousesFromApi = await getListWarehouse();
-    
-    
-    warehouseOptions.value = warehousesFromApi.map((warehouse: WarehouseType) => ({
+    // Llamas a la API con los parámetros requeridos
+    const warehousesFromApi = await getListWarehouse(1, 100)
+
+    // Accedes correctamente al arreglo de almacenes
+    const warehouseList =
+      warehousesFromApi.data?.items ??
+      warehousesFromApi.data ??
+      []
+
+    // Mapeas el resultado al formato que usa tu <BaseFormSelect>
+    warehouseOptions.value = warehouseList.map((warehouse: WarehouseType) => ({
       id: warehouse.id,
-      label: warehouse.nombre 
-    }));
+      label: warehouse.nombre
+    }))
 
+    console.log("Almacenes cargados:", warehouseOptions.value)
   } catch (error) {
-    console.error("Error al cargar los almacenes:", error);
+    console.error("Error al cargar los almacenes:", error)
   }
-});
-
-
-    
-        
-    
-
+})
 </script>
 
 <template>
+  <BaseFormSelect
+    name="idWarehouseOrigin"
+    label="Almacén de origen"
+    :options="warehouseOptions"
+    required
+  />
 
-        
-      
+  <BaseFormSelect
+    name="idWarehouseDestination"
+    label="Almacén de destino"
+    :options="warehouseOptions"
+    required
+  />
 
-                <BaseFormSelect
-            name="idWarehouseOrigin"
-            label="Almacén de origen"
-            :options="warehouseOptions"
-            required
-            />
+  <BaseFormInput
+    name="driver"
+    label="Persona responsable"
+    required
+  />
 
-                <BaseFormSelect
-            name="idWarehouseDestination"
-            label="Almacén de Destino"
-            :options="warehouseOptions"
-            required
-            />
+  <BaseFormInput
+    name="remarks"
+    label="Notas"
+    required
+  />
 
-            <BaseFormInput
-            name="driver"
-            label="persona responsable"
-            required
-            />
-            <BaseFormInput
-            name="remarks"
-            label="Notas"
-            required
-            />
-
-            <BaseFormSelectFilter
-      name="idProducto"  label="Producto"
-      placeholder="Busca por nombre de producto..."
-      required
-    />
-      
-
-
-
-
-    </template>
+  <BaseFormSelectFilter
+    name="idProducto"
+    label="Producto"
+    placeholder="Busca por nombre de producto..."
+    required
+  />
+</template>
