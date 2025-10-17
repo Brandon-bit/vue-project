@@ -10,6 +10,12 @@ const routes = [
         name: 'EvaluacionDeProveedores',
         component: () =>
             import('@compras/EvaluacionDeProveedores/views/SupplierEvaluationView.vue')
+    },
+    {
+        path: '/compras/ordenes-de-compra',
+        name: 'OrdenesDeCompra',
+        component: () =>
+            import('@compras/OrdenesDeCompra/views/PurchaseOrderView.vue')
     }
 ]
 
