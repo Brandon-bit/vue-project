@@ -10,6 +10,12 @@ const routes = [
         name: 'ConstanciasDeRetencion',
         component: () =>
             import('@facturacion/ConstanciasDeRetencion/views/RetencionView.vue')
+    },
+    {
+        path: '/facturacion/generacion-de-cfdi',
+        name: 'GeneracionDeCFDI',
+        component: () =>
+            import('@facturacion/GeneracionDeCFDI/views/CFDIView.vue')
     }
 ]
 
