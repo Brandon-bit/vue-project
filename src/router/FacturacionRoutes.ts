@@ -16,6 +16,12 @@ const routes = [
         name: 'GeneracionDeCFDI',
         component: () =>
             import('@facturacion/GeneracionDeCFDI/views/CFDIView.vue')
+    },
+    {
+        path: '/facturacion/matriz-de-facturas',
+        name: 'MatrizDeFacturas',
+        component: () =>
+            import('@facturacion/MatrizDeFacturas/views/MatrizView.vue')
     }
 ]
 
