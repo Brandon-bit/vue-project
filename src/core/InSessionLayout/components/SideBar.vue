@@ -6,7 +6,12 @@
         >
             <router-link to="/">
                 <img v-show="showSidebar && showLogo" :src="logotipo" alt="Logo" class="h-auto" />
-                <img v-show="!showSidebar && showLogo" :src="isotipo" alt="Logo" class="h-auto" />
+                <img
+                    v-show="!showSidebar && showLogo"
+                    :src="isotipo"
+                    alt="Logo"
+                    class="h-auto mobile-image-brand"
+                />
             </router-link>
         </div>
 
@@ -23,7 +28,7 @@
             <!-- Modules -->
             <div v-for="m in modulos" class="text-white mb-6">
                 <div v-if="m.name != ''" class="flex items-center gap-2 opacity-50 text-xs px-4">
-                    <span class="material-symbols-outlined text-white" style="font-size: 35px;">
+                    <span class="material-symbols-outlined text-white" style="font-size: 35px">
                         {{ m.icon }}
                     </span>
                     <p>{{ m.name.toUpperCase() }}</p>
@@ -56,8 +61,12 @@
         <div v-else class="flex-1 overflow-y-auto">
             <!-- Dashboard -->
             <router-link to="/" class="flex justify-center items-center gap-2 m-4">
-                <div role="button" class="btn hover:bg-gray-200/10 btn-ghost btn-sm p-2" v-tooltip.right="'Dashboard'">
-                    <span class="material-symbols-outlined text-white" style="font-size: 26px;">
+                <div
+                    role="button"
+                    class="btn hover:bg-gray-200/10 btn-ghost btn-sm p-2"
+                    v-tooltip.right="'Dashboard'"
+                >
+                    <span class="material-symbols-outlined text-white" style="font-size: 26px">
                         speed
                     </span>
                 </div>
@@ -75,7 +84,7 @@
                         :style="{ 'anchor-name': `--anchor-${ix}` }"
                         v-tooltip.right="m.name"
                     >
-                        <span class="material-symbols-outlined text-white" style="font-size: 26px;">
+                        <span class="material-symbols-outlined text-white" style="font-size: 26px">
                             {{ m.icon }}
                         </span>
                     </button>
@@ -93,8 +102,11 @@
                             >
                                 {{ s.name }}
                             </button>
-                            <ul class="dropdown dropdown-right dropdown-start menu rounded-box bg-[var(--gray)] shadow-sm ml-3"
-                                popover :id="`popover-${ix}-${jx}`" :style="{'positionAnchor': `--anchor-${ix}-${jx}`}"
+                            <ul
+                                class="dropdown dropdown-right dropdown-start menu rounded-box bg-[var(--gray)] shadow-sm ml-3"
+                                popover
+                                :id="`popover-${ix}-${jx}`"
+                                :style="{ positionAnchor: `--anchor-${ix}-${jx}` }"
                             >
                                 <li
                                     class="hover:bg-gray-200/10 rounded cursor-pointer"
@@ -114,12 +126,18 @@
 </template>
 
 <script setup>
-    import logotipo from '@/assets/images/logotipo.png'
-    import isotipo from '@/assets/icons/favicon.ico'
-    import { ref, inject, nextTick, onMounted } from 'vue'
+import logotipo from '@/assets/images/logotipo.png'
+import isotipo from '@/assets/icons/favicon.ico'
+import { ref, inject, nextTick, onMounted } from 'vue'
 
-    const modulos = inject('modulos')
-    const isSmallScreen = inject('isSmallScreen')
-    const showSidebar = inject('showSidebar')
-    const showLogo = inject('showLogo')
+const modulos = inject('modulos')
+const isSmallScreen = inject('isSmallScreen')
+const showSidebar = inject('showSidebar')
+const showLogo = inject('showLogo')
 </script>
+
+<style scoped>
+.mobile-image-brand {
+    max-width: 30px;
+}
+</style>

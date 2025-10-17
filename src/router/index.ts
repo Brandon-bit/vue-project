@@ -24,6 +24,10 @@ import PosRoutes from './POSRoutes'
 import ContabilidadRoutes from './ContabilidadRoutes'
 import SalesRoute from './SalesRoute'
 
+import RRHHRoutes from './RRHHRoutes'
+
+import NominaRoutes from './NominaRoutes'
+
 const routes = [
     {
         path: '/',
@@ -38,7 +42,9 @@ const routes = [
             ...ContabilidadRoutes,
             ...MarketingRoutes,
             //...SalesRoute,
-            ...PosRoutes
+            ...PosRoutes,
+            ...RRHHRoutes,
+            ...NominaRoutes
         ]
     },
     {

@@ -3,7 +3,7 @@
         <div
             :class="[
                 'transition-all duration-300',
-                isSmallScreen ? 'w-0' : showSidebar ? 'w-64' : 'w-13'
+                isSmallScreen ? 'w-0' : showSidebar ? 'w-64' : 'w-18'
             ]"
         >
             <component :is="isSmallScreen ? Drawer : Sidebar" />
@@ -38,7 +38,8 @@ const showLogo = ref(true)
 const isSmallScreen = ref(false)
 
 const modulos = ref([
-    { // Inicio
+    {
+        // Inicio
         icon: 'home',
         name: 'Inicio',
         sections: [
@@ -70,7 +71,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Proyectos
+    {
+        // Proyectos
         icon: 'send_time_extension',
         name: 'Proyectos',
         sections: [
@@ -197,10 +199,11 @@ const modulos = ref([
                         name: 'Generación y Gestión de Exámenes'
                     }
                 ]
-            },
+            }
         ]
     },
-    { // Procesos
+    {
+        // Procesos
         icon: 'send_time_extension',
         name: 'Procesos',
         sections: [
@@ -240,7 +243,7 @@ const modulos = ref([
                     {
                         url: '/procesos/procesos-de-negocio/tiempos-y-movimientos',
                         name: 'Tiempos y Movimientos'
-                    },
+                    }
                 ]
             },
             {
@@ -279,7 +282,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Inversiones
+    {
+        // Inversiones
         icon: 'finance_mode',
         name: 'Inversiones',
         sections: [
@@ -312,7 +316,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Créditos
+    {
+        // Créditos
         icon: 'credit_card',
         name: 'Créditos',
         sections: [
@@ -345,7 +350,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Contabilidad
+    {
+        // Contabilidad
         icon: 'import_contacts',
         name: 'Contabilidad',
         sections: [
@@ -394,7 +400,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Fiscal
+    {
+        // Fiscal
         icon: 'contract_edit',
         name: 'Fiscal',
         sections: [
@@ -427,7 +434,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Facturacion
+    {
+        // Facturacion
         icon: 'request_page',
         name: 'Facturación',
         sections: [
@@ -456,7 +464,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Tesoreria
+    {
+        // Tesoreria
         icon: 'request_page',
         name: 'Tesorería',
         sections: [
@@ -493,7 +502,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Nomina
+    {
+        // Nomina
         icon: 'attach_money',
         name: 'Nomina',
         sections: [
@@ -503,26 +513,19 @@ const modulos = ref([
                 open: false,
                 views: [
                     {
-                        url: '/nomina/matriz-de-nomina',
-                        name: 'Matriz de Nomina'
+                        url: '/nomina/conceptos-nomina',
+                        name: 'Conceptos Nomina'
                     },
                     {
-                        url: '/nomina/incidencias',
-                        name: 'Incidencias'
-                    },
-                    {
-                        url: '/nomina/altas-de-personal',
-                        name: 'Altas de Personal'
-                    },
-                    {
-                        url: '/nomina/bajas-de-personal',
-                        name: 'Bajas de Personal'
+                        url: '/nomina/periodos-nomina',
+                        name: 'Periodos Nomina'
                     }
                 ]
             }
         ]
     },
-    { // Compras    
+    {
+        // Compras
         icon: 'shopping_cart',
         name: 'Compras',
         sections: [
@@ -559,7 +562,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Mesa de control
+    {
+        // Mesa de control
         icon: 'bar_chart',
         name: 'Mesa de Control',
         sections: [
@@ -576,7 +580,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Inventarios
+    {
+        // Inventarios
         icon: 'inventory_2',
         name: 'Inventarios',
         sections: [
@@ -706,8 +711,9 @@ const modulos = ref([
             }
         ]
     },
-    { // POS
-        
+    {
+        // POS
+
         icon: 'point_of_sale',
         name: 'POS',
         sections: [
@@ -724,7 +730,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Recursos Humanos
+    {
+        // Recursos Humanos
         icon: 'diversity_3',
         name: 'Recursos Humanos',
         sections: [
@@ -741,28 +748,32 @@ const modulos = ref([
                         url: '/rrhh/empleados',
                         name: 'Empleados'
                     },
+                    // {
+                    //     url: '/rrhh/organigrama',
+                    //     name: 'Organigrama'
+                    // },
                     {
-                        url: '/rrhh/organigrama',
-                        name: 'Organigrama'
-                    },
-                    {
-                        url: '/rrhh/solicitud-de-vacaciones',
-                        name: 'Solicitud de Vacaciones'
+                        url: '/rrhh/vacaciones',
+                        name: 'Gestión de vacaciones'
                     },
                     {
                         url: '/rrhh/dashboard-de-vacaciones',
-                        name: 'Dashboard de Vacaciones'
+                        name: 'Dashboard de vacaciones'
                     },
                     {
-                        url: '/rrhh/comunicados-organizacionales',
-                        name: 'Comunicados Organizacionales'
+                        url: '/rrhh/comunicaciones-organizacionales',
+                        name: 'Comunicaciones Organizacionales'
+                    },
+                    {
+                        url: '/rrhh/departamentos',
+                        name: 'Departamentos'
                     }
-
                 ]
             }
         ]
     },
-    { // Administración
+    {
+        // Administración
         icon: 'diversity_3',
         name: 'Administración',
         sections: [
@@ -803,7 +814,8 @@ const modulos = ref([
             }
         ]
     },
-    { // Marketing
+    {
+        // Marketing
         icon: 'campaign',
         name: 'Marketing',
         sections: [
@@ -843,12 +855,13 @@ const modulos = ref([
                     {
                         url: '/marketing/gestion-de-proyectos',
                         name: 'Gestión de Proyectos'
-                    },
+                    }
                 ]
             }
         ]
     },
-    { // Ventas
+    {
+        // Ventas
         icon: 'shopping_cart',
         name: 'Ventas',
         sections: [
@@ -888,12 +901,13 @@ const modulos = ref([
                     {
                         url: '/ventas/clientes-crm-360',
                         name: 'Clientes CRM 360'
-                    },
+                    }
                 ]
             }
         ]
     },
-    { // Planeacion estrategica
+    {
+        // Planeacion estrategica
         icon: 'nest_thermostat_gen_3',
         name: 'Planeación Estrategica',
         sections: [
@@ -933,7 +947,7 @@ const modulos = ref([
                     {
                         url: '/planeacion-estrategica/evaluacion-estrategica',
                         name: 'Evaluación Estratégica'
-                    },
+                    }
                 ]
             }
         ]
