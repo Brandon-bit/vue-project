@@ -18,3 +18,4 @@ const props = defineProps<{
         <span class="material-symbols-outlined"> {{ props.icon }} </span>
     </button>
 </template>
+
