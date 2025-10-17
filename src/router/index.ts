@@ -25,6 +25,7 @@ import ContabilidadRoutes from './ContabilidadRoutes'
 // Compras Routes
 import ComprasRoutes from './ComprasRoutes'
 import SalesRoute from './SalesRoute'
+import FacturacionRoutes from './FacturacionRoutes'
 
 const routes = [
     {
@@ -40,6 +41,7 @@ const routes = [
             ...ContabilidadRoutes,
             ...MarketingRoutes,
             ...ComprasRoutes,
+            ...FacturacionRoutes,
             //...SalesRoute,
             ...PosRoutes
         ]
