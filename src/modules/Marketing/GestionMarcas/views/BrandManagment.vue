@@ -17,6 +17,7 @@ import TwitterIcon from '@/assets/icons/icons8-x.svg';
 import LinkedinIcon from '@/assets/icons/icons8-linkedin.svg';
 import YoutubeIcon from '@/assets/icons/icons8-youtube.svg';
 import TiktokIcon from '@/assets/icons/icons8-tiktok.svg';
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 
 // --- Tipos de Datos (MODIFICADOS para reflejar la API de Ayrshare) ---
 
@@ -143,13 +144,9 @@ const socialIcons: Record<string, any> = {
 
 <template>
   <div class="p-6 space-y-6">
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold">Gestión de Marcas</h1>
-        <p class="text-gray-500 mt-2">
-          Configura y administra las marcas que gestionarás en el módulo de Marketing
-        </p>
-      </div>
+    <BaseTitle title="Gestión de Marcas" subtitle="Configura y administra las marcas que gestionarás en el módulo de Marketing" />
+
+    <div class="flex justify-end items-center">
       <button class="btn btn-primary" @click="openModal">
         <Plus class="mr-2 h-4 w-4" />
         Nueva Marca

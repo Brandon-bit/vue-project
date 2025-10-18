@@ -7,6 +7,7 @@ import { useModalStore } from '@/shared/stores/modal.store';
 import { useMediaAssetActions } from '../composables/useMediaAssetActions';
 import type { AssetType, AssetFormType, MediaType } from '../types/mediaAssetType';
 import BaseModal from '@/shared/components/BaseModal.vue';
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 import UploadAssetForm from '../components/bankForm.vue';
 
 const mediaAssetStore = useMediaAssetStore();
@@ -96,11 +97,9 @@ const formatDate = (dateString: string) => {
 
 <template>
   <div class="p-6 space-y-6">
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold">Banco de Medios</h1>
-        <p class="text-gray-500 mt-2">Gestiona y organiza todos tus activos</p>
-      </div>
+    <BaseTitle title="Banco de Medios" subtitle="Gestiona y organiza todos tus activos" />
+    
+    <div class="flex justify-end items-center">
       <button class="btn btn-primary" @click="openUploadModal">
         <Plus class="mr-2 h-4 w-4" />
         Subir Archivo

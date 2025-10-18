@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue';
 // Importa los iconos
 import { Plus, Mail, Users, BarChart, Send } from 'lucide-vue-next';
-
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 // --- Tipos de Datos (Definidos aquí para la simulación) ---
 interface Campaign {
   id: string;
@@ -72,13 +72,9 @@ const clickThroughRate = computed(() => {
 <template>
   <div class="p-6 space-y-6">
     <!-- Encabezado de la Página -->
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold">E-mailing</h1>
-        <p class="text-gray-500 mt-2">
-          Gestiona campañas de email marketing y audiencias
-        </p>
-      </div>
+    <BaseTitle title="E-mailing" subtitle="Gestiona campañas de email marketing y audiencias" />
+    
+    <div class="flex justify-end items-center">
       <button class="btn btn-primary">
         <Plus class="mr-2 h-4 w-4" />
         Nueva Campaña

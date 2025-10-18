@@ -10,7 +10,7 @@ import BaseModal from '@/shared/components/BaseModal.vue';
 import AddEditSocialPostForm from '../components/socialPostForm.vue'; 
 import BaseCalendar from '@/shared/components/BaseCalendar.vue';
 import type { SocialPost } from '../types/socialPostTypes';
-
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 
 const socialStore = useSocialStore();
 const modalStore = useModalStore();
@@ -93,13 +93,9 @@ const formatDate = (dateString: string) => {
 
 <template>
   <div class="p-6 space-y-6">
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold">Coordinador de Redes Sociales</h1>
-        <p class="text-muted-foreground mt-2">
-          Planifica, programa y gestiona publicaciones en todas tus redes sociales.
-        </p>
-      </div>
+    <BaseTitle title="Coordinador de Redes Sociales" subtitle="Planifica, programa y gestiona publicaciones en todas tus redes sociales." />
+    
+    <div class="flex justify-end items-center">
       <button class="btn btn-primary" @click="openCreateModal">
         <span class="material-symbols-outlined">add</span>
         Nueva Publicación

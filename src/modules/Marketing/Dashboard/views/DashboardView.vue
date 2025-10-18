@@ -5,6 +5,7 @@ import DonutChart from '../components/charts/donutChart.vue';
 import LineChart from '../components/charts/lineChart.vue';
 import { getMarketingData, getBrands } from '../services/marketingServices';
 import type { Brand } from '../types/marketingTypes'; // Asegúrate que la importación del tipo Brand sea correcta
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 
 // --- ESTADO ---
 const brands = ref<Brand[]>([]);
@@ -76,16 +77,9 @@ onMounted(async () => {
 
 <template>
   <div class="p-6 space-y-6">
-    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
-      <div>
-        <h1 class="text-3xl font-bold">
-          {{ selectedBrand?.name || 'Marketing' }} Dashboard
-        </h1>
-        <p class="text-muted-foreground mt-2">
-          Monitorea el rendimiento de todas tus iniciativas de marketing.
-        </p>
-      </div>
+    <BaseTitle title="Dashboard" subtitle="Monitorea el rendimiento de todas tus iniciativas de marketing." />
 
+    <div class="flex flex-col sm:flex-row justify-end sm:items-center gap-4">
       <div class="w-full sm:w-64">
         <div v-if="isLoadingBrands" class="text-sm text-gray-500">
           Cargando marcas...

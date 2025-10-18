@@ -9,6 +9,7 @@ import BaseTextArea from '@/shared/components/BaseTextArea.vue';
 import { useModalStore } from '@/shared/stores/modal.store';
 // Importa los iconos
 import { Plus, Target, Calendar, DollarSign } from 'lucide-vue-next';
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 
 // --- Tipos de Datos (Definidos aquí para la simulación) ---
 type CampaignStatus = "planning" | "active" | "completed";
@@ -99,13 +100,9 @@ const totalBudget = computed(() => campaigns.value.reduce((sum, c) => sum + c.bu
 
 <template>
   <div class="p-6 space-y-6">
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold">Estrategia de Campañas</h1>
-        <p class="text-gray-500 mt-2">
-          Planifica y gestiona tus campañas de marketing estratégicas
-        </p>
-      </div>
+    <BaseTitle title="Estrategia de Campañas" subtitle="Planifica y gestiona tus campañas de marketing estratégicas" />
+    
+    <div class="flex justify-end items-center">
       <button class="btn btn-primary" @click="openModal">
         <Plus class="mr-2 h-4 w-4" />
         Nueva Campaña

@@ -7,6 +7,7 @@ import { useProjectStore } from '../store/projectStore';
 import { useModalStore } from '@/shared/stores/modal.store';
 import { useProjectActions } from '../composables/useProjectActions';
 import type { Task } from '../types/projectType';
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 
 const tasks = ref<Task[]>([]);
 
@@ -53,13 +54,9 @@ const handleDeleteClick = (task: Task) => {
 
 <template>
   <div class="p-6 space-y-6">
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold">Gestión de Proyectos</h1>
-        <p class="text-gray-500 mt-2">
-          Organiza y ejecuta las tareas de tu equipo
-        </p>
-      </div>
+    <BaseTitle title="Gestión de Proyectos" subtitle="Organiza y ejecuta las tareas de tu equipo" />
+    
+    <div class="flex justify-end items-center">
       <button class="btn btn-primary" @click="openCreateModal">
         <Plus class="mr-2 h-4 w-4" />
         Nueva Tarea

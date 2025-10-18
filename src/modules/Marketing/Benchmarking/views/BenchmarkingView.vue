@@ -10,6 +10,7 @@ import BaseTextArea from '@/shared/components/BaseTextArea.vue';
 import { useModalStore } from '@/shared/stores/modal.store';
 // Importa los iconos
 import { Plus, BarChart3, FileText, Link as LinkIcon } from 'lucide-vue-next';
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 
 // --- Tipos de Datos (Definidos aquí para la simulación) ---
 type SurveyStatus = "draft" | "active" | "closed";
@@ -95,13 +96,9 @@ const getStatusProps = (status: SurveyStatus) => {
 
 <template>
   <div class="p-6 space-y-6">
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-3xl font-bold">Benchmarking & Mystery Shopper</h1>
-        <p class="text-gray-500 mt-2">
-          Crea estudios de mercado y análisis de competencia
-        </p>
-      </div>
+    <BaseTitle title="Benchmarking & Mystery Shopper" subtitle="Crea estudios de mercado y análisis de competencia" />
+    
+    <div class="flex justify-end items-center">
       <button class="btn btn-primary" @click="openModal">
         <Plus class="mr-2 h-4 w-4" />
         Nuevo Estudio
