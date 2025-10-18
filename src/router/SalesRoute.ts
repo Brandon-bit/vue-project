@@ -1,11 +1,10 @@
-const routes =[
-
-       {
-        path: '/ventas/ordenes-en-linea',
-        name: 'OnlineOrders',
+const routes = [
+    {
+        path: '/ventas',
+        name: 'DashboardVentas',
         component: () =>
-            import('@/modules/Sales/Sales/online-orders/views/onlineOrder.vue')
-    },
+            import('@/modules/Ventas/Dashboard/views/SalesDashboardView.vue')
+    }
 ]
 
 export default routes

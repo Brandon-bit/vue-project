@@ -1,5 +1,11 @@
 const routes = [
     {
+        path: '/nomina',
+        name: 'DashboardNomina',
+        component: () =>
+            import('@/modules/Nomina/Dashboard/views/PayrollDashboardView.vue')
+    },
+    {
         path: '/nomina/conceptos-nomina',
         name: 'Conceptos Nomina',
         component: () =>

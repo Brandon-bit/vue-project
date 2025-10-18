@@ -1,5 +1,5 @@
 <template>
-  <h2>Lista de Usuarios</h2>
+  <BaseTitle title="Lista de Usuarios" subtitle="Configura tus usuarios" />
  
   <div>
   
@@ -7,8 +7,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 
-const message = ref<string>('Hola');
-console.log(message);
 </script>

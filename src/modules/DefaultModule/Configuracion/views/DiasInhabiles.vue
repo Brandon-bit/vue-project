@@ -1,5 +1,5 @@
 <template>
-  <h2>Días Inhabiles</h2>
+  <BaseTitle title="Días Inhabiles" subtitle="Configura tus días inhabiles" />
  
   <div>
   
@@ -7,8 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-
-const message = ref<string>('Hola');
-console.log(message);
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 </script>

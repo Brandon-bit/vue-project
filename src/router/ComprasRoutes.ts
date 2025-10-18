@@ -1,5 +1,11 @@
 const routes = [
     {
+        path: '/compras',
+        name: 'Compras',
+        component: () =>
+            import('@compras/Dashboard/views/PurchasingDashboardView.vue')
+    },
+    {
         path: '/compras/catalogo-de-productos',
         name: 'CatalogoDeProductos',
         component: () =>

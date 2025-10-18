@@ -1,5 +1,11 @@
 const routes = [
     {
+        path: '/contabilidad',
+        name: 'Contabilidad',
+        component: () =>
+            import('@contabilidad/Dashboard/views/AccountingDashboardView.vue')
+    },
+    {
         path: '/contabilidad/activos',
         name: 'Activos',
         component: () =>

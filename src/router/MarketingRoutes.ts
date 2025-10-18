@@ -1,10 +1,10 @@
 const routes = [
 //dashboard
     {
-        path: '/marketing/dashboard',
-        name: 'Dashboard Marketing',
+        path: '/marketing',
+        name: 'DashboardMarketing',
         component: () =>
-            import('@marketing/Dashboard/views/DashboardView.vue')
+            import('@marketing/Dashboard/views/MarketingDashboardView.vue')
     },
     {
         path: '/marketing/coordinador-de-redes-sociales',

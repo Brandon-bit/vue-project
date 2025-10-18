@@ -26,7 +26,7 @@
             <hr class="m-4 opacity-30" />
 
             <!-- Modules -->
-            <div v-for="m in modulos" class="text-white mb-6">
+            <div v-for="m in inSessionStore.modules" class="text-white mb-6">
                 <div v-if="m.name != ''" class="flex items-center gap-2 opacity-50 text-xs px-4">
                     <span class="material-symbols-outlined text-white" style="font-size: 35px">
                         {{ m.icon }}
@@ -74,7 +74,7 @@
 
             <!-- Modules -->
             <div
-                v-for="(m, ix) in modulos"
+                v-for="(m, ix) in inSessionStore.modules"
                 class="text-white mb-6 flex items-center justify-center"
             >
                 <div v-if="m.name != ''">
@@ -129,8 +129,9 @@
 import logotipo from '@/assets/images/logotipo.png'
 import isotipo from '@/assets/icons/favicon.ico'
 import { ref, inject, nextTick, onMounted } from 'vue'
-
-const modulos = inject('modulos')
+import useInSessionStore from '@/core/InSessionLayout/store/inSessionStore'
+const inSessionStore = useInSessionStore()
+//const modulos = inject('modulos')
 const isSmallScreen = inject('isSmallScreen')
 const showSidebar = inject('showSidebar')
 const showLogo = inject('showLogo')

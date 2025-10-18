@@ -1,5 +1,11 @@
 const routes = [
     {
+        path: '/facturacion',
+        name: 'Facturacion',
+        component: () =>
+            import('@facturacion/Dashboard/views/BillingDashboardView.vue')
+    },
+    {
         path: '/facturacion/generacion-de-complementos',
         name: 'GeneracionDeComplementos',
         component: () =>

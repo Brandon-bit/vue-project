@@ -1,4 +1,10 @@
 const routes = [
+    {
+        path: '/inventario',
+        name: 'Inventario',
+        component: () =>
+            import('@inventario/Dashboard/views/InventoryDashboardView.vue')
+    },
     // Configuracion de Inventarios
     {
         path: '/inventario/configuracion/productos',

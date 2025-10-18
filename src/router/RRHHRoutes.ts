@@ -1,5 +1,11 @@
 const routes = [
     {
+        path: '/rrhh',
+        name: 'DashboardRRHH',
+        component: () =>
+            import('@/modules/RRHH/Dashboard/views/RRHHDashboardView.vue')
+    },
+    {
         path: '/rrhh/empresas',
         name: 'Empresas',
         component: () => import('@rrhh/Empresas/views/CompaniesListView.vue')

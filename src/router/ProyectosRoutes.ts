@@ -3,6 +3,12 @@ import Plantillas from '@proyectos/Configuracion/views/Plantillas.vue'
 
 const routes = [
     {
+        path: '/proyectos',
+        name: 'DashboardProyecto',
+        component: () =>
+            import('@/modules/Proyectos/Dashboard/views/ProjectsDashboardView.vue')
+    },
+    {
         path: '/proyecto/configuracion',
         name: 'Configuración General',
         component: General
