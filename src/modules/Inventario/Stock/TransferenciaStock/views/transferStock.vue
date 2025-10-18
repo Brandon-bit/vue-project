@@ -7,6 +7,7 @@ import BaseTable from '@/shared/components/BaseTable.vue'
 import useTransferStore from '@/modules/Inventario/Stock/TransferenciaStock/store/transferStore'
 import {useTransferActions} from '@/modules/Inventario/Stock/TransferenciaStock/composables/useTransfeActions'
 import transferStockModal from '../components/transferStockModal.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 const { getTableColumns} = useTransferTableHeaders()
 const {getTransferStock} = useTransferActions()
 
@@ -20,8 +21,10 @@ const tablaRef = ref()
 </script>
 
 <template>
-<h2 class="text-center mb-10">transfer Stock</h2>
-
+<BaseTitle 
+    title="Transferencia de stock" 
+    subtitle="Gestión de transferencia de stock"
+/>
 <div class="mb-10 text-right">
         <router-link to="/traslados/crear">
         <BaseButton text="Add " icon="add" />

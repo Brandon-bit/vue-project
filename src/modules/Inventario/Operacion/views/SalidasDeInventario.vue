@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import BaseTitle from '@/shared/components/BaseTitle.vue'
+</script>
+
 <template>
-    <h2>Salidas de Inventario</h2>
+    <BaseTitle 
+        title="Salidas de Inventario" 
+        subtitle="Gestión de salidas de inventario"
+    />
 </template>

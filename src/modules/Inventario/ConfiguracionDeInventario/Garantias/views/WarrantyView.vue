@@ -8,6 +8,7 @@ import { useModalStore } from '@/shared/stores/modal.store'
 import BaseButton from '@/shared/components/BaseButton.vue'
 import useWarrantyStore from '@/modules/Inventario/ConfiguracionDeInventario/Garantias/store/warrantyStore'
 import WarrantyModal from '@inventario/ConfiguracionDeInventario/Garantias/components/WarrantyModal.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const warrantyStore = useWarrantyStore()
 const modalStore = useModalStore()
@@ -22,7 +23,11 @@ const openCreateModal = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Garantías</h2>
+    <BaseTitle 
+        title="Garantías" 
+        subtitle="Gestión de garantías"
+    />
+
     <div class="mb-10 text-right">
         <BaseButton text="Nueva garantía" @click="openCreateModal()" icon="add" />
     </div>

@@ -4,6 +4,7 @@ import { useControlPanelActions } from '@inventario/Operacion/Tablero/composable
 import { ControlPanelResponseDataType } from '@inventario/Operacion/Tablero/types/controlPanelTypes'
 import PrincipalCard from '@inventario/Operacion/Tablero/components/PrincipalCard.vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 const { getControlPanelData } = useControlPanelActions()
 
 const data = ref<ControlPanelResponseDataType[]>([])
@@ -13,7 +14,10 @@ onMounted(async () => {
 })
 </script>
 <template>
-    <h2 class="text-center mb-10">Gestión de inventarios</h2>
+    <BaseTitle 
+        title="Gestión de inventarios" 
+        subtitle="Gestión de inventarios"
+    />
     <div class="p-2">
         <div class="principal-cards-container grid grid-cols-12 gap-4 md:gap-6 mb-10">
             <PrincipalCard v-for="value in data" :title="value.title" :quantity="value.quantity" />

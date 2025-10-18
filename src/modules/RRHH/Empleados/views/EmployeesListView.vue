@@ -7,6 +7,7 @@ import { useEmployees } from '@/modules/RRHH/Empleados/composables/useEmployees'
 import { useEmployeeActions } from '@/modules/RRHH/Empleados/composables/useEmployeeActions'
 import DeleteEmployeeModal from '@/modules/RRHH/Empleados/components/DeleteEmployeeModal.vue'
 import EmployeeStatsCards from '@/modules/RRHH/Empleados/components/EmployeeStatsCards.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const router = useRouter()
 const { getTableColumns, MODAL_ID } = useEmployees()
@@ -21,7 +22,10 @@ const handleNewEmployee = () => {
 
 <template>
     <div>
-        <h2 class="text-center mb-10">Empleados</h2>
+        <BaseTitle 
+            title="Empleados" 
+            subtitle="Gestión de empleados"
+        />
         <div class="mb-10 flex gap-4 justify-end">
             <BaseButton text="Nuevo empleado" icon="add" @click="handleNewEmployee" />
         </div>

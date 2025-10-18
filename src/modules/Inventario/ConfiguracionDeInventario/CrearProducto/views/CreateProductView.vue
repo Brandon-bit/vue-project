@@ -4,6 +4,7 @@ import { computed } from 'vue'
 import CreateProductForm from '@inventario/ConfiguracionDeInventario/CrearProducto/components/CreateProductForm.vue'
 import CreateProductVariantForm from '@inventario/ConfiguracionDeInventario/CrearProducto/components/CreateProductVariantForm.vue'
 import DeleteProductVariantModal from '@inventario/ConfiguracionDeInventario/CrearProducto/components/DeleteProductVariantModal.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const route = useRoute()
 
@@ -12,7 +13,12 @@ const pageTitle = computed(() => (isEditMode.value ? 'Editar producto' : 'Crear 
 </script>
 
 <template>
-    <h2 class="text-center mb-8">{{ pageTitle }}</h2>
+    <div class="flex items-center justify-center">
+        <BaseTitle 
+            :title="pageTitle" 
+        />
+    </div>
+
     <CreateProductForm />
     <CreateProductVariantForm />
     <DeleteProductVariantModal />

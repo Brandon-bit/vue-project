@@ -9,6 +9,7 @@ import FixedAssetsFilters from '@/modules/Contabilidad/ActivosFijos/components/F
 import useFixedAssets from '@/modules/Contabilidad/ActivosFijos/composables/useFixedAssets'
 import useFixedAssetsStore from '@/modules/Contabilidad/ActivosFijos/store/fixedAssetsStore'
 import { useFixedAssetsActions } from '@/modules/Contabilidad/ActivosFijos/composables/useFixedAssetsActions'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getTableColumns } = useFixedAssets()
 const { getFixedAssets, getFixedAssetsStats } = useFixedAssetsActions()
@@ -56,13 +57,8 @@ onMounted(() => {
 <template>
     <div class="space-y-6">
         <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div>
-                <h1 class="text-3xl font-bold">Activos Fijos</h1>
-                <p class="text-base-content/60 mt-2">
-                    Control integral de bienes con trazabilidad contable y documental
-                </p>
-            </div>
+        <BaseTitle title="Activos Fijos" subtitle="Control integral de bienes con trazabilidad contable y documental" />
+        <div class="flex items-center justify-end">
             <BaseButton text="Agregar Activo" @click="openCreateModal" icon="add" />
         </div>
 

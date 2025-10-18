@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import ComplementModal from '@/modules/Facturacion/GeneracionDeComplementos/components/ComplementModal.vue'
 import useComplementStore from '@/modules/Facturacion/GeneracionDeComplementos/store/complementStore'
@@ -99,14 +100,11 @@ onMounted(() => {
 
 <template>
     <div class="space-y-6">
-        <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-3xl font-bold">Generación de Complementos</h2>
-                <p class="text-gray-500 mt-1">
-                    Genera complementos de pago, carta porte y más de forma optimizada
-                </p>
-            </div>
+        <BaseTitle 
+            title="Generación de Complementos" 
+            subtitle="Genera complementos de pago, carta porte y más de forma optimizada"
+        />
+        <div class="flex items-center justify-end">
             <BaseButton text="Nuevo Complemento" @click="openCreateModal" icon="add" />
         </div>
 

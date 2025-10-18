@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import useAccountingMovementsStore from '@/modules/Contabilidad/OperacionDeMovimientos/store/accountingMovementsStore'
 import { useAccountingMovementsActions } from '@/modules/Contabilidad/OperacionDeMovimientos/composables/useAccountingMovementsActions'
 import { showNotification } from '@/utils/toastNotifications'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const accountingMovementsStore = useAccountingMovementsStore()
 const {
@@ -79,12 +80,7 @@ const formatCurrency = (amount: number) => {
 <template>
     <div class="space-y-6">
         <!-- Header -->
-        <div>
-            <h2 class="text-center mb-2">Movimientos Contables</h2>
-            <p class="text-center text-gray-500">
-                Consulta detallada de cada asiento contable y su impacto en los saldos
-            </p>
-        </div>
+        <BaseTitle title="Movimientos Contables" subtitle="Consulta detallada de cada asiento contable y su impacto en los saldos" />
 
         <!-- Filtros de búsqueda -->
         <div class="card bg-base-100 border border-base-content/10">

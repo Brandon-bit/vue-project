@@ -7,6 +7,7 @@ import { useVacationsActions } from '@rrhh/Vacaciones/composables/useVacationsAc
 import VacationModal from '@rrhh/Vacaciones/components/VacationModal.vue'
 import useVacationStore from '@rrhh/Vacaciones/store/vacationStore'
 import { useModalStore } from '@/shared/stores/modal.store'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getTableColumns } = useVacations()
 const { getVacations } = useVacationsActions()
@@ -31,8 +32,10 @@ const refreshTable = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Vacaciones</h2>
-
+    <BaseTitle 
+        title="Vacaciones" 
+        subtitle="Gestión de vacaciones"
+    />
     <div class="mb-10 flex gap-4 justify-end">
         <BaseButton text="Nueva solicitud" icon="add" @click="openCreateModal" />
     </div>

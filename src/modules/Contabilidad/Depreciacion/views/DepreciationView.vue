@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import useDepreciationStore from '@/modules/Contabilidad/Depreciacion/store/depreciationStore'
 import { useDepreciationActions } from '@/modules/Contabilidad/Depreciacion/composables/useDepreciationActions'
 import { showNotification } from '@/utils/toastNotifications'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const depreciationStore = useDepreciationStore()
 const {
@@ -113,12 +114,7 @@ const formatCurrency = (amount: number) => {
 <template>
     <div class="space-y-6">
         <!-- Header -->
-        <div>
-            <h2 class="text-center mb-2">Depreciación de Activos</h2>
-            <p class="text-center text-gray-500">
-                Cálculo automático de depreciación y generación de pólizas contables
-            </p>
-        </div>
+        <BaseTitle title="Depreciación de Activos" subtitle="Cálculo automático de depreciación y generación de pólizas contables" />
 
         <!-- Motor de Cálculo -->
         <div class="card bg-base-100 border border-base-content/10">

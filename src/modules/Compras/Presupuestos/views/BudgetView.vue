@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import BudgetModal from '@/modules/Compras/Presupuestos/components/BudgetModal.vue'
 import useBudgetStore from '@/modules/Compras/Presupuestos/store/budgetStore'
@@ -84,13 +85,11 @@ onMounted(() => {
 <template>
     <div class="space-y-6">
         <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-3xl font-bold">Presupuestos de Compras</h2>
-                <p class="text-gray-500 mt-1">
-                    Control y seguimiento de presupuesto vs. gasto
-                </p>
-            </div>
+        <BaseTitle 
+            title="Presupuestos" 
+            subtitle="Control y seguimiento de presupuestos de compra"
+        />
+        <div class="flex items-center justify-end">
             <BaseButton text="Crear Presupuesto" @click="openCreateModal" icon="add" />
         </div>
 

@@ -5,6 +5,7 @@ import { usePayrollPeriods } from '@/modules/Nomina/PeriodosNomina/composables/u
 import CreateButton from '@/modules/Nomina/PeriodosNomina/components/CreateButton.vue'
 import { usePayrollPeriodActions } from '@/modules/Nomina/PeriodosNomina/composables/usePayrollPeriodActions'
 import PayrollPeriodModal from '@/modules/Nomina/PeriodosNomina/components/PayrollPeriodModal.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getPayrollPeriods } = usePayrollPeriodActions()
 const tableRef = ref()
@@ -15,7 +16,10 @@ const handleRefresh = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-8">Períodos de Nómina</h2>
+    <BaseTitle 
+        title="Períodos de Nómina" 
+        subtitle="Gestiona los períodos de nómina"
+    />
     <div class="mb-10 text-right">
         <CreateButton />
     </div>

@@ -8,6 +8,7 @@ import { useVariantAttributeActions } from '@inventario/ConfiguracionDeInventari
 import BaseTable from '@/shared/components/BaseTable.vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
 import VariantAttributesModal from '@inventario/ConfiguracionDeInventario/AtributosVariantes/components/VariantAttributesModal.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 // #endregion
 
 // #region Data
@@ -31,7 +32,10 @@ const openCreateModal = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Atributos Variantes</h2>
+    <BaseTitle 
+        title="Atributos Variantes" 
+        subtitle="Gestión de atributos variantes"
+    />
 
     <div class="mb-10 text-right">
         <BaseButton text="Nuevo atributo variante" @click="openCreateModal()" icon="add" />

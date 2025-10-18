@@ -1,11 +1,13 @@
 <script  setup lang="ts">
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 </script>
 
 <template>
 
-<h2 class="text-center mb-10">
-  Detalle producto
-</h2>
+<BaseTitle 
+    title="Detalle de producto" 
+    subtitle="Gestión de productos"
+/>
 
  <div class="max-w-6xl mx-auto px-6">
     <!-- Row principal -->

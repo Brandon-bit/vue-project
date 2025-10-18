@@ -8,6 +8,7 @@ import BaseTable from '@/shared/components/BaseTable.vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
 import UnitsModal from '@inventario/ConfiguracionDeInventario/Unidades/components/UnitsModal.vue'
 import { useUnitActions } from '@inventario/ConfiguracionDeInventario/Unidades/composables/useUnitActions'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 // #endregion
 
 // #region Data
@@ -27,7 +28,10 @@ const openCreateModal = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Unidades</h2>
+    <BaseTitle 
+        title="Unidades" 
+        subtitle="Gestión de unidades"
+    />
 
     <div class="mb-10 text-right">
         <BaseButton text="Nueva unidad" @click="openCreateModal()" icon="add" />

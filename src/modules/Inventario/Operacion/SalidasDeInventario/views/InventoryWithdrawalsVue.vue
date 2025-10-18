@@ -3,11 +3,15 @@ import BaseTable from '@/shared/components/BaseTable.vue'
 import { useInventoryWithdrawalsActions } from '../composables/useInventoryWithdrawalsActions'
 import { useTableHeaders } from '@inventario/Operacion/SalidasDeInventario/composables/useTableHeaders'
 import CreateInventoryWithdrawalButtton from '../components/CreateInventoryWithdrawalButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getInventoryWithdrawals } = useInventoryWithdrawalsActions()
 </script>
 <template>
-    <h2 class="text-center mb-10">Salidas de inventario</h2>
+    <BaseTitle 
+        title="Salidas de inventario" 
+        subtitle="Gestión de salidas de inventario"
+    />
     <div class="mb-10 text-right">
         <CreateInventoryWithdrawalButtton />
     </div>

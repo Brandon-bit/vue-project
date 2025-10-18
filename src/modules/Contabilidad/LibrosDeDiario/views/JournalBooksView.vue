@@ -8,6 +8,7 @@ import { showNotification } from '@/utils/toastNotifications'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { journalBookFiltersSchema } from '@/modules/Contabilidad/LibrosDeDiario/validations/journalBooksValidation'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const journalBooksStore = useJournalBooksStore()
 const { generateJournalBook, exportJournalBookPDF, exportJournalBookExcel, printJournalBook } = useJournalBooksActions()
@@ -103,12 +104,7 @@ const selectedYear = computed(() => {
 
 <template>
     <div class="space-y-6">
-        <div>
-            <h2 class="text-center mb-2 text-3xl font-bold">Libros de Diario</h2>
-            <p class="text-center text-gray-500">
-                Generación del libro diario oficial con respaldo normativo
-            </p>
-        </div>
+        <BaseTitle title="Libros de Diario" subtitle="Generación del libro diario oficial con respaldo normativo" />
 
         <!-- Parámetros de generación -->
         <div class="card bg-base-100 shadow-sm border border-base-content/5">

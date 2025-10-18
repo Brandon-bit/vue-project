@@ -5,6 +5,7 @@ import { usePayrollConcepts } from '@/modules/Nomina/ConceptosNomina/composables
 import CreateButton from '@/modules/Nomina/ConceptosNomina/components/CreateButton.vue'
 import { usePayrollConceptActions } from '@/modules/Nomina/ConceptosNomina/composables/usePayrollConceptActions'
 import PayrollConceptModal from '@/modules/Nomina/ConceptosNomina/components/PayrollConceptModal.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getPayrollConcepts } = usePayrollConceptActions()
 const tableRef = ref()
@@ -15,7 +16,10 @@ const handleRefresh = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-8">Conceptos de Nómina</h2>
+    <BaseTitle 
+        title="Conceptos de Nómina" 
+        subtitle="Gestiona los conceptos de nómina"
+    />
     <div class="mb-10 text-right">
         <CreateButton />
     </div>

@@ -7,11 +7,15 @@ import CreateOrderManagementButton from '@inventario/Operacion/GestionDePedidos/
 import { useOrderManagementTableHeaders } from '@inventario/Operacion/GestionDePedidos/composables/useOrderManagementTableHeaders'
 import { useOrderManagementActions } from '@inventario/Operacion/GestionDePedidos/composables/useOrderManagementActions'
 import OrderManagementModal from '@inventario/Operacion/GestionDePedidos/components/OrderManagementModal.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getOrderManagementRecords } = useOrderManagementActions()
 </script>
 <template>
-    <h2 class="text-center mb-10">Gestión de pedidos</h2>
+    <BaseTitle 
+        title="Gestión de pedidos" 
+        subtitle="Gestión de gestión de pedidos"
+    />
     <div class="mb-10 text-right">
         <CreateOrderManagementButton />
     </div>

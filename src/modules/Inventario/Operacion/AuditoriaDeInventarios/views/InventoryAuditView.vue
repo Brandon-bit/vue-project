@@ -5,6 +5,7 @@ import useInventoryAuditStore from '@inventario/Operacion/AuditoriaDeInventarios
 import { useInventoryAuditTableHeaders } from '@inventario/Operacion/AuditoriaDeInventarios/composables/useInventoryAuditTableHeaders'
 import BaseTable from '@/shared/components/BaseTable.vue'
 import CreateInventoryAuditButton from '@inventario/Operacion/AuditoriaDeInventarios/components/CreateInventoryAuditButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getInventoryAuditSummary, getInventoryAuditRecords } = useInventoryAuditActions()
 const inventoryAuditStore = useInventoryAuditStore()
@@ -14,7 +15,10 @@ onMounted(async () => {
 })
 </script>
 <template>
-    <h2 class="text-center mb-10">Auditorías de inventario</h2>
+    <BaseTitle 
+        title="Auditorías de inventario" 
+        subtitle="Gestión de auditorías de inventario"
+    />
     <div class="secondary-cards-container grid grid-cols-12 gap-4 md:gap-6 mb-10">
         <div
             v-for="data in inventoryAuditStore.summary"

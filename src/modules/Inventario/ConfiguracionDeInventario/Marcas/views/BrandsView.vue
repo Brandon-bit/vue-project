@@ -7,6 +7,7 @@ import BaseButton from '@/shared/components/BaseButton.vue'
 import useBrandStore from '@/modules/Inventario/ConfiguracionDeInventario/Marcas/store/brandStore'
 import BrandsModal from '@inventario/ConfiguracionDeInventario/Marcas/components/BrandsModal.vue'
 import { useBrandActions } from '@inventario/ConfiguracionDeInventario/Marcas/composables/useBrandActions'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getBrandsTableColumns } = useBrand()
 const { getBrands } = useBrandActions()
@@ -23,7 +24,10 @@ const openCreateModal = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Marcas</h2>
+    <BaseTitle 
+        title="Marcas" 
+        subtitle="Gestión de marcas"
+    />
 
     <div class="mb-10 text-right">
         <BaseButton text="Nueva marca" @click="openCreateModal()" icon="add" />

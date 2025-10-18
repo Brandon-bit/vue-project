@@ -7,6 +7,7 @@ import { useCommunications } from '@/modules/RRHH/ComunicacionesOrganizacionales
 import { useCommunicationActions } from '@/modules/RRHH/ComunicacionesOrganizacionales/composables/useCommunicationActions'
 import CommunicationModal from '@/modules/RRHH/ComunicacionesOrganizacionales/components/CommunicationModal.vue'
 import CommunicationStatsCards from '@/modules/RRHH/ComunicacionesOrganizacionales/components/CommunicationStatsCards.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const router = useRouter()
 const { getTableColumns, MODAL_ID } = useCommunications()
@@ -21,7 +22,10 @@ const handleNewCommunication = () => {
 
 <template>
     <div>
-        <h2 class="text-center mb-10">Comunicaciones Organizacionales</h2>
+        <BaseTitle 
+            title="Comunicaciones Organizacionales" 
+            subtitle="Gestión de comunicaciones organizacionales"
+        />
         <div class="mb-10 flex gap-4 justify-end">
             <BaseButton
                 text="Nuevo Comunicado"

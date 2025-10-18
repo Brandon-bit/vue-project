@@ -7,6 +7,7 @@ import useAccountCatalog from '@/modules/Contabilidad/CatalogoDeCuentas/composab
 import useAccountsCatalogStore from '@/modules/Contabilidad/CatalogoDeCuentas/store/accountsCatalogStore'
 import { useAccountCatalogActions } from '@/modules/Contabilidad/CatalogoDeCuentas/composables/useAccountCatalogActions'
 import type { AccountType } from '@/modules/Contabilidad/CatalogoDeCuentas/types/accountsCatalogTypes'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { openEditModal, openDeleteModal, getTypeVariant, getNatureVariant } = useAccountCatalog()
 const { getAccountsCatalog } = useAccountCatalogActions()
@@ -84,7 +85,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Catálogo de Cuentas</h2>
+    <BaseTitle title="Catálogo de Cuentas" subtitle="Registro y gestión de cuentas contables" />
 
     <div class="mb-6 flex flex-col md:flex-row gap-4 justify-between items-center">
         <div class="w-full md:w-96">

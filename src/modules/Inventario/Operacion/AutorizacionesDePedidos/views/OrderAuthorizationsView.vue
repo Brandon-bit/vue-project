@@ -3,11 +3,15 @@ import { useOrderAuthorizationsTableHeaders } from '@inventario/Operacion/Autori
 import BaseTable from '@/shared/components/BaseTable.vue'
 import { useOrderAuthorizationsActions } from '@inventario/Operacion/AutorizacionesDePedidos/composables/useOrderAuthorizationsActions'
 import OrderAuthoizationModal from '@inventario/Operacion/AutorizacionesDePedidos/components/OrderAuthoizationModal.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getOrderAuthorizationsRecords } = useOrderAuthorizationsActions()
 </script>
 <template>
-    <h2 class="text-center mb-10 pb-10">Autorizaciones de Pedidos</h2>
+    <BaseTitle 
+        title="Autorizaciones de Pedidos" 
+        subtitle="Gestión de autorizaciones de pedidos"
+    />
     <BaseTable
         :headers="useOrderAuthorizationsTableHeaders()"
         :fetch-callback="getOrderAuthorizationsRecords"

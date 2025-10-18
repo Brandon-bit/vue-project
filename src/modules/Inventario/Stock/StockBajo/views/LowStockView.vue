@@ -6,6 +6,7 @@ import useLowStockStore from '@inventario/Stock/StockBajo/store/lowStockStore'
 import { useLowStock } from '@/modules/Inventario/Stock/StockBajo/composables/useLowStock'
 import LowStockModal from '@inventario/Stock/StockBajo/components/LowStockModal.vue'
 import ToggleNotification from '@inventario/Stock/StockBajo/components/ToggleNotification.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getLowStock, getTableColumns } = useLowStock()
 const lowStockStore = useLowStockStore()
@@ -20,7 +21,10 @@ onMounted(async () => {
 })
 </script>
 <template>
-    <h2 class="text-center mb-10">Stock bajo</h2>
+    <BaseTitle 
+        title="Stock bajo" 
+        subtitle="Gestión de stock bajo"
+    />
     <ToggleNotification />
     <BaseSkeletonTable v-if="loading" />
     <BaseTable v-else :data="lowStockStore.lowStock" :headers="getTableColumns()" />

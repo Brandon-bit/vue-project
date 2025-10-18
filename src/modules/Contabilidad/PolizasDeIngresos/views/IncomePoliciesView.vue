@@ -7,6 +7,7 @@ import IncomePolicyModal from '@/modules/Contabilidad/PolizasDeIngresos/componen
 import useIncomePolicies from '@/modules/Contabilidad/PolizasDeIngresos/composables/useIncomePolicies'
 import useIncomePoliciesStore from '@/modules/Contabilidad/PolizasDeIngresos/store/incomePoliciesStore'
 import { useIncomePoliciesActions } from '@/modules/Contabilidad/PolizasDeIngresos/composables/useIncomePoliciesActions'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getTableColumns } = useIncomePolicies()
 const { getIncomePolicies } = useIncomePoliciesActions()
@@ -23,7 +24,7 @@ const openCreateModal = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Pólizas de Ingresos</h2>
+    <BaseTitle title="Pólizas de Ingresos" subtitle="Gestión y control de pólizas contables" />
 
     <div class="mb-10 text-right">
         <BaseButton text="Nueva póliza de ingreso" @click="openCreateModal" icon="add" />

@@ -11,7 +11,7 @@ const props = withDefaults(
 </script>
 
 <template>
-    <div>
+    <div class="mb-6">
         <h2 class="text-3xl !font-semibold">{{ props.title }}</h2>
         <p v-if="props.subtitle" class="text-gray-500 mt-1">
             {{ props.subtitle }}

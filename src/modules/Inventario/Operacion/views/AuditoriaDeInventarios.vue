@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import BaseTitle from '@/shared/components/BaseTitle.vue'
+</script>
+
 <template>
-    <h2>Auditoría de Inventarios</h2>
+    <BaseTitle 
+        title="Auditoría de Inventarios" 
+        subtitle="Gestión de auditoría de inventarios"
+    />
 </template>

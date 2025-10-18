@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import BaseTitle from '@/shared/components/BaseTitle.vue'
+</script>
+
 <template>
-    <h2>Generación de Polizas De Inventario</h2>
+    <BaseTitle 
+        title="Generación de Polizas De Inventario" 
+        subtitle="Gestión de generación de polizas de inventario"
+    />
 </template>

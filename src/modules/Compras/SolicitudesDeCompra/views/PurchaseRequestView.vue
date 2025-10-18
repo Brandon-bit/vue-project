@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import PurchaseRequestModal from '@/modules/Compras/SolicitudesDeCompra/components/PurchaseRequestModal.vue'
 import usePurchaseRequestStore from '@/modules/Compras/SolicitudesDeCompra/store/purchaseRequestStore'
@@ -80,13 +81,11 @@ onMounted(() => {
 <template>
     <div class="space-y-6">
         <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-3xl font-bold">Solicitudes de Compra</h2>
-                <p class="text-gray-500 mt-1">
-                    Gestión de solicitudes y flujo de aprobación
-                </p>
-            </div>
+        <BaseTitle 
+            title="Solicitudes de Compra" 
+            subtitle="Gestión de solicitudes y flujo de aprobación"
+        />
+        <div class="flex items-center justify-end">
             <BaseButton text="Nueva Solicitud" @click="openCreateModal" icon="add" />
         </div>
 

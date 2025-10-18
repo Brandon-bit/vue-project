@@ -7,6 +7,7 @@ import SubCategoryModal from '@inventario/ConfiguracionDeInventario/SubCategoria
 import { useSubCategory } from '@/modules/Inventario/ConfiguracionDeInventario/SubCategoria/composables/useSubCategory'
 import useSubCategoryStore from '@inventario/ConfiguracionDeInventario/SubCategoria/store/subCategoryStore'
 import { useSubCategoryActions } from "@/modules/Inventario/ConfiguracionDeInventario/SubCategoria/composables/useSubCategoryActions"
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getSubCategoryTableColumns } = useSubCategory()
 const { getSubCategories } = useSubCategoryActions()
@@ -22,7 +23,10 @@ const openCreateModal = () => {
 }
 </script>
 <template>
-    <h2 class="text-center mb-10">Subcategorías</h2>
+    <BaseTitle 
+        title="Subcategorías" 
+        subtitle="Gestión de subcategorías"
+    />
 
     <div class="mb-10 text-right">
         <BaseButton text="Nueva subcategoría" @click="openCreateModal" icon="add" />

@@ -7,6 +7,7 @@ import ExpensePolicyModal from '@/modules/Contabilidad/PolizasDeGastos/component
 import useExpensePolicies from '@/modules/Contabilidad/PolizasDeGastos/composables/useExpensePolicies'
 import useExpensePoliciesStore from '@/modules/Contabilidad/PolizasDeGastos/store/expensePoliciesStore'
 import { useExpensePoliciesActions } from '@/modules/Contabilidad/PolizasDeGastos/composables/useExpensePoliciesActions'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getTableColumns } = useExpensePolicies()
 const { getExpensePolicies } = useExpensePoliciesActions()
@@ -23,7 +24,7 @@ const openCreateModal = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Pólizas de Gastos</h2>
+    <BaseTitle title="Pólizas de Gastos" subtitle="Gestión y control de pólizas contables" />
 
     <div class="mb-10 text-right">
         <BaseButton text="Nueva póliza de gasto" @click="openCreateModal" icon="add" />

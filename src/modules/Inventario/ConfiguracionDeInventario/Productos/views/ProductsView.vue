@@ -6,6 +6,7 @@ import { useProductsActions } from '@inventario/ConfiguracionDeInventario/Produc
 import { ref } from 'vue'
 import ProductsModal from '@inventario/ConfiguracionDeInventario/Productos/components/ProductsModal.vue'
 import BulkUploadButton from '@inventario/ConfiguracionDeInventario/Productos/components/BulkUploadButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getTableColumns } = useProducts()
 const { getProducts } = useProductsActions()
@@ -13,8 +14,10 @@ const { getProducts } = useProductsActions()
 const tablaRef = ref()
 </script>
 <template>
-    <h2 class="text-center mb-8">Productos</h2>
-
+    <BaseTitle 
+        title="Productos" 
+        subtitle="Gestión de productos"
+    />
     <div class="mb-10 flex gap-4 justify-end">
         <BulkUploadButton />
         <router-link to="/inventario/configuracion/crear-producto">

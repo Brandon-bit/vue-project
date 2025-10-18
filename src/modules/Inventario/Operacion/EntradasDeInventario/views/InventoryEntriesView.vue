@@ -3,11 +3,15 @@ import BaseTable from '@/shared/components/BaseTable.vue'
 import { useInventoryEntriesActions } from '@inventario/Operacion/EntradasDeInventario/composables/useInventoryEntriesActions'
 import { useTableHeaders } from '@inventario/Operacion/EntradasDeInventario/composables/useTableHeaders'
 import CreateInventoryEntryButton from '../components/CreateInventoryEntryButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getInventoryEntries } = useInventoryEntriesActions()
 </script>
 <template>
-    <h2 class="text-center mb-10">Entradas de inventario</h2>
+    <BaseTitle 
+        title="Entradas de inventario" 
+        subtitle="Gestión de entradas de inventario"
+    />
     <div class="mb-10 text-right">
         <CreateInventoryEntryButton />
     </div>

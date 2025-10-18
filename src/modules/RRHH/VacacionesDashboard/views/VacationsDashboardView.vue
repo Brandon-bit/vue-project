@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import VacationStatsCards from '@rrhh/VacacionesDashboard/components/VacationStatsCards.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 </script>
 
 <template>
     <div class="vacation-dashboard">
-        <h2 class="text-center mb-10 text-3xl font-bold">Dashboard de vacaciones</h2>
+        <BaseTitle 
+            title="Dashboard de vacaciones" 
+            subtitle="Gestión de vacaciones"
+        />
         
         <VacationStatsCards />
         

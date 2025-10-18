@@ -12,6 +12,7 @@ import ProductList from '@inventario/Operacion/AuditoriaDeInventarios/components
 import AddProductButton from '@inventario/Operacion/AuditoriaDeInventarios/components/AddProductButton.vue'
 import { useInventoryAuditActions } from '@inventario/Operacion/AuditoriaDeInventarios/composables/useInventoryAuditActions'
 import { createUpdateInventoryAuditSchema } from '@inventario/Operacion/AuditoriaDeInventarios/validations/inventoryAuditSchema'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 const route = useRoute()
 const isEditMode = computed(() => route.name === 'Actualizar auditoria de inventario')
 const pageTitle = computed(() =>
@@ -79,7 +80,10 @@ const onSubmit = handleSubmit(async (formValues) => {
 
 <template>
     <div class="xl:max-w-[70%] mx-auto">
-        <h2 class="text-center mb-10">{{ pageTitle }}</h2>
+        <BaseTitle 
+            :title="pageTitle" 
+            subtitle="Gestión de auditorías de inventario"
+        />
         <div class="mb-10 pt-10 text-right">
             <AddProductButton />
         </div>

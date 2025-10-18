@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import RetencionModal from '@/modules/Facturacion/ConstanciasDeRetencion/components/RetencionModal.vue'
 import useRetencionStore from '@/modules/Facturacion/ConstanciasDeRetencion/store/retencionStore'
@@ -83,14 +84,11 @@ onMounted(() => {
 
 <template>
     <div class="space-y-6">
-        <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-3xl font-bold">Constancias de Retención</h2>
-                <p class="text-gray-500 mt-1">
-                    Genera constancias de retenciones e información de pagos
-                </p>
-            </div>
+        <BaseTitle 
+            title="Constancias de Retención" 
+            subtitle="Genera y gestiona constancias de retenciones de ISR e IVA"
+        />
+        <div class="flex items-center justify-end">
             <BaseButton text="Nueva Constancia" @click="openCreateModal" icon="add" />
         </div>
 

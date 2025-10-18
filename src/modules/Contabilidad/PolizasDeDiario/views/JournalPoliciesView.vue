@@ -7,6 +7,7 @@ import JournalPolicyModal from '@/modules/Contabilidad/PolizasDeDiario/component
 import useJournalPolicies from '@/modules/Contabilidad/PolizasDeDiario/composables/useJournalPolicies'
 import useJournalPoliciesStore from '@/modules/Contabilidad/PolizasDeDiario/store/journalPoliciesStore'
 import { useJournalPoliciesActions } from '@/modules/Contabilidad/PolizasDeDiario/composables/useJournalPoliciesActions'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getTableColumns } = useJournalPolicies()
 const { getJournalPolicies } = useJournalPoliciesActions()
@@ -23,7 +24,7 @@ const openCreateModal = () => {
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Pólizas de Diario</h2>
+    <BaseTitle title="Pólizas de Diario" subtitle="Gestión y control de pólizas contables" />
 
     <div class="mb-10 text-right">
         <BaseButton text="Crear póliza de diario" @click="openCreateModal" icon="add" />

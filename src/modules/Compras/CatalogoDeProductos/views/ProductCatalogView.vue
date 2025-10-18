@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import BaseButton from '@/shared/components/BaseButton.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import ProductCatalogModal from '@/modules/Compras/CatalogoDeProductos/components/ProductCatalogModal.vue'
 import useProductCatalogStore from '@/modules/Compras/CatalogoDeProductos/store/productCatalogStore'
@@ -94,13 +95,11 @@ onMounted(() => {
 <template>
     <div class="space-y-6">
         <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-3xl font-bold">Catálogo de Productos y Servicios</h2>
-                <p class="text-gray-500 mt-1">
-                    Catálogo central estandarizado
-                </p>
-            </div>
+        <BaseTitle 
+            title="Catálogo de Productos y Servicios" 
+            subtitle="Gestiona tu inventario de productos y servicios disponibles"
+        />
+        <div class="flex items-center justify-end">
             <BaseButton text="Agregar al Catálogo" @click="openCreateModal" icon="add" />
         </div>
 

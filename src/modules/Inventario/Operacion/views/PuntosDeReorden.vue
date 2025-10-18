@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import BaseTitle from '@/shared/components/BaseTitle.vue'
+</script>
+
 <template>
-    <h2>Puntos de Reorden</h2>
+    <BaseTitle 
+        title="Puntos de Reorden" 
+        subtitle="Gestión de puntos de reorden"
+    />
 </template>

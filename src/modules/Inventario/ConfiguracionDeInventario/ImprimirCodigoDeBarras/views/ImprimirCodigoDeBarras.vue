@@ -1,5 +1,8 @@
 <template>
-    <h2>Imprimir código de Barras</h2>
+    <BaseTitle 
+        title="Imprimir código de Barras" 
+        subtitle="Gestión de imprimir código de barras"
+    />
 
     <div style="display: grid; grid-template-columns: 25% 25%; gap: 1rem; margin-bottom: 1rem; width: 100%;">
         <BaseSelect
@@ -98,6 +101,7 @@ import BaseSelect from '@/shared/components/BaseFormSelect.vue'
 import useImprimirCodigoDeBarrasStore from '../store/imprimirCodigoDeBarras.store'
 import { getProductsService, getStoresService, getWarehousesService } from '../services/imprimirCodigoDeBarrasServices'
 import { useImprimirCodigoDeBarras } from '../composables/useImprimirCodigoDeBarras'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const store = useImprimirCodigoDeBarrasStore()
 const loading = ref(false)

@@ -3,6 +3,7 @@ import { ref, computed, onMounted, h } from 'vue'
 import type { ColumnDef } from '@tanstack/vue-table'
 import BaseButton from '@/shared/components/BaseButton.vue'
 import BaseTable from '@/shared/components/BaseTable.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
 import useFacturaStore from '@/modules/Facturacion/MatrizDeFacturas/store/facturaStore'
 import { useFacturaActions } from '@/modules/Facturacion/MatrizDeFacturas/composables/useFacturaActions'
@@ -242,14 +243,11 @@ onMounted(() => {
 
 <template>
     <div class="space-y-6">
-        <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-3xl font-bold">Matriz de Facturas</h2>
-                <p class="text-gray-500 mt-1">
-                    Control centralizado de todas tus facturas emitidas y recibidas
-                </p>
-            </div>
+        <BaseTitle 
+            title="Matriz de Facturas" 
+            subtitle="Control centralizado de todas tus facturas emitidas y recibidas"
+        />
+        <div class="flex items-center justify-end">
             <div class="flex gap-2">
                 <button @click="openConfigModal" class="btn btn-outline">
                     <span class="material-symbols-outlined">settings</span>

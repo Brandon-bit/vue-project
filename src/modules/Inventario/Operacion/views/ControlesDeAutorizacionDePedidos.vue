@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import BaseTitle from '@/shared/components/BaseTitle.vue'
+</script>
+
 <template>
-    <h2>Controles de Autorización de Pedidos</h2>
+    <BaseTitle 
+        title="Controles de Autorización de Pedidos" 
+        subtitle="Gestión de controles de autorización de pedidos"
+    />
 </template>

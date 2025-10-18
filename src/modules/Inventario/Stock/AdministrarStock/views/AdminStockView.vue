@@ -5,6 +5,7 @@ import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
 import useadminStockStore from '@inventario/Stock/AdministrarStock/store/adminStockStore'
 import { useAdminStock } from '@/modules/Inventario/Stock/AdministrarStock/composables/useAdminStock'
 import { ref } from 'vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getTableColumns, getStocks } = useAdminStock()
 
@@ -15,8 +16,10 @@ const tablaRef = ref()
 </script>
 
 <template>
-    <h2 class="text-center mb-10">Administrar Stock</h2>
-
+    <BaseTitle 
+        title="Administrar Stock" 
+        subtitle="Gestión de stock"
+    />
     <BaseTable
         ref="tablaRef"
         :headers="getTableColumns()"

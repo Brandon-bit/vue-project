@@ -7,6 +7,7 @@ import CategoryModal from '@inventario/ConfiguracionDeInventario/Categorias/comp
 import useCategory from '@/modules/Inventario/ConfiguracionDeInventario/Categorias/composables/useCategory'
 import useCategoryStore from '@inventario/ConfiguracionDeInventario/Categorias/store/categoryStore'
 import { useCategoryActions } from "@/modules/Inventario/ConfiguracionDeInventario/Categorias/composables/useCategoryActions"
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const { getTableColumns } = useCategory()
 const { getCategories } = useCategoryActions()
@@ -22,7 +23,10 @@ const openCreateModal = () => {
 }
 </script>
 <template>
-    <h2 class="text-center mb-10">Categorías</h2>
+    <BaseTitle 
+        title="Categorías" 
+        subtitle="Gestión de categorías"
+    />
 
     <div class="mb-10 text-right">
         <BaseButton text="Nueva categoría" @click="openCreateModal" icon="add" />

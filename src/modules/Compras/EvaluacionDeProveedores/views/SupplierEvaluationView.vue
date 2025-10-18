@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useModalStore } from '@/shared/stores/modal.store'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 import SupplierEvaluationModal from '@/modules/Compras/EvaluacionDeProveedores/components/SupplierEvaluationModal.vue'
 import useSupplierEvaluationStore from '@/modules/Compras/EvaluacionDeProveedores/store/supplierEvaluationStore'
 import { useSupplierEvaluationActions } from '@/modules/Compras/EvaluacionDeProveedores/composables/useSupplierEvaluationActions'
@@ -77,13 +78,11 @@ onMounted(() => {
 <template>
     <div class="space-y-6">
         <!-- Header -->
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-3xl font-bold">Evaluación de Proveedores</h2>
-                <p class="text-gray-500 mt-1">
-                    Sistema de calificación y desempeño
-                </p>
-            </div>
+        <BaseTitle 
+            title="Evaluación de Proveedores" 
+            subtitle="Sistema de calificación y desempeño"
+        />
+        <div class="flex items-center justify-end">
             <button @click="handleGenerateReport" class="btn btn-outline">
                 <span class="material-symbols-outlined">bar_chart</span>
                 Generar Reporte Comparativo
