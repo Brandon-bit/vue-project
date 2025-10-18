@@ -16,6 +16,12 @@ const routes = [
         name: 'GestionDocumental',
         component: () =>
             import('@administracion/GestionDocumental/views/DocumentView.vue')
+    },
+    {
+        path: '/administracion/viaticos-y-reembolsos',
+        name: 'ViaticosYReembolsos',
+        component: () =>
+            import('@administracion/ViaticosYReembolsos/views/ExpenseView.vue')
     }
 ]
 

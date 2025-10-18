@@ -763,8 +763,8 @@ export function useInSessionActions() {
                             name: 'Gestión Documental'
                         },
                         {
-                            url: '/administracion/viaticos-y-rembolsos',
-                            name: 'Viáticos y Rembolsos'
+                            url: '/administracion/viaticos-y-reembolsos',
+                            name: 'Viáticos y Reembolsos'
                         },
                         {
                             url: '/administracion/contratos-y-convenios',
