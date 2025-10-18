@@ -24,6 +24,7 @@
             "@inventario/*": ["src/modules/Inventario/*"],
             "@comercial/*": ["src/modules/Comercial/*"],
             "@facturacion/*": ["src/modules/Facturacion/*"],
+            "@nomina/*": ["src/modules/Nomina/*"],
             "@compras/*": ["src/modules/Compras/*"],
             // NAVBAR
             "@exportar/*": ["src/navbar/Exportar/*"],
