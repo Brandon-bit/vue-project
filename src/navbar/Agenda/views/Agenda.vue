@@ -1,5 +1,7 @@
 <template>
-    <h2>Agenda</h2>
+    <BaseTitle title="Agenda" subtitle="Configura tus citas" />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import BaseTitle from '@/shared/components/BaseTitle.vue';
+</script>

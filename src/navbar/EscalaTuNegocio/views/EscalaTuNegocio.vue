@@ -1,5 +1,7 @@
 <template>
-    <h2>Escala tu Negocio</h2>
+    <BaseTitle title="Escala tu Negocio" subtitle="Explora los modulos disponibles" />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import BaseTitle from '@/shared/components/BaseTitle.vue';
+</script>

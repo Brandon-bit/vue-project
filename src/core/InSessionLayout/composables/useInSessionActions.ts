@@ -172,7 +172,7 @@ export function useInSessionActions() {
         },
         {
             // Procesos
-            icon: 'send_time_extension',
+            icon: 'rebase_edit',
             name: 'Procesos',
             sections: [
                 {
@@ -930,7 +930,7 @@ export function useInSessionActions() {
         },
         {
             name: "Procesos",
-            icon: "send_time_extension",
+            icon: "rebase_edit",
             url: "/procesos"
         },
         {

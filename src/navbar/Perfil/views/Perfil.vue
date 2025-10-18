@@ -1,5 +1,5 @@
 <template>
-    <h2>Perfil</h2>
+    <BaseTitle title="Perfil" subtitle="Configura tus preferencias" />
 
     <label class="flex cursor-pointer gap-2 mt-3">
         <svg
@@ -43,6 +43,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
 import { useThemeStore } from '../../../store/theme'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 const themeStore = useThemeStore()
 
 const isDarkMode = ref(themeStore.currentTheme == 'business')

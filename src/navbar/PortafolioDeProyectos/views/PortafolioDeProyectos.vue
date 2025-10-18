@@ -1,5 +1,7 @@
 <template>
-    <h2>Portafolio de Proyectos</h2>
+    <BaseTitle title="Portafolio de Proyectos" subtitle="Gestiona tus proyectos" />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import BaseTitle from '@/shared/components/BaseTitle.vue';
+</script>

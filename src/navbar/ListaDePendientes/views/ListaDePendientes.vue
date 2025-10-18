@@ -1,5 +1,7 @@
 <template>
-    <h2>Lista de Pendientes</h2>
+    <BaseTitle title="Lista de Pendientes" subtitle="Accede a tus tareas" />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import BaseTitle from '@/shared/components/BaseTitle.vue';
+</script>
