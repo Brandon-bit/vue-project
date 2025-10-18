@@ -3,32 +3,29 @@ import { TransferFormType, TransferRequestType, TransferResponseType, TransferTy
 export const mapTransfer = (model : TransferResponseType) : TransferType =>{
 
     return {
-    id: model.id,
-    idWarehouseOrigin: model.idAlmacenOrigen,
-    idWarehouseDestination: model.idAlmacenDestino,
-    transferDate: model.fechaTraslado ,
-    referenceDocument: model.documentoReferencia,
-    quantity: model.cantidad,
-    idProduct: model.IdProducto
+        id: model.id,
+        idWarehouseOrigin: model.idAlmacenOrigen,
+        idWarehouseDestination: model.idAlmacenDestino,
+        transferDate: model.fechaTraslado ,
+        referenceDocument: model.documentoReferencia,
+        quantity: model.cantidad,
+        idProduct: model.IdProducto
     }
 }
 
 export const mapTransferRequest = (model: TransferFormType): TransferRequestType => {
     
-    
-    const detallesMapeados: TrasladodetalleRequestType[] = model.Trasladodetalles.map(detalleFE => ({
-  IdProducto: detalleFE.idProducto ?? "",          // usa el campo de tu formulario
-  Cantidad: String(detalleFE.cantidad ?? 0)        // evita "undefined"
-}));
+    const detallesMapeados = model.Trasladodetalles.map(detalleFE => ({
+        idProducto: detalleFE.idProducto ?? "",
+        cantidad: detalleFE.cantidad ?? 0
+    }));
     
     return {
         IdAlmacenOrigen: model.idWarehouseOrigin,
         IdAlmacenDestino: model.idWarehouseDestination,
-       Trasladodetalles: detallesMapeados,
+        Trasladodetalles: detallesMapeados,
         Observaciones: model.remarks,
         Conductor: model.driver,
-        
-     
     };
         
-    }
+}

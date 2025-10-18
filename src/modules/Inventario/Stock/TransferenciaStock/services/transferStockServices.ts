@@ -25,14 +25,18 @@ export const createTransferService = async (data: TransferRequestType): Promise<
   return response.data;
 };
 
-export const getListWarehouse = async (): Promise<WarehouseType[]> =>
-  {const response = await axiosExamplepInstance.get('/warehouses'); return response.data;}
+export const getListWarehouse = async (page : number, pageSize: number) : Promise<ApiResponseType<PagedResponseType<WarehouseType>>> => {
+  const response = await axiosApiInstance.get('/traslado/traslado', {
+    params: {
+      limit: page,
+      skip: pageSize
+    }
+  })
+  return response.data
+}
 
-
-export const searchProductsByName = async (name: string): Promise<ApiResponseType<ProductSearchResponse>> => {
-  
-    
-    const response = await axiosApiInstance.get(`/producto/producto/GetProductoByName/${name}`);
-    return response.data;
+export const searchProductsByName = async (name: string): Promise<ApiResponseType<ProductSearchResponse>> => {  
+  const response = await axiosApiInstance.get(`/producto/producto/GetProductoByName/${name}`);
+  return response.data;
   
 };
