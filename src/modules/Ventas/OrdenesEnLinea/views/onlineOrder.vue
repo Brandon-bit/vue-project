@@ -11,6 +11,7 @@ import UseModal from '../components/UseModal.vue';
 import { useSale } from '../../../OnlineOrders/composables/useSale';
 import useSaleStore from '@/modules/Sales/Sales/online-orders/store/saleStore'
 import { useModalStore } from '@/shared/stores/modal.store';
+import BaseTitle from '@/shared/components/BaseTitle.vue';
 
 // 1. Activa el composable para obtener sus herramientas
 const { getSales, getSalesTableColumns } = useSale();
@@ -35,7 +36,7 @@ const openCreateModal = () => {
 
 <template>
     <div>
-        <h2 class="text-center mb-8">Ventas</h2>
+        <BaseTitle title="Ventas" subtitle="Gestión de Ventas" />
 
         <div class="mb-10 text-right">
             <BaseButton text="Nueva Venta" @click="openCreateModal" icon="add" />
