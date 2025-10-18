@@ -12,6 +12,7 @@ import MarketingRoutes from './MarketingRoutes'
 import PosRoutes from './POSRoutes'
 import ContabilidadRoutes from './ContabilidadRoutes'
 import ComprasRoutes from './ComprasRoutes'
+import AdministracionRoutes from './AdministracionRoutes'
 import FacturacionRoutes from './FacturacionRoutes'
 import RRHHRoutes from './RRHHRoutes'
 import NominaRoutes from './NominaRoutes'
@@ -31,6 +32,7 @@ const routes = [
             ...ContabilidadRoutes,
             ...MarketingRoutes,
             ...ComprasRoutes,
+            ...AdministracionRoutes,
             ...FacturacionRoutes,
             ...PosRoutes,
             ...RRHHRoutes,
