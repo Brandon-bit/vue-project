@@ -22,6 +22,12 @@ const routes = [
         name: 'ViaticosYReembolsos',
         component: () =>
             import('@administracion/ViaticosYReembolsos/views/ExpenseView.vue')
+    },
+    {
+        path: '/administracion/contratos-y-convenios',
+        name: 'ContratosYConvenios',
+        component: () =>
+            import('@administracion/ContratosYConvenios/views/ContractView.vue')
     }
 ]
 
