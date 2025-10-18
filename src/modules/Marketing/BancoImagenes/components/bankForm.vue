@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import BaseFormInput from '@/shared/components/BaseFormInput.vue';
 import BaseFormSingleImageInput from '@/shared/components/BaseFormSingleImageInput.vue';
-import { useImageBankStore } from '../store/imageBankStore';
+import { useMediaAssetStore } from '../store/mediaAssetStore';
 import { useModalStore } from '@/shared/stores/modal.store';
 
-const imageBankStore = useImageBankStore();
+const mediaAssetStore = useMediaAssetStore();
 const modalStore = useModalStore();
 
-const isEditMode = modalStore.modals[imageBankStore.modalId]?.type === 'EDIT';
+const isEditMode = modalStore.modals[mediaAssetStore.modalId]?.type === 'EDIT';
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const isEditMode = modalStore.modals[imageBankStore.modalId]?.type === 'EDIT';
       name="image"
       label="Archivo de Imagen"
       accept="image/png, image/jpeg, image/webp"
-      :image-url="imageBankStore.selectedAsset?.url"
+      :image-url="mediaAssetStore.selectedAsset?.url"
       :required="!isEditMode"
     />
     <BaseFormInput

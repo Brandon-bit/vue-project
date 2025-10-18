@@ -112,7 +112,7 @@
   ],
   "warranty": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Replacement Warranty",
       "duration": 2,
       "period": "year",
@@ -120,7 +120,7 @@
       "active": true
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "On-Site Warranty",
       "duration": 1,
       "period": "year",
@@ -128,7 +128,7 @@
       "active": true
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Accidental Protection Plan",
       "duration": 6,
       "period": "month",
@@ -136,7 +136,7 @@
       "active": true
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Labor-Only Warranty",
       "duration": 6,
       "period": "month",
@@ -144,7 +144,7 @@
       "active": true
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "No-Cost Repairs",
       "duration": 3,
       "period": "month",
@@ -152,7 +152,7 @@
       "active": true
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Accidental Damage",
       "duration": 6,
       "period": "month",
@@ -160,7 +160,7 @@
       "active": true
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Wear & Tear Warranty",
       "duration": 1,
       "period": "year",
@@ -168,7 +168,7 @@
       "active": true
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Money-Back Guarantee",
       "duration": 3,
       "period": "month",
@@ -176,7 +176,7 @@
       "active": true
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Water Damage Warranty",
       "duration": 6,
       "period": "month",
@@ -184,7 +184,7 @@
       "active": true
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Power Surge Protection",
       "duration": 6,
       "period": "month",
@@ -236,70 +236,70 @@
   ],
   "category": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Herramientas Eléctricas",
       "sufix": "HREL",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Herramientas Manuales",
       "sufix": "HRMN",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Materiales de Construcción",
       "sufix": "MCON",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pinturas y Accesorios",
       "sufix": "PINT",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Jardinería",
       "sufix": "JARD",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Fontanería",
       "sufix": "FONT",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Seguridad y Protección",
       "sufix": "SEG",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Iluminación",
       "sufix": "ILUM",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Ferretería General",
       "sufix": "FERR",
       "status": true,
       "creationDate": "2025-08-25T00:00:00Z"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Automotriz",
       "sufix": "AUTO",
       "status": true,
@@ -410,7 +410,7 @@
   ],
   "unit": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Piece",
       "shortName": "PC",
       "productsCount": 25,
@@ -418,7 +418,7 @@
       "active": true
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Kilogram",
       "shortName": "KG",
       "productsCount": 15,
@@ -426,7 +426,7 @@
       "active": true
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Gram",
       "shortName": "G",
       "productsCount": 47,
@@ -434,7 +434,7 @@
       "active": true
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Meter",
       "shortName": "M",
       "productsCount": 28,
@@ -442,7 +442,7 @@
       "active": true
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Liter",
       "shortName": "L",
       "productsCount": 47,
@@ -450,7 +450,7 @@
       "active": true
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Kilo",
       "shortName": "K",
       "productsCount": 74,
@@ -621,7 +621,7 @@
   ],
   "variant": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Size (T-shirts)",
       "values": [
         {
@@ -645,7 +645,7 @@
       "active": true
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Size (Shoes)",
       "values": [
         {
@@ -669,7 +669,7 @@
       "active": true
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Color",
       "values": [
         {
@@ -693,7 +693,7 @@
       "active": true
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Memory",
       "values": [
         {
@@ -713,7 +713,7 @@
       "active": true
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Storage",
       "values": [
         {
@@ -1013,7 +1013,7 @@
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "sku": "HRMN-Bosch-llavestilson-PC-050",
       "name": "Llave stilson 14\"",
       "category": "Herramientas manuales",
@@ -1025,7 +1025,7 @@
       "user": "admin2"
     },
     {
-      "id": 2,
+      "id": "2",
       "sku": "HREL-Bosch-mirotomartillo-PC-001",
       "name": "Rotomartillo",
       "category": "Herramientas eléctricas",
@@ -1039,7 +1039,7 @@
   ],
   "discounts": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Black Friday 2024",
       "description": "Descuento especial por Black Friday",
       "type": "PERCENTAGE",
@@ -1055,7 +1055,7 @@
       "maxUses": 100
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Descuento Cantidad",
       "description": "Compra 5 o más productos y obtén descuento",
       "type": "MIN_QUANTITY",
@@ -1079,7 +1079,7 @@
       "maxUses": 50
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Cupón Navideño",
       "description": "Descuento especial con cupón para navidad",
       "type": "FIXED_AMOUNT",
@@ -1101,7 +1101,7 @@
       "maxUses": 25
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Descuento Monto Alto",
       "description": "Descuento por compras superiores a $500",
       "type": "MIN_AMOUNT",
@@ -1118,7 +1118,7 @@
       "maxUses": 200
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Outlet Verano",
       "description": "Liquidación de productos de verano",
       "type": "PERCENTAGE",
@@ -1139,7 +1139,7 @@
       "maxUses": 100
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Promo Estudiantes",
       "description": "Descuento especial para estudiantes",
       "type": "PERCENTAGE",
@@ -1291,7 +1291,7 @@
   },
   "expiration-products": [
     {
-      "id": 1,
+      "id": "1",
       "sku": "FER-001",
       "nombre": "Silicona selladora",
       "fecha_fabricacion": "2023-05-10",
@@ -1300,7 +1300,7 @@
       "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "sku": "FER-002",
       "nombre": "Pintura acrílica blanca",
       "fecha_fabricacion": "2022-08-15",
@@ -1309,7 +1309,7 @@
       "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
     },
     {
-      "id": 3,
+      "id": "3",
       "sku": "FER-003",
       "nombre": "Spray lubricante multiusos",
       "fecha_fabricacion": "2024-01-20",
@@ -1318,7 +1318,7 @@
       "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "sku": "FER-004",
       "nombre": "Pegamento epóxico",
       "fecha_fabricacion": "2021-11-05",
@@ -1327,7 +1327,7 @@
       "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "sku": "FER-005",
       "nombre": "Removedor de óxido",
       "fecha_fabricacion": "2023-09-01",
@@ -1336,7 +1336,7 @@
       "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "sku": "FER-006",
       "nombre": "Masilla para madera",
       "fecha_fabricacion": "2022-06-30",
@@ -1345,7 +1345,7 @@
       "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "sku": "FER-007",
       "nombre": "Limpiador de contacto eléctrico",
       "fecha_fabricacion": "2024-03-12",
@@ -1354,7 +1354,7 @@
       "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "sku": "FER-008",
       "nombre": "Esmalte anticorrosivo",
       "fecha_fabricacion": "2022-09-02",
@@ -1363,7 +1363,7 @@
       "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "sku": "FER-009",
       "nombre": "Sellador de roscas",
       "fecha_fabricacion": "2023-02-18",
@@ -1372,7 +1372,7 @@
       "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
     },
     {
-      "id": 10,
+      "id": "10",
       "sku": "FER-010",
       "nombre": "Disolvente de pintura",
       "fecha_fabricacion": "2021-07-25",
@@ -1383,7 +1383,7 @@
   ],
   "stockBajo": [
     {
-      "id": 1,
+      "id": "1",
       "almacen": "Almacen Central",
       "tienda": "Ferretería Norte",
       "nombre": "Taladro Inalámbrico",
@@ -1394,7 +1394,7 @@
       "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "almacen": "Almacen Central",
       "tienda": "Ferretería Sur",
       "nombre": "Destornillador Phillips",
@@ -1405,7 +1405,7 @@
       "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "almacen": "Almacen Norte",
       "tienda": "Ferretería Centro",
       "nombre": "Cinta Métrica 5m",
@@ -1416,7 +1416,7 @@
       "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "almacen": "Almacen Sur",
       "tienda": "Ferretería Norte",
       "nombre": "Llave Ajustable 10\"",
@@ -1427,7 +1427,7 @@
       "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "almacen": "Almacen Central",
       "tienda": "Ferretería Sur",
       "nombre": "Tornillo 4x20mm (100 unidades)",
@@ -1438,7 +1438,7 @@
       "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
     },
     {
-      "id": 6,
+      "id": "6",
       "almacen": "Almacen Norte",
       "tienda": "Ferretería Centro",
       "nombre": "Taladro Percutor 800W",
@@ -1449,7 +1449,7 @@
       "imagen": "https://ferreteriacalzada.mx/wp-content/uploads/2025/05/H050766.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "almacen": "Almacen Sur",
       "tienda": "Ferretería Norte",
       "nombre": "Nivel de burbuja 60cm",
@@ -1460,7 +1460,7 @@
       "imagen": "https://m.media-amazon.com/images/I/51Fhfs54UeL._UF894,1000_QL80_.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "almacen": "Almacen Central",
       "tienda": "Ferretería Centro",
       "nombre": "Cinta Aislante 20m",
@@ -1471,7 +1471,7 @@
       "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
     },
     {
-      "id": 9,
+      "id": "9",
       "almacen": "Almacen Norte",
       "tienda": "Ferretería Sur",
       "nombre": "Sierra Manual 18\"",
@@ -1482,7 +1482,7 @@
       "imagen": "https://www.lumienlinea.com/cdn/shop/products/10754_img01.jpg?v=1710540889&width=1214"
     },
     {
-      "id": 10,
+      "id": "10",
       "almacen": "Almacen Sur",
       "tienda": "Ferretería Centro",
       "nombre": "Guantes de seguridad talla M",
@@ -1495,7 +1495,7 @@
   ],
   "puntosMaximosMinimos": [
     {
-      "id": 1,
+      "id": "1",
       "sku": "A123",
       "minimo": 10,
       "maximo": 50,
@@ -1506,7 +1506,7 @@
       "productoNombre": "Teclado Mecánico"
     },
     {
-      "id": 2,
+      "id": "2",
       "sku": "B456",
       "minimo": 20,
       "maximo": 100,
@@ -1517,7 +1517,7 @@
       "productoNombre": "Mouse Inalámbrico"
     },
     {
-      "id": 3,
+      "id": "3",
       "sku": "C789",
       "minimo": 5,
       "maximo": 20,
@@ -1528,7 +1528,7 @@
       "productoNombre": "Monitor 24 pulgadas"
     },
     {
-      "id": 4,
+      "id": "4",
       "sku": "D321",
       "minimo": 50,
       "maximo": 200,
@@ -1539,7 +1539,7 @@
       "productoNombre": "Cable HDMI"
     },
     {
-      "id": 5,
+      "id": "5",
       "sku": "E654",
       "minimo": 15,
       "maximo": 60,
@@ -1553,34 +1553,40 @@
   "controlPanelData": [
     {
       "titulo": "Productos con bajo stock",
-      "cantidad": 8
+      "cantidad": 8,
+      "id": "1b4a"
     },
     {
       "titulo": "Pedidos pendientes",
-      "cantidad": 5
+      "cantidad": 5,
+      "id": "f2cb"
     },
     {
       "titulo": "Autorizaciones pendientes",
-      "cantidad": 2
+      "cantidad": 2,
+      "id": "b1ee"
     },
     {
       "titulo": "Valor de inventario",
-      "cantidad": "$ 1,250,430.60"
+      "cantidad": "$ 1,250,430.60",
+      "id": "cf79"
     }
   ],
   "auditGeneralData": [
     {
       "titulo": "Conteos realizados",
-      "cantidad": 3
+      "cantidad": 3,
+      "id": "0f04"
     },
     {
       "titulo": "Ajuste neto",
-      "cantidad": -5
+      "cantidad": -5,
+      "id": "6f8e"
     }
   ],
   "inventoryAudit": [
     {
-      "id": 1,
+      "id": "1",
       "fecha": "2025-09-15",
       "auditorId": 1,
       "auditorNombre": "Laura Martínez",
@@ -1591,7 +1597,7 @@
       "notaGeneral": "Faltan unidades posiblemente por préstamo a taller."
     },
     {
-      "id": 2,
+      "id": "2",
       "fecha": "2025-09-16",
       "auditorId": 2,
       "auditorNombre": "Carlos Ramírez",
@@ -1602,7 +1608,7 @@
       "notaGeneral": "Conteo correcto, sin diferencias."
     },
     {
-      "id": 3,
+      "id": "3",
       "fecha": "2025-09-17",
       "auditorId": 3,
       "auditorNombre": "Ana Gómez",
@@ -1613,7 +1619,7 @@
       "notaGeneral": "Una unidad extra, posible error en ingreso anterior."
     },
     {
-      "id": 4,
+      "id": "4",
       "fecha": "2025-09-18",
       "auditorId": 4,
       "auditorNombre": "José Torres",
@@ -1624,7 +1630,7 @@
       "notaGeneral": "Se encontró una dañada y fue retirada del inventario."
     },
     {
-      "id": 5,
+      "id": "5",
       "fecha": "2025-09-19",
       "auditorId": 5,
       "auditorNombre": "Sofía Delgado",
@@ -1677,29 +1683,29 @@
   },
   "inventoryAuditors": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Laura Martínez"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "Carlos Ramírez"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Ana Gómez"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "José Torres"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "Sofía Delgado"
     }
   ],
   "gestionPedido": [
     {
-      "id": 1,
+      "id": "1",
       "folio": "INV-001245",
       "idProveedor": 101,
       "proveedor": "Ferretería El Tornillo",
@@ -1708,7 +1714,7 @@
       "estadoId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "folio": "INV-001246",
       "idProveedor": 102,
       "proveedor": "Materiales Monterrey",
@@ -1717,7 +1723,7 @@
       "estadoId": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "folio": "INV-001247",
       "idProveedor": 103,
       "proveedor": "Distribuidora Rápida S.A.",
@@ -1726,7 +1732,7 @@
       "estadoId": 3
     },
     {
-      "id": 4,
+      "id": "4",
       "folio": "INV-001248",
       "idProveedor": 104,
       "proveedor": "Clavos y Tornillos MX",
@@ -1735,7 +1741,7 @@
       "estadoId": 4
     },
     {
-      "id": 5,
+      "id": "5",
       "folio": "INV-001249",
       "idProveedor": 105,
       "proveedor": "Herramientas del Norte",
@@ -1746,53 +1752,53 @@
   ],
   "proveedores": [
     {
-      "id": 101,
+      "id": "101",
       "nombre": "Ferretería El Tornillo"
     },
     {
-      "id": 102,
+      "id": "102",
       "nombre": "Materiales Monterrey"
     },
     {
-      "id": 103,
+      "id": "103",
       "nombre": "Distribuidora Rápida S.A."
     },
     {
-      "id": 104,
+      "id": "104",
       "nombre": "Clavos y Tornillos MX"
     },
     {
-      "id": 105,
+      "id": "105",
       "nombre": "Herramientas del Norte"
     }
   ],
   "autorizacionesDePedidos": [
     {
-      "id": 1,
+      "id": "1",
       "folio": "F-00123",
       "proveedor": "Ferretería El Tornillo",
       "fecha": "2025-09-20"
     },
     {
-      "id": 2,
+      "id": "2",
       "folio": "F-00124",
       "proveedor": "Suministros Martínez",
       "fecha": "2025-09-21"
     },
     {
-      "id": 3,
+      "id": "3",
       "folio": "F-00125",
       "proveedor": "Herramientas y Más",
       "fecha": "2025-09-22"
     },
     {
-      "id": 4,
+      "id": "4",
       "folio": "F-00126",
       "proveedor": "Todo en Ferretería",
       "fecha": "2025-09-23"
     },
     {
-      "id": 5,
+      "id": "5",
       "folio": "F-00127",
       "proveedor": "La Casa del Martillo",
       "fecha": "2025-09-24"
@@ -1800,7 +1806,7 @@
   ],
   "administrarStock": [
     {
-      "id": 1,
+      "id": "1",
       "almacen": "Bodega central santiago",
       "tienda": "Ferretería Centro",
       "producto": "Caja de tornillos 3mm",
@@ -1809,7 +1815,7 @@
       "personaResponsable": "Ricardo"
     },
     {
-      "id": 2,
+      "id": "2",
       "almacen": "Almacen Norte",
       "tienda": "Ferretería Norte",
       "producto": "Cinta métrica 5m",
@@ -1818,7 +1824,7 @@
       "personaResponsable": "Brandon"
     },
     {
-      "id": 3,
+      "id": "3",
       "almacen": "Almacen Sur",
       "tienda": "Ferretería Sur",
       "producto": "Llave inglesa ajustable",
@@ -1827,7 +1833,7 @@
       "personaResponsable": "Martin"
     },
     {
-      "id": 4,
+      "id": "4",
       "almacen": "Almacen Central",
       "tienda": "Ferretería Norte",
       "producto": "Taladro inalámbrico",
@@ -1920,30 +1926,37 @@
       }
     ]
   },
-   "images": [
+  "images": [
     {
-      "id": "img-001",
-      "url": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2940&auto=format&fit=crop",
-      "title": "Accesorios de Lujo",
-      "tags": ["accesorios", "bolsos", "lujo", "moda"],
-      "uploadDate": "2025-10-14T15:30:00.000Z",
-      "fileName": "accesorios_lujo_coleccion.jpg"
+      "id": "1",
+      "mediaType": "image",
+      "url": "https://via.placeholder.com/300",
+      "title": "AAAAA",
+      "tags": ["aaaa", "vaaaaa"],
+      "uploadDate": "2025-10-15T12:00:00.000Z",
+      "fileName": "ejemplo.jpg"
     },
     {
-      "id": "img-002",
-      "url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=2874&auto=format&fit=crop",
-      "title": "Estilo Urbano Femenino",
-      "tags": ["moda", "urbano", "descuento", "ropa"],
-      "uploadDate": "2025-10-12T11:25:00.000Z",
-      "fileName": "look_urbano_descuento.png"
+      "id": "2",
+      "mediaType": "video",
+      "url": "https://www.w3schools.com/html/mov_bbb.mp4",
+      "thumbnailUrl": "https://via.placeholder.com/300/FF0000",
+      "title": ":D",
+      "tags": ["mar", "relajante"],
+      "duration": "0:10",
+      "uploadDate": "2025-10-16T10:00:00.000Z",
+      "fileName": "ejemplo.mp4"
     },
     {
-      "id": "img-003",
-      "url": "https://images.unsplash.com/photo-1620799140408-edc6d5f9650d?q=80&w=2872&auto=format&fit=crop",
-      "title": "Colección Verano Vibrante",
-      "tags": ["ropa", "verano", "campaña"],
-      "uploadDate": "2025-10-10T09:00:00.000Z",
-      "fileName": "campana_verano_vibrante.jpg"
+      "id": "3",
+      "mediaType": "audio",
+      "url": "https://www.w3schools.com/html/horse.mp3",
+      "title": ":D",
+      "tags": ["yo", "sonido"],
+      "artist": "Desconocido",
+      "album": "Sonidos de la Granja",
+      "uploadDate": "2025-10-17T08:00:00.000Z",
+      "fileName": "ejemplo.mp3"
     }
   ],
   "socialPosts": [
@@ -1970,6 +1983,121 @@
       "status": "draft",
       "image": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=2874&auto=format&fit=crop",
       "caption": "Próximamente: Descuentos de mitad de temporada. ¿Estás listo para renovar tu guardarropa?"
+    },
+    {
+      "date": "2025-10-23",
+      "caption": "hola",
+      "status": "draft",
+      "networks": {
+        "facebook": false,
+        "instagram": false,
+        "twitter": false
+      },
+      "id": "b342"
+    },
+    {
+      "id": "e291",
+      "date": "2025-10-22",
+      "caption": "",
+      "status": "draft",
+      "networks": {
+        "facebook": false,
+        "instagram": false,
+        "twitter": false
+      }
+    },
+    {
+      "date": "2025-10-23",
+      "caption": "holaAAAi",
+      "status": "published",
+      "networks": {
+        "facebook": false,
+        "instagram": false,
+        "twitter": false
+      },
+      "id": "4730"
+    },
+    {
+      "id": "f327",
+      "date": "2025-10-18",
+      "caption": "",
+      "status": "draft",
+      "networks": "{\"facebook\":false,\"instagram\":false,\"twitter\":false}"
+    },
+    {
+      "id": "c0e8",
+      "date": "20002-01-28",
+      "caption": "",
+      "status": "published",
+      "networks": {
+        "facebook": false,
+        "instagram": false,
+        "twitter": false
+      }
+    },
+    {
+      "date": "2025-10-16",
+      "caption": "u",
+      "status": "published",
+      "networks": {
+        "facebook": "false",
+        "instagram": "false",
+        "twitter": "false"
+      },
+      "id": "d7be"
+    },
+    {
+      "id": "b7ee",
+      "date": "2025-10-18",
+      "caption": "",
+      "status": "published",
+      "networks": {
+        "facebook": false,
+        "instagram": false,
+        "twitter": false
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Diseñar landing page",
+      "description": "Crear mockups para la nueva landing page del producto X",
+      "assignee": "María García",
+      "priority": "high",
+      "status": "inprogress"
+    },
+    {
+      "id": "2",
+      "title": "Redactar copy para email",
+      "description": "Newsletter de enero con novedades del producto",
+      "assignee": "Juan Pérez",
+      "priority": "medium",
+      "status": "todo"
+    },
+    {
+      "id": "3",
+      "title": "Aprobar diseños de redes",
+      "description": "Revisar y aprobar posts programados para esta semana",
+      "assignee": "Ana López",
+      "priority": "high",
+      "status": "review"
+    },
+    {
+      "id": "4",
+      "title": "Configurar campaña de Google Ads",
+      "description": "Campaña de búsqueda para el nuevo producto",
+      "assignee": "Juan Pérez",
+      "priority": "medium",
+      "status": "todo"
+    },
+    {
+      "id": "5",
+      "title": "Publicar artículo de blog",
+      "description": "Artículo sobre 'Tendencias de Marketing 2025'",
+      "assignee": "María García",
+      "priority": "low",
+      "status": "done"
     }
   ]
 }
