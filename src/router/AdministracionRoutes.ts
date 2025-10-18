@@ -10,6 +10,12 @@ const routes = [
         name: 'Presupuestos',
         component: () =>
             import('@administracion/Presupuestos/views/BudgetView.vue')
+    },
+    {
+        path: '/administracion/gestion-documental',
+        name: 'GestionDocumental',
+        component: () =>
+            import('@administracion/GestionDocumental/views/DocumentView.vue')
     }
 ]
 

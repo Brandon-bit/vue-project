@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-type ModalType = 'EDIT' | 'INFO' | 'DELETE' | 'STATUS' | 'CREATE' | 'LOAD' | 'UPDATE' | 'DETAIL'
+type ModalType = 'EDIT' | 'INFO' | 'DELETE' | 'STATUS' | 'CREATE' | 'LOAD' | 'UPDATE' | 'DETAIL' | 'VIEW' | 'APPROVE'
 
 interface ModalState {
     status: boolean
