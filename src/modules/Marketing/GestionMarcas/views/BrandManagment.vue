@@ -143,7 +143,7 @@ const socialIcons: Record<string, any> = {
 </script>
 
 <template>
-  <div class="p-6 space-y-6">
+  <div class="">
     <BaseTitle title="Gestión de Marcas" subtitle="Configura y administra las marcas que gestionarás en el módulo de Marketing" />
 
     <div class="flex justify-end items-center">

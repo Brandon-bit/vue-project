@@ -99,7 +99,7 @@ const totalBudget = computed(() => campaigns.value.reduce((sum, c) => sum + c.bu
 </script>
 
 <template>
-  <div class="p-6 space-y-6">
+  <div class="">
     <BaseTitle title="Estrategia de Campañas" subtitle="Planifica y gestiona tus campañas de marketing estratégicas" />
     
     <div class="flex justify-end items-center">

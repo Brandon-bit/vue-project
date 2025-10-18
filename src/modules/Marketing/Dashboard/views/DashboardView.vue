@@ -76,7 +76,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="p-6 space-y-6">
+    <div class="">
     <BaseTitle title="Dashboard" subtitle="Monitorea el rendimiento de todas tus iniciativas de marketing." />
 
     <div class="flex flex-col sm:flex-row justify-end sm:items-center gap-4">

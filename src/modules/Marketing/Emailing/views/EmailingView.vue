@@ -70,7 +70,7 @@ const clickThroughRate = computed(() => {
 </script>
 
 <template>
-  <div class="p-6 space-y-6">
+  <div class="">
     <!-- Encabezado de la Página -->
     <BaseTitle title="E-mailing" subtitle="Gestiona campañas de email marketing y audiencias" />
     

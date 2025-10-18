@@ -53,7 +53,7 @@ const handleDeleteClick = (task: Task) => {
 </script>
 
 <template>
-  <div class="p-6 space-y-6">
+  <div class="">
     <BaseTitle title="Gestión de Proyectos" subtitle="Organiza y ejecuta las tareas de tu equipo" />
     
     <div class="flex justify-end items-center">

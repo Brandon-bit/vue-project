@@ -92,7 +92,7 @@ const formatDate = (dateString: string) => {
 </script>
 
 <template>
-  <div class="p-6 space-y-6">
+  <div class="">
     <BaseTitle title="Coordinador de Redes Sociales" subtitle="Planifica, programa y gestiona publicaciones en todas tus redes sociales." />
     
     <div class="flex justify-end items-center">

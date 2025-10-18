@@ -95,7 +95,7 @@ const getStatusProps = (status: SurveyStatus) => {
 </script>
 
 <template>
-  <div class="p-6 space-y-6">
+  <div class="">
     <BaseTitle title="Benchmarking & Mystery Shopper" subtitle="Crea estudios de mercado y análisis de competencia" />
     
     <div class="flex justify-end items-center">

@@ -96,7 +96,7 @@ const formatDate = (dateString: string) => {
 </script>
 
 <template>
-  <div class="p-6 space-y-6">
+  <div class="">
     <BaseTitle title="Banco de Medios" subtitle="Gestiona y organiza todos tus activos" />
     
     <div class="flex justify-end items-center">
