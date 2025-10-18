@@ -28,6 +28,12 @@ const routes = [
         name: 'ContratosYConvenios',
         component: () =>
             import('@administracion/ContratosYConvenios/views/ContractView.vue')
+    },
+    {
+        path: '/administracion/permisos-y-licencias',
+        name: 'PermisosYLicencias',
+        component: () =>
+            import('@administracion/PermisosYLicencias/views/PermissionView.vue')
     }
 ]
 
