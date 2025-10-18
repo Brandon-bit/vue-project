@@ -34,6 +34,12 @@ const routes = [
         name: 'PermisosYLicencias',
         component: () =>
             import('@administracion/PermisosYLicencias/views/PermissionView.vue')
+    },
+    {
+        path: '/administracion/auditorias-administrativas',
+        name: 'AuditoriasAdministrativas',
+        component: () =>
+            import('@administracion/AuditoriasAdministrativas/views/AuditoriasAdministrativasView.vue')
     }
 ]
 
