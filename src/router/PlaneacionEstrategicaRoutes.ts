@@ -45,6 +45,15 @@ const PlaneacionEstrategicaRoutes: RouteRecordRaw[] = [
             requiresAuth: true,
             title: 'Indicadores Estratégicos'
         }
+    },
+    {
+        path: '/planeacion-estrategica/plan-de-accion',
+        name: 'PlanDeAccion',
+        component: () => import('@/modules/PlaneacionEstrategica/PlanDeAccion/views/PlanDeAccionView.vue'),
+        meta: {
+            requiresAuth: true,
+            title: 'Plan de Acción'
+        }
     }
 ]
 
