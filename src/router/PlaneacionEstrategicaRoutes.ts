@@ -63,6 +63,15 @@ const PlaneacionEstrategicaRoutes: RouteRecordRaw[] = [
             requiresAuth: true,
             title: 'Dashboard Estratégico'
         }
+    },
+    {
+        path: '/planeacion-estrategica/evaluacion-estrategica',
+        name: 'EvaluacionEstrategica',
+        component: () => import('@/modules/PlaneacionEstrategica/EvaluacionEstrategica/views/EvaluacionEstrategicaView.vue'),
+        meta: {
+            requiresAuth: true,
+            title: 'Evaluación Estratégica'
+        }
     }
 ]
 
