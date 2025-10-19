@@ -18,6 +18,15 @@ const PlaneacionEstrategicaRoutes: RouteRecordRaw[] = [
             requiresAuth: true,
             title: 'Definición de Estrategia'
         }
+    },
+    {
+        path: '/planeacion-estrategica/mapa-estrategico',
+        name: 'MapaEstrategico',
+        component: () => import('@/modules/PlaneacionEstrategica/MapaEstrategico/views/MapaEstrategicoView.vue'),
+        meta: {
+            requiresAuth: true,
+            title: 'Mapa Estratégico'
+        }
     }
 ]
 
