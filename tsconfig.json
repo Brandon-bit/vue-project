@@ -26,6 +26,7 @@
             "@facturacion/*": ["src/modules/Facturacion/*"],
             "@nomina/*": ["src/modules/Nomina/*"],
             "@compras/*": ["src/modules/Compras/*"],
+            "@planeacionEstrategica/*": ["src/modules/PlaneacionEstrategica/*"],
             // NAVBAR
             "@exportar/*": ["src/navbar/Exportar/*"],
             "@listaDePendientes/*": ["src/navbar/ListaDePendientes/*"],

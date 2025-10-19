@@ -30,6 +30,7 @@ export default defineConfig({
             '@pos': path.resolve(__dirname, './src/modules/POS'),
             '@facturacion': path.resolve(__dirname, './src/modules/facturacion'),
             '@nomina': path.resolve(__dirname, './src/modules/nomina'),
+            '@planeacionEstrategica': path.resolve(__dirname, './src/modules/PlaneacionEstrategica'),
             //NAVBAR
             '@exportar': path.resolve(__dirname, './src/navbar/Exportar'),
             '@listaDePendientes': path.resolve(__dirname, './src/navbar/ListaDePendientes'),
