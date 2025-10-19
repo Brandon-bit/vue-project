@@ -9,6 +9,15 @@ const PlaneacionEstrategicaRoutes: RouteRecordRaw[] = [
             requiresAuth: true,
             title: 'Diagnóstico Estratégico'
         }
+    },
+    {
+        path: '/planeacion-estrategica/definicion-de-estrategia',
+        name: 'DefinicionDeEstrategia',
+        component: () => import('@/modules/PlaneacionEstrategica/DefinicionDeEstrategia/views/DefinicionDeEstrategiaView.vue'),
+        meta: {
+            requiresAuth: true,
+            title: 'Definición de Estrategia'
+        }
     }
 ]
 
