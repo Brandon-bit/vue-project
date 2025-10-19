@@ -36,6 +36,15 @@ const PlaneacionEstrategicaRoutes: RouteRecordRaw[] = [
             requiresAuth: true,
             title: 'Gestión de Iniciativas'
         }
+    },
+    {
+        path: '/planeacion-estrategica/indicadores-estrategicos',
+        name: 'IndicadoresEstrategicos',
+        component: () => import('@/modules/PlaneacionEstrategica/IndicadoresEstrategicos/views/IndicadoresEstrategicosView.vue'),
+        meta: {
+            requiresAuth: true,
+            title: 'Indicadores Estratégicos'
+        }
     }
 ]
 
