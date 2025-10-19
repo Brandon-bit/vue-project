@@ -909,10 +909,6 @@ export function useInSessionActions() {
                             name: 'Plan de Acción'
                         },
                         {
-                            url: '/planeacion-estrategica/dashboard-estrategico',
-                            name: 'Dashboard Estratégico'
-                        },
-                        {
                             url: '/planeacion-estrategica/evaluacion-estrategica',
                             name: 'Evaluación Estratégica'
                         }
@@ -967,6 +963,11 @@ export function useInSessionActions() {
             name: "Ventas",
             icon: "shopping_cart",
             url: "/ventas"
+        },
+        {
+            name: "Planeación Estrategica",
+            icon: "nest_thermostat_gen_3",
+            url: "/planeacion-estrategica"
         },
         {
             name: "RRHH",
