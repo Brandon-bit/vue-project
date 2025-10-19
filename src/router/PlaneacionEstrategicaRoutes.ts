@@ -27,6 +27,15 @@ const PlaneacionEstrategicaRoutes: RouteRecordRaw[] = [
             requiresAuth: true,
             title: 'Mapa Estratégico'
         }
+    },
+    {
+        path: '/planeacion-estrategica/gestion-de-iniciativas',
+        name: 'GestionDeIniciativas',
+        component: () => import('@/modules/PlaneacionEstrategica/GestionDeIniciativas/views/GestionDeIniciativasView.vue'),
+        meta: {
+            requiresAuth: true,
+            title: 'Gestión de Iniciativas'
+        }
     }
 ]
 
