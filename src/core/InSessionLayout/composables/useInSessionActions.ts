@@ -927,10 +927,6 @@ export function useInSessionActions() {
                             name: 'Plan de Acción'
                         },
                         {
-                            url: '/planeacion-estrategica/dashboard-estrategico',
-                            name: 'Dashboard Estratégico'
-                        },
-                        {
                             url: '/planeacion-estrategica/evaluacion-estrategica',
                             name: 'Evaluación Estratégica'
                         }

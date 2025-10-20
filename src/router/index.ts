@@ -17,6 +17,7 @@ import FacturacionRoutes from './FacturacionRoutes'
 import RRHHRoutes from './RRHHRoutes'
 import NominaRoutes from './NominaRoutes'
 import SalesRoutes from './SalesRoute'
+import PlaneacionEstrategicaRoutes from './PlaneacionEstrategicaRoutes'
 
 const routes = [
     {
@@ -37,7 +38,8 @@ const routes = [
             ...PosRoutes,
             ...RRHHRoutes,
             ...NominaRoutes,
-            ...SalesRoutes
+            ...SalesRoutes,
+            ...PlaneacionEstrategicaRoutes
         ]
     },
     {
