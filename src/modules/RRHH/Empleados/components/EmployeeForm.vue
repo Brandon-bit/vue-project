@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
-import { nextTick, computed, onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { nextTick, computed, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import BaseFormPageTitle from '@/shared/components/BaseFormPageTitle.vue'
 import BaseFormInput from '@/shared/components/BaseFormInput.vue'
 import BaseFormSelect from '@/shared/components/BaseFormSelect.vue'
 import BaseFormInputFile from '@/shared/components/BaseFormInputFile.vue'
@@ -10,8 +11,11 @@ import BaseFormActionButtons from '@/shared/components/BaseFormActionButtons.vue
 import { employeeSchema } from '@/modules/RRHH/Empleados/validations/employeeValidation'
 import { useEmployeeActions } from '@/modules/RRHH/Empleados/composables/useEmployeeActions'
 import { SelectOptionDTO } from '@/modules/RRHH/Empleados/types/employeeTypes'
+import { usePositionActions } from '@/modules/RRHH/Puestos/composables/usePositionActions'
+import { useBranchActions } from '@/modules/RRHH/Sucursales/composables/useBranchActions'
 
 const route = useRoute()
+const router = useRouter()
 const isEditMode = computed(() => route.name === 'Actualizar empleado')
 const pageTitle = computed(() =>
     isEditMode.value ? 'Actualizar empleado' : 'Crear nuevo empleado'
@@ -27,12 +31,17 @@ const {
     getSupervisors
 } = useEmployeeActions()
 
+const { getPositionsByDepartment } = usePositionActions()
+const { getBranchesByCompany } = useBranchActions()
+
 const companies = ref<SelectOptionDTO[]>([])
 const departments = ref<SelectOptionDTO[]>([])
 const contractTypes = ref<SelectOptionDTO[]>([])
 const supervisors = ref<SelectOptionDTO[]>([])
+const filteredPositions = ref<SelectOptionDTO[]>([])
+const filteredBranches = ref<SelectOptionDTO[]>([])
 
-const { handleSubmit, isSubmitting, resetForm } = useForm({
+const { handleSubmit, isSubmitting, resetForm, values } = useForm({
     validationSchema: toTypedSchema(employeeSchema),
     validateOnMount: false,
     initialValues: {
@@ -44,12 +53,13 @@ const { handleSubmit, isSubmitting, resetForm } = useForm({
         taxId: '',
         address: '',
         hireDate: '',
-        company: undefined,
-        department: undefined,
-        position: '',
+        company: 0,
+        department: 0,
+        position: 0,
+        branch: 0,
         salary: undefined,
-        contractType: undefined,
-        reportsTo: undefined
+        contractType: 0,
+        reportsTo: 0
     }
 })
 
@@ -69,6 +79,78 @@ onMounted(async () => {
         }
     }
 })
+
+// Watch department changes to filter positions
+watch(
+    () => values.department,
+    async (selectedDepartment) => {
+        console.log('Department changed:', selectedDepartment, 'type:', typeof selectedDepartment)
+        // Convert to number if it's a string
+        const departmentId = typeof selectedDepartment === 'string' ? parseInt(selectedDepartment) : selectedDepartment
+        
+        if (departmentId && departmentId !== 0 && !isNaN(departmentId)) {
+            try {
+                const positions = await getPositionsByDepartment(departmentId)
+                console.log('Positions received:', positions)
+                filteredPositions.value = positions.map((pos) => ({
+                    id: pos.id,
+                    label: pos.name
+                }))
+                console.log('Filtered positions:', filteredPositions.value)
+            } catch (error) {
+                console.error('Error loading positions:', error)
+                filteredPositions.value = []
+            }
+        } else {
+            filteredPositions.value = []
+        }
+        // Reset position if department changes
+        if (values.position && departmentId) {
+            const positionExists = filteredPositions.value.find(
+                (pos: any) => pos.id === values.position
+            )
+            if (!positionExists) {
+                values.position = 0
+            }
+        }
+    }
+)
+
+// Watch company changes to filter branches
+watch(
+    () => values.company,
+    async (selectedCompany) => {
+        console.log('Company changed:', selectedCompany, 'type:', typeof selectedCompany)
+        // Convert to number if it's a string
+        const companyId = typeof selectedCompany === 'string' ? parseInt(selectedCompany) : selectedCompany
+        
+        if (companyId && companyId !== 0 && !isNaN(companyId)) {
+            try {
+                const branches = await getBranchesByCompany(companyId)
+                console.log('Branches received:', branches)
+                filteredBranches.value = branches.map((branch) => ({
+                    id: branch.id,
+                    label: branch.name
+                }))
+                console.log('Filtered branches:', filteredBranches.value)
+            } catch (error) {
+                console.error('Error loading branches:', error)
+                filteredBranches.value = []
+            }
+        } else {
+            filteredBranches.value = []
+        }
+        // Reset branch if company changes
+        if (values.branch && companyId) {
+            const branchExists = filteredBranches.value.find(
+                (branch: any) => branch.id === values.branch
+            )
+            if (!branchExists) {
+                values.branch = 0
+            }
+        }
+    }
+)
 
 const onSubmit = handleSubmit(
     async (formValues) => {
@@ -105,7 +187,7 @@ const onSubmit = handleSubmit(
 
 <template>
     <div>
-        <h2 class="text-center mb-10">{{ pageTitle }}</h2>
+        <BaseFormPageTitle :title="pageTitle" />
         <div class="lg:max-w-[70%] lg:mx-auto">
             <form @submit="onSubmit">
                 <!-- COLLAPSE DATOS PERSONALES -->
@@ -201,6 +283,15 @@ const onSubmit = handleSubmit(
                                 :options="companies"
                                 :required="true"
                             />
+                            <!-- Branch -->
+                            <BaseFormSelect
+                                class="col-span-12 md:col-span-6"
+                                name="branch"
+                                label="Sucursal"
+                                :options="filteredBranches"
+                                :required="true"
+                                :disabled="!values.company || values.company === 0"
+                            />
                             <!-- Department -->
                             <BaseFormSelect
                                 class="col-span-12 md:col-span-6"
@@ -210,13 +301,15 @@ const onSubmit = handleSubmit(
                                 :required="true"
                             />
                             <!-- Position -->
-                            <BaseFormInput
+                            <BaseFormSelect
                                 class="col-span-12 md:col-span-6"
                                 name="position"
                                 label="Puesto"
+                                :options="filteredPositions"
                                 :required="true"
-                                placeholder="Título del puesto"
+                                :disabled="!values.department || values.department === 0"
                             />
+
                             <!-- Salary -->
                             <BaseFormInput
                                 class="col-span-12 md:col-span-6"

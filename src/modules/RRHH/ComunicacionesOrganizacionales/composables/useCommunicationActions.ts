@@ -19,6 +19,8 @@ const mockCommunications: CommunicationDTO[] = [
         ],
         publicationType: 'publish',
         departments: [],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-01T10:00:00',
         active: true,
         createdBy: 'Carlos López'
@@ -31,6 +33,8 @@ const mockCommunications: CommunicationDTO[] = [
         images: ['https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800'],
         publicationType: 'departments',
         departments: [2, 3],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-05T14:30:00',
         active: true,
         createdBy: 'María García'
@@ -47,6 +51,8 @@ const mockCommunications: CommunicationDTO[] = [
         ],
         publicationType: 'publish',
         departments: [],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-15T09:00:00',
         active: true,
         createdBy: 'Ana Sánchez'
@@ -59,6 +65,8 @@ const mockCommunications: CommunicationDTO[] = [
         images: ['https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800'],
         publicationType: 'departments',
         departments: [7, 4],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-10T11:00:00',
         active: true,
         createdBy: 'Luis Hernández'
@@ -71,6 +79,8 @@ const mockCommunications: CommunicationDTO[] = [
         images: ['https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800'],
         publicationType: 'publish',
         departments: [],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-08T16:00:00',
         active: true,
         createdBy: 'Roberto Díaz'
@@ -86,6 +96,8 @@ const mockCommunications: CommunicationDTO[] = [
         ],
         publicationType: 'publish',
         departments: [],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-12T10:30:00',
         active: true,
         createdBy: 'Patricia Ramírez'
@@ -98,6 +110,8 @@ const mockCommunications: CommunicationDTO[] = [
         images: [],
         publicationType: 'departments',
         departments: [7],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-14T15:00:00',
         active: true,
         createdBy: 'Luis Hernández'
@@ -110,6 +124,8 @@ const mockCommunications: CommunicationDTO[] = [
         images: ['https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800'],
         publicationType: 'publish',
         departments: [],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-07T12:00:00',
         active: false,
         createdBy: 'Carlos López'
@@ -122,6 +138,8 @@ const mockCommunications: CommunicationDTO[] = [
         images: ['https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800'],
         publicationType: 'departments',
         departments: [4, 8],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-03T13:30:00',
         active: true,
         createdBy: 'Ana Sánchez'
@@ -134,6 +152,8 @@ const mockCommunications: CommunicationDTO[] = [
         images: ['https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800'],
         publicationType: 'departments',
         departments: [3],
+        distributionMethod: 'email',
+        scheduleDelivery: false,
         createdAt: '2025-10-11T09:30:00',
         active: true,
         createdBy: 'María García'
@@ -194,7 +214,11 @@ export const useCommunicationActions = () => {
             content: communication.content,
             images: communication.images,
             publicationType: communication.publicationType,
-            departments: communication.departments
+            departments: communication.departments,
+            distributionMethod: 'email' as 'page' | 'email',
+            scheduleDelivery: false,
+            deliveryDate: '',
+            deliveryTime: ''
         }
     }
 

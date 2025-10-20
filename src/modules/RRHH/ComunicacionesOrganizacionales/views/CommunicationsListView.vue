@@ -23,7 +23,7 @@ const handleNewCommunication = () => {
 <template>
     <div>
         <BaseTitle 
-            title="Comunicaciones Organizacionales" 
+            title="Comunicaciones organizacionales" 
             subtitle="Gestión de comunicaciones organizacionales"
         />
         <div class="mb-10 flex gap-4 justify-end">

@@ -33,14 +33,7 @@ export const companySchema = z.object({
     payrollPolicy: selectValidator('La política de nómina es requerida'),
 
     // Estructura Organizacional
-    departments: z
-        .array(
-            z.object({
-                id: z.union([z.number(), z.string()]),
-                label: z.string()
-            })
-        )
-        .optional(),
+    departments: z.array(z.number()).optional(),
 
     // Datos Fiscales
     csdPassword: optionalStringValidator('La contraseña debe tener al menos 8 caracteres', 8)

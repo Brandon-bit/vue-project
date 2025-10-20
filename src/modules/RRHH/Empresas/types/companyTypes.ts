@@ -53,7 +53,7 @@ export type CompanyRequest = {
     fiscalAddress: string
     initialVacationDays: number
     payrollPolicy: number
-    departments?: DepartmentDTO[]
+    departments?: number[]
     csdPassword?: string
 }
 

@@ -42,11 +42,8 @@ export const employeeSchema = z.object({
     hireDate: dateValidator('La fecha de ingreso es requerida', true),
     company: selectValidator('La empresa es requerida'),
     department: selectValidator('El departamento es requerido'),
-    position: stringValidator(
-        'El puesto es requerido',
-        'El puesto debe tener al menos 3 caracteres',
-        3
-    ),
+    position: selectValidator('El puesto es requerido'),
+    branch: selectValidator('La sucursal es requerida'),
     salary: numberValidator(
         'El salario es requerido',
         false,

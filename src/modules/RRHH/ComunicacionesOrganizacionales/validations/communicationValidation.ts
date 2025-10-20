@@ -17,7 +17,11 @@ export const communicationSchema = z
         publicationType: z.enum(['publish', 'departments'], {
             required_error: 'Debe seleccionar un tipo de publicación'
         }),
-        departments: z.array(z.number()).optional().default([])
+        departments: z.array(z.number()).optional().default([]),
+        distributionMethod: z.enum(['page', 'email']).default('email'),
+        scheduleDelivery: z.boolean().default(false),
+        deliveryDate: z.string().optional(),
+        deliveryTime: z.string().optional()
     })
     .refine(
         (data) => {
@@ -30,6 +34,19 @@ export const communicationSchema = z
         {
             message: 'Debe seleccionar al menos un departamento',
             path: ['departments']
+        }
+    )
+    .refine(
+        (data) => {
+            // If scheduleDelivery is true, deliveryDate and deliveryTime must be provided
+            if (data.scheduleDelivery) {
+                return data.deliveryDate && data.deliveryTime
+            }
+            return true
+        },
+        {
+            message: 'Debe especificar la fecha y hora de envío',
+            path: ['deliveryDate']
         }
     )
 

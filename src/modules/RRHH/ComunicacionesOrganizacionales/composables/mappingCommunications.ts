@@ -13,6 +13,10 @@ export const mapCommunication = (data: Communication): CommunicationDTO => ({
     images: data.imagenes,
     publicationType: data.tipoPublicacion === 'publicar' ? 'publish' : 'departments',
     departments: data.departamentos,
+    distributionMethod: data.metodoDistribucion === 'pagina' ? 'page' : 'email',
+    scheduleDelivery: data.programarEnvio,
+    deliveryDate: data.fechaEnvio,
+    deliveryTime: data.horaEnvio,
     createdAt: data.fechaCreacion,
     active: data.activo,
     createdBy: data.creadoPor
@@ -26,7 +30,11 @@ export const mapCommunicationRequest = (
     contenido: data.content,
     imagenes: data.images,
     tipoPublicacion: data.publicationType === 'publish' ? 'publicar' : 'departamentos',
-    departamentos: data.departments
+    departamentos: data.departments,
+    metodoDistribucion: data.distributionMethod === 'page' ? 'pagina' : 'correo',
+    programarEnvio: data.scheduleDelivery,
+    fechaEnvio: data.deliveryDate,
+    horaEnvio: data.deliveryTime
 })
 
 // Map from backend payload (Spanish) to DTO (English)
@@ -35,7 +43,11 @@ export const mapCommunicationDTO = (data: CommunicationRequestPayload): Communic
     content: data.contenido,
     images: data.imagenes,
     publicationType: data.tipoPublicacion === 'publicar' ? 'publish' : 'departments',
-    departments: data.departamentos
+    departments: data.departamentos,
+    distributionMethod: data.metodoDistribucion === 'pagina' ? 'page' : 'email',
+    scheduleDelivery: data.programarEnvio,
+    deliveryDate: data.fechaEnvio,
+    deliveryTime: data.horaEnvio
 })
 
 // Map for table display

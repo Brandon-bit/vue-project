@@ -6,6 +6,10 @@ export type Communication = {
     imagenes: string[]
     tipoPublicacion: 'publicar' | 'departamentos'
     departamentos: number[]
+    metodoDistribucion: 'pagina' | 'correo'
+    programarEnvio: boolean
+    fechaEnvio?: string
+    horaEnvio?: string
     fechaCreacion: string
     activo: boolean
     creadoPor: string
@@ -19,6 +23,10 @@ export type CommunicationDTO = {
     images: string[]
     publicationType: 'publish' | 'departments'
     departments: number[]
+    distributionMethod: 'page' | 'email'
+    scheduleDelivery: boolean
+    deliveryDate?: string
+    deliveryTime?: string
     createdAt: string
     active: boolean
     createdBy: string
@@ -31,6 +39,10 @@ export type CommunicationRequest = {
     images: string[]
     publicationType: 'publish' | 'departments'
     departments: number[]
+    distributionMethod: 'page' | 'email'
+    scheduleDelivery: boolean
+    deliveryDate?: string
+    deliveryTime?: string
 }
 
 // Request payload (Spanish keys for backend)
@@ -40,6 +52,10 @@ export type CommunicationRequestPayload = {
     imagenes: string[]
     tipoPublicacion: 'publicar' | 'departamentos'
     departamentos: number[]
+    metodoDistribucion: 'pagina' | 'correo'
+    programarEnvio: boolean
+    fechaEnvio?: string
+    horaEnvio?: string
 }
 
 // Select option types

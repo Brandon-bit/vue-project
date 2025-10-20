@@ -111,13 +111,13 @@ export const useCompanyActions = () => {
             throw new Error('Company not found')
         }
 
-        // Simulate some departments assigned to the company
-        const assignedDepartments =
+        // Simulate some departments assigned to the company (return only IDs)
+        const assignedDepartmentIds =
             id === 1
-                ? [mockDepartments[0], mockDepartments[1], mockDepartments[2]] // First 3 departments
+                ? [1, 2, 3] // First 3 departments
                 : id === 2
-                  ? [mockDepartments[1], mockDepartments[4]] // HR and Sales
-                  : [mockDepartments[3]] // Operations only
+                  ? [2, 5] // HR and Sales
+                  : [4] // Operations only
 
         return {
             businessName: company.businessName,
@@ -125,7 +125,7 @@ export const useCompanyActions = () => {
             fiscalAddress: company.fiscalAddress,
             initialVacationDays: company.initialVacationDays,
             payrollPolicy: payrollPolicyMap[company.payrollPolicy] || 2,
-            departments: assignedDepartments,
+            departments: assignedDepartmentIds,
             csdPassword: company.csdPassword
         }
     }

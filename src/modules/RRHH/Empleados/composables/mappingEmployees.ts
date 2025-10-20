@@ -19,7 +19,8 @@ export const mapEmployee = (data: Employee): EmployeeDTO => ({
     hireDate: data.fechaIngreso,
     company: data.empresa.toString(),
     department: data.departamento.toString(),
-    position: data.puesto,
+    position: data.puesto.toString(),
+    branch: data.sucursal.toString(),
     salary: data.salario,
     contractType: data.tipoContrato,
     reportsTo: data.reportaA ? data.reportaA.toString() : null,
@@ -39,6 +40,7 @@ export const mapEmployeeRequest = (data: EmployeeRequest): EmployeeRequestPayloa
     empresa: data.company,
     departamento: data.department,
     puesto: data.position,
+    sucursal: data.branch,
     salario: data.salary,
     tipoContrato: data.contractType,
     reportaA: data.reportsTo
@@ -57,6 +59,7 @@ export const mapEmployeeDTO = (data: EmployeeRequestPayload): EmployeeRequest =>
     company: data.empresa,
     department: data.departamento,
     position: data.puesto,
+    branch: data.sucursal,
     salary: data.salario,
     contractType: data.tipoContrato,
     reportsTo: data.reportaA

@@ -12,7 +12,8 @@ export type Employee = {
     fechaIngreso: string
     empresa: number
     departamento: number
-    puesto: string
+    puesto: number
+    sucursal: number
     salario: number
     tipoContrato: string
     reportaA: number | null
@@ -34,6 +35,7 @@ export type EmployeeDTO = {
     company: string
     department: string
     position: string
+    branch: string
     salary: number
     contractType: string
     reportsTo: string | null
@@ -54,7 +56,8 @@ export type EmployeeForm = {
     hireDate: string
     company: number
     department: number
-    position: string
+    position: number
+    branch: number
     salary: number
     contractType: number
     reportsTo: number | null
@@ -78,7 +81,8 @@ export type EmployeeRequest = {
     hireDate: string
     company: number
     department: number
-    position: string
+    position: number
+    branch: number
     salary: number
     contractType: number
     reportsTo?: number
@@ -95,7 +99,8 @@ export type EmployeeRequestPayload = {
     fechaIngreso: string
     empresa: number
     departamento: number
-    puesto: string
+    puesto: number
+    sucursal: number
     salario: number
     tipoContrato: number
     reportaA?: number

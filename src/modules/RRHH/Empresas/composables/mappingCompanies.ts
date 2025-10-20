@@ -25,7 +25,7 @@ export const mapCompanyRequest = (data: CompanyRequest): CompanyRequestPayload =
     domicilioFiscal: data.fiscalAddress,
     diasVacacionesIniciales: data.initialVacationDays,
     politicaNomina: data.payrollPolicy,
-    departamentos: data.departments?.map((dept) => Number(dept.id)),
+    departamentos: data.departments,
     passwordCSD: data.csdPassword
 })
 
@@ -36,5 +36,6 @@ export const mapCompanyDTO = (data: CompanyRequestPayload): CompanyRequest => ({
     fiscalAddress: data.domicilioFiscal,
     initialVacationDays: data.diasVacacionesIniciales,
     payrollPolicy: data.politicaNomina,
+    departments: data.departamentos,
     csdPassword: data.passwordCSD
 })

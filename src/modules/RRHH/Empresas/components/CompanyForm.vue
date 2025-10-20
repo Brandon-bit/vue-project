@@ -3,6 +3,7 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { nextTick, computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import BaseFormPageTitle from '@/shared/components/BaseFormPageTitle.vue'
 import BaseFormInput from '@/shared/components/BaseFormInput.vue'
 import BaseFormSelect from '@/shared/components/BaseFormSelect.vue'
 import BaseFormSelectMultiple from '@/shared/components/BaseFormSelectMultiple.vue'
@@ -90,7 +91,7 @@ const onSubmit = handleSubmit(
 
 <template>
     <div>
-        <h2 class="text-center mb-10">{{ pageTitle }}</h2>
+        <BaseFormPageTitle :title="pageTitle" />
         <div class="lg:max-w-[70%] lg:mx-auto">
             <form @submit="onSubmit">
                 <!-- COLLAPSE DATOS GENERALES -->
