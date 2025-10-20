@@ -19,7 +19,7 @@ import BaseSkeletonTable from '@/shared/components/BaseSkeletonTable.vue'
 const props = defineProps<{
     //data: T[]
     headers: ColumnDef<T>[]
-    fetchCallback?: (page: number, pageSize: number) => Promise<{items: T[], total : number}>
+    fetchCallback?: (page: number, pageSize: number) => Promise<{ items: T[]; total: number }>
     //endpoint: string,
     //dataMapper: DataMapper<T>
 }>()
@@ -31,7 +31,6 @@ const totalRows = ref(0)
 const globalFilter = ref('')
 const pageSize = ref(5)
 const pageIndex = ref(1)
-
 
 const table = useVueTable({
     data: data,
@@ -57,8 +56,10 @@ const table = useVueTable({
     manualPagination: true
 })
 
-const from = computed(() => data.value.length > 0 ? ((pageIndex.value - 1) * pageSize.value) + 1 : 0)
-const to = computed(() => Math.min((pageIndex.value) * pageSize.value, totalRows.value))
+const from = computed(() =>
+    data.value.length > 0 ? (pageIndex.value - 1) * pageSize.value + 1 : 0
+)
+const to = computed(() => Math.min(pageIndex.value * pageSize.value, totalRows.value))
 
 const fetchData = async () => {
     loading.value = true
@@ -135,51 +136,54 @@ const exportToPDF = () => {
 }
 
 defineExpose({
-  fetchData
+    fetchData
 })
 </script>
 
-
 <template>
     <!-- Table filters -->
-    <div class="flex flex-col md:flex-row md:items-center gap-5">
+    <div class="flex flex-col md:flex-row md:items-center gap-5 table-controls">
         <!-- Export button -->
         <div>
-            <button class="btn btn-sm" popovertarget="popover-exportar" style="anchor-name:--anchor-exportar">
-                <span class="material-symbols-outlined">
-                    file_save
-                </span>
+            <button
+                class="btn btn-sm export-btn"
+                popovertarget="popover-exportar"
+                style="anchor-name: --anchor-exportar"
+            >
+                <span class="material-symbols-outlined"> file_save </span>
                 Exportar
             </button>
-            <ul class="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
-            popover id="popover-exportar" style="position-anchor:--anchor-exportar">
-                <li @click="exportToPDF">
+            <ul
+                class="dropdown menu w-52 rounded-box bg-base-100 table-dropdown"
+                popover
+                id="popover-exportar"
+                style="position-anchor: --anchor-exportar"
+            >
+                <li @click="exportToPDF" class="dropdown-item">
                     <a>
-                        <span class="material-symbols-outlined">
-                            picture_as_pdf
-                        </span>
+                        <span class="material-symbols-outlined"> picture_as_pdf </span>
                         PDF
                     </a>
                 </li>
-                <li @click="exportToExcel">
+                <li @click="exportToExcel" class="dropdown-item">
                     <a>
-                        <span class="material-symbols-outlined">
-                            rubric
-                        </span>
+                        <span class="material-symbols-outlined"> rubric </span>
                         Excel
                     </a>
                 </li>
             </ul>
         </div>
         <div class="col-span-12 md:col-span-5 md:mb-0 justify-center w-full">
-            <div class="flex items-center">
+            <div class="flex items-center page-size-selector">
                 Mostrar
                 <select
-                    class="select mx-2 w-full max-w-[70px]"
-                    @change="(e) => {
-                        pageIndex = 1
-                        pageSize = Number((e.target as HTMLSelectElement).value)
-                    }"
+                    class="select mx-2 w-full max-w-[70px] table-select"
+                    @change="
+                        (e) => {
+                            pageIndex = 1
+                            pageSize = Number((e.target as HTMLSelectElement).value)
+                        }
+                    "
                 >
                     <option
                         v-for="(number, index) in [5, 10, 20, 100]"
@@ -198,23 +202,28 @@ defineExpose({
                 <input
                     v-model="globalFilter"
                     placeholder="Ingresar texto..."
-                    class="input min-w-0"
+                    class="input min-w-0 search-input"
                 />
             </div>
         </div>
     </div>
     <!-- Table Body -->
-    <BaseSkeletonTable v-if="loading"/>
-    <div v-else class="rounded-box border border-base-content/5 bg-base-100 my-5 w-full max-w-[100vw] overflow-hidden">
+    <BaseSkeletonTable v-if="loading" />
+    <div v-else class="table-container">
         <div class="overflow-x-auto">
-            <table class="table text-center">
+            <table class="table text-center data-table">
                 <thead>
-                    <tr v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id" class="bg-base-300">
-                        <th>#</th>
+                    <tr
+                        v-for="headerGroup in table.getHeaderGroups()"
+                        :key="headerGroup.id"
+                        class="table-header"
+                    >
+                        <th class="table-th">#</th>
                         <th
                             v-for="header in headerGroup.headers"
                             :key="header.id"
                             :colSpan="header.colSpan"
+                            class="table-th font-bold !text-black"
                         >
                             <FlexRender
                                 v-if="!header.isPlaceholder"
@@ -225,9 +234,14 @@ defineExpose({
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-if="data.length > 0" v-for="(row, ix) in table.getRowModel().rows" :key="row.id" class="hover:bg-base-200">
-                        <td>{{ ix + 1 + ((pageIndex - 1) * pageSize)}}</td>
-                        <td v-for="cell in row.getVisibleCells()" :key="cell.id">
+                    <tr
+                        v-if="data.length > 0"
+                        v-for="(row, ix) in table.getRowModel().rows"
+                        :key="row.id"
+                        class="table-row"
+                    >
+                        <td class="table-td">{{ ix + 1 + (pageIndex - 1) * pageSize }}</td>
+                        <td v-for="cell in row.getVisibleCells()" :key="cell.id" class="table-td">
                             <FlexRender
                                 :render="cell.column.columnDef.cell"
                                 :props="cell.getContext()"
@@ -235,8 +249,14 @@ defineExpose({
                         </td>
                     </tr>
                     <tr v-else>
-                        <td :colspan="table.getAllColumns().length + 1" class="text-center py-4">
-                        Aún no hay registros disponibles
+                        <td
+                            :colspan="table.getAllColumns().length + 1"
+                            class="text-center py-8 empty-state"
+                        >
+                            <span class="material-symbols-outlined text-4xl opacity-30 mb-2"
+                                >inbox</span
+                            >
+                            <p class="text-base-content/60">Aún no hay registros disponibles</p>
                         </td>
                     </tr>
                 </tbody>
@@ -244,52 +264,52 @@ defineExpose({
         </div>
     </div>
     <!-- Table pagination -->
-    <div class="grid grid-cols-12 gap-3 items-center w-full">
+    <div class="grid grid-cols-12 gap-3 items-center w-full table-pagination">
         <div class="col-span-12 md:col-span-5 flex items-center justify-center md:justify-start">
-            <p>
+            <p class="pagination-info">
                 Mostrando
-                {{ from }}
-                a {{ to }} de {{ totalRows }}
+                <strong>{{ from }}</strong>
+                a <strong>{{ to }}</strong> de <strong>{{ totalRows }}</strong>
                 registros
             </p>
         </div>
         <div
             class="col-span-12 md:col-span-7 flex flex-col md:flex-row items-center justify-center md:justify-end gap-3"
         >
-            <div class="join">
+            <div class="join pagination-group">
                 <button
-                    class="btn join-item"
-                    @click="() => pageIndex = 1"
+                    class="btn join-item pagination-btn"
+                    @click="() => (pageIndex = 1)"
                     :disabled="pageIndex == 1 || loading"
                 >
                     Inicio
                 </button>
                 <button
-                    class="btn join-item"
+                    class="btn join-item pagination-btn"
                     @click="() => pageIndex--"
                     :disabled="pageIndex - 1 == 0 || loading"
                 >
                     Anterior
                 </button>
             </div>
-            <p className="text-center md:text-left">
+            <p className="text-center md:text-left page-indicator">
                 Página
-                <strong>
+                <strong class="page-number">
                     {{ pageIndex }} de
                     {{ Math.ceil(totalRows / pageSize) }}
                 </strong>
             </p>
-            <div class="join">
+            <div class="join pagination-group">
                 <button
-                    class="btn join-item"
+                    class="btn join-item pagination-btn"
                     @click="() => pageIndex++"
                     :disabled="pageIndex == Math.ceil(totalRows / pageSize) || loading"
                 >
                     Siguiente
                 </button>
                 <button
-                    class="btn join-item"
-                    @click="() => pageIndex = Math.ceil(totalRows / pageSize)"
+                    class="btn join-item pagination-btn"
+                    @click="() => (pageIndex = Math.ceil(totalRows / pageSize))"
                     :disabled="pageIndex == Math.ceil(totalRows / pageSize) || loading"
                 >
                     Final
@@ -298,23 +318,239 @@ defineExpose({
         </div>
     </div>
 </template>
-<style>
-.main-table-button-export-pdf,
-.main-table-button-export-xlsx {
-    color: #ffffff;
-    opacity: 0.8;
+<style scoped>
+/* Animations */
+.table-controls {
+    animation: fadeIn 0.3s ease-in-out;
+}
+.table-pagination {
+    animation: fadeIn 0.3s ease-in-out 0.2s both;
+}
+.table-container {
+    animation: slideIn 0.3s ease-out;
+}
+.table-dropdown {
+    animation: slideDown 0.2s ease-out;
 }
 
-.main-table-button-export-pdf {
-    background: #ff0000;
+/* Common Transitions & Styles */
+.export-btn,
+.table-select,
+.search-input,
+.pagination-btn {
+    transition: all 0.3s ease-in-out;
 }
 
-.main-table-button-export-xlsx {
-    background: #217346;
+.dropdown-item,
+.dropdown-item a {
+    transition: all 0.2s ease-in-out;
 }
 
-.main-table-button-export-pdf:hover,
-.main-table-button-export-xlsx:hover {
-    opacity: 1;
+.export-btn,
+.table-select,
+.search-input {
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+/* Controls */
+.export-btn {
+    box-shadow:
+        0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.export-btn:hover {
+    transform: translateY(-0.0625rem);
+    box-shadow:
+        0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.export-btn:active {
+    transform: scale(0.98);
+}
+
+.table-dropdown {
+    box-shadow:
+        0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item:hover {
+    background-color: oklch(var(--color-primary) / 0.1);
+}
+
+.dropdown-item:hover a {
+    color: oklch(var(--color-primary));
+    transform: translateX(0.25rem);
+}
+
+.table-select,
+.search-input {
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.05);
+}
+
+.table-select:focus,
+.search-input:focus {
+    box-shadow: 0 0 0 3px oklch(var(--color-primary) / 0.1);
+    border-color: oklch(var(--color-primary));
+}
+
+.search-input:focus {
+    transform: translateY(-0.0625rem);
+}
+
+/* Table */
+.table-container {
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: oklch(var(--b1));
+    box-shadow:
+        0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+    margin: 1.25rem 0;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+.data-table {
+    width: 100%;
+}
+
+.table-header {
+    background: linear-gradient(to bottom, oklch(var(--b3)), oklch(var(--b2)));
+    border-bottom: 2px solid oklch(var(--color-primary) / 0.3);
+}
+
+.table-th {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: oklch(var(--bc));
+    padding: 1.25rem 1rem;
+    background: oklch(var(--b3));
+    border-bottom: 2px solid oklch(var(--color-primary) / 0.3);
+}
+
+.table-row {
+    transition: background-color 0.2s ease-in-out;
+    border-bottom: 1px solid oklch(var(--bc) / 0.08);
+}
+
+.table-row:hover {
+    background-color: oklch(var(--color-primary) / 0.06);
+}
+
+.table-td {
+    padding: 0.875rem 1rem;
+    vertical-align: middle;
+    font-size: 0.9rem;
+    color: oklch(var(--bc) / 0.85);
+}
+
+.empty-state {
+    padding: 3rem 1rem !important;
+}
+.empty-state span {
+    display: block;
+}
+
+/* Pagination */
+.pagination-info,
+.page-indicator {
+    font-size: 0.875rem;
+    color: oklch(var(--bc) / 0.7);
+}
+
+.pagination-info strong,
+.page-number {
+    color: oklch(var(--color-primary));
+    font-weight: 600;
+}
+
+.page-number {
+    font-size: 1rem;
+}
+
+.pagination-group {
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.05);
+    border-radius: 0.5rem;
+}
+
+.pagination-btn {
+    font-weight: 500;
+}
+
+.pagination-btn:first-child {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.pagination-btn:last-child {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.pagination-btn:not(:disabled):hover {
+    transform: translateY(-0.03125rem);
+    box-shadow: 0 3px 6px -1px rgb(0 0 0 / 0.08);
+    background-color: oklch(var(--color-primary) / 0.08);
+}
+
+.pagination-btn:active {
+    transform: scale(0.99);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0.7;
+        transform: translateY(-3px) scale(0.995);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table-th,
+    .table-td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+    }
+    .table-container {
+        border-radius: 0.75rem;
+    }
 }
 </style>

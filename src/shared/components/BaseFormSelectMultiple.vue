@@ -63,31 +63,39 @@ const selectedOptions = computed({
     overflow-y: auto;
 }
 
-/* Horizontal scroll for tags */
+/* Tags container - wrap on mobile, scroll on desktop */
 .multiselect__tags {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+    flex-wrap: wrap;
     max-width: 100%;
-    padding: 8px 40px 0 8px;
+    padding: 8px 40px 8px 8px;
+    min-height: 40px;
 }
 
-.multiselect__tags::-webkit-scrollbar {
-    height: 6px;
-}
+/* Desktop: horizontal scroll */
+@media (min-width: 768px) {
+    .multiselect__tags {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
 
-.multiselect__tags::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
+    .multiselect__tags::-webkit-scrollbar {
+        height: 6px;
+    }
 
-.multiselect__tags::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
+    .multiselect__tags::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
 
-.multiselect__tags::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    .multiselect__tags::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+    .multiselect__tags::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 }
 </style>
