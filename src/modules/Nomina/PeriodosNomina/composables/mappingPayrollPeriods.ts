@@ -14,6 +14,7 @@ export const mapPayrollPeriodDTO = (data: PayrollPeriod): PayrollPeriodDTO => ({
     startDate: data.fechaInicio,
     endDate: data.fechaFin,
     status: data.estado,
+    statusId: data.estadoId,
     payrollType: data.tipoNomina,
     notes: data.observaciones,
     totalPerceptions: data.totalPercepciones,

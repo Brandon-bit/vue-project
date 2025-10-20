@@ -16,10 +16,7 @@ const handleRefresh = () => {
 </script>
 
 <template>
-    <BaseTitle 
-        title="Períodos de Nómina" 
-        subtitle="Gestiona los períodos de nómina"
-    />
+    <BaseTitle title="Períodos de nómina" subtitle="Gestiona los períodos de nómina" />
     <div class="mb-10 text-right">
         <CreateButton />
     </div>

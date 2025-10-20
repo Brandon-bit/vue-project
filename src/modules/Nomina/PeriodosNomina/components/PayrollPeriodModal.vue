@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import BaseModal from '@/shared/components/BaseModal.vue'
 import usePayrollPeriodStore from '@/modules/Nomina/PeriodosNomina/store/payrollPeriodStore'
-import DeletePayrollPeriod from '@/modules/Nomina/PeriodosNomina/components/DeletePayrollPeriod.vue'
 import { computed, watch } from 'vue'
 import { useForm } from 'vee-validate'
 import PayrollPeriodForm from '@/modules/Nomina/PeriodosNomina/components/PayrollPeriodForm.vue'
 import { useModalStore } from '@/shared/stores/modal.store'
-import { createUpdatePayrollPeriodSchema, deletePayrollPeriodSchema } from '@/modules/Nomina/PeriodosNomina/validations/payrollPeriodValidation'
+import { createUpdatePayrollPeriodSchema } from '@/modules/Nomina/PeriodosNomina/validations/payrollPeriodValidation'
 import { toTypedSchema } from '@vee-validate/zod'
 import { usePayrollPeriodActions } from '@/modules/Nomina/PeriodosNomina/composables/usePayrollPeriodActions'
 import { showNotification } from '@/utils/toastNotifications'
@@ -17,7 +16,7 @@ const props = defineProps<{
 
 const payrollPeriodStore = usePayrollPeriodStore()
 const modalStore = useModalStore()
-const { createPayrollPeriod, updatePayrollPeriod, deletePayrollPeriod } = usePayrollPeriodActions()
+const { createPayrollPeriod, updatePayrollPeriod } = usePayrollPeriodActions()
 const mode = computed(() => modalStore.modals[payrollPeriodStore.modalId]?.type)
 
 const modalMap = {
@@ -30,11 +29,6 @@ const modalMap = {
         component: PayrollPeriodForm,
         action: updatePayrollPeriod,
         schemaValidation: createUpdatePayrollPeriodSchema
-    },
-    DELETE: {
-        component: DeletePayrollPeriod,
-        action: deletePayrollPeriod,
-        schemaValidation: deletePayrollPeriodSchema
     }
 }
 

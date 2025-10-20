@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia'
-import { PayrollDetailDTO, EmployeePayrollSummary } from '@/modules/Nomina/DetalleNomina/types/payrollDetailTypes'
+import {
+    PayrollDetailDTO,
+    EmployeePayrollSummary
+} from '@/modules/Nomina/DetalleNomina/types/payrollDetailTypes'
 
 const initialPayrollDetail: PayrollDetailDTO = {
     id: undefined,
@@ -37,10 +40,14 @@ const usePayrollDetailStore = defineStore('payroll-detail-store', {
     },
     getters: {
         canEdit(): boolean {
-            return this.currentPeriodStatus === 'borrador'
+            // Se puede editar en borrador y calculada
+            return (
+                this.currentPeriodStatus === 'borrador' || this.currentPeriodStatus === 'calculada'
+            )
         },
         isReadOnly(): boolean {
-            return this.currentPeriodStatus !== 'borrador'
+            // Solo es read-only cuando está pagada o cerrada
+            return this.currentPeriodStatus === 'pagada' || this.currentPeriodStatus === 'cerrada'
         }
     }
 })

@@ -6,6 +6,7 @@ export type PayrollPeriod = {
     fechaInicio: string
     fechaFin: string
     estado: 'borrador' | 'calculada' | 'pagada' | 'cerrada'
+    estadoId: number // 1=borrador, 2=calculada, 3=pagada, 4=cerrada
     tipoNomina: 'ordinaria' | 'extraordinaria'
     observaciones?: string
     totalPercepciones?: number
@@ -22,6 +23,7 @@ export type PayrollPeriodDTO = {
     startDate: string
     endDate: string
     status: 'borrador' | 'calculada' | 'pagada' | 'cerrada'
+    statusId: number // 1=borrador, 2=calculada, 3=pagada, 4=cerrada
     payrollType: 'ordinaria' | 'extraordinaria'
     notes?: string
     totalPerceptions?: number

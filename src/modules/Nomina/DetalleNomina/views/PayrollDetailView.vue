@@ -4,19 +4,20 @@ import { useRoute } from 'vue-router'
 import { usePayrollDetailActions } from '@/modules/Nomina/DetalleNomina/composables/usePayrollDetailActions'
 import { usePayrollDetailColumns } from '@/modules/Nomina/DetalleNomina/composables/usePayrollDetailColumns'
 import { PayrollPeriodSummary } from '@/modules/Nomina/DetalleNomina/types/payrollDetailTypes'
-import ImportPayrollCSV from '@/modules/Nomina/DetalleNomina/components/ImportPayrollCSV.vue'
-import EmployeeConceptsModal from '@/modules/Nomina/DetalleNomina/components/EmployeeConceptsModal.vue'
 import PayrollDetailModal from '@/modules/Nomina/DetalleNomina/components/PayrollDetailModal.vue'
+import EmployeeConceptsModal from '@/modules/Nomina/DetalleNomina/components/EmployeeConceptsModal.vue'
 import usePayrollDetailStore from '@/modules/Nomina/DetalleNomina/store/payrollDetailStore'
+import { useModalStore } from '@/shared/stores/modal.store'
 import BaseTable from '@/shared/components/BaseTable.vue'
+import BaseTitle from '@/shared/components/BaseTitle.vue'
 
 const route = useRoute()
 const payrollDetailStore = usePayrollDetailStore()
+const modalStore = useModalStore()
 const { getPayrollPeriodSummary } = usePayrollDetailActions()
 
 const periodSummary = ref<PayrollPeriodSummary | null>(null)
 const loading = ref(true)
-const showImportSection = ref(false)
 const tableRef = ref()
 
 const periodId = computed(() => Number(route.params.id))
@@ -39,25 +40,39 @@ const fetchData = async () => {
 
 const getEmployeesForTable = async (page: number, pageSize: number) => {
     if (!periodSummary.value) return { items: [], total: 0 }
-    
+
     const startIndex = (page - 1) * pageSize
     const endIndex = startIndex + pageSize
     const paginatedEmployees = periodSummary.value.employees.slice(startIndex, endIndex)
-    
+
     return {
         items: paginatedEmployees,
         total: periodSummary.value.employees.length
     }
 }
 
-const handleImportSuccess = () => {
-    showImportSection.value = false
+const handleRefresh = () => {
     fetchData()
     tableRef.value?.fetchData()
 }
 
-const toggleImportSection = () => {
-    showImportSection.value = !showImportSection.value
+const openImportModal = () => {
+    modalStore.open(payrollDetailStore.modalId, {
+        type: 'IMPORT',
+        title: 'Importar nómina'
+    })
+}
+
+const openDispersionModal = () => {
+    modalStore.open(payrollDetailStore.modalId, {
+        type: 'DISPERSION',
+        title: 'Dispersión bancaria',
+        data: {
+            periodId: periodSummary.value?.periodId,
+            periodName: periodSummary.value?.periodName,
+            employees: periodSummary.value?.employees || []
+        }
+    })
 }
 
 onMounted(() => {
@@ -77,35 +92,51 @@ onMounted(() => {
             <!-- Header -->
             <div class="mb-8">
                 <div class="flex justify-between items-start">
+                    <BaseTitle
+                        :title="periodSummary.periodName"
+                        :subtitle="periodSummary.startDate + ' al ' + periodSummary.endDate"
+                    />
                     <div>
-                        <h1 class="text-3xl font-bold mb-2">{{ periodSummary.periodName }}</h1>
-                        <p class="text-gray-600">
-                            Período: {{ periodSummary.startDate }} al {{ periodSummary.endDate }}
-                        </p>
-                    </div>
-                    <div>
-                        <span 
+                        <span
                             :class="[
                                 'badge badge-lg',
-                                periodSummary.status === 'borrador' ? 'badge-ghost' : '',
-                                periodSummary.status === 'calculada' ? 'badge-info' : '',
-                                periodSummary.status === 'pagada' ? 'badge-success' : '',
-                                periodSummary.status === 'cerrada' ? 'badge-error' : ''
+                                periodSummary.status === 'borrador' && 'badge-ghost',
+                                periodSummary.status === 'calculada' && 'badge-info',
+                                periodSummary.status === 'pagada' && 'badge-success',
+                                periodSummary.status === 'cerrada' && 'badge-error'
                             ]"
                         >
-                            {{ periodSummary.status === 'borrador' ? 'Borrador' : '' }}
-                            {{ periodSummary.status === 'calculada' ? 'Calculada' : '' }}
-                            {{ periodSummary.status === 'pagada' ? 'Pagada' : '' }}
-                            {{ periodSummary.status === 'cerrada' ? 'Cerrada' : '' }}
+                            <template v-if="periodSummary.status === 'borrador'">Borrador</template>
+                            <template v-else-if="periodSummary.status === 'calculada'"
+                                >Calculada</template
+                            >
+                            <template v-else-if="periodSummary.status === 'pagada'"
+                                >Pagada</template
+                            >
+                            <template v-else-if="periodSummary.status === 'cerrada'"
+                                >Cerrada</template
+                            >
                         </span>
                     </div>
                 </div>
-                
-                <!-- Alert for read-only status -->
-                <div v-if="payrollDetailStore.isReadOnly" class="alert alert-warning mt-4">
+
+                <!-- Alert for paid/closed status only -->
+                <div
+                    v-if="periodSummary.status === 'pagada' || periodSummary.status === 'cerrada'"
+                    class="alert alert-warning mt-4"
+                >
                     <span class="material-symbols-outlined">lock</span>
                     <span>
-                        <strong>Nómina bloqueada:</strong> Esta nómina está en estado "{{ periodSummary.status }}" y no puede ser modificada.
+                        <strong
+                            >Nómina
+                            {{ periodSummary.status === 'pagada' ? 'pagada' : 'cerrada' }}:</strong
+                        >
+                        Esta nómina ya fue dispersada y no puede ser modificada.
+                        {{
+                            periodSummary.status === 'cerrada'
+                                ? 'El período está cerrado definitivamente.'
+                                : ''
+                        }}
                     </span>
                 </div>
             </div>
@@ -119,7 +150,9 @@ onMounted(() => {
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-label">Total Empleados</h3>
-                        <div class="stat-value text-primary">{{ periodSummary.totalEmployees }}</div>
+                        <div class="stat-value text-primary">
+                            {{ periodSummary.totalEmployees }}
+                        </div>
                         <p class="stat-description">Empleados en nómina</p>
                     </div>
                     <div class="stat-decoration bg-primary/5"></div>
@@ -128,12 +161,18 @@ onMounted(() => {
                 <!-- Total Perceptions Card -->
                 <div class="stat-card group">
                     <div class="stat-icon-wrapper bg-success/10">
-                        <span class="material-symbols-outlined text-success text-2xl">trending_up</span>
+                        <span class="material-symbols-outlined text-success text-2xl"
+                            >trending_up</span
+                        >
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-label">Total Percepciones</h3>
                         <div class="stat-value text-success">
-                            ${{ periodSummary.totalPerceptions.toLocaleString('es-MX', { minimumFractionDigits: 2 }) }}
+                            ${{
+                                periodSummary.totalPerceptions.toLocaleString('es-MX', {
+                                    minimumFractionDigits: 2
+                                })
+                            }}
                         </div>
                         <p class="stat-description">Ingresos totales</p>
                     </div>
@@ -143,12 +182,18 @@ onMounted(() => {
                 <!-- Total Deductions Card -->
                 <div class="stat-card group">
                     <div class="stat-icon-wrapper bg-error/10">
-                        <span class="material-symbols-outlined text-error text-2xl">trending_down</span>
+                        <span class="material-symbols-outlined text-error text-2xl"
+                            >trending_down</span
+                        >
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-label">Total Deducciones</h3>
                         <div class="stat-value text-error">
-                            ${{ periodSummary.totalDeductions.toLocaleString('es-MX', { minimumFractionDigits: 2 }) }}
+                            ${{
+                                periodSummary.totalDeductions.toLocaleString('es-MX', {
+                                    minimumFractionDigits: 2
+                                })
+                            }}
                         </div>
                         <p class="stat-description">Descuentos totales</p>
                     </div>
@@ -163,7 +208,11 @@ onMounted(() => {
                     <div class="stat-content">
                         <h3 class="stat-label">Total Neto</h3>
                         <div class="stat-value text-info">
-                            ${{ periodSummary.totalNet.toLocaleString('es-MX', { minimumFractionDigits: 2 }) }}
+                            ${{
+                                periodSummary.totalNet.toLocaleString('es-MX', {
+                                    minimumFractionDigits: 2
+                                })
+                            }}
                         </div>
                         <p class="stat-description">A pagar</p>
                     </div>
@@ -171,26 +220,36 @@ onMounted(() => {
                 </div>
             </div>
 
-            <!-- Import Section Toggle -->
-            <div class="mb-6" v-if="payrollDetailStore.canEdit">
-                <button @click="toggleImportSection" class="btn btn-primary">
-                    <span v-if="!showImportSection">📂 Importar Nómina desde CSV</span>
-                    <span v-else>❌ Cerrar Importación</span>
+            <!-- Action Buttons -->
+            <div class="mb-6 flex gap-4">
+                <!-- Import Button (only in draft/calculated) -->
+                <button
+                    v-if="payrollDetailStore.canEdit"
+                    @click="openImportModal"
+                    class="btn btn-primary"
+                >
+                    <span class="material-symbols-outlined">upload_file</span>
+                    Importar Nómina
                 </button>
-            </div>
 
-            <!-- Import CSV Component -->
-            <div v-if="showImportSection" class="mb-8">
-                <ImportPayrollCSV @onImportSuccess="handleImportSuccess" />
+                <!-- Dispersion Button (only when calculated) -->
+                <button
+                    v-if="periodSummary.status === 'calculada'"
+                    @click="openDispersionModal"
+                    class="btn btn-success"
+                >
+                    <span class="material-symbols-outlined">account_balance</span>
+                    Dispersión Bancaria
+                </button>
             </div>
 
             <!-- Employees Table -->
             <div v-if="periodSummary.employees.length > 0">
                 <h2 class="text-2xl font-bold mb-4">Empleados en Nómina</h2>
-                <BaseTable 
+                <BaseTable
                     ref="tableRef"
-                    :fetchCallback="getEmployeesForTable" 
-                    :headers="usePayrollDetailColumns()" 
+                    :fetchCallback="getEmployeesForTable"
+                    :headers="usePayrollDetailColumns()"
                 />
             </div>
 
@@ -198,9 +257,6 @@ onMounted(() => {
             <div v-else class="text-center py-12">
                 <span class="material-symbols-outlined text-6xl text-gray-300 mb-4">group_off</span>
                 <p class="text-gray-500 text-lg mb-4">No hay empleados asignados a este período</p>
-                <button @click="showImportSection = true" class="btn btn-primary">
-                    📂 Importar Empleados desde CSV
-                </button>
             </div>
         </div>
 
@@ -209,9 +265,9 @@ onMounted(() => {
             <p class="text-error text-lg">Error al cargar los datos del período</p>
         </div>
 
-        <!-- Modals -->
-        <EmployeeConceptsModal :onRefresh="fetchData" />
-        <PayrollDetailModal :onRefresh="fetchData" />
+        <!-- Modales -->
+        <EmployeeConceptsModal :onRefresh="handleRefresh" />
+        <PayrollDetailModal :onRefresh="handleRefresh" />
     </div>
 </template>
 

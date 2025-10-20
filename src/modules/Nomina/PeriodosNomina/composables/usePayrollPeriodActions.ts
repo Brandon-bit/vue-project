@@ -11,7 +11,7 @@ import {
 export const usePayrollPeriodActions = () => {
     const payrollPeriodStore = usePayrollPeriodStore()
 
-    // Mock data for payroll periods
+    // Mock data for payroll periods - FUENTE DE VERDAD
     const mockPayrollPeriods: PayrollPeriodDTO[] = [
         {
             id: 1,
@@ -20,6 +20,7 @@ export const usePayrollPeriodActions = () => {
             startDate: '2025-01-01',
             endDate: '2025-01-15',
             status: 'cerrada',
+            statusId: 4,
             payrollType: 'ordinaria',
             notes: 'Primera quincena del año',
             totalPerceptions: 150000,
@@ -34,6 +35,7 @@ export const usePayrollPeriodActions = () => {
             startDate: '2025-01-16',
             endDate: '2025-01-31',
             status: 'pagada',
+            statusId: 3,
             payrollType: 'ordinaria',
             notes: 'Segunda quincena del año',
             totalPerceptions: 148000,
@@ -48,6 +50,7 @@ export const usePayrollPeriodActions = () => {
             startDate: '2025-02-01',
             endDate: '2025-02-15',
             status: 'calculada',
+            statusId: 2,
             payrollType: 'ordinaria',
             notes: '',
             totalPerceptions: 152000,
@@ -62,6 +65,7 @@ export const usePayrollPeriodActions = () => {
             startDate: '2024-12-01',
             endDate: '2024-12-31',
             status: 'cerrada',
+            statusId: 4,
             payrollType: 'extraordinaria',
             notes: 'Pago de aguinaldo anual',
             totalPerceptions: 200000,
@@ -76,6 +80,7 @@ export const usePayrollPeriodActions = () => {
             startDate: '2025-02-16',
             endDate: '2025-02-28',
             status: 'borrador',
+            statusId: 1,
             payrollType: 'ordinaria',
             notes: '',
             totalPerceptions: 0,
@@ -84,6 +89,11 @@ export const usePayrollPeriodActions = () => {
             active: true
         }
     ]
+
+    // Función para obtener un período específico
+    const getPayrollPeriodById = (periodId: number): PayrollPeriodDTO | undefined => {
+        return mockPayrollPeriods.find(p => p.id === periodId)
+    }
 
     const getPayrollPeriods = async (
         page: number,
@@ -117,9 +127,17 @@ export const usePayrollPeriodActions = () => {
         // Simulate API delay
         await new Promise((resolve) => setTimeout(resolve, 500))
 
+        const statusMap: Record<string, number> = {
+            'borrador': 1,
+            'calculada': 2,
+            'pagada': 3,
+            'cerrada': 4
+        }
+        
         const newPeriod: PayrollPeriodDTO = {
             id: mockPayrollPeriods.length + 1,
             ...data,
+            statusId: statusMap[data.status] || 1,
             totalPerceptions: 0,
             totalDeductions: 0,
             totalNet: 0
@@ -162,43 +180,11 @@ export const usePayrollPeriodActions = () => {
         }
     }
 
-    const deletePayrollPeriod = async (): Promise<{ message: string; status: string; data: any }> => {
-        // Simulate API delay
-        await new Promise((resolve) => setTimeout(resolve, 500))
-
-        const id = payrollPeriodStore.selectedPayrollPeriod?.id
-
-        if (!id) {
-            return {
-                message: 'ID de período no válido',
-                status: 'error',
-                data: null
-            }
-        }
-
-        const index = mockPayrollPeriods.findIndex((period) => period.id === id)
-
-        if (index !== -1) {
-            const deleted = mockPayrollPeriods.splice(index, 1)
-            return {
-                message: 'Período eliminado exitosamente',
-                status: 'success',
-                data: deleted[0]
-            }
-        }
-
-        return {
-            message: 'Período no encontrado',
-            status: 'error',
-            data: null
-        }
-    }
-
     return {
         getPayrollPeriods,
         getPayrollPeriodsForSelect,
+        getPayrollPeriodById,
         createPayrollPeriod,
-        updatePayrollPeriod,
-        deletePayrollPeriod
+        updatePayrollPeriod
     }
 }

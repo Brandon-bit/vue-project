@@ -2,7 +2,7 @@ import usePayrollPeriodStore from '@/modules/Nomina/PeriodosNomina/store/payroll
 import { useModalStore } from '@/shared/stores/modal.store'
 import { ColumnTableType } from '@/shared/types/columnTableType'
 import { h } from 'vue'
-import { editTableButton, deleteTableButton, detailTableButton } from '@/utils/tableButtons'
+import { editTableButton, detailTableButton } from '@/utils/tableButtons'
 import { useRouter } from 'vue-router'
 
 export const usePayrollPeriods = (): ColumnTableType[] => {
@@ -147,22 +147,11 @@ export const usePayrollPeriods = (): ColumnTableType[] => {
                         title: 'Editar período de nómina'
                     })
                 }
-                const deleteModal = () => {
-                    payrollPeriodStore.setData(data)
-                    modalStore.open(payrollPeriodStore.modalId, {
-                        type: 'DELETE',
-                        title: 'Eliminar período de nómina'
-                    })
-                }
 
-                const editButton = editTableButton(editModal)
                 const detailButton = detailTableButton(viewDetail)
-                const deleteButton = deleteTableButton(deleteModal)
-                return h('div', { class: 'flex gap-2 justify-center' }, [
-                    detailButton,
-                    editButton,
-                    deleteButton
-                ])
+                const editButton = data.statusId == 1 ? editTableButton(editModal) : null
+
+                return h('div', { class: 'flex gap-2 justify-center' }, [detailButton, editButton])
             }
         }
     ]

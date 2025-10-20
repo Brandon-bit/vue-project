@@ -83,25 +83,13 @@ export const usePayrollDetailColumns = (): ColumnTableType[] => {
                     payrollDetailStore.setEmployee(employee)
                     modalStore.open('employee-concepts-modal', {
                         type: 'VIEW',
-                        title: `Conceptos - ${employee.employeeName}`
+                        title: `Detalle de concepto`
                     })
                 }
 
-                const deleteEmployee = () => {
-                    // TODO: Implementar eliminación
-                    console.log('Eliminar empleado', employee.employeeId)
-                }
-
                 const viewButton = detailTableButton(viewConcepts)
-                
-                // Solo mostrar botón de eliminar si está en borrador
-                const buttons = [viewButton]
-                if (payrollDetailStore.canEdit) {
-                    const deleteButton = deleteTableButton(deleteEmployee)
-                    buttons.push(deleteButton)
-                }
 
-                return h('div', { class: 'flex gap-2 justify-center' }, buttons)
+                return h('div', { class: 'flex gap-2 justify-center' }, [viewButton])
             }
         }
     ]

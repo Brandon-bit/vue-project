@@ -16,10 +16,7 @@ const handleRefresh = () => {
 </script>
 
 <template>
-    <BaseTitle 
-        title="Conceptos de Nómina" 
-        subtitle="Gestiona los conceptos de nómina"
-    />
+    <BaseTitle title="Conceptos de nómina" subtitle="Gestiona los conceptos de nómina" />
     <div class="mb-10 text-right">
         <CreateButton />
     </div>

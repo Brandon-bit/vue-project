@@ -28,5 +28,3 @@ export const createUpdatePayrollPeriodSchema = z.object({
         path: ['endDate']
     }
 )
-
-export const deletePayrollPeriodSchema = z.object({})
