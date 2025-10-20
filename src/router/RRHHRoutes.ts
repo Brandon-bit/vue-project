@@ -1,11 +1,5 @@
 const routes = [
     {
-        path: '/rrhh',
-        name: 'DashboardRRHH',
-        component: () =>
-            import('@/modules/RRHH/Dashboard/views/RRHHDashboardView.vue')
-    },
-    {
         path: '/rrhh/empresas',
         name: 'Empresas',
         component: () => import('@rrhh/Empresas/views/CompaniesListView.vue')
@@ -19,6 +13,11 @@ const routes = [
         path: '/rrhh/empresas/editar/:id',
         name: 'Actualizar empresa',
         component: () => import('@rrhh/Empresas/views/CreateUpdateCompanyView.vue')
+    },
+    {
+        path: '/rrhh/sucursales',
+        name: 'Sucursales',
+        component: () => import('@rrhh/Sucursales/views/BranchesListView.vue')
     },
     {
         path: '/rrhh/empleados',
@@ -72,6 +71,11 @@ const routes = [
         path: '/rrhh/departamentos',
         name: 'Departamentos',
         component: () => import('@/modules/RRHH/Departamentos/views/DepartmentsListView.vue')
+    },
+    {
+        path: '/rrhh/puestos',
+        name: 'Puestos',
+        component: () => import('@/modules/RRHH/Puestos/views/PositionsListView.vue')
     }
 ]
 

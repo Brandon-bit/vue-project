@@ -1,11 +1,21 @@
-import useInSessionStore from "@core/InSessionLayout/store/inSessionStore";
-import { getDashboardsService, getModulesService } from "@core/InSessionLayout/services/inSessionServices";
-import { DashboardResponseType, DashboardType, ModuleResponseType, ModuleType, SectionResponseType, ViewResponseType } from "@core/InSessionLayout/types/inSessionTypes";
+import useInSessionStore from '@core/InSessionLayout/store/inSessionStore'
+import {
+    getDashboardsService,
+    getModulesService
+} from '@core/InSessionLayout/services/inSessionServices'
+import {
+    DashboardResponseType,
+    DashboardType,
+    ModuleResponseType,
+    ModuleType,
+    SectionResponseType,
+    ViewResponseType
+} from '@core/InSessionLayout/types/inSessionTypes'
 
 export function useInSessionActions() {
     const inSessionStore = useInSessionStore()
-    
-    const modulos : ModuleType[] = [
+
+    const modulos: ModuleType[] = [
         {
             // Inicio
             icon: 'home',
@@ -713,6 +723,10 @@ export function useInSessionActions() {
                             name: 'Empresas'
                         },
                         {
+                            url: '/rrhh/sucursales',
+                            name: 'Sucursales'
+                        },
+                        {
                             url: '/rrhh/empleados',
                             name: 'Empleados'
                         },
@@ -735,6 +749,10 @@ export function useInSessionActions() {
                         {
                             url: '/rrhh/departamentos',
                             name: 'Departamentos'
+                        },
+                        {
+                            url: '/rrhh/puestos',
+                            name: 'Puestos'
                         }
                     ]
                 }
@@ -922,65 +940,65 @@ export function useInSessionActions() {
         }
     ]
 
-    const dashboards : DashboardType[] = [
+    const dashboards: DashboardType[] = [
         {
-            name: "Proyectos",
-            icon: "send_time_extension",
-            url: "/proyectos"
+            name: 'Proyectos',
+            icon: 'send_time_extension',
+            url: '/proyectos'
         },
         {
-            name: "Procesos",
-            icon: "rebase_edit",
-            url: "/procesos"
+            name: 'Procesos',
+            icon: 'rebase_edit',
+            url: '/procesos'
         },
         {
-            name: "Compras",
-            icon: "shopping_cart",
-            url: "/compras"
+            name: 'Compras',
+            icon: 'shopping_cart',
+            url: '/compras'
         },
         {
-            name: "Contabilidad",
-            icon: "import_contacts",
-            url: "/contabilidad"
+            name: 'Contabilidad',
+            icon: 'import_contacts',
+            url: '/contabilidad'
         },
         {
-            name: "Facturacion",
-            icon: "request_page",
-            url: "/facturacion"
+            name: 'Facturacion',
+            icon: 'request_page',
+            url: '/facturacion'
         },
         {
-            name: "Inventario",
-            icon: "inventory_2",
-            url: "/inventario"
+            name: 'Inventario',
+            icon: 'inventory_2',
+            url: '/inventario'
         },
         {
-            name: "Marketing",
-            icon: "campaign",
-            url: "/marketing"
+            name: 'Marketing',
+            icon: 'campaign',
+            url: '/marketing'
         },
         {
-            name: "Nomina",
-            icon: "attach_money",
-            url: "/nomina"
+            name: 'Nomina',
+            icon: 'attach_money',
+            url: '/nomina'
         },
         {
-            name: "Ventas",
-            icon: "shopping_cart",
-            url: "/ventas"
+            name: 'Ventas',
+            icon: 'shopping_cart',
+            url: '/ventas'
         },
         {
-            name: "RRHH",
-            icon: "diversity_3",
-            url: "/rrhh"
+            name: 'RRHH',
+            icon: 'diversity_3',
+            url: '/rrhh'
         }
     ]
 
     const getDashboards = async () => {
-        try{
+        try {
             inSessionStore.dashboards = dashboards
 
             // const response = await getDashboardsService()
-    
+
             // inSessionStore.dashboards = response.data.map((dashboard: DashboardResponseType) => {
             //     return {
             //         name: dashboard.nombre,
@@ -988,8 +1006,7 @@ export function useInSessionActions() {
             //         url: dashboard.url
             //     }
             // })
-        }
-        catch (error) {
+        } catch (error) {
             console.log(error)
             //inSessionStore.dashboards = [] -> Descomentar cuando se implemente el servicio
             inSessionStore.dashboards = dashboards
@@ -997,11 +1014,11 @@ export function useInSessionActions() {
     }
 
     const getModules = async () => {
-        try{
-            inSessionStore.modules = modulos    
+        try {
+            inSessionStore.modules = modulos
 
             //const response = await getModulesService()
-            
+
             // inSessionStore.modules = response.data.map((module: ModuleResponseType) => {
             //     return {
             //         name: module.nombre,
@@ -1021,11 +1038,10 @@ export function useInSessionActions() {
             //         })
             //     }
             // })
-        }
-        catch (error) {
+        } catch (error) {
             console.log(error)
             //inSessionStore.modules = [] -> Descomentar cuando se implemente el servicio
-            inSessionStore.modules = modulos    
+            inSessionStore.modules = modulos
         }
     }
 
